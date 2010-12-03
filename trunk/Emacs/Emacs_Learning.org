@@ -1,0 +1,70 @@
+# -*- org -*-
+
+# Time-stamp: <2010-12-01 00:27:52 Wednesday by lian>
+
+#+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
+* 介绍和个人体会
+  坚定的学习Emacs因为从我的学习体会是，我很难找到一个东西，让你越学越兴奋，觉得有进一步学下去的欲望，emacs就是这样的东西，值得你花时间去了解他的脾气。与其让emacs适应你，不如你现在开始适应emacs，因为你会越来越发现工作在emacs上面完成你的工作是多么的高效。在现在这个图形界面操作低效，各种软件工具越来越发达的时代，你学过的很多软件都会随着时间流逝而渐渐淡出你的视线，但是我的体会就是不管出来多少软件工具，emacs会是一个经久不衰的工作系统，因为会有越来越多人会开发更多的插件来更新完善增强emacs的功能。
+* 主模式和附属模式(major-mode and minor-mode)
+  - hs-minor-mode 处理block的隐藏和显示控制
+  - auto-complete-mode 处理自动补全的操作
+* 帮助系统
+  - C-x / {k,w,b,m,v,a}
+  - C-x / K 可以搜索指定key的帮助
+  - C-x / ? 显示帮助系统的帮助
+  - C-x / t 给你一个简易的学习帮助系统
+  - <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
+  - C-x C-d 查看某个符号的或者函数的代码
+  - C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
+  - C-x E 载入emacs的配置文件进行编辑
+  - C-x G e 进入emacs配置文件的目录进行浏览
+* 全局操作
+  - C-x s 切换到*scratch*
+  - C-x i 插入文件到光标处
+    
+  - C-c M-C 拷贝当前文件的名字到剪切板
+  - M-x command-frequence 显示历史命令的使用频率
+  - M-x command-history 显示使用过的历史命令
+  - C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
+  - C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
+  - M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
+  - M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
+  - M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词
+  - M-{{,}} backward-paragraph and forward-paragraph向前和向后光标，按照不同的段落
+  - C-x , and C-x . 与上面两个操作类似，小跳转 recent-jump-small-forward and recent-jump-small-backward in recent-jump-settings.el
+  - C-x C-r 打开最近操作的文件列表，然后按Tab键就会列出来，或者直接输入第一个字母进行查询
+  - C-x b 或者 C-x C-f 然后 C-b 这样就能列出当前的buffer，我没发现的一个功能就是在这个时候按C-k可以删除buffer这样就非常方便了
+  - C-x C-b 这个操作会产生一个Ibuffer来存放当前的buffer列表，你可以用m来mark指定的buffer，然后进行批量操作比如保存S，关闭D等操作
+  - C-x q 切换当前的主模式
+  - C-x C-x 重新激活Mark Region
+  - M-' 在最近的两个buffer间切换
+* 文件操作
+  - C-x F   find-grep-in-current-dir
+  - C-x f   find-grep-in-dir
+  - C-x M-f find-grep-current-word-in-current-dir
+  - C-x M-F find-grep-current-word
+  - M-x find-dired 用指定查找命令进行查找，按C-j进行查找参数设置，把查询到的结果dired-mode中显示
+  - M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
+  - C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
+  - C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
+* 文本编辑
+  - 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
+  - 删除操作 C; M;  {d,k}
+  - C-k 进行了重新定义，直接删除整行内容
+  - M-K 用来删除当前光标所在位置之后的当前行的内容
+  - C-M k 用来删除当前光标之后的整个段落
+  - M-D 删除当前光标所处的单词
+  - C-o 从当前光标位置插入新的空行，而保持当前光标位置不变
+  - M-\ 删除当前输入点前后的空格
+  - M-w 复制Region内容到剪切板，如果Region内容为空，则拷贝当前行内容到Kill Ring
+  - M-W 复制Region内容并粘帖到下面
+  - C-x M-w 复制一行并粘贴到下一行
+  - C-x M-W 复制一个sexp并粘贴到下面
+  - C-w 剪切Region内容到Kill Ring， 如果Region为空，则向后剪切一个单词
+  - C-x w 复制一个sexp(symbol expression)
+  - C-x W 删除一个sexp
+  - C-x S 选择一个sexp
+  - C-x h 全部选中
+* 技巧Tis
+  - dired-mode模式下，为了更加灵活的操作文件，我们可以利用X或者！命令来对dired-mode中标记的文件执行shell command，所以非常重要的一点就是知道其中使用的通配符{*,?},可以测试两个命令来学习这个区别。在用X或者！，进入dired中命令提示符后，输入echo Hello+ *，查看结果；然后在输入echo Hello+ ?，查看结果。这两个结果的区别非常重要，也就是说shell命令是对列表中的每一个文件分别执行，还是shell命令只执行一次，把所有文件追加到命令后面。如果需要更加复杂的执行和控制操作，可以通过for循环来实现，比如 for toto in * ; do echo ${toto}+Hello; done
+    - 
