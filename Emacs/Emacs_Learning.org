@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-01 00:27:52 Wednesday by lian>
+# Time-stamp: <2010-12-05 14:21:03 Sunday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -54,6 +54,7 @@
   - M-K 用来删除当前光标所在位置之后的当前行的内容
   - C-M k 用来删除当前光标之后的整个段落
   - M-D 删除当前光标所处的单词
+  - M-DEL或者C-Backspae 向后删除一个单词
   - C-o 从当前光标位置插入新的空行，而保持当前光标位置不变
   - M-\ 删除当前输入点前后的空格
   - M-w 复制Region内容到剪切板，如果Region内容为空，则拷贝当前行内容到Kill Ring
@@ -65,6 +66,12 @@
   - C-x W 删除一个sexp
   - C-x S 选择一个sexp
   - C-x h 全部选中
+  - M-h 选中当前的段落
+  - C-z或者C-/或者C-_  Undo
+  - M-Y Redo
+  - C-s C-s搜索最近一次的搜索内容
+  - C-s {M-n; M-p} 搜索的历史记录
+  - 
 * 技巧Tis
   - dired-mode模式下，为了更加灵活的操作文件，我们可以利用X或者！命令来对dired-mode中标记的文件执行shell command，所以非常重要的一点就是知道其中使用的通配符{*,?},可以测试两个命令来学习这个区别。在用X或者！，进入dired中命令提示符后，输入echo Hello+ *，查看结果；然后在输入echo Hello+ ?，查看结果。这两个结果的区别非常重要，也就是说shell命令是对列表中的每一个文件分别执行，还是shell命令只执行一次，把所有文件追加到命令后面。如果需要更加复杂的执行和控制操作，可以通过for循环来实现，比如 for toto in * ; do echo ${toto}+Hello; done
     - 
