@@ -1,0 +1,18 @@
+# -*- org -*-
+
+# Time-stamp: <2010-12-08 00:44:32 Wednesday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+* 在python中调用外部程序，shell命令等
+  1. 想调用一个外部程序，比如./main ./data/main.dat >output.txt 2>error.txt, 比较好的解决思路是尽可能把你要执行的过程写到一个shell脚本中，然后在python中来调用这个脚本,这样避免在python中处理复杂的处理过程。如果你想向程序传递参数的话，最好是在python中把参数一次性全部传递给shell脚本，然后在shell脚本中调用程序来传递这些参数，这样也有很多好处，比如不必担心参数传递的顺序，你可以在shell脚本中调整，并且可以随时在shell脚本中更改你的处理过程。
+  2. Python中调用shell命令或者任何一个程序并传递参数的方法很多，其中比较好的办法是通过subprocess模块下的Popen()函数来实现。
+     - 方法1：
+#+BEGIN_SRC Python
+import shlex, subprocess
+command_line = "/glouton/lian/develop/Applis/ITK_Utility/ITK_Utility/devel/homog_xfem_3d_random/results/launch /glouton/lian/develop/Applis/ITK_Utility/ITK_Utility/devel/homog_xfem_3d_random/results"
+args = shlex.split(command_line) # 可以很好的分割命令，区分开命令和参数，然后放到一个list中
+p = subprocess.Popen(args)
+#+END_SRC
+     - 方法2：retcode = subprocess.call(["ls", "-l"]) 或者 subprocess.check_call(["ls", "-l"])
+     - 方法3：带有返回结果 output = Popen(["mycmd", "myarg"], stdout=PIPE).communicate()[0]
