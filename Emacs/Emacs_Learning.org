@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-09 01:01:17 Thursday by lian>
+# Time-stamp: <2010-12-10 00:35:49 Friday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -8,6 +8,7 @@
 * 主模式和附属模式(major-mode and minor-mode)
   - hs-minor-mode 处理block的隐藏和显示控制
   - auto-complete-mode 处理自动补全的操作
+  - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
 * 帮助系统
   - C-x / {k,w,b,m,v,a}
   - C-x / K 可以搜索指定key的帮助
@@ -21,7 +22,9 @@
 * 全局操作
   - C-x s 切换到*scratch*
   - C-x i 插入文件到光标处
-    
+  - M-1 M-! 在当前光标位置插入执行的shell命令
+  - M-! 执行shell命令结果显示在shell output buffer
+  - M-| 针对某一特定区域执行命令(shell-command-on-region)
   - C-c M-C 拷贝当前文件的名字到剪切板
   - M-x command-frequence 显示历史命令的使用频率
   - M-x command-history 显示使用过的历史命令
@@ -38,6 +41,7 @@
   - C-x q 切换当前的主模式
   - C-x C-x 重新激活Mark Region
   - M-' 在最近的两个buffer间切换
+  - S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
 * 文件操作
   - C-x F   find-grep-in-current-dir
   - C-x f   find-grep-in-dir
@@ -47,7 +51,17 @@
   - M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
   - C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
   - C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
+* 文件查找
+  - M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
+  - C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
 * 文本编辑
+  - 光标操作的技巧
+    -- 如果是为了浏览目的，可以直接用emaci模式进行浏览，利用w,d进行一页一页移动，空格键和u进行半页移动，如果文章非常大则要用查找来浏览文件比较好；
+    -- 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
+    -- 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
+    -- 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
+    -- 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
+    -- 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
   - 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
   - 删除操作 C; M;  {d,k}
   - C-k 进行了重新定义，直接删除整行内容
@@ -66,20 +80,16 @@
   - C-x W 删除一个sexp
   - C-x S 选择一个sexp
   - C-x h 全部选中
-  - M-h 选中当前的段落
-  - C-z或者C-/或者C-_  Undo
-  - M-Y Redo
-  - C-s C-s搜索最近一次的搜索内容
-  - C-s {M-n; M-p} 搜索的历史记录
-* Python mode
-  - C-c C-z switch to python interpreter
-  - M-x python-send-defun
-  - M-x python-send-buffer
-  - M-x python-send-region
-  - C-c C-k python-mark-block
-  - C-c C-s python-send-string
-  - C-c C-w python-check
-  - C-c {> ; <} python-shift-left or right
+* 窗口操作
+  - C-x 0 关闭本窗口
+  - C-x 1 只留下一个窗口
+  - C-x 2 垂直均分窗口
+  - C-x 3 水平均分窗口
+  - C-x o 切换到别的窗口
+  - C-x s 保存所有窗口的缓冲
+  - C-x b 选择当前窗口的缓冲区
+  - C-x ^ 纵向扩大窗口
+  - C-x } 横向扩大窗口
 * 技巧Tis
   - dired-mode模式下，为了更加灵活的操作文件，我们可以利用X或者！命令来对dired-mode中标记的文件执行shell command，所以非常重要的一点就是知道其中使用的通配符{*,?},可以测试两个命令来学习这个区别。在用X或者！，进入dired中命令提示符后，输入echo Hello+ *，查看结果；然后在输入echo Hello+ ?，查看结果。这两个结果的区别非常重要，也就是说shell命令是对列表中的每一个文件分别执行，还是shell命令只执行一次，把所有文件追加到命令后面。如果需要更加复杂的执行和控制操作，可以通过for循环来实现，比如 for toto in * ; do echo ${toto}+Hello; done
-    - 
+  - 
