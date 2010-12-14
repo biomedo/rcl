@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-13 18:24:51 Monday by lian>
+# Time-stamp: <2010-12-13 22:56:46 Monday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -21,6 +21,8 @@
   - C-x G e 进入emacs配置文件的目录进行浏览
 * 全局操作
   - C-x s 切换到*scratch*
+  - export TERM=xterm-256color; emacs -nw
+  - M-x list-colors-display 列出来颜色设置框
   - C-x i 插入文件到光标处
   - M-1 M-! 在当前光标位置插入执行的shell命令
   - M-! 执行shell命令结果显示在shell output buffer
@@ -63,6 +65,7 @@
     -- 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
     -- 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
     -- 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
+    -- 在两个大括号之间跳动C-]
   - 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
   - 删除操作 C; M;  {d;k}
   - C-k 进行了重新定义，直接删除整行内容
@@ -81,7 +84,7 @@
   - C-x W 删除一个sexp
   - C-x S 选择一个sexp
   - C-x h 全部选中
-  - 
+  - C-x C-i 全部代码进行缩进C-x TAB
 * 窗口操作
   - C-x 0 关闭本窗口
   - C-x 1 只留下一个窗口

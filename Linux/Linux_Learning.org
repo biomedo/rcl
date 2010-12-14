@@ -1,0 +1,10 @@
+# -*- org -*-
+
+# Time-stamp: <2010-12-13 20:27:12 Monday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+* 记录一些常用的快捷键和命令
+  - 设置系统中一些颜色设置可以用dircolors -b, dircolors --print-database
+    -- 首先用命令dircolors –print-database > ~/.dir_colors，然后编辑那个文件，文件中有编辑规则，在.bashrc中添加代码eval “`dircolors -b ~/.dir_colors`”
+  - ls --color, grep --color
