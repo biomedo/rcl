@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-14 22:45:10 Tuesday by lian>
+# Time-stamp: <2010-12-17 10:53:14 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -9,4 +9,4 @@
   
   1. 对于一个给定大小的子模型，是否我们可以通过subvolume方法(使用最佳的距离de)获得一个比常规方法更好地的结果。
   2. 对于一个给定大小的子模型，假定de是subvolume距离边界的距离，不同的de对结果的影响。
-  3. 考虑边界条件的影响PBC，KUBC，SUBC。
+  3. 对于一个给定大小的子模型，考虑边界条件的影响PBC，KUBC，SUBC，这样能知道是不是这三个边界条件的影响消失了。
