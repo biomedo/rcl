@@ -1,0 +1,367 @@
+Index: .emacs
+===================================================================
+--- .emacs	(revision 1366)
++++ .emacs	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-12-02 12:19:55 Thursday by taoshanwen>
++;; Time-stamp: <2010-12-20 16:24:27 Monday by lian>
+ 
+ (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
+ (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
+@@ -12,8 +12,11 @@
+ (my-add-subdirs-to-load-path my-emacs-lisps-path)
+ (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
+ 
++;; lian lisp
++;; (require 'lian-lisp-settings)
++
+ ;; 一个Emacs的16进制文件查看器，可以瞬间打开巨大的文件，比官方的hexl-mode好用
+-(require 'hexview-mode)
++;; (require 'hexview-mode)
+ 
+ ;; 一些基本的小函数
+ (require 'ahei-misc)
+@@ -62,7 +65,7 @@
+ 
+ ;; 打开压缩文件时自动解压缩
+ ;; 必须放在session前面
+-(auto-compression-mode 1)
++;; (auto-compression-mode 1)
+ 
+ ;; 所有关于buffer方面的配置
+ (require 'all-buffer-settings)
+@@ -71,9 +74,9 @@
+ ;; 而icicles soft-requires frame-cmds.el, 所以icicles也必须放在multi-term前面
+ ;; emacs22下也必须放在kde-emacs前面, 否则会说shell-command是void-function
+ ;; http://emacser.com/icicles-doremi-palette.htm
+-(require 'icicles-settings)
+-(require 'doremi-settings)
+-(require 'palette-settings)
++;; (require 'icicles-settings)
++;; (require 'doremi-settings)
++;; (require 'palette-settings)
+ 
+ ;; edit-settings中对M-w重新定义,但是kde-emacs中也对其定义了
+ ;; 所以必须要放在kde-emacs后面
+@@ -275,6 +278,7 @@
+    ("C-x M-r" query-replace-regexp-sb)
+    ("M-z"     zap-to-char-sb)
+    ("C-j"     goto-line)
++   ("C-x F"   find-dired)
+    ("C-x C-s" save-buffer-sb)))
+ 
+ (am-add-hooks
+@@ -290,14 +294,14 @@
+ 
+ ;; Emacs中的文本浏览器w3m
+ ;; http://emacser.com/w3m.htm
+-(require 'w3m-settings)
++;; (require 'w3m-settings)
+ 
+ ;; 以另一用户编辑文件, 或者编辑远程主机文件
+ (require 'tramp-settings)
+ 
+ ;; erc: Emacs中的IRC
+ ;; ERC使用简介 emacser.com/erc.htm
+-(require 'erc-settings)
++;; (require 'erc-settings)
+ 
+ ;; spell check
+ (setq-default ispell-program-name "aspell")
+@@ -319,9 +323,9 @@
+   (add-hook 'kill-emacs-hook 'install-.emacs))
+ 
+ ;; 把pdf,ps,dvi文件转换为png格式, 在Emacs里面浏览
+-(if is-after-emacs-23
+-    (require 'doc-view)
+-  (setq doc-view-conversion-refresh-interval 3))
++;; (if is-after-emacs-23
++;;   (require 'doc-view)
++;;   (setq doc-view-conversion-refresh-interval 3))
+ 
+ ;; 在Emacs里面使用shell
+ (require 'term-settings)
+@@ -332,7 +336,7 @@
+ (require 'ioccur)
+ 
+ ;; 查询天气预报
+-(require 'weather-settings)
++;; (require 'weather-settings)
+ 
+ ;; 可以把光标由方块变成一个小长条
+ (require 'bar-cursor)
+@@ -404,11 +408,11 @@
+  `(("C-c M-C" copy-file-name)))
+ 
+ ;; notification tool
+-(require 'todochiku-settings)
++;; (require 'todochiku-settings)
+ 
+ ;; twitter client
+-(require 'eagle-settings)
+-(require 'twit-settings)
++;; (require 'eagle-settings)
++;; (require 'twit-settings)
+ 
+ ;; 模拟vi的点(.)命令
+ (require 'dot-mode)
+@@ -434,11 +438,11 @@
+ (require 'org-settings)
+ 
+ ;; 强大的发布工具
+-(require 'muse-settings)
++;; (require 'muse-settings)
+ 
+ ;; 用weblogger写WordPress博客
+ ;; http://emacser.com/weblogger.htm
+-(require 'weblogger-settings)
++;; (require 'weblogger-settings)
+ 
+ ;; 关闭buffer的时候, 如果该buffer有对应的进程存在, 不提示, 烦
+ (delq 'process-kill-buffer-query-function kill-buffer-query-functions)
+@@ -477,7 +481,7 @@
+  `(("C-x M-O" open-current-file-with-app)))
+ 
+ ;; 一些有趣的东西
+-(require 'funny)
++;; (require 'funny)
+ 
+ ;; 模拟vi的f命令
+ (require 'go-to-char)
+Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
+===================================================================
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1366)
++++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
+@@ -2,7 +2,7 @@
+ 
+ ;; Author: ahei <ahei0802@gmail.com>
+ ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
+-;; Time-stamp: <2010-11-30 11:42:06 Tuesday by taoshanwen>
++;; Time-stamp: <2010-12-16 11:45:17 Thursday by lian>
+ 
+ ;; This  file is free  software; you  can redistribute  it and/or
+ ;; modify it under the terms of the GNU General Public License as
+@@ -76,11 +76,11 @@
+            (tag (semantic-complete-default-to-tag tag)))
+ 
+       (when (semantic-tag-p tag)
+-      (push-mark)
+-      (semantic-go-to-tag tag)
+-      (switch-to-buffer (current-buffer))
+-      (semantic-momentary-highlight-tag tag)
+-      (working-message "%S: %s " (semantic-tag-class tag) (semantic-tag-name  tag)))))
++        (push-mark)
++        (semantic-go-to-tag tag)
++        (switch-to-buffer (current-buffer))
++        (semantic-momentary-highlight-tag tag)
++        (working-message "%S: %s " (semantic-tag-class tag) (semantic-tag-name  tag)))))
+   
+   (defun cedet-semantic-settings-4-emaci ()
+     "cedet `semantic' settings for `emaci'."  
+@@ -98,67 +98,95 @@
+    'emaci-mode-map
+    `(("." emaci-.)
+      ("," emaci-\,)))
++
++
++  ;; my include path
++  (defconst user-include-dirs
++    (list "/glouton/struct/lian/develop/Xfem/Xfem/include/"
++          "/glouton/struct/lian/develop/Xext/Xext/include"
++          "/glouton/struct/lian/develop/Xext/Octree/include"
++          "/glouton/struct/lian/develop/Xext/OctreeInterface/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/SolverBase/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/SuperLu/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/Lapack/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/Taucs/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/include"
++          "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/include"
++          "/glouton/struct/lian/develop/Trellis/AOMD/include"
++          "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/include"
++          "/glouton/struct/lian/develop/Applis/Homog/include"
++          "/glouton/struct/lian/develop/Applis/ITK_Utility/include"))
++  (let ((include-dirs user-include-dirs))
++    (mapc (lambda (dir)
++	    (semantic-add-system-include dir 'c++-mode)
++	    (semantic-add-system-include dir 'c-mode))
++	  include-dirs))
++  ;; (dolist (mode '(c-mode c++-mode))
++  ;;   (semantic-add-system-include user-include-dirs mode)
+   
+   ;; system include path
+   (if (or mswin cygwin)
+       (dolist (mode '(c-mode c++-mode))
+-        (semantic-add-system-include "c:/cygwin/usr/include/" mode))))
++	(semantic-add-system-include "c:/cygwin/usr/include/" mode))))
+ 
+-(defun semantic-decorate-include-settings ()
+-  "Settings of `semantic-decorate-include'."
+-  (eal-define-keys
+-   'semantic-decoration-on-include-map
+-   `(("." semantic-decoration-include-visit))))
+ 
+-(defun cedet-semantic-idle-settings ()
+-  "Settings for `semantic-idle'."
+-  (defun semantic-idle-tag-highlight-idle-command ()
+-    "Highlight the tag, and references of the symbol under point.
++
++
++  (defun semantic-decorate-include-settings ()
++    "Settings of `semantic-decorate-include'."
++    (eal-define-keys
++     'semantic-decoration-on-include-map
++     `(("." semantic-decoration-include-visit))))
++
++  (defun cedet-semantic-idle-settings ()
++    "Settings for `semantic-idle'."
++    (defun semantic-idle-tag-highlight-idle-command ()
++      "Highlight the tag, and references of the symbol under point.
+ Call `semantic-analyze-current-context' to find the refer ence tag.
+ Call `semantic-symref-hits-in-region' to identify local references."
+-    (interactive)
+-    (semantic-idle-tag-highlight-idle-function))
++      (interactive)
++      (semantic-idle-tag-highlight-idle-function))
+ 
+-  (defun semantic-idle-summary-idle-command ()
+-    "Display a tag summary of the lexical token under the cursor.
++    (defun semantic-idle-summary-idle-command ()
++      "Display a tag summary of the lexical token under the cursor.
+ Call `semantic-idle-summary-current-symbol-info' for getting the
+ current tag to display information."
+-    (interactive)
+-    (semantic-idle-summary-idle-function))
++      (interactive)
++      (semantic-idle-summary-idle-function))
+ 
+-  (defun semantic-refresh-tags ()
+-    "Execute `semantic-idle-scheduler-refresh-tags'"
+-    (interactive)
+-    (semantic-idle-scheduler-refresh-tags))
+-  
+-  (eal-define-keys
+-   `(c-mode-base-map)
+-   `(("C-c M-s" semantic-idle-summary-idle-command))))
++    (defun semantic-refresh-tags ()
++      "Execute `semantic-idle-scheduler-refresh-tags'"
++      (interactive)
++      (semantic-idle-scheduler-refresh-tags))
++    
++    (eal-define-keys
++     `(c-mode-base-map)
++     `(("C-c M-s" semantic-idle-summary-idle-command))))
+ 
+-(defun semantic-decorate-mode-settings ()
+-  "Settings of `semantic-decorate-mode'."
+-  (defun semantic-decoration-decorate ()
+-    "`semantic-decorate-add-decorations' all `semantic-fetch-available-tags'."
+-    (interactive)
+-    (semantic-decorate-add-decorations (semantic-fetch-available-tags))))
++  (defun semantic-decorate-mode-settings ()
++    "Settings of `semantic-decorate-mode'."
++    (defun semantic-decoration-decorate ()
++      "`semantic-decorate-add-decorations' all `semantic-fetch-available-tags'."
++      (interactive)
++      (semantic-decorate-add-decorations (semantic-fetch-available-tags))))
+ 
+-(eal-define-keys
+- `(semantic-symref-results-mode-map)
+- `(("1" delete-other-windows)
+-   ("2" split-window-vertically)
+-   ("3" split-window-horizontally)
+-   ("q" delete-current-window)))
++  (eal-define-keys
++   `(semantic-symref-results-mode-map)
++   `(("1" delete-other-windows)
++     ("2" split-window-vertically)
++     ("3" split-window-horizontally)
++     ("q" delete-current-window)))
+ 
+-(eval-after-load "semantic-decorate-include"
+-  `(semantic-decorate-include-settings))
++  (eval-after-load "semantic-decorate-include"
++    `(semantic-decorate-include-settings))
+ 
+-(eval-after-load "semantic-decorate-mode"
+-  `(semantic-decorate-mode-settings))
++  (eval-after-load "semantic-decorate-mode"
++    `(semantic-decorate-mode-settings))
+ 
+-(eval-after-load "semantic-idle"
+-  `(cedet-semantic-idle-settings))
++  (eval-after-load "semantic-idle"
++    `(cedet-semantic-idle-settings))
+ 
+-(eval-after-load "semantic"
+-  `(cedet-semantic-settings))
++  (eval-after-load "semantic"
++    `(cedet-semantic-settings))
+ 
+-(provide 'cedet-semantic-settings)
++  (provide 'cedet-semantic-settings)
+Index: my-lisps/font-settings.el
+===================================================================
+--- my-lisps/font-settings.el	(revision 1366)
++++ my-lisps/font-settings.el	(working copy)
+@@ -9,6 +9,6 @@
+       (huangq-fontset-consolas 17)
+     ;; (huangq-fontset-dejavu 17)))
+     ;; (huangq-fontset-fixedsys 17)
+-    (set-default-font "Monospace 11")))
++    (set-default-font "Monospace 9")))
+ 
+ (provide 'font-settings)
+Index: my-lisps/misc-settings.el
+===================================================================
+--- my-lisps/misc-settings.el	(revision 1366)
++++ my-lisps/misc-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-11-30 09:55:29 Tuesday by taoshanwen>
++;; Time-stamp: <2010-12-06 15:15:53 Monday by lian>
+ 
+ ;; This  file is free  software; you  can redistribute  it and/or
+ ;; modify it under the terms of the GNU General Public License as
+@@ -18,8 +18,8 @@
+ ;; Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ 
+ ;; 个人信息
+-(setq user-mail-address "ahei0802@gmail.com")
+-(setq user-full-name    "ahei")
++(setq user-mail-address "weidong.lian@gmail.com")
++(setq user-full-name    "lianweidong")
+ 
+ (setq-default default-directory "~")
+ 
+Index: my-lisps/dev-settings.el
+===================================================================
+--- my-lisps/dev-settings.el	(revision 1366)
++++ my-lisps/dev-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-11-29 14:42:43 Monday by taoshanwen>
++;; Time-stamp: <2010-12-16 12:21:47 Thursday by lian>
+ 
+ ;; This  file is free  software; you  can redistribute  it and/or
+ ;; modify it under the terms of the GNU General Public License as
+@@ -52,7 +52,7 @@
+  `(("{" skeleton-c-mode-left-brace)))
+ 
+ ;; 动态检查语法错误
+-(require 'flymake-settings)
++;; (require 'flymake-settings)
+ 
+ (defun skeleton-c-mode-left-brace (arg)
+   (interactive "P")
+@@ -174,6 +174,7 @@
+      (message (concat "Wrote " (buffer-file-name))))))
+ 
+ ;; 显示变量, 函数的声明
++
+ (require 'eldoc-settings)
+ 
+ ;; 自动给你加上括号
