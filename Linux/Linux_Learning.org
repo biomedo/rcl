@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-13 20:27:12 Monday by lian>
+# Time-stamp: <2010-12-20 14:28:38 Monday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -8,3 +8,12 @@
   - 设置系统中一些颜色设置可以用dircolors -b, dircolors --print-database
     -- 首先用命令dircolors –print-database > ~/.dir_colors，然后编辑那个文件，文件中有编辑规则，在.bashrc中添加代码eval “`dircolors -b ~/.dir_colors`”
   - ls --color, grep --color
+  - linux下查找查看帮助文档info <查找命令或者内容>，比如info readline, info ls等就可以查看对应的文档
+  - bind -P可以查看终端中快捷键的绑定,bind -v查看可用的配置信息
+  - 可以通过配置~/.inputrc来改变readline程序的快捷键的配置，并且注意到readline可以绑定并影响系统中的好多程序。比如bash,mysql,gdb,ftp等
+  - terminal中很多快捷键记不住怎么办？可以自己方便的查找比如bind -P | grep 'complete'
+
+* Gnome-terminal中的快捷键
+  - 快捷见和emacs的快捷键类似，可以参考《ahei 高效的bash》以及王垠的Read《Bash readline 使用技巧》这两篇文章
+  - 
+* 
