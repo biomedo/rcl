@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-13 22:56:46 Monday by lian>
+# Time-stamp: <2010-12-23 12:53:05 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -19,6 +19,12 @@
   - C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
   - C-x E 载入emacs的配置文件进行编辑
   - C-x G e 进入emacs配置文件的目录进行浏览
+* svn and vc 版本控制
+  - 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
+  - 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样
+  - C-c C-a 添加到版本库
+  - M-x vc-dir 
+  - M-x ediff-buffers, ediff-revision等好多命令来进行buffer和buffer比较或者文件和文件比较，或者版本库中对应的文件版本比较，三个以下文件比较，以及他们直接交叉比较等，好处就是他能够高亮度不同的位置以及通过一些快捷键来浏览这些不同
 * 全局操作
   - C-x s 切换到*scratch*
   - export TERM=xterm-256color; emacs -nw
@@ -54,6 +60,7 @@
   - M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
   - C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
   - C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
+  - M-x ediff-buffers or ediff-files文件或者缓冲器的比较
 * 文件查找
   - M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
   - C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
@@ -84,6 +91,7 @@
   - C-x W 删除一个sexp
   - C-x S 选择一个sexp
   - C-x h 全部选中
+  - M-h 分块只能选中mark paragraph
   - C-x C-i 全部代码进行缩进C-x TAB
 * 窗口操作
   - C-x 0 关闭本窗口
