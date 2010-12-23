@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-12-20 16:28:03 Monday by lian>
+;; Time-stamp: <2010-12-22 10:58:33 Wednesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -19,11 +19,11 @@
 
 
 ;; full scrren supoort
-(require 'fullscreen)
+;; (require 'fullscreen)
 
 ;; matlab mode
-;; (autoload 'matlab-mode "matlab.el" "Enter Matlab mode." t) 
-;; (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
-;; (autoload 'matlab-shell "matlab.el" "Interactive Matlab mode." t)
+(autoload 'matlab-mode "matlab.el" "Enter Matlab mode." t) 
+(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
+(autoload 'matlab-shell "matlab.el" "Interactive Matlab mode." t)
 
-(provide 'lian-lisp-settings.el)
+(provide 'lian-lisp-settings)
