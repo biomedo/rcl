@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-23 12:53:05 Thursday by lian>
+# Time-stamp: <2010-12-31 13:25:10 Friday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -23,8 +23,12 @@
   - 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
   - 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样
   - C-c C-a 添加到版本库
-  - M-x vc-dir 
+  - M-x vc-dir 相当于把svn -st列到dired中去，方便管理快捷键C-x v d
   - M-x ediff-buffers, ediff-revision等好多命令来进行buffer和buffer比较或者文件和文件比较，或者版本库中对应的文件版本比较，三个以下文件比较，以及他们直接交叉比较等，好处就是他能够高亮度不同的位置以及通过一些快捷键来浏览这些不同
+* emacs中的特殊字符输入问题
+  - C-q X X是你要输入的特殊字符，比如回车符，Tab符，
+  - 输入C-q 然后输入特殊字符，此时C-m就是RET符，而C-j是换行符，注意unix文件系统的用\n表示换行功能，也就是c-j，而window下则是\r\n也就是C-j C-m
+  - 
 * 全局操作
   - C-x s 切换到*scratch*
   - export TERM=xterm-256color; emacs -nw
@@ -70,6 +74,7 @@
     -- 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
     -- 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
     -- 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
+    -- C-M-{a,e} beginning-of-defun and ending-of-defun, or C-c M-{a,e}, or C-M-{Home, End}
     -- 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
     -- 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
     -- 在两个大括号之间跳动C-]
