@@ -1,12 +1,76 @@
+Index: emacser.com/dea.org
+===================================================================
+--- emacser.com/dea.org	(revision 1372)
++++ emacser.com/dea.org	(working copy)
+@@ -1,6 +1,6 @@
+ # -*- org -*-
+ 
+-# Time-stamp: <2010-12-26 14:49:22 Sunday by taoshanwen>
++# Time-stamp: <2011-01-12 15:45:35 Wednesday by lian>
+ 
+ #+OPTIONS: ^nil author:nil timestamp:nil creator:nil
+ 
+@@ -203,7 +203,8 @@
+ 
+ ;; edit-settings中对M-w重新定义,但是kde-emacs中也对其定义了
+ ;; 所以必须要放在kde-emacs后面
+-(require 'edit-settings)
++(require '
++edit-settings)
+ 
+ ;; 用M-x执行某个命令的时候，在输入的同时给出可选的命令名提示
+ (require 'icomplete-settings)
+Index: snippets/text-mode/perl-mode/headx
+===================================================================
+--- snippets/text-mode/perl-mode/headx	(revision 1372)
++++ snippets/text-mode/perl-mode/headx	(working copy)
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env perl
+ 
+-# Time-stamp: <2010-05-26 15:34:27 Wednesday by ahei>
++# Time-stamp: <2011-01-17 08:52:56 Monday by lian>
+ 
+ # @version 1.0
+-# @author ahei
++# @author lian
+ 
+Index: snippets/text-mode/sh-mode/headx
+===================================================================
+--- snippets/text-mode/sh-mode/headx	(revision 1372)
++++ snippets/text-mode/sh-mode/headx	(working copy)
+@@ -1,7 +1,6 @@
+ #!/usr/bin/env bash
+ 
+-# Time-stamp: <2010-11-21 13:43:30 Sunday by taoshanwen>
++# Time-stamp: <2011-01-17 08:53:24 Monday by lian>
+ 
+ # @version 1.0
+-# @author ahei
+-
++# @author lian
+Index: snippets/text-mode/python-mode/headx
+===================================================================
+--- snippets/text-mode/python-mode/headx	(revision 1372)
++++ snippets/text-mode/python-mode/headx	(working copy)
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env python
+ 
+-# Time-stamp: <2010-07-17 22:26:31 Saturday by ahei>
++# Time-stamp: <2011-01-17 08:53:49 Monday by lian>
+ 
+ # @version 1.0
+-# @author ahei
++# @author lian
+ 
 Index: .emacs
 ===================================================================
---- .emacs	(revision 1370)
+--- .emacs	(revision 1372)
 +++ .emacs	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-12-26 14:40:05 Sunday by taoshanwen>
-+;; Time-stamp: <2010-12-21 23:20:34 Tuesday by lian>
++;; Time-stamp: <2011-01-10 14:28:14 Monday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -128,7 +192,7 @@ Index: .emacs
  (require 'go-to-char)
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1370)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1372)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -170,27 +234,42 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
    (if (or mswin cygwin)
 Index: my-lisps/font-settings.el
 ===================================================================
---- my-lisps/font-settings.el	(revision 1370)
+--- my-lisps/font-settings.el	(revision 1372)
 +++ my-lisps/font-settings.el	(working copy)
-@@ -1,6 +1,6 @@
- ;; -*- Emacs-Lisp -*-
- 
--;; Time-stamp: <2010-10-11 20:00:55 Monday by taoshanwen>
-+;; Time-stamp: <2010-12-21 23:33:06 Tuesday by lian>
- 
- (when (and window-system is-after-emacs-23)
-   (require 'my-fontset-win)
 @@ -9,6 +9,6 @@
        (huangq-fontset-consolas 17)
      ;; (huangq-fontset-dejavu 17)))
      ;; (huangq-fontset-fixedsys 17)
 -    (set-default-font "Monospace 11")))
-+    (set-default-font "Monospace 12")))
++    (set-default-font "Monospace 9")))
  
  (provide 'font-settings)
+Index: my-lisps/vc-settings.el
+===================================================================
+--- my-lisps/vc-settings.el	(revision 1372)
++++ my-lisps/vc-settings.el	(working copy)
+@@ -2,7 +2,7 @@
+ 
+ ;; Author: ahei <ahei0802@gmail.com>
+ ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/vc-settings.el
+-;; Time-stamp: <2010-11-21 14:41:32 Sunday by taoshanwen>
++;; Time-stamp: <2011-01-16 22:54:37 Sunday by lian>
+ 
+ ;; This  file is free  software; you  can redistribute  it and/or
+ ;; modify it under the terms of the GNU General Public License as
+@@ -56,7 +56,8 @@
+ 
+ (defun vc-settings ()
+   "Settings for `vc'."
+-  (require 'vc+))
++  (require 'vc+)
++  (setq vc-follow-symlinks t))
+ 
+ (eval-after-load "vc-svn"
+   `(vc-settings))
 Index: my-lisps/misc-settings.el
 ===================================================================
---- my-lisps/misc-settings.el	(revision 1370)
+--- my-lisps/misc-settings.el	(revision 1372)
 +++ my-lisps/misc-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -213,7 +292,7 @@ Index: my-lisps/misc-settings.el
  
 Index: my-lisps/dev-settings.el
 ===================================================================
---- my-lisps/dev-settings.el	(revision 1370)
+--- my-lisps/dev-settings.el	(revision 1372)
 +++ my-lisps/dev-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
