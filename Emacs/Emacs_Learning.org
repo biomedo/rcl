@@ -1,12 +1,13 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-31 13:25:10 Friday by lian>
+# Time-stamp: <2011-01-12 16:38:49 Wednesday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
   坚定的学习Emacs因为从我的学习体会是，我很难找到一个东西，让你越学越兴奋，觉得有进一步学下去的欲望，emacs就是这样的东西，值得你花时间去了解他的脾气。与其让emacs适应你，不如你现在开始适应emacs，因为你会越来越发现工作在emacs上面完成你的工作是多么的高效。在现在这个图形界面操作低效，各种软件工具越来越发达的时代，你学过的很多软件都会随着时间流逝而渐渐淡出你的视线，但是我的体会就是不管出来多少软件工具，emacs会是一个经久不衰的工作系统，因为会有越来越多人会开发更多的插件来更新完善增强emacs的功能。
 * 主模式和附属模式(major-mode and minor-mode)
   - hs-minor-mode 处理block的隐藏和显示控制
+  - outline-minor-mode 大纲模式
   - auto-complete-mode 处理自动补全的操作
   - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
 * 帮助系统
@@ -42,6 +43,7 @@
   - M-x command-history 显示使用过的历史命令
   - C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
   - C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
+  - C-x C-n Markset当前行并且移动到下一行
   - M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
   - M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
   - M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词

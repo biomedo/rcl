@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-12-22 10:58:33 Wednesday by lian>
+;; Time-stamp: <2011-01-17 08:35:10 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -17,9 +17,6 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-
-;; full scrren supoort
-;; (require 'fullscreen)
 
 ;; matlab mode
 (autoload 'matlab-mode "matlab.el" "Enter Matlab mode." t) 
