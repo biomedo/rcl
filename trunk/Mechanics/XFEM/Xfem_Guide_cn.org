@@ -1,15 +1,18 @@
 # -*- org -*-
 
-# Time-stamp: <2010-11-25 11:45:54 Thursday by lian>
+# Time-stamp: <2011-01-27 08:49:05 Thursday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 * XFEM程序的读书笔记
+  SCHEDULED: <2011-01-27 Thu>
   - xFiniteElement這個類的理解，這個類的作用就是輸入一個mEntity對象，他就能幫你返回對應的xValueKey， 記住不管怎麼樣，不管輸入的什麼樣的對象點，線，面，體對象等（dim=0，1，2，3），他都會幫你返回 點對象的ValueKey,也就是說那些對象都被最終分解為點對象，因為有限元計算關心的是節點信息，因此經過這類他就會幫你返回網格中節點對應的xValueKey，而通過xValueManager就可以獲得對應的xDoubleValue。 而整個網格對應的xDoubleValue和xValueKey都是通過DeclareInterpolation來創建的。
   - xClassRegion這個類可以返回xMesh（mMesh）網格中的點，線，面，體的集合，通過這些對象的ntity_id，注意這個entity_id，其實就是在gmsh生成網格時對應的physical index。
   - xField這個類是連接了xSpace和實際的xDoubleValueManager，因此我們直接可以通過xField.beginValues(mEntity)和xField.endValues(mEntity）來返回mEntity對應的xDoubleValue，不管mEntity的類型是點線面體。同理xField.beginFcts(mEntity） 返回對應的shape function。
   - xAssembler類用來集成全局剛度矩陣和全局載荷向量，在該類中分為集成矩陣還是向量，若是集成矩陣時要提供I，J，Value信息，如果要集成載荷陣列則要提供I, Value信息。並且實際上I，J信息的提供只是需要一個在整體剛度矩陣中的位置信息即可，在當前XFEM程序中不採用整型數來編號，而是通過每個節點的xDoubleValue的指針，也就是xDoubleValueManager中的Iterator來進行。
   - xSpaceLagrange,xSpaceComposite,xSpaceFiltered等对象的主要作用是获取形函数（Fcts）和键值的（femKey）。核心工作就是你可以输入一个mEntity* e，注意这个Entity可以是体，面，线，点各种对象，他会根据定义的Space的自由度空间，返回对应节点的ValueKey以及Function。也就是输入一个从大的对象返回对应点对象对应的节点自由度信息.具体的实现参见代码xSpaceLagrange::getKeys(mEntity* e, femKeys* keys)，其中涉及了对各种不同的几何对象如何获取对应几何对象的基本节点，然后再根据空间自由度，向量场还是标量场，来生成对应的自由度所对应的xValueKey。所以仅仅是生成xValueKey。
   - 当看到xEval是就是重载了括号运算符的一个函数对象，返回值的类型就是模板提供的参数。比如xEvalConst表示返回常数,xEvalFctAtPoint返回给定的函数在某点的值；xEvalUnary或者xEvalBinary返回指定的单一参数或者二参数谓词的返回值，也就是计算指定谓词的返回值。 xValOperator and xValOperator数值操作运算符。
+  - xEval, xEvalConst, xEvalFctAtPoint, xEvalUnary, xEvalBinary,当看到这些函数时，要在浅意识有几点认识。第一，只有xEval字样就表示要进行一个Evaluation,这个求值，是建立在给定每个单元的xGeoElm m_appro, m_eteg参数然后返回一个计算的值，计算返回值的类型就是xEval<T>中的T所指定的参数；第二，如果看到xEvalUnary and xEvalBinary就意味着首先要对在构造函数中传入的两个xEval类型的派生对象进行求值运算，然后他们分别求值运算的结果，作为Unary或者Binary的参数，在进行一次Unary或者Binary操作符的运算，得到的结果作为xEvalBinary求值运算的返回值。比如xEvalBinary< xMult<xTensor4, xTensor2, xTensor2> > eval_stress(hooke, eval_strain);，这条语句的意思就是说，要进行一次求值运算，首先对构造函数传入的参数hook，和eval_strain分别进行他们对应的operator()(xGeoElement* appro, xGeoElement* integ, returntype& res)进行求值运算，然后他们的返回的计算结果，分别是xTensor4和xTensor2类型的，他们分别作为二维谓词xMult的两个参数，再进行求值运算，得到的结果作为最终的返回值。因此可以看出整个这个xEvalBinary的返回值类型应该是xMult<xTensor4, xTensor2, xTensor2>中最后一个参数类型，而xMult<xTensor4, xTensor2, xTensor2>头两个参数的类型就分别是hooke和eval_strain的返回值类型。因此我们可以说xEvalBinary,或者xEvalUnary的意思就是首先进行xEval求值运算，然后返回值在进行Binary或者Unary操作符对应的运算。
+
   - 一些概念，对于每个节点都有xValueKey xDoubleValue ShapeFuction,通过xfield来管理，xvaluemanager。对于组装整体刚度矩阵，需要对每个单元进行积分，求解其单元刚度矩阵，而后装配到整体刚度矩阵。对每个进行积分求解单元刚度矩阵，就需要遍历每个单元，每个单元在遍历其中的节点来进行积分。
   - xMesh中的xVertex对应的就是节点的几何对象，其中的Id就是gmsh文件中的nodeid因此在输出的dcl.dbg文件中也就是xDoubleManager中输出的调试信息的Enti id号。这样一旦出现问题时，可以对照gmsh和dcl.dbg文件来找到问题。
   - mEntity e_integ and e_appro; xGeoElement geo_integ and geo_appro; 区别就是当一个单元被加强时，zerolevel与单元相交，这个时候整个单元叫做e_appro and geo_appro，而那些小的subelements我们叫做e_Integ and geo_integ，这个小的单元是用来获取积分点然后进行积分的。也就是说对整个大的单元的积分，转变成了对小的单元的积分的和。这样在每个小单元内部材料的特性就是一致的。一个大的单元有几个小的sub单元构成，但是记住一条规则小的单元的某些在大的单元中间节点上不存在shapefunction，因为这些sub-element只是用来积分更加准确，实际上估计空间中并不存在这些自由度。这些小的子单元和大的单元享有共同形函数，但是他们有自己的积分点和Jacbian行列式。具体的积分点是通过xGeoElement::getUVW来获取的。如果有获取常规坐标下的积分点要用getXYZ，遍历积分点可以通过for(int k = 0; k < nb; k++)geo_integ->setUVW(k);
