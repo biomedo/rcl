@@ -1,28 +1,6 @@
-Index: emacser.com/dea.org
-===================================================================
---- emacser.com/dea.org	(revision 1372)
-+++ emacser.com/dea.org	(working copy)
-@@ -1,6 +1,6 @@
- # -*- org -*-
- 
--# Time-stamp: <2010-12-26 14:49:22 Sunday by taoshanwen>
-+# Time-stamp: <2011-01-12 15:45:35 Wednesday by lian>
- 
- #+OPTIONS: ^nil author:nil timestamp:nil creator:nil
- 
-@@ -203,7 +203,8 @@
- 
- ;; edit-settings中对M-w重新定义,但是kde-emacs中也对其定义了
- ;; 所以必须要放在kde-emacs后面
--(require 'edit-settings)
-+(require '
-+edit-settings)
- 
- ;; 用M-x执行某个命令的时候，在输入的同时给出可选的命令名提示
- (require 'icomplete-settings)
 Index: snippets/text-mode/perl-mode/headx
 ===================================================================
---- snippets/text-mode/perl-mode/headx	(revision 1372)
+--- snippets/text-mode/perl-mode/headx	(revision 1377)
 +++ snippets/text-mode/perl-mode/headx	(working copy)
 @@ -1,7 +1,7 @@
  #!/usr/bin/env perl
@@ -36,7 +14,7 @@ Index: snippets/text-mode/perl-mode/headx
  
 Index: snippets/text-mode/sh-mode/headx
 ===================================================================
---- snippets/text-mode/sh-mode/headx	(revision 1372)
+--- snippets/text-mode/sh-mode/headx	(revision 1377)
 +++ snippets/text-mode/sh-mode/headx	(working copy)
 @@ -1,7 +1,6 @@
  #!/usr/bin/env bash
@@ -50,7 +28,7 @@ Index: snippets/text-mode/sh-mode/headx
 +# @author lian
 Index: snippets/text-mode/python-mode/headx
 ===================================================================
---- snippets/text-mode/python-mode/headx	(revision 1372)
+--- snippets/text-mode/python-mode/headx	(revision 1377)
 +++ snippets/text-mode/python-mode/headx	(working copy)
 @@ -1,7 +1,7 @@
  #!/usr/bin/env python
@@ -64,13 +42,13 @@ Index: snippets/text-mode/python-mode/headx
  
 Index: .emacs
 ===================================================================
---- .emacs	(revision 1372)
+--- .emacs	(revision 1377)
 +++ .emacs	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2010-12-26 14:40:05 Sunday by taoshanwen>
-+;; Time-stamp: <2011-01-10 14:28:14 Monday by lian>
+-;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
++;; Time-stamp: <2011-01-26 19:43:07 Wednesday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -92,28 +70,25 @@ Index: .emacs
  
  ;; 所有关于buffer方面的配置
  (require 'all-buffer-settings)
-@@ -71,9 +71,9 @@
- ;; 而icicles soft-requires frame-cmds.el, 所以icicles也必须放在multi-term前面
- ;; emacs22下也必须放在kde-emacs前面, 否则会说shell-command是void-function
- ;; http://emacser.com/icicles-doremi-palette.htm
--(require 'icicles-settings)
--(require 'doremi-settings)
--(require 'palette-settings)
-+;; (require 'icicles-settings)
-+;; (require 'doremi-settings)
-+;; (require 'palette-settings)
+@@ -137,7 +137,7 @@
  
- ;; edit-settings中对M-w重新定义,但是kde-emacs中也对其定义了
- ;; 所以必须要放在kde-emacs后面
-@@ -275,6 +275,7 @@
+ ;; Emacs可以做为一个server, 然后用emacsclient连接这个server,
+ ;; 无需再打开两个Emacs
+-(require 'emacs-server-settings)
++;; (require 'emacs-server-settings)
+ 
+ (require 'apropos-settings)
+ (require 'completion-list-mode-settings)
+@@ -275,6 +275,8 @@
     ("C-x M-r" query-replace-regexp-sb)
     ("M-z"     zap-to-char-sb)
     ("C-j"     goto-line)
 +   ("C-x F"   find-dired)
++   ("C-u"     cua-scroll-down)
     ("C-x C-s" save-buffer-sb)))
  
  (am-add-hooks
-@@ -290,14 +291,14 @@
+@@ -290,14 +292,14 @@
  
  ;; Emacs中的文本浏览器w3m
  ;; http://emacser.com/w3m.htm
@@ -130,7 +105,7 @@ Index: .emacs
  
  ;; spell check
  (setq-default ispell-program-name "aspell")
-@@ -319,9 +320,9 @@
+@@ -319,9 +321,9 @@
    (add-hook 'kill-emacs-hook 'install-.emacs))
  
  ;; 把pdf,ps,dvi文件转换为png格式, 在Emacs里面浏览
@@ -143,7 +118,7 @@ Index: .emacs
  
  ;; 在Emacs里面使用shell
  (require 'term-settings)
-@@ -332,7 +333,7 @@
+@@ -332,7 +334,7 @@
  (require 'ioccur)
  
  ;; 查询天气预报
@@ -152,7 +127,7 @@ Index: .emacs
  
  ;; 可以把光标由方块变成一个小长条
  (require 'bar-cursor)
-@@ -404,11 +405,11 @@
+@@ -404,11 +406,11 @@
   `(("C-c M-C" copy-file-name)))
  
  ;; notification tool
@@ -167,7 +142,7 @@ Index: .emacs
  
  ;; 模拟vi的点(.)命令
  (require 'dot-mode)
-@@ -434,11 +435,11 @@
+@@ -434,11 +436,11 @@
  (require 'org-settings)
  
  ;; 强大的发布工具
@@ -181,7 +156,7 @@ Index: .emacs
  
  ;; 关闭buffer的时候, 如果该buffer有对应的进程存在, 不提示, 烦
  (delq 'process-kill-buffer-query-function kill-buffer-query-functions)
-@@ -477,7 +478,7 @@
+@@ -477,7 +479,7 @@
   `(("C-x M-O" open-current-file-with-app)))
  
  ;; 一些有趣的东西
@@ -192,22 +167,78 @@ Index: .emacs
  (require 'go-to-char)
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1372)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1377)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
 -;; Time-stamp: <2010-11-30 11:42:06 Tuesday by taoshanwen>
-+;; Time-stamp: <2010-12-20 22:56:02 Monday by lian>
++;; Time-stamp: <2011-01-28 00:52:17 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
-@@ -98,6 +98,28 @@
+@@ -21,7 +21,25 @@
+ 
+ (semantic-load-enable-excessive-code-helpers)
+ (global-semantic-idle-completions-mode -1)
+-(semantic-load-enable-semantic-debugging-helpers)
++;; (semantic-load-enable-semantic-debugging-helpers)
++(setq eassist-header-switches
++      '(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m" "hxx"))
++        ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
++        ("hpp" . ("cpp" "cxx" "c++" "cc" "CC" "C"))
++        ("hxx" . ("cxx" "cpp" "c++" "cc" "CC" "C" "h"))
++        ("h++" . ("c++" "cpp" "cxx" "cc" "CC" "C"))
++        ("H" . ("C" "CC" "cc" "cpp" "cxx" "c++" "mm" "m"))
++        ("HH" . ("CC" "cc" "C" "cpp" "cxx" "c++"))
++        ("cpp" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
++        ("cxx" . ("hxx" "hpp" "h++" "HH" "hh" "H" "h"))
++        ("c++" . ("h++" "hpp" "hxx" "HH" "hh" "H" "h"))
++        ("CC" . ("HH" "hh" "hpp" "hxx" "h++" "H" "h"))
++        ("cc" . ("hh" "HH" "hpp" "hxx" "h++" "H" "h"))
++        ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
++        ("c" . ("h"))
++        ("m" . ("h"))
++        ("mm" . ("h"))))
++
+ (when window-system
+   (global-semantic-tag-folding-mode 1))
+ 
+@@ -38,7 +56,8 @@
+      ("C-c n"   senator-next-tag)
+      ("C-c p"   senator-previous-tag)
+      ("C-c M-m" semantic-goto-local-main)
+-     ("C-c M-M" semantic-goto-main)))
++     ("C-c M-M" semantic-goto-main)
++     ("C-c C-i" eassist-switch-h-cpp)))
+ 
+   (defun semantic-goto-main ()
+     "Jump to main function."
+@@ -98,7 +117,51 @@
     'emaci-mode-map
     `(("." emaci-.)
       ("," emaci-\,)))
 +
++  ;; persistent-path
++  (defconst user-persistent-path
++    (list "/glouton/struct/lian/develop/Xfem/Xfem/Xfem"
++          "/glouton/struct/lian/develop/Xext/Xext/Xext"
++          "/glouton/struct/lian/develop/Xext/Octree/Octree"
++          "/glouton/struct/lian/develop/Xext/OctreeInterface/OctreeInterface"
++          "/glouton/struct/lian/develop/SolverInterfaces/SolverBase/SolverBase"
++          "/glouton/struct/lian/develop/SolverInterfaces/SuperLu/SuperLu"
++          "/glouton/struct/lian/develop/SolverInterfaces/Lapack/Lapack"
++          "/glouton/struct/lian/develop/SolverInterfaces/Taucs/Taucs"
++          "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/PetscSeq"
++          "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/NonLinearSolver"
++          "/glouton/struct/lian/develop/Trellis/AOMD/AOMD/src/"
++          "/glouton/struct/lian/develop/Trellis/AOMD/Util/Util/src"
++          "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/LinearAlgebra"
++          "/glouton/struct/lian/develop/Applis/Homog/Homog"
++          "/glouton/struct/lian/develop/Applis/ITK_Utility/ITK_Utility"))
++  (setq semanticdb-persistent-path user-persistent-path)
+   
 +  ;; my include path
 +  (defconst user-include-dirs
 +    (list "/glouton/struct/lian/develop/Xfem/Xfem/include/"
@@ -221,20 +252,37 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 +          "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/include"
 +          "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/include"
 +          "/glouton/struct/lian/develop/Trellis/AOMD/include"
++          "/glouton/struct/lian/develop/Trellis/Util/include"
++          "/glouton/struct/lian/develop/Trellis/model/include"
 +          "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/include"
 +          "/glouton/struct/lian/develop/Applis/Homog/include"
++          "/glouton/struct/lian/develop/Applis/Physics/include"
 +          "/glouton/struct/lian/develop/Applis/ITK_Utility/include"))
 +  (let ((include-dirs user-include-dirs))
 +    (mapc (lambda (dir)
 +            (semantic-add-system-include dir 'c++-mode)
 +            (semantic-add-system-include dir 'c-mode))
 +          include-dirs))
-   
++  
    ;; system include path
    (if (or mswin cygwin)
+       (dolist (mode '(c-mode c++-mode))
+Index: my-lisps/color-theme-ahei.el
+===================================================================
+--- my-lisps/color-theme-ahei.el	(revision 1377)
++++ my-lisps/color-theme-ahei.el	(working copy)
+@@ -4,7 +4,7 @@
+ 
+ ;; Author: ahei <ahei0802@126.com>
+ ;; Keywords: color theme ahei
+-;; Time-stamp: <2010-04-05 15:56:28 Monday by ahei>
++;; Time-stamp: <2011-01-27 10:51:22 Thursday by lian>
+ 
+ ;; This file is free software; you can redistribute it and/or modify
+ ;; it under the terms of the GNU General Public License as published by
 Index: my-lisps/font-settings.el
 ===================================================================
---- my-lisps/font-settings.el	(revision 1372)
+--- my-lisps/font-settings.el	(revision 1377)
 +++ my-lisps/font-settings.el	(working copy)
 @@ -9,6 +9,6 @@
        (huangq-fontset-consolas 17)
@@ -246,18 +294,18 @@ Index: my-lisps/font-settings.el
  (provide 'font-settings)
 Index: my-lisps/vc-settings.el
 ===================================================================
---- my-lisps/vc-settings.el	(revision 1372)
+--- my-lisps/vc-settings.el	(revision 1377)
 +++ my-lisps/vc-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/vc-settings.el
--;; Time-stamp: <2010-11-21 14:41:32 Sunday by taoshanwen>
+-;; Time-stamp: <2011-01-21 10:54:35 Friday by taoshanwen>
 +;; Time-stamp: <2011-01-16 22:54:37 Sunday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
-@@ -56,7 +56,8 @@
+@@ -57,7 +57,8 @@
  
  (defun vc-settings ()
    "Settings for `vc'."
@@ -269,7 +317,7 @@ Index: my-lisps/vc-settings.el
    `(vc-settings))
 Index: my-lisps/misc-settings.el
 ===================================================================
---- my-lisps/misc-settings.el	(revision 1372)
+--- my-lisps/misc-settings.el	(revision 1377)
 +++ my-lisps/misc-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -290,9 +338,30 @@ Index: my-lisps/misc-settings.el
  
  (setq-default default-directory "~")
  
+Index: my-lisps/isearch-face-settings.el
+===================================================================
+--- my-lisps/isearch-face-settings.el	(revision 1377)
++++ my-lisps/isearch-face-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-04-05 17:06:00 Monday by ahei>
++;; Time-stamp: <2011-01-26 18:49:13 Wednesday by lian>
+ 
+ ;; This file is free software; you can redistribute it and/or modify
+ ;; it under the terms of the GNU General Public License as published by
+@@ -23,7 +23,7 @@
+   (set-face-background 'isearch "blue")
+   (when (not is-before-emacs-21)
+     (set-face-foreground 'lazy-highlight "black")
+-    (set-face-background 'lazy-highlight "white"))
++    (set-face-background 'lazy-highlight "yellow"))
+   (custom-set-faces '(isearch-fail ((((class color)) (:background "red"))))))
+ 
+ (eval-after-load "isearch"
 Index: my-lisps/dev-settings.el
 ===================================================================
---- my-lisps/dev-settings.el	(revision 1372)
+--- my-lisps/dev-settings.el	(revision 1377)
 +++ my-lisps/dev-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-

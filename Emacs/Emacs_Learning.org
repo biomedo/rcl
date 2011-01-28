@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-01-12 16:38:49 Wednesday by lian>
+# Time-stamp: <2011-01-27 23:55:40 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -100,6 +100,13 @@
   - C-x h 全部选中
   - M-h 分块只能选中mark paragraph
   - C-x C-i 全部代码进行缩进C-x TAB
+* Cedet IDE
+  + C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache
+  + C-c C-j 代码跳转
+  + C-c j 跳转到当前buffer对应的tag
+  + C-x M-j 全局符号跳转
+  + C-c s切换到对应的h文件
+  + C-x B semantic-mrub-switch-tags 用来切换到刚才访问过的Tags
 * 窗口操作
   - C-x 0 关闭本窗口
   - C-x 1 只留下一个窗口
