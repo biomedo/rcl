@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-01-27 23:55:40 Thursday by lian>
+# Time-stamp: <2011-01-27 00:30:07 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -20,6 +20,13 @@
   - C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
   - C-x E 载入emacs的配置文件进行编辑
   - C-x G e 进入emacs配置文件的目录进行浏览
+  - C-x / b is equal to M-x describe-bindings
+  - C-x / a is M-x apropos
+  - M-x apropos-command, then input your keyworkd for example "buffer"
+  - M-x info
+  - M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
+  - C-x M 查看manual，比如linux下命令或者别的命令的手册
+  - C-x K 找某个key对应的命令的lisp代码
 * svn and vc 版本控制
   - 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
   - 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样
@@ -29,9 +36,11 @@
 * emacs中的特殊字符输入问题
   - C-q X X是你要输入的特殊字符，比如回车符，Tab符，
   - 输入C-q 然后输入特殊字符，此时C-m就是RET符，而C-j是换行符，注意unix文件系统的用\n表示换行功能，也就是c-j，而window下则是\r\n也就是C-j C-m
-  - 
+  - C-num X 可以连续输入指定的字符次数,X可以重复输入num次，主义如果次数超过9次要用C-u num X
+  - C-i 是Tab键，C-m 是Ret， 有时候c-j也是Ret
 * 全局操作
   - C-x s 切换到*scratch*
+  - C-x N 切换显示行号
   - export TERM=xterm-256color; emacs -nw
   - M-x list-colors-display 列出来颜色设置框
   - C-x i 插入文件到光标处
@@ -57,6 +66,7 @@
   - M-' 在最近的两个buffer间切换
   - S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
   - 在multi-term mode模式下，C-l可以上个命令很长的显示结果
+  - C-x {[,]} 前一页后一页
 * 文件操作
   - C-x F   find-grep-in-current-dir
   - C-x f   find-grep-in-dir
@@ -100,13 +110,12 @@
   - C-x h 全部选中
   - M-h 分块只能选中mark paragraph
   - C-x C-i 全部代码进行缩进C-x TAB
-* Cedet IDE
-  + C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache
-  + C-c C-j 代码跳转
-  + C-c j 跳转到当前buffer对应的tag
-  + C-x M-j 全局符号跳转
-  + C-c s切换到对应的h文件
-  + C-x B semantic-mrub-switch-tags 用来切换到刚才访问过的Tags
+  - C-c C-q 是缩进一个函数，只控制和整理一个函数的缩进
+  - C-x C-o可以删除空白行
+  - C-x C-t 可以移动行
+  - C-x a 自动对齐功能
+  - C-x C-{;,=} 写注释段的时候用的
+  - M-U 删除到行首
 * 窗口操作
   - C-x 0 关闭本窗口
   - C-x 1 只留下一个窗口

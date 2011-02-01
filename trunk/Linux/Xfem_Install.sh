@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2010-12-16 04:22:57 Thursday by lian>
+# Time-stamp: <2011-01-23 10:49:22 Sunday by lian>
 
 # @version 1.0
 # @author ahei
