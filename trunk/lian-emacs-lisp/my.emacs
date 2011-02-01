@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-01-29 02:38:03 Saturday by lian>
+;; Time-stamp: <2011-01-30 00:03:01 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -74,7 +74,7 @@
         "/glouton/struct/lian/develop/Applis/Homog/tags"
         "/glouton/struct/lian/develop/Applis/ITK_Utility/tags"))
 
-(setq user-head-file-dir (list "." "../include"))
+(setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 (setq tags-table-list '(lian-tags-table-list))
 
