@@ -1,0 +1,738 @@
+;;Li Xuebai's .emacs
+
+;;Ctrl+Space无效
+(global-set-key (kbd "C-SPC")'nil)
+
+;;由于 outline-minor-mode 的键绑定前缀 C-c @ 过于复杂，
+;;大部分经常使用 outline 的人想把它设置为另一个键
+(setq outline-minor-mode-prefix [(control o)])
+
+;; 改变 Emacs 固执的要你回答 yes 的行为。按 y 或空格键表示 yes，n 表示 no。
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;关闭烦人的出错时的提示声。
+(setq visible-bell t)
+
+;;关闭起动时候的那个“开机画面”
+(setq inhibit-startup-message t)
+
+;;查找时候严格区分大小写
+(setq case-fold-search nil)
+
+;;显示列号
+(setq column-number-mode t)
+
+;;不要在鼠标点击的那个地方插入剪贴板内容。我不喜欢那样，
+;;经常把我的文档搞的一团糟。我觉得先用光标定位，然后鼠标
+;;中键点击要好的多。不管你的光标在文档的那个位置，或是在
+;;minibuffer，鼠标中键一点击，X selection 的内容就被插入到那个位置。
+(setq mouse-yank-at-point t)
+
+;;用一个很大的 kill ring. 这样防止不小心删掉重要的东西
+(setq kill-ring-max 200)
+
+;;把 fill-column 设为 60. 这样的文字更好读。
+(setq default-fill-column 60)
+
+;;不用 TAB 字符来indent, 这会引起很多奇怪的错误。编辑 Makefile
+;;的时候也不用担心，因为 makefile-mode 会把 TAB 键设置成真正的
+;;TAB 字符，并且加亮显示的。
+;(setq-default indent-tabs-mode nil)
+;(setq default-tab-width 8)
+;(setq tab-stop-list ())
+;(loop for x downfrom 40 to 1 do
+;      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+
+;;设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格。
+(setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+(setq sentence-end-double-space nil)
+
+;防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，
+;可以很好的看到上下文。
+(setq scroll-margin 3
+      scroll-conservatively 10000)
+
+;;把缺省的 major mode 设置为 text-mode, 而不是几乎什么功能
+;;也没有的 fundamental-mode.
+(setq default-major-mode 'text-mode)
+
+;;括号匹配时显示另外一边的括号，而不是烦人的跳到另一个括号。
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+;;高亮显示匹配的括号。
+(show-paren-mode 1)
+
+;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+(mouse-avoidance-mode 'animate)
+
+;;指针不闪，不恍花眼睛。
+(blink-cursor-mode -1)
+(transient-mark-mode 1)
+
+;;设定句子结尾，主要针对中文设置
+(setq sentence-end "\\([$(A!##!#?(B]\\|$(A!-!-(B\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+(setq sentence-end-double-space nil)
+
+;;使用aspell程序作为emacs拼写检查程序
+(setq-default ispell-program-name "aspell")
+
+;;使用本地字典
+(setq dictionary-server "localhost")
+
+;;在标题栏显示buffer的名字，而不是 emacs@email.***这样没用的提示。
+(setq frame-title-format "emacs@%b")
+
+;;让 Emacs 可以直接打开和显示图片。
+(auto-image-file-mode)
+
+;;语法加亮
+(global-font-lock-mode t)
+
+;;设置有用的个人信息.这在许多地方有用。
+(setq user-full-name "Li Xuebai")
+(setq user-mail-address "lixuebai@mail.ustc.edu.cn")
+
+;;set background and forward color---------------
+(setq default-frame-alist
+      '(   (foreground-color . "Wheat")
+           (background-color . "DarkSlateGray")
+           (cursor-color     . "Orchid")
+       ))
+
+;;所有的备份文件都放置在~/backups目录下
+(setq backup-directory-alist (quote (("." . "~/backups"))))
+(setq version-control t)
+(setq kept-old-versions 2)
+(setq kept-new-versions 5)
+(setq delete-old-versions t)
+(setq backup-directory-alist '(("." . "~/backups")))
+(setq backup-by-copying t)
+;;emacs中，改变文件时，默认都会产生备份文件（以~结尾的文件）。可以完全去掉
+;;（并不可取），也可以制定备份的方式。这里采用的是，把所有的文件备份都放在一个
+;;固定的地方。对于每个备份文件，保留最原始的两个版本和最新的五个版本。
+;;并且备份的时候，备份文件是复件，而不是原件。
+
+;;不产生备份文件
+;(setq make-backup-files nil) 
+
+;;自动补全功能，这是从王垠主页直接copy来的，引用一些他对此的说明。
+;;你可以设置以下hippie-expand的补全方式。它是一个优先列表，
+;;hippie-expand会优先使用表最前面的函数来补全。
+;;这是说，首先使用当前的buffer补全，如果找不到，就到别的可见的窗口里寻找，
+;;如果还找不到，那么到所有打开的buffer去找，如果还……那么到kill-ring里，
+;;到文件名，到简称列表里，到list......当前使用的匹配方式会在echo区域显示。
+;;特别有意思的是try-expand-line，它可以帮你补全整整一行文字。我很多时候有
+;;两行文字大致相同，只有几个字不一样，但是我懒得去copy paste一下。那么我就
+;;输入这行文字的前面几个字。然后多按几下M-/就能得到那一行。
+(global-set-key [(meta ?/)] 'hippie-expand)
+(setq hippie-expand-try-functions-list
+'(try-expand-line
+  try-expand-line-all-buffers
+  try-expand-list
+  try-expand-list-all-buffers
+  try-expand-dabbrev
+  try-expand-dabbrev-visible
+  try-expand-dabbrev-all-buffers
+  try-expand-dabbrev-from-kill
+  try-complete-file-name
+  try-complete-file-name-partially
+  try-complete-lisp-symbol
+  try-complete-lisp-symbol-partially
+  try-expand-whole-kill))
+
+;;显示日期
+(setq display-time-day-and-date t)
+;;显示时间
+(display-time)
+;;时间为24小时制
+(setq display-time-24hr-format t)
+;;时间显示包括日期和具体时间
+(setq display-time-day-and-date t)
+;;时间栏旁边启动邮件设置
+(setq display-time-use-mail-icon t)
+;;时间的变化频率
+(setq display-time-interval 10)
+
+;; 设置时间戳，标识出最后一次保存文件的时间。
+(setq time-stamp-active t)
+(setq time-stamp-warn-inactive t)
+(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S K.T")
+
+;; 默认的日记文件
+(setq diary-file "~/diary/rj")
+
+;;设置所在地的经纬度和地名，calendar 可以根据这些信息告知你每天的
+;;日出和日落的时间。
+(setq calendar-latitude +31.8653)
+(setq calendar-longitude +117.2797)
+(setq calendar-location-name "Hefei")
+
+;;节日
+(setq calendar-remove-frame-by-deleting t)
+(setq calendar-week-start-day 1)
+;;不过基督教的节日
+(setq christian-holidays nil)
+;;不过希伯来人的节日
+(setq hebrew-holidays nil)
+;;不过伊斯兰教的节日
+(setq islamic-holidays nil)
+;;不过太阳节
+(setq solar-holidays nil)
+;;要过的节日
+(setq general-holidays '((holiday-fixed 1 1 "元旦")
+                         (holiday-fixed 5 1 "劳动节")
+                         (holiday-float 5 0 2 "母亲节")
+                         (holiday-float 6 0 3 "父亲节")
+                         (holiday-float 10 1 "国庆节")
+                         (holiday-float 12 21 "我的生日")))
+
+;;日历中突出标记节日和生日
+(setq mark-holidays-in-calendar t)
+;;打开calendar自动打开节日和生日列表
+(setq view-calendar-holidays-initially t)
+
+;; Calendar 中 p C 可以看到我们的阴历有中文的天干地支。
+(setq mark-diary-entries-in-calendar t)
+(setq appt-issue-message nil)
+(setq mark-holidays-in-calendar nil)
+(setq view-calendar-holidays-initially nil)
+
+(setq chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+(setq chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+
+;; 代码折叠
+(load-library "hideshow")
+(add-hook 'java-mode-hook 'hs-minor-mode)
+(add-hook 'perl-mode-hook 'hs-minor-mode)
+(add-hook 'php-mode-hook 'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;AUCTeX 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load "auctex.el" nil t t)
+(load "tex-site.el" nil t t)
+(load "preview-latex.el" nil t t)
+
+(setq TeX-electric-escape t)
+(setq LaTeX-math-mode t)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(setq TeX-auto-untabify t) ;; 不使用 TAB字符缩进
+(setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
+(setq TeX-newline-function 'newline-and-indent) ;;回车时自动缩进
+
+(add-hook 'LaTeX-mode-hook #'LaTeX-install-toolbar)
+(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+
+(autoload 'LaTeX-preview-setup "preview")
+(add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+
+(autoload 'reftex-mode "reftex" "RefTeX Minor Mode" t)
+(autoload 'turn-on-reftex "reftex" "RefTeX Minor Mode" nil)
+(autoload 'reftex-citation "reftex-cite" "Make citation" nil)
+(autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)                        
+(setq reftex-plug-into-AUCTeX t)
+
+(setq reftex-revisit-to-follow t
+      reftex-auto-recenter-toc t)
+(add-hook 'TeX-mode-hook
+          (lambda ()
+            (setq reftex-plug-into-AUCTeX t)
+            (turn-on-reftex)
+            ))
+
+;;把beamer的frametitle也放入reftex目录缓冲中，但需要把\frametitle写在行首
+(setq reftex-section-levels
+      '(("part" . 0) ("chapter" . 1) ("section" . 2) 
+("subsection" . 3)
+        ("frametitle" . 4) ("subsubsection" . 4) 
+("paragraph" . 5)
+        ("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
+
+;;bibtex的设置
+(setq bibtex-autokey-names 1
+      bibtex-autokey-names-stretch 1
+      bibtex-autokey-name-separator "-"
+      bibtex-autokey-additional-names "-et.al."
+      bibtex-autokey-name-case-convert 'identity
+      bibtex-autokey-name-year-separator "-"
+      bibtex-autokey-titlewords-stretch 0
+      bibtex-autokey-titlewords 0
+      bibtex-maintain-sorted-entries 'plain
+      bibtex-entry-format '(opts-or-alts numerical-fields))
+
+      
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;C/C++
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'c-mode-hook 'linux-c-mode)
+(add-hook 'c++-mode-hook 'linux-cpp-mode)
+;; 设置imenu的排序方式为按名称排序
+(setq imenu-sort-function 'imenu--sort-by-name)
+(defun linux-c-mode()
+;; 将回车代替C-j的功能，换行的同时对齐
+  (define-key c-mode-map [return] 'newline-and-indent)
+  (interactive)
+;; 设置C程序的对齐风格
+  (c-set-style "K&R")
+;; 自动模式，在此种模式下当你键入{时，会自动根据你设置的对齐风格对齐
+  (c-toggle-auto-state)
+;; 此模式下，当按Backspace时会删除最多的空格
+  (c-toggle-hungry-state)
+;; TAB键的宽度设置为8
+  (setq c-basic-offset 8)
+;; 在菜单中加入当前Buffer的函数索引
+  (imenu-add-menubar-index)
+;; 在状态条上显示当前光标在哪个函数体内部
+  (which-function-mode)
+ )
+(defun linux-cpp-mode()
+  (define-key c++-mode-map [return] 'newline-and-indent)
+  (define-key c++-mode-map [(control c) (c)] 'compile)
+  (interactive)
+  (c-set-style "K&R")
+  (c-toggle-auto-state)
+  (c-toggle-hungry-state)
+  (setq c-basic-offset 8)
+  (imenu-add-menubar-index)
+  (which-function-mode)
+  )
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;emms 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'emms)
+(require 'emms-setup)
+(require 'emms-player-mpg321-remote)
+; use mpg321 to play, install mpg321 first
+
+(defvar my-music-directory "~/music/")  
+; directly play directory ~/music/
+
+(emms-standard)
+(emms-default-players)
+(push 'emms-player-mpg321-remote emms-player-list)
+
+(add-hook 'emms-player-started-hook 'emms-show) ; show the coming song
+(setq emms-show-format "Now Playing: %s")
+(setq emms-repeat-playlist t)                   ; repeat at the end
+
+(global-set-key (kbd "<f6>") 'emms-play-default) ; one-key-to-play
+(global-set-key (kbd "C->") 'emms-next)
+(global-set-key (kbd "C-<") 'emms-previous)
+(global-set-key (kbd "<pause>") 'emms-de-toggle-playing) 
+; use pause key topause & resume
+(global-set-key (kbd "<C-pause>") 'emms-stop) ; use ctrl-pause to stop
+(global-set-key (kbd "<S-pause>") 'emms-playlist-mode-go) 
+; use shift-pause tocheck playlist
+(global-set-key (kbd "<C-S-pause>") 'emms-shuffle) 
+; use ctrl-shift to shufflecurrent playlist
+
+(defun emms-play-default ()             ; default play set
+  (interactive)
+  (emms-play-directory my-music-directory)
+  (process-kill-without-query (get-process "emms-player-mpg321-remote-proc")))
+                                        ; no pop window when exit
+
+(defun emms-de-toggle-playing ()
+  (interactive)
+  (if emms-player-playing-p
+      (emms-pause)
+    (emms-start)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;w3m w3m-el目前仅仅支持emacs21 而非22
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;启动和初始化w3m.el
+(autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+(autoload 'w3m-search "w3m-search" "Search words using emacs-w3m." t)
+;;;使用工具包
+(setq w3m-use-toolbar t)
+;;启用cookie
+(setq w3m-use-cookies t)
+;;设定w3m运行的参数，分别为使用cookie和使用框架
+(setq w3m-command-arguments '("-cookie" "-F"))
+;;用w3m浏览网页时也显示图片
+(setq w3m-display-inline-image t)
+;;w3m是使用tab的，设定tab的宽度
+(setq w3m-tab-width 8)
+;;设定w3m的主页，同mozilla firefox的默认主页一样。
+(setq w3m-home-page "http://www.google.com")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;emacs-wiki
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'emacs-wiki)
+(require 'emacs-wiki-menu)  ;使用导航菜单
+
+(add-hook 'emacs-wiki-mode-hook
+	    (lambda ()
+             (define-key emacs-wiki-mode-map (kbd "C-c C-h") 'emacs-wiki-preview-html)
+	     (define-key emacs-wiki-mode-map (kbd "C-c C-c") 'emacs-wiki-preview-source)
+	     (define-key emacs-wiki-mode-map (kbd "C-c C-v") 'emacs-wiki-change-project)
+             (define-key emacs-wiki-mode-map (kbd "C-c C-n") 'emacs-wiki-unlink-toggle)
+
+))
+
+;; (setq emacs-wiki-grep-command "glimpse -nyi \"%W\"")
+
+;;设置wiki页面存储的目录
+(setq emacs-wiki-directories '("~/wiki"))
+;;设置存储源文件使用的默认的文字编码
+(setq emacs-wiki-meta-charset "utf8")
+;; 设置发布HTML页面使用的charset（字符集），
+(setq emacs-wiki-charset-default "utf8")
+(setq emacs-wiki-style-sheet
+      "")
+
+;; 设置你的mail地址，它将做为不存在页面的默认链接地址
+(setq emacs-wiki-maintainer "mailto:xuebaili@gmail.com")
+
+
+;; 启用changelog美化支持，为真时会将changelog也当作Wiki页面发布
+(setq emacs-wiki-pretty-changelogs t)
+
+(setq emacs-wiki-inline-relative-to 'emacs-wiki-publishing-directory)
+
+(defun emacs-wiki-preview-source ()
+  (interactive)
+  (emacs-wiki-publish-this-page)
+  (find-file (emacs-wiki-published-file)))
+
+(defun emacs-wiki-preview-html ()
+  (interactive)
+  (emacs-wiki-publish-this-page)
+  (browse-url (emacs-wiki-published-file)))
+
+(setq emacs-wiki-projects
+`(("Default" . ((emacs-wiki-directories . ("~/wiki/source/Default"))
+                (emacs-wiki-project-server-prefix . "../")
+                (emacs-wiki-publishing-directory . "../../publish/Default")
+                (emacs-wiki-default-page . "../Default/WelcomePage.html")))
+
+  ("GNU" . ((emacs-wiki-directories . ("~/wiki/source/GNU"))
+            (emacs-wiki-project-server-prefix . "../")
+            (emacs-wiki-publishing-directory . "../../publish/GNU")
+            (emacs-wiki-default-page . "../GNU/WelcomePage.html")))
+
+  ("History" . ((emacs-wiki-directories . ("~/wiki/source/History"))
+                (emacs-wiki-publishing-directory . "../../publish/History")
+                (emacs-wiki-default-page . "../History/WelcomePage.html")))
+
+  ("Music" . ((emacs-wiki-directories . ("~/wiki/source/Music"))
+                (emacs-wiki-publishing-directory . "../../publish/Music")
+                (emacs-wiki-default-page . "../Music/WelcomePage.html")))
+
+  ("Fantasy" . ((emacs-wiki-directories . ("~/wiki/source/Fantasy"))
+                (emacs-wiki-publishing-directory . "../../publish/Fantasy")
+                (emacs-wiki-default-page . "../Fantasy/WelcomePage.html")))
+
+  ("Others" . ((emacs-wiki-directories . ("~/wiki/source/Others"))
+               (emacs-wiki-publishing-directory . "../../publish/Others")
+               (emacs-wiki-default-page . "../Others/WelcomePage.html")))
+))
+
+;;css 可以让你的网页不那么呆板
+(setq emacs-wiki-style-sheet
+      "<link rel=\"stylesheet\" type=\"text/css\" href=\"core.css\">")
+
+;;设定菜单的生成方式，比较好用的生成方式是自己设定导航菜单项，下面是我的导航菜单设置.
+(setq emacs-wiki-menu-factory 'emacs-wiki-menu-make-from-list)
+(setq emacs-wiki-menu-definition '(("Default" "../Default/WelcomePage.html" "")
+                                   ("GNU" "../GNU/WelcomePage.html" "")
+                                   ("History" "../History/WelcomePage.html" "")
+                                   ("Music" "../Music/WelcomePage.html" "")
+                                   ("Fantasy" "../Fantasy/WelcomePage.html" "")
+                                   ("Others" "../Others/WelcomePage.html" "")))
+
+
+;;要在多个项目之间相互引用，首先要设置 emacs-wiki-inter-names
+(setq emacs-wiki-interwiki-names
+      '(("Default" .
+         (lambda (tag)
+           (concat "../Default/" tag ".html")))
+        ("GNU" .
+         (lambda (tag)
+           (concat "../GNU/" tag ".html")))
+        ("History" .
+         (lambda (tag)
+           (concat "../History/" tag ".html")))
+        ("Music" .
+         (lambda (tag)
+           (concat "../Music/" tag ".html")))
+        ("Fantasy" .
+         (lambda (tag)
+           (concat "../Fantasy/" tag ".html")))
+        ("Others" .
+         (lambda (tag)
+           (concat "../Others/" tag ".html")))))
+
+;; 自定义函数emacs-wiki-unline-toggle，用于自动对WikiName添加/删除<nop>标记
+;;{{{ copy from yason@emacswiki, modified by Yu Li
+(defun emacs-wiki-unlink-toggle ()
+  "Toggle <nop> string in the beginning of the current word, to
+un/make a word emacs-wiki link. The current word depends on the
+point: if the cursor is on a non-whitespace character, it's
+considered a word surrounded by whitespace. If the cursor is on a
+whitespace character, the next word is looked up. This way
+addressing a word works intuitively after having arrived on the
+spot using forward-word."
+  (interactive)
+  (save-excursion
+    (with-current-buffer (current-buffer)
+    (if (looking-at "[ \t]")
+        (goto-char (- (re-search-forward "[A-Za-z<>]") 1))
+      (goto-char (+ (re-search-backward "[^A-za-z<>]") 1)))
+    (if (looking-at "<nop>")
+        (delete-char 5)
+      (insert "<nop>")))))
+;;}}}
+
+;;在保存的时候自动发布为html文件，很省事，这是Sacha的代码：
+;;;_+ Automatically publish files upon saving
+ (defun sacha-emacs-wiki-auto-publish ()
+   (when (derived-mode-p 'emacs-wiki-mode)
+     (unless emacs-wiki-publishing-p
+       (let ((emacs-wiki-publishing-p t)
+             (emacs-wiki-after-wiki-publish-hook nil))
+    (emacs-wiki-publish-this-page)))))
+ (add-hook 'emacs-wiki-mode-hook
+           (lambda () (add-hook 'after-save-hook
+                                'sacha-emacs-wiki-auto-publish
+                                nil t)))
+
+;; 用于显示公式
+;(load "latex2png.el")
+;(push '("latex" t t t gs-latex-tag) emacs-wiki-markup-tags)
+;(setq gs-latex2png-scale-factor 1.5)
+
+;; 设置预览所用的WWW浏览器，我使用的firefox，请把它改为你使用的浏览器的名字
+(setq browse-url-generic-program "firefox")
+
+;;header
+(setq emacs-wiki-publishing-header "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">
+<html>
+  <head>
+    <title><lisp>(emacs-wiki-page-title)</lisp></title>
+    <meta name=\"generator\" content=\"emacs-wiki.el\" />
+    <meta http-equiv=\"<lisp>emacs-wiki-meta-http-equiv</lisp>\"
+          content=\"<lisp>emacs-wiki-meta-content</lisp>\" />
+    <link rel=\"made\" href=\"<lisp>emacs-wiki-maintainer</lisp>\" />
+    <link rel=\"home\" href=\"<lisp>(emacs-wiki-published-name
+                                     emacs-wiki-default-page)</lisp>\" />
+    <link rel=\"index\" href=\"<lisp>(emacs-wiki-published-name
+                                      emacs-wiki-index-page)</lisp>\" />
+    <lisp>emacs-wiki-style-sheet</lisp>
+  </head>
+  <body>
+
+    <!-- If you want a menu, uncomment the following lines and
+    put (require 'emacs-wiki-menu) in your Emacs setup somewhere.
+     -->
+    <lisp>(when (boundp 'emacs-wiki-menu-factory)
+            (funcall emacs-wiki-menu-factory))</lisp>
+    
+
+    <h1 id=\"top\"><lisp>(emacs-wiki-page-title)</lisp></h1>
+
+    <!-- Page published by Emacs Wiki begins here -->
+")
+
+;;footer
+(setq emacs-wiki-publishing-footer
+  "
+    <!-- Page published by Emacs Wiki ends here -->
+    <div class=\"navfoot\">
+      <hr />
+      <table width=\"100%\" border=\"0\" summary=\"Footer navigation\">
+        <col width=\"33%\" /><col width=\"34%\" /><col width=\"33%\" />
+        <tr>
+          <td align=\"left\">
+            <lisp>
+              (if buffer-file-name
+                  (concat
+                   \"<span class=\\\"footdate\\\">Updated: \"
+                   (format-time-string emacs-wiki-footer-date-format
+                    (nth 5 (file-attributes buffer-file-name)))
+                   (and emacs-wiki-serving-p
+                        (emacs-wiki-editable-p (emacs-wiki-page-name))
+                        (concat
+                         \" / \"
+                         (emacs-wiki-link-href
+                          (concat \"editwiki?\" (emacs-wiki-page-name))
+                          \"Edit\")))
+                   \"</span>\"))
+            </lisp>
+          </td>
+          <td align=\"center\">
+            <span class=\"foothome\">
+              <lisp>
+                (concat
+                 (and (emacs-wiki-page-file emacs-wiki-default-page t)
+                      (not (emacs-wiki-private-p emacs-wiki-default-page))
+                      (concat
+                       (emacs-wiki-link-href emacs-wiki-default-page \"Home\")
+                       \" / \"))
+                 (emacs-wiki-link-href emacs-wiki-index-page \"Index\")
+                 (and (emacs-wiki-page-file \"ChangeLog\" t)
+                      (not (emacs-wiki-private-p \"ChangeLog\"))
+                      (concat
+                       \" / \"
+                       (emacs-wiki-link-href \"ChangeLog\" \"Changes\"))))
+              </lisp>
+            </span>
+          </td>
+          <td align=\"right\">
+            <lisp>
+              (if emacs-wiki-serving-p
+                  (concat
+                   \"<span class=\\\"footfeed\\\">\"
+                   (emacs-wiki-link-href \"searchwiki?get\" \"Search\")
+                   (and buffer-file-name
+                        (concat
+                         \" / \"
+                         (emacs-wiki-link-href
+                          (concat \"searchwiki?q=\" (emacs-wiki-page-name))
+                          \"Referrers\")))
+                   \"</span>\"))
+            </lisp>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>\n"
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;gnus
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq gnus-default-charset 'UTF-8)
+
+;(add-to-list 'gnusq-group-charset-alist
+;        '("\\(^\\|:\\)cn\\>\\|\\<chinese\\>" gbk))
+
+;;设定新闻组服务器
+(setq gnus-select-method '(nntp "news.cn99.com"))
+
+;;订阅新闻组
+(setq gnus-default-subscribed-newsgroups
+  '("gnu.emacs.help"     ;; 这里不错噢，有关emacs使用的问题都在这里讨论
+    "cn.comp.os.linux")) ;; 这里也有一个emacs小团伙，
+                         ;; 有空去凑个热闹吧，中文的哟
+
+(setq mail-sources
+      '((pop :server "pop.sina.com"   ;; 在这里设置pop3服务器
+             :user "heidegger@sina.com"            ;; 用户名
+             :port "pop3"
+             :password "lixuebai"))) ;; 密码
+
+;;如何存放mail
+(setq gnus-secondary-select-methods '((nnfolder "")))
+
+;;send mail
+(setq user-full-name "heidegger") ;; 外发的邮件采用这个名字
+(setq user-mail-address "heidegger@sina.com") ;;外发的邮件采用这个地址
+(setq smtpmail-auth-credentials
+    '(("smtp.sina.com"  ;; SMTP服务器
+       25
+       "heidegger"          ;; 用户名
+       "lixuebai")))   ;; 密码
+(setq smtpmail-default-smtp-server "smtp.sina.com")
+(setq smtpmail-smtp-server "smtp.sina.com")
+(setq message-send-mail-function 'smtpmail-send-it)
+
+;;存储外发邮件
+(setq gnus-message-archive-group
+      '((if (message-news-p)
+            "nnfolder:mail.sent.news"
+          "nnfolder:mail.sent.mail")))
+
+;;html附件
+(eval-after-load "mm-decode"
+  '(progn
+     (add-to-list 'mm-discouraged-alternatives "text/html")
+     (add-to-list 'mm-discouraged-alternatives "text/richtext")))
+
+(setq gnus-default-charset 'chinese-iso-8bit
+   gnus-group-name-charset-group-alist '((".*" . chinese-iso-8bit))
+   gnus-summary-show-article-charset-alist
+       '((1 . utf-8)
+         (2 . gbk)
+         (3 . big5)
+         (4 . utf-7))
+   gnus-group-name-charset-group-alist
+      '(("\\.com\\.cn:" . utf-8)
+        ("news\\.newsfan\\.net" . gbk))
+   gnus-group-name-charset-method-alist
+      '(((nntp "news.newsfan.net") . utf-8))
+   gnus-newsgroup-ignored-charsets
+       '(unknown-8bit x-unknown iso-8859-1))
+
+;;attach as rfc2047 or not rfc2231 which is default.
+(defalias 'mail-header-encode-parameter 'rfc2047-encode-parameter)
+;(add-to-list 'rfc2047-charset-encoding-alist '(gbk . B))
+;(add-to-list 'rfc2047-charset-encoding-alist '(gb18030 . B))
+
+;;设置发出邮件的编码
+(setq gnus-posting-styles
+      '((".*"
+         (name "heidegger")
+         (address "heidegger@sina.com")
+         (eval (setq mm-coding-system-priorities
+                     '(iso-8859-1 gb2312 utf-8))))
+        ("^tw\\.comp"
+         (name "xx")
+         (address "xx@ptt.cc")
+         (eval (setq mm-coding-system-priorities
+                     '(iso-8859-1 big5 utf-8)))))
+       )
+
+;;让 Gnus 把Content-Type和Content-Transfer-Encoding字段显示出来
+(add-hook 'gnus-startup-hook
+          '(lambda ()
+             (setq gnus-visible-headers
+                   (concat "^User-Agent:\\|^Content-Type:\\|"
+                           "Content-Transfer-Encoding:\\|"
+                           "^X-mailer:\\|^X-Newsreader:\\|^X-Sender:\\|"
+                           gnus-visible-headers))))
+
+;;自动折行
+(add-hook 'gnus-article-prepare-hook
+           (lambda ()
+             (setq fill-column 80)
+             (gnus-article-fill-long-lines)))
+
+;;将邮件的发出时间转换为本地时间
+(add-hook 'gnus-article-prepare-hook 'gnus-article-date-local)
+
+;;当你按下发送邮件的组合键时，gnus就会要求你确认，
+;;当你回答“yes”时才会发送邮件，如果回答“no”将取消发送。
+(defadvice message-send (around my-confirm-message-send)
+   (if (yes-or-no-p "Really send message? ")
+       ad-do-it))
+(ad-activate 'message-send)
+
+;;将邮件按月分组,暂时不用。
+;(defun date (u)
+;   (concat (format-time-string "%Y-%m." (current-time)) u))
+; 
+;(setq nnmail-split-fancy
+;       `(| (to "localhost" "mail.system")
+;           (to "myname@sohu.com" "mail.sohu")
+;           (to "emacs-devel@gnu.org" ,(date "emacs-devel"))
+;           "mail.misc"))
+; 
+;(setq nnmail-split-methods 'nnmail-split-fancy)
