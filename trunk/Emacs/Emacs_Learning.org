@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-01-27 00:30:07 Thursday by lian>
+# Time-stamp: <2011-02-01 07:37:10 Tuesday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -116,6 +116,15 @@
   - C-x a 自动对齐功能
   - C-x C-{;,=} 写注释段的时候用的
   - M-U 删除到行首
+    
+* Cedet IDE
+  + C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache
+  + C-c C-j 代码跳转
+  + C-c j 跳转到当前buffer对应的tag
+  + C-x M-j 全局符号跳转
+  + C-c s切换到对应的h文件
+  + C-x B semantic-mrub-switch-tags 用来切换到刚才访问过的Tags
+    
 * 窗口操作
   - C-x 0 关闭本窗口
   - C-x 1 只留下一个窗口
