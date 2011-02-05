@@ -48,7 +48,7 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
-+;; Time-stamp: <2011-01-26 19:43:07 Wednesday by lian>
++;; Time-stamp: <2011-02-04 17:06:26 Friday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -89,16 +89,17 @@ Index: .emacs
  
  (require 'apropos-settings)
  (require 'completion-list-mode-settings)
-@@ -275,6 +278,8 @@
+@@ -275,6 +278,9 @@
     ("C-x M-r" query-replace-regexp-sb)
     ("M-z"     zap-to-char-sb)
     ("C-j"     goto-line)
 +   ("C-x F"   find-dired)
 +   ("C-u"     cua-scroll-down)
++   ("<f9>"    kill-this-buffer)
     ("C-x C-s" save-buffer-sb)))
  
  (am-add-hooks
-@@ -290,14 +295,14 @@
+@@ -290,14 +296,14 @@
  
  ;; Emacs中的文本浏览器w3m
  ;; http://emacser.com/w3m.htm
@@ -115,7 +116,7 @@ Index: .emacs
  
  ;; spell check
  (setq-default ispell-program-name "aspell")
-@@ -319,9 +324,9 @@
+@@ -319,9 +325,9 @@
    (add-hook 'kill-emacs-hook 'install-.emacs))
  
  ;; 把pdf,ps,dvi文件转换为png格式, 在Emacs里面浏览
@@ -128,7 +129,7 @@ Index: .emacs
  
  ;; 在Emacs里面使用shell
  (require 'term-settings)
-@@ -332,7 +337,7 @@
+@@ -332,7 +338,7 @@
  (require 'ioccur)
  
  ;; 查询天气预报
@@ -137,12 +138,8 @@ Index: .emacs
  
  ;; 可以把光标由方块变成一个小长条
  (require 'bar-cursor)
-@@ -404,11 +409,11 @@
-  `(("C-c M-C" copy-file-name)))
- 
- ;; notification tool
--(require 'todochiku-settings)
-+;; (require 'todochiku-settings)
+@@ -407,8 +413,8 @@
+ (require 'todochiku-settings)
  
  ;; twitter client
 -(require 'eagle-settings)
@@ -152,7 +149,7 @@ Index: .emacs
  
  ;; 模拟vi的点(.)命令
  (require 'dot-mode)
-@@ -434,11 +439,11 @@
+@@ -434,11 +440,11 @@
  (require 'org-settings)
  
  ;; 强大的发布工具
@@ -166,7 +163,7 @@ Index: .emacs
  
  ;; 关闭buffer的时候, 如果该buffer有对应的进程存在, 不提示, 烦
  (delq 'process-kill-buffer-query-function kill-buffer-query-functions)
-@@ -477,7 +482,7 @@
+@@ -477,7 +483,7 @@
   `(("C-x M-O" open-current-file-with-app)))
  
  ;; 一些有趣的东西
@@ -175,7 +172,7 @@ Index: .emacs
  
  ;; 模拟vi的f命令
  (require 'go-to-char)
-@@ -503,5 +508,3 @@
+@@ -503,5 +509,3 @@
  
  (sb-update)
  

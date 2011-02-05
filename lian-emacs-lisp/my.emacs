@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-01-30 00:03:01 Sunday by lian>
+;; Time-stamp: <2011-02-03 10:15:29 Thursday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -82,10 +82,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Matlab
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'matlab-mode "matlab.el" "Enter Matlab mode." t) 
-(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
-(autoload 'matlab-shell "matlab.el" "Interactive Matlab mode." t)
-
+(require 'matlab-settings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;AUCTeX 
