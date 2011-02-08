@@ -1,11 +1,14 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-03 19:25:48 Thursday by lian>
+;; Time-stamp: <2011-02-08 02:41:59 Tuesday by lian>
 
-
+;; enable matlab-mode and accociate .m file with matlab-mode
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
 (autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
+
+;; enable auto-complte-mode in matlab-mode
+(add-to-list 'ac-modes 'matlab-mode) 
 
 ;; Customization:
 (setq matlab-indent-function t) ; if you want function bodies indented

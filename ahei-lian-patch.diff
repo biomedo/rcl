@@ -48,29 +48,23 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
-+;; Time-stamp: <2011-02-04 17:06:26 Friday by lian>
++;; Time-stamp: <2011-02-08 01:59:42 Tuesday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
-@@ -13,7 +13,7 @@
+@@ -12,8 +12,11 @@
+ (my-add-subdirs-to-load-path my-emacs-lisps-path)
  (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
  
++;; lian-info
++(require 'lian-info)
++
  ;; 一个Emacs的16进制文件查看器，可以瞬间打开巨大的文件，比官方的hexl-mode好用
 -(require 'hexview-mode)
 +;; (require 'hexview-mode)
  
  ;; 一些基本的小函数
  (require 'ahei-misc)
-@@ -25,6 +25,9 @@
- 
- (require 'util)
- 
-+;; 加载用户自己的配置
-+(load "~/my.emacs" t)
-+
- ;; 一些Emacs的小设置
- (require 'misc-settings)
- 
 @@ -62,7 +65,7 @@
  
  ;; 打开压缩文件时自动解压缩
@@ -172,12 +166,12 @@ Index: .emacs
  
  ;; 模拟vi的f命令
  (require 'go-to-char)
-@@ -503,5 +509,3 @@
- 
+@@ -504,4 +510,4 @@
  (sb-update)
  
--;; 加载用户自己的配置
+ ;; 加载用户自己的配置
 -(load "~/my.emacs" t)
++(load "~/my.emacs" t) 
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
 --- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1377)
@@ -187,20 +181,21 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
 -;; Time-stamp: <2010-11-30 11:42:06 Tuesday by taoshanwen>
-+;; Time-stamp: <2011-01-29 01:23:59 Saturday by lian>
++;; Time-stamp: <2011-02-08 02:27:02 Tuesday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
-@@ -21,7 +21,7 @@
+@@ -21,7 +21,8 @@
  
  (semantic-load-enable-excessive-code-helpers)
  (global-semantic-idle-completions-mode -1)
 -(semantic-load-enable-semantic-debugging-helpers)
 +;; (semantic-load-enable-semantic-debugging-helpers)
++(semantic-load-enable-all-exuberent-ctags-support) 
  (when window-system
    (global-semantic-tag-folding-mode 1))
  
-@@ -98,7 +98,18 @@
+@@ -98,7 +99,18 @@
     'emaci-mode-map
     `(("." emaci-.)
       ("," emaci-\,)))
