@@ -1,32 +1,57 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2011-01-23 10:48:19 Sunday by lian>
+# Time-stamp: <2011-02-10 19:51:22 Thursday by lian>
 
 # @version 1.0
 # @author ahei
 
-sudo apt-get install mendeleydesktop
-sudo apt-get install vlc
-sudo apt-get install google-chrome-stable
+#########################################System#####################################
+apt-get -y install mendeleydesktop
+apt-get -y install vlc
 
 # texlive and latex
-sudo apt-get install texlive-base					
-sudo apt-get install texlive-base-bin				
-sudo apt-get install texlive-common					
-sudo apt-get install texlive-doc-base				
-sudo apt-get install texlive-extra-utils				
-sudo apt-get install texlive-fonts-recommended
-sudo apt-get install texlive-latex-base				
-sudo apt-get install texlive-latex-extra				
-sudo apt-get install texlive-latex-recommended			
-sudo apt-get install texlive-pictures				
-sudo apt-get install latex-beamer					
-sudo apt-get install latex-xcolor					
-sudo apt-get install preview-latex-style				
+apt-get -y install texlive-base					
+apt-get -y install texlive-base-bin				
+apt-get -y install texlive-common					
+apt-get -y install texlive-doc-base				
+apt-get -y install texlive-extra-utils				
+apt-get -y install texlive-fonts-recommended
+apt-get -y install texlive-latex-base				
+apt-get -y install texlive-latex-extra				
+apt-get -y install texlive-latex-recommended			
+apt-get -y install texlive-pictures				
+apt-get -y install latex-beamer					
+apt-get -y install latex-xcolor					
+apt-get -y install preview-latex-style				
 
 # thunderbird
-sudo apt-get install thunderbird					
-sudo apt-get install thunderbird-locale-en-gb			
-sudo apt-get install thunderbird-locale-fr				
-sudo apt-get install thunderbird-locale-zh-cn
+apt-get -y install thunderbird					
+apt-get -y install thunderbird-locale-en-gb			
+apt-get -y install thunderbird-locale-fr				
+apt-get -y install thunderbird-locale-zh-cn
 
+########################################Xfem########################################
+# for gcc g++
+apt-get -y install build-essential
+# gfortran
+apt-get -y install gfortran
+# boost
+apt-get -y install libboost-dev libboost-graph-dev libboost-program-options-dev
+# blas and lapack
+apt-get -y install libblas-dev
+apt-get -y install liblapack-dev
+# -lmetis required by taucs solver
+apt-get -y install libparmetis3.1
+# uuid
+apt-get -y install uuid-dev
+
+
+#######################################Develop#####################################
+# subversion control
+apt-get -y install subversion
+
+# python and python sectific computation library
+apt-get -y install python python-numpy python-scipy idle
+
+# gmsh
+apt-get -y install gmsh
