@@ -56,8 +56,8 @@ deb-src http://security.ubuntu.com/ubuntu hardy-security multiverse
 
 
 # emcas 23
-deb http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu hardy main
-deb-src http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu hardy main
+#deb http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu hardy main
+#deb-src http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu hardy main
 
 # subversion control
 deb http://ppa.launchpad.net/anders-kaseorg/subversion-1.6/ubuntu hardy main
