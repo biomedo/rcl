@@ -50,6 +50,8 @@ apt-get -y install uuid-dev
 # subversion control
 apt-get -y install subversion
 
+# cmake and ccmake gui
+apt-get -y install cmake cmake-curses-gui cmake-gui
 # python and python sectific computation library
 apt-get -y install python python-numpy python-scipy idle
 
