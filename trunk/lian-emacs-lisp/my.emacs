@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-08 02:29:16 Tuesday by lian>
+;; Time-stamp: <2011-02-15 17:16:37 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -16,11 +16,31 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
+
 (require 'lian-info)
 
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 (setq tags-table-list lian-tags-table-list)
+
+
+;; (define-key-list
+;;   global-map
+;;   `(("C-x G 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
+;;     ("C-x G 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
+;;     ("C-x G 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
+;;     ("C-x G 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
+;;     ("C-x G 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
+;;     ("C-x G 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
+(define-key-list
+  global-map
+  `(("C-x J e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
+    ("C-x J 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
+    ("C-x J 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
+    ("C-x J 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
+    ("C-x J 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
+    ("C-x J 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
+    ("C-x J 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

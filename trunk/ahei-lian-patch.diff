@@ -181,7 +181,7 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
 -;; Time-stamp: <2010-11-30 11:42:06 Tuesday by taoshanwen>
-+;; Time-stamp: <2011-02-08 02:27:02 Tuesday by lian>
++;; Time-stamp: <2011-02-11 23:20:27 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -191,7 +191,7 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
  (global-semantic-idle-completions-mode -1)
 -(semantic-load-enable-semantic-debugging-helpers)
 +;; (semantic-load-enable-semantic-debugging-helpers)
-+(semantic-load-enable-all-exuberent-ctags-support) 
++;; (semantic-load-enable-all-exuberent-ctags-support) 
  (when window-system
    (global-semantic-tag-folding-mode 1))
  
@@ -214,6 +214,27 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
    ;; system include path
    (if (or mswin cygwin)
        (dolist (mode '(c-mode c++-mode))
+Index: my-lisps/dired-settings.el
+===================================================================
+--- my-lisps/dired-settings.el	(revision 1377)
++++ my-lisps/dired-settings.el	(working copy)
+@@ -2,7 +2,7 @@
+ 
+ ;; Author: ahei <ahei0802@gmail.com>
+ ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/dired-settings.el
+-;; Time-stamp: <2010-11-21 21:15:20 Sunday by taoshanwen>
++;; Time-stamp: <2011-02-14 23:32:52 Monday by lian>
+ 
+ ;; This  file is free  software; you  can redistribute  it and/or
+ ;; modify it under the terms of the GNU General Public License as
+@@ -247,6 +247,7 @@
+        ("C-c M-m"     dired-create-directory)
+        
+        ("C-c C-m"     make-sb)
++       ("C-c C-d"     dired-smart-shell-command)
+        ("C-c m"       make-check-sb)
+        ("C-c M"       make-clean-sb)
+        ("C-c c"       compile-buffer-sb)
 Index: my-lisps/edit-settings.el
 ===================================================================
 --- my-lisps/edit-settings.el	(revision 1377)
@@ -236,6 +257,27 @@ Index: my-lisps/edit-settings.el
  
  ;;;###autoload
  (defmacro def-redo-command (fun-name redo undo)
+Index: my-lisps/select-buffer.el
+===================================================================
+--- my-lisps/select-buffer.el	(revision 1377)
++++ my-lisps/select-buffer.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*- 
+ 
+-;; Time-stamp: <2010-12-01 11:58:13 Wednesday by taoshanwen>
++;; Time-stamp: <2011-02-15 13:36:08 Tuesday by lian>
+ 
+ ;;; selecte-buffer.el --- Select buffer like Alt-tab on linux system
+ 
+@@ -48,6 +48,8 @@
+  global-map
+  `(("M-N"   select-buffer-forward)
+    ("M-P"   select-buffer-backward)
++   ("<f10>" select-buffer-forward)
++   ("<f11>" select-buffer-backward)
+    ("C-x t" sb-toggle-keep-buffer)
+    ("M-'"   switch-to-other-buffer)))
+ 
 Index: my-lisps/sourcepair-settings.el
 ===================================================================
 --- my-lisps/sourcepair-settings.el	(revision 1377)

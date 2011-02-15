@@ -33,6 +33,7 @@
 \bind "C-c C-v" "buffer-view pdf2"
 \bind "C-c C-i" "space-insert hfill"
 \bind "C-c C-o" "next-inset-toggle"
+\bind "C-c C-s" "dialog-show document"
 \bind "C-x C-w" "cut"
 \bind "C-w" "word-delete-backward"
 \bind "C-i" "command-alternatives completion-accept;cell-forward;tab-insert;depth-increment;outline-in"
