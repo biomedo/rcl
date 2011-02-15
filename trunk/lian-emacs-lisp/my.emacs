@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-15 17:16:37 Tuesday by lian>
+;; Time-stamp: <2011-02-15 20:06:40 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -17,21 +17,20 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
+;; all the lian-personal path settings stored in lian-info
 (require 'lian-info)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; c++ header file path and tags table and source path 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 (setq tags-table-list lian-tags-table-list)
 
 
-;; (define-key-list
-;;   global-map
-;;   `(("C-x G 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
-;;     ("C-x G 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
-;;     ("C-x G 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
-;;     ("C-x G 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
-;;     ("C-x G 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
-;;     ("C-x G 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Jump to my working dir
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-key-list
   global-map
   `(("C-x J e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
@@ -44,66 +43,12 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Matlab
+;; Matlab settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'matlab-settings)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;AUCTeX 
+;; iBuffer settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (load "auctex.el" nil t t)
-;; (load "tex-site.el" nil t t)
-;; (load "preview-latex.el" nil t t)
-
-;; (setq TeX-electric-escape t)
-;; (setq LaTeX-math-mode t)
-
-;; (setq TeX-auto-save t)
-;; (setq TeX-parse-self t)
-;; (setq-default TeX-master nil)
-
-;; (setq TeX-auto-untabify t) ;; 不使用 TAB字符缩进
-;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
-;; (setq TeX-newline-function 'newline-and-indent) ;;回车时自动缩进
-
-;; ;; (add-hook 'LaTeX-mode-hook #'LaTeX-install-toolbar)
-;; (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-
-;; (autoload 'LaTeX-preview-setup "preview")
-;; ;; (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
-
-;; (autoload 'reftex-mode "reftex" "RefTeX Minor Mode" t)
-;; (autoload 'turn-on-reftex "reftex" "RefTeX Minor Mode" nil)
-;; (autoload 'reftex-citation "reftex-cite" "Make citation" nil)
-;; (autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)                        
-;; (setq reftex-plug-into-AUCTeX t)
-
-;; (setq reftex-revisit-to-follow t
-;;       reftex-auto-recenter-toc t)
-;; (add-hook 'TeX-mode-hook
-;;           (lambda ()
-;;             (setq reftex-plug-into-AUCTeX t)
-;;             (turn-on-reftex)
-;;             ))
-
-;;把beamer的frametitle也放入reftex目录缓冲中，但需要把\frametitle写在行首
-;; (setq reftex-section-levels
-;;       '(("part" . 0) ("chapter" . 1) ("section" . 2) 
-;; ("subsection" . 3)
-;;         ("frametitle" . 4) ("subsubsection" . 4) 
-;; ("paragraph" . 5)
-;;         ("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
-
-;;bibtex的设置
-;; (setq bibtex-autokey-names 1
-;;       bibtex-autokey-names-stretch 1
-;;       bibtex-autokey-name-separator "-"
-;;       bibtex-autokey-additional-names "-et.al."
-;;       bibtex-autokey-name-case-convert 'identity
-;;       bibtex-autokey-name-year-separator "-"
-;;       bibtex-autokey-titlewords-stretch 0
-;;       bibtex-autokey-titlewords 0
-;;       bibtex-maintain-sorted-entries 'plain
-;;       bibtex-entry-format '(opts-or-alts numerical-fields))
+(require 'wuxch-buffer-settings)
