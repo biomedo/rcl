@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-15 20:06:40 Tuesday by lian>
+;; Time-stamp: <2011-02-20 11:59:57 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,7 +26,9 @@
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 (setq tags-table-list lian-tags-table-list)
-
+(global-set-key (kbd "<C-f10>") 'find-tag)
+;; (global-set-key (kbd "<C-f11>") (lambda () (interactive "findt-ag-next")(find-tag "" t)))
+(global-set-key (kbd "<M-f10>") 'tags-apropos)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Jump to my working dir
@@ -41,12 +43,10 @@
     ("C-x J 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
     ("C-x J 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Matlab settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'matlab-settings)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; iBuffer settings
