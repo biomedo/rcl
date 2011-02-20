@@ -59,6 +59,7 @@
 ;; 启动ibuffer
 (require 'ibuffer)
 ;; (global-set-key [(control x)(control b)] 'ibuffer)
+(global-set-key (kbd "<C-f9>") 'ibuffer)
 
 ;; (defun wuxch-pop-ibuffer-one-window ()
 ;;   ""
