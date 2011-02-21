@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-21 12:43:46 Monday by lian>
+;; Time-stamp: <2011-02-21 16:04:57 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 (setq tags-table-list lian-tags-table-list)
 (global-set-key (kbd "<C-f10>") 'find-tag)
-;; (global-set-key (kbd "<C-f11>") (lambda () (interactive "findt-ag-next")(find-tag "" t)))
+(global-set-key (kbd "<C-f11>") (lambda () (interactive)(find-tag "" t)))
 (global-set-key (kbd "<M-f10>") 'tags-apropos)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -36,6 +36,7 @@
 (define-key-list
   global-map
   `(("C-x J e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
+    ("C-x J h" (lambda () (interactive)(dired "~")))
     ("C-x J 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-x J 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-x J 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
@@ -53,4 +54,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'wuxch-buffer-settings)
 
-(require 'wuxch-tex-settings)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; lyx settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq auto-mode-alist (cons '("\\.lyx\\'" . latex-mode) auto-mode-alist))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; tex settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'latex-settings)

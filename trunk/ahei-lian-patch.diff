@@ -48,7 +48,7 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
-+;; Time-stamp: <2011-02-08 01:59:42 Tuesday by lian>
++;; Time-stamp: <2011-02-21 18:37:06 Monday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -174,14 +174,14 @@ Index: .emacs
 +(load "~/my.emacs" t) 
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1377)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1378)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
 -;; Time-stamp: <2010-11-30 11:42:06 Tuesday by taoshanwen>
-+;; Time-stamp: <2011-02-11 23:20:27 Friday by lian>
++;; Time-stamp: <2011-02-18 18:54:57 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -195,7 +195,15 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
  (when window-system
    (global-semantic-tag-folding-mode 1))
  
-@@ -98,7 +99,18 @@
+@@ -35,6 +36,7 @@
+    `(c-mode-base-map makefile-gmake-mode-map python-mode-map perl-mode-map sh-mode-map)
+    `(("C-c C-j" semantic-ia-fast-jump)
+      ("C-c j"   semantic-complete-jump-local)
++     ("C-c u" semantic-debug-idle-work-function)
+      ("C-c n"   senator-next-tag)
+      ("C-c p"   senator-previous-tag)
+      ("C-c M-m" semantic-goto-local-main)
+@@ -98,7 +100,18 @@
     'emaci-mode-map
     `(("." emaci-.)
       ("," emaci-\,)))
@@ -452,6 +460,31 @@ Index: my-lisps/compile-settings.el
  
    (eal-define-keys
     makefile-mode-map-list
+Index: my-lisps/yasnippet-settings.el
+===================================================================
+--- my-lisps/yasnippet-settings.el	(revision 1377)
++++ my-lisps/yasnippet-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-04-26 10:22:22 Monday by ahei>
++;; Time-stamp: <2011-02-21 19:10:22 Monday by lian>
+ 
+ (require 'yasnippet)
+ 
+@@ -31,9 +31,9 @@
+  `(("M-j"     yas/next-field-or-maybe-expand)
+    ("M-k"     yas/prev-field)))
+ 
+-(eal-define-keys
+- 'yas/minor-mode-map
+- `(("C-c C-f" yas/find-snippets)))
++;; (eal-define-keys
++;;  'yas/minor-mode-map
++;;  `(("C-c C-f" yas/find-snippets)))
+ 
+ (eval-after-load "yasnippet"
+   `(yasnippet-settings))
 Index: my-lisps/dev-settings.el
 ===================================================================
 --- my-lisps/dev-settings.el	(revision 1377)
@@ -460,7 +493,7 @@ Index: my-lisps/dev-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-11-29 14:42:43 Monday by taoshanwen>
-+;; Time-stamp: <2010-12-16 12:21:47 Thursday by lian>
++;; Time-stamp: <2011-02-19 21:09:36 Saturday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -473,6 +506,26 @@ Index: my-lisps/dev-settings.el
  
  (defun skeleton-c-mode-left-brace (arg)
    (interactive "P")
+@@ -92,15 +92,15 @@
+ ;; cedet 强大的开发工具, 包括代码浏览, 补全, 类图生成
+ ;; 用CEDET浏览和编辑C++代码 http://emacser.com/cedet.htm
+ ;; Emacs才是世界上最强大的IDE － cedet的安装 http://emacser.com/install-cedet.htm
+-(require 'cedet-settings)
++;; (require 'cedet-settings)
+ 
+ ;; ecb 代码浏览器
+-(require 'ecb-settings)
++;; (require 'ecb-settings)
+ 
+ ;; doxygen
+-(require 'doxymacs-settings)
++;; (require 'doxymacs-settings)
+ 
+-(require 'autoconf-mode-settings)
++;; (require 'autoconf-mode-settings)
+ 
+ ;; 像Eclipse那样高亮光标处单词
+ (require 'highlight-symbol-settings)
 @@ -174,6 +174,7 @@
       (message (concat "Wrote " (buffer-file-name))))))
  
