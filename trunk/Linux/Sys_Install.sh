@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2011-02-10 19:51:22 Thursday by lian>
+# Time-stamp: <2011-02-15 23:24:14 Tuesday by lian>
 
 # @version 1.0
 # @author ahei
@@ -14,7 +14,7 @@ apt-get -y install texlive-base
 apt-get -y install texlive-base-bin				
 apt-get -y install texlive-common					
 apt-get -y install texlive-doc-base				
-apt-get -y install texlive-extra-utils				
+apt-get -y install texlive-extra-utils
 apt-get -y install texlive-fonts-recommended
 apt-get -y install texlive-latex-base				
 apt-get -y install texlive-latex-extra				
