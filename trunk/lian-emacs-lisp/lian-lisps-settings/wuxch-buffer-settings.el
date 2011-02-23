@@ -162,7 +162,10 @@
                      (mode . c++-mode)
                      (mode . c-mode)
                      (mode . java-mode)
-                     (mode . matlab-mode)))))
+                     (mode . latex-mode)
+                     (mode . matlab-mode)))
+          ("tex-tmp" (name . "_region_.tex"))
+          ))
   
   ;; (setq ibuffer-fontification-alist
   ;;       (append ibuffer-fontification-alist
