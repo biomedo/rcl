@@ -48,7 +48,7 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
-+;; Time-stamp: <2011-02-21 18:37:06 Monday by lian>
++;; Time-stamp: <2011-02-23 01:08:43 Wednesday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -439,6 +439,44 @@ Index: my-lisps/isearch-face-settings.el
    (custom-set-faces '(isearch-fail ((((class color)) (:background "red"))))))
  
  (eval-after-load "isearch"
+Index: my-lisps/auto-complete-settings.el
+===================================================================
+--- my-lisps/auto-complete-settings.el	(revision 1377)
++++ my-lisps/auto-complete-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-12-03 16:55:07 Friday by taoshanwen>
++;; Time-stamp: <2011-02-23 17:47:11 Wednesday by lian>
+ 
+ (require 'auto-complete-config)
+ (require 'auto-complete+)
+@@ -189,6 +189,15 @@
+           ac-source-files-in-current-dir
+           ac-source-filename)))
+ 
++(defun ac-settings-4-latex ()
++  (setq ac-sources
++        '(ac-source-yasnippet
++          ac-source-abbrev
++          ac-source-words-in-buffer
++          ac-source-words-in-same-mode-buffers
++          ac-source-files-in-current-dir
++          ac-source-filename)))
++
+ (am-add-hooks
+  `(lisp-mode-hook emacs-lisp-mode-hook lisp-interaction-mode-hook
+                   svn-log-edit-mode-hook change-log-mode-hook)
+@@ -205,7 +214,8 @@
+    ('ruby-mode-hook   'ac-settings-4-ruby)
+    ('html-mode-hook   'ac-settings-4-html)
+    ('awk-mode-hook    'ac-settings-4-awk)
+-   ('tcl-mode-hook    'ac-settings-4-tcl)))
++   ('tcl-mode-hook    'ac-settings-4-tcl)
++   ('tcl-mode-hook    'ac-settings-4-latex)))
+ 
+ (eal-eval-by-modes
+  ac-modes
 Index: my-lisps/compile-settings.el
 ===================================================================
 --- my-lisps/compile-settings.el	(revision 1377)
@@ -468,20 +506,24 @@ Index: my-lisps/yasnippet-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-04-26 10:22:22 Monday by ahei>
-+;; Time-stamp: <2011-02-21 19:10:22 Monday by lian>
++;; Time-stamp: <2011-02-23 18:11:03 Wednesday by lian>
  
  (require 'yasnippet)
  
-@@ -31,9 +31,9 @@
-  `(("M-j"     yas/next-field-or-maybe-expand)
-    ("M-k"     yas/prev-field)))
+@@ -8,6 +8,7 @@
  
--(eal-define-keys
-- 'yas/minor-mode-map
+ (defun yasnippet-settings ()
+   "settings for `yasnippet'."
++  (setq yas/prompt-functions '(yas/ido-prompt yas/x-prompt yas/dropdown-prompt))
+   (setq yas/root-directory (concat my-emacs-path "snippets"))
+ 
+   (defun yasnippet-unbind-trigger-key ()
+@@ -33,7 +34,7 @@
+ 
+ (eal-define-keys
+  'yas/minor-mode-map
 - `(("C-c C-f" yas/find-snippets)))
-+;; (eal-define-keys
-+;;  'yas/minor-mode-map
-+;;  `(("C-c C-f" yas/find-snippets)))
++ `(("C-c F" yas/find-snippets)))
  
  (eval-after-load "yasnippet"
    `(yasnippet-settings))

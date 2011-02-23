@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomKeySet derivedfrom="Emacs" modifieddefault="false">
+   <Context id="Global">
+      <Action id="insert-break">
+         <Stroke code="VK_ENTER"/>
+         <Stroke code="VK_J" ctrl="on"/>
+         <Stroke code="VK_M" ctrl="on"/>
+      </Action>
+      <Action id="delete-previous">
+         <Stroke code="VK_BACK_SPACE"/>
+         <Stroke code="VK_BACK_SPACE" shift="on"/>
+         <Stroke code="VK_H" ctrl="on"/>
+      </Action>
+      <Action id="comment">
+         <Sequence>
+            <Stroke code="VK_C" ctrl="on"/>
+            <Stroke code="VK_C" ctrl="on"/>
+         </Sequence>
+      </Action>
+      <Action id="selection-backward">
+         <Stroke code="VK_LEFT" shift="on"/>
+         <Stroke alt="on" code="VK_B" ctrl="on"/>
+         <Stroke code="VK_KP_LEFT" shift="on"/>
+         <Stroke code="VK_B" ctrl="on" meta="on"/>
+      </Action>
+      <Action id="undo">
+         <Stroke code="VK_MINUS" ctrl="on" shift="on"/>
+         <Stroke code="VK_UNDERSCORE" ctrl="on"/>
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_U"/>
+         </Sequence>
+         <Stroke code="VK_Z" ctrl="on"/>
+         <Stroke code="VK_SLASH" ctrl="on"/>
+      </Action>
+      <Action id="find-files"/>
+      <Action id="insert-tab">
+         <Stroke code="VK_TAB"/>
+         <Stroke code="VK_I" ctrl="on"/>
+      </Action>
+      <Action id="find-and-replace">
+         <Stroke alt="on" code="VK_R"/>
+         <Stroke code="VK_R" meta="on"/>
+      </Action>
+      <Action id="uncomment">
+         <Stroke code="VK_T" ctrl="on"/>
+         <Sequence>
+            <Stroke code="VK_C" ctrl="on"/>
+            <Stroke code="VK_X" ctrl="on"/>
+         </Sequence>
+      </Action>
+      <Action id="selection-end-line">
+         <Stroke code="VK_END" shift="on"/>
+         <Stroke alt="on" code="VK_E" ctrl="on"/>
+         <Stroke code="VK_E" ctrl="on" meta="on"/>
+      </Action>
+      <Action id="open-mlint-message"/>
+      <Action id="selection-forward">
+         <Stroke code="VK_RIGHT" shift="on"/>
+         <Stroke alt="on" code="VK_F" ctrl="on"/>
+         <Stroke code="VK_KP_RIGHT" shift="on"/>
+         <Stroke code="VK_F" ctrl="on" meta="on"/>
+      </Action>
+      <Action id="clear-text-at-prompt">
+         <Stroke code="VK_ESCAPE"/>
+      </Action>
+      <Action id="evaluate-selection">
+         <Stroke code="VK_F9"/>
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_X" ctrl="on"/>
+         </Sequence>
+      </Action>
+      <Action id="page-up">
+         <Stroke code="VK_PAGE_UP"/>
+         <Stroke alt="on" code="VK_V"/>
+         <Stroke code="VK_U" ctrl="on"/>
+         <Stroke code="VK_V" meta="on"/>
+      </Action>
+   </Context>
+   <Context id="DeployTool">
+      <Action id="open-selection">
+         <Stroke code="VK_ENTER"/>
+         <Stroke code="VK_J" ctrl="on"/>
+      </Action>
+   </Context>
+</CustomKeySet>
