@@ -5,19 +5,19 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-alias cdi="cd /cassini/struct/lian/develop/BatchCalculation"
-
-
 #################for GNU#####################
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
 #################End for GNU#################
 
+alias cdi="cd /cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20"
+export cdi=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20
+
 #===============================All Self Compiled library, Taucs or SuperLU Direct Sover=========================================
 export DEVROOT=/glouton/struct/$USER/develop
-
-#===============================The same as develop, except ITK_Utility,Homog using PetscSeq=====================================
-#export DEVROOT=/glouton/struct/$USER/develop-alternative
+#===============================The same as develop=====================================
+export DEVROOT=/glouton/struct/$USER/develop-alternative
+# export DEVROOT=/glouton/struct/$USER/develop-alternative-2
 
 #===============================The same as develop-alternative only change the code homog ======================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-homog
@@ -43,6 +43,7 @@ alias itksnap='/glouton/struct/lian/develop/tools/bin/itksnap64/bin/itksnap &'
 alias paraview='/glouton/struct/lian/develop/tools/packages/ParaView-3.8.1-Linux-x86_64/bin/paraview'
 alias r='./main ./data/main.dat'
 alias gm='/glouton/struct/lian/develop/tools/bin/gmsh'
+# alias ctags='/glouton/struct/lian/develop/tools/sources/ctags/build_x86_64/bin/ctags'
 
 #---- Compressions
 tarc ()  { tar czvf $1.tar.gz $1; }
@@ -82,12 +83,20 @@ alias mst="make setup NODEP=1"
 alias msto="make setup NODEP=1 VERS=opt"
 alias makej="make -j8 NODEP=1"
 alias makejo="make -j8 NODEP=1 VERS=opt"
-alias makea="mst; msto; makej; makejo;"
+alias mj="make -j8 NODEP=1 VERS=opt"
+# alias ma="mdc; mst; makej;"
+alias ma="mdc; msto; makejo;"
 alias so="cdbuild && make builda && cd -;"
 # emacs client for fast launching emacs 
 # em () { emacsclient -t -a "" $1; }
 #emc () { emacsclient -c -a "" $1; }
-alias yshnodex="qsub -l select=1:ncpus=1:mem=8Gb -I"
+alias yshnode2gb="qsub -l select=1:ncpus=1:mem=2Gb -I"
+alias yshnode4gb="qsub -l select=1:ncpus=1:mem=4Gb -I"
+alias yshnode6gb="qsub -l select=1:ncpus=1:mem=6Gb -I"
+alias yshnode8gb="qsub -l select=1:ncpus=1:mem=8Gb -I"
+alias yshnode10gb="qsub -l select=1:ncpus=1:mem=10Gb -I"
+alias yshnode12gb="qsub -l select=1:ncpus=1:mem=12b -I"
+yshnodexgb () { qsub -l select=1:ncpus=1:mem=$1Gb -I; }
 em () { emacs -q -nw $1; }
 emlocal () { LC_CTYPE=zh_CN.utf8 emacs -nw $1; }
 # emlocal () { TERM=xterm-256color LC_CTYPE=zh_CN.utf8 emacs -nw $1; }
@@ -130,7 +139,7 @@ fi
 #---- Couleur
 if [ "$PS1" ]; then
     PS1='[${debian_chroot:+($debian_chroot)}\[\033[0;31m\]\u@\h\[\033[0;0m\]:\[\033[0;33m\]\W\[\033[0;0m\]]\$ '
-    PS1='\[\033[0;0m\][${debian_chroot:+($debian_chroot)}\[\033[0;31m\]\u@\h\[\033[0;0m\]:\[\033[0;33m\]\W\[\033[0;0m\]] \[\033[0;31m\]\w \[\033[1;34m\]\n\[\033[1;34m\] $ \[\033[0;39m\]'
+    PS1='\[\033[0;0m\][${debian_chroot:+($debian_chroot)}\[\033[0;31m\]\u@\h\[\033[0;0m\]:\[\033[0;33m\]\W\[\033[0;0m\]] \[\033[0;31m\]\w \n \[\033[0;33m\]$ \[\033[0;39m\]'
 
     # PS1='\n\[\033[1;34m\]\342\226\210\342\226\210 \u @ \w\n\[\033[0;36m\]\342\226\210\342\226\210 \t $ \[\033[0;39m\]'
     # PS1='\n\[\033[0;33m\]\342\226\210\342\226\210 \[\033[0;33m\]\W\[\033[0;36m\] \w \[\033[1;34m\] @ \d \t\n\[\033[0;36m\]\342\226\210\342\226\210 [${debian_chroot:+($debian_chroot)}\[\033[0;31m\]\u@\h\[\033[0;0m\]\[\033[0;36m\]] $ \[\033[0;39m\]'
