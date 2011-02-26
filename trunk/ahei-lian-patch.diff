@@ -231,15 +231,36 @@ Index: my-lisps/dired-settings.el
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/dired-settings.el
 -;; Time-stamp: <2010-11-21 21:15:20 Sunday by taoshanwen>
-+;; Time-stamp: <2011-02-14 23:32:52 Monday by lian>
++;; Time-stamp: <2011-02-25 16:16:07 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
-@@ -247,6 +247,7 @@
+@@ -30,6 +30,7 @@
+   "Settings for `dired'."
+ 
+   (setq truncate-lines t)
++  (setq dired-listing-switches "-alh")
+ 
+   (require 'wuxch-dired "my-wuxch-dired")
+   (require 'wuxch-dired-copy-paste "my-wuxch-dired-copy-paste")
+@@ -51,6 +52,11 @@
+   ;; 让你能够在dired-mode里面使用只对文件名部分执行i-search
+   (require 'dired-isearch "my-dired-isearch")
+   
++  (defun find-dired-temp-files ()
++    "display all the temp in current dir and subdir"
++    (interactive)
++    (find-dired default-directory "-name '#*#' -or -name '*~'"))
++  
+   (defun his-dired-sort ()
+     "dired-mode中让目录显示在文件前"
+     (save-excursion
+@@ -247,6 +253,8 @@
         ("C-c M-m"     dired-create-directory)
         
         ("C-c C-m"     make-sb)
 +       ("C-c C-d"     dired-smart-shell-command)
++       ("C-c C-r"     find-dired-temp-files)
         ("C-c m"       make-check-sb)
         ("C-c M"       make-clean-sb)
         ("C-c c"       compile-buffer-sb)
@@ -327,11 +348,20 @@ Index: my-lisps/c-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-08-29 18:34:06 Sunday by taoshanwen>
-+;; Time-stamp: <2011-01-29 02:17:18 Saturday by lian>
++;; Time-stamp: <2011-02-25 17:59:41 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
-@@ -43,6 +43,7 @@
+@@ -28,6 +28,8 @@
+  `(("C-h"     c-electric-backspace)
+    ("C-c M-a" beginning-of-defun)
+    ("C-c M-e" end-of-defun)
++   ("C-c C-j" find-tag)
++   ("C-c j" (lambda () (interactive)(find-tag "" t)))
+    ("C-c M-F" copy-current-fun-name)))
+ 
+ (defun cc-mode-settings ()
+@@ -43,6 +45,7 @@
    (add-hook 'c-mode-common-hook 'c-mode-common-hook-settings)
  
    (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
@@ -498,6 +528,33 @@ Index: my-lisps/compile-settings.el
  
    (eal-define-keys
     makefile-mode-map-list
+Index: my-lisps/multi-term-settings.el
+===================================================================
+--- my-lisps/multi-term-settings.el	(revision 1377)
++++ my-lisps/multi-term-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-11-24 17:26:01 Wednesday by taoshanwen>
++;; Time-stamp: <2011-02-25 15:14:52 Friday by lian>
+ 
+ (require 'multi-term)
+ 
+@@ -70,12 +70,13 @@
+  term-bind-key-alist
+  `(("C-c"   . term-send-raw)
+    ("C-p"   . term-send-raw)
++   ("C-u"   . cua-scroll-down)
+    ("C-n"   . term-send-raw)
+    ("C-s"   . isearch-forward)
+    ("C-r"   . term-send-raw)
+    ("C-m"   . term-send-raw)
+    ("C-k"   . term-send-kill-whole-line)
+-   ("C-y"   . term-send-raw)
++   ("C-y"   . term-send-yank)
+    (,(if window-system "C-/" "C-_") . term-send-undo)
+    ("C-M-h" . term-send-backward-kill-semi-word)
+    ("M-H"   . enter-text-mode)
 Index: my-lisps/yasnippet-settings.el
 ===================================================================
 --- my-lisps/yasnippet-settings.el	(revision 1377)

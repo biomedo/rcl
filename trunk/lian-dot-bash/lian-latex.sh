@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2011-02-23 19:32:29 Wednesday by lian>
+# Time-stamp: <2011-02-24 17:24:32 Thursday by lian>
 
 # @version 1.0
 # @author lian
@@ -13,4 +13,4 @@ bibtex ${texdoc}
 pdflatex ${texdoc}
 pdflatex ${texdoc}
 # okular master.pdf --unique
-evince ${pdfdoc}
+evince -w ${pdfdoc}
