@@ -1,0 +1,194 @@
+# -*- text -*-
+
+# file math.bind
+# This file is part of LyX, the document processor.
+# Licence details can be found in the file COPYING.
+
+# author John Weiss
+# author Alejandro Aguilar Sierra
+# author Lars Gullik Bjønnes
+# author Jean-Marc Lasgouttes
+# author John Levon
+# author André Pönitz
+# author Michael Gerz
+# author Martin Vermeer
+
+# Full author contact details are available in file CREDITS.
+
+# This file provides math mode keys.  Most were suggested by John Weiss
+# and modified by Alejandro Aguilar Sierra to be used with different
+# keyboard layouts.
+#
+# This file is automatically included from the main bind file.
+#
+# DO NOT CHANGE THIS BINDING FILE! It will be replaced
+# with every new install of LyX and your changes will be lost.
+# Instead, copy it to ~/.lyx/bind/math.bind and modify that copy.
+
+# Note that the order of these is important.  If you put the bindings
+# that need "period" and "parenleft" first, they flood the minibuffer
+# and make the keybinding hints impossible to read.  That's why they're
+# at the end.
+
+# These are defined for the math menu:
+
+\bind "C-j f"			"math-insert \frac"
+\bind "C-j s"			"math-insert \sqrt"
+\bind "C-j x"			"math-subscript"
+\bind "C-j e"			"math-superscript"
+
+\bind "C-j u"			"math-insert \sum"
+\bind "C-j i"			"math-insert \int"
+\bind "C-j m"			"math-mode" # produces mathematical text
+\bind "C-j d"			"math-display"
+
+\bind "C-j y"			"math-insert \oint"
+\bind "C-j p"			"math-insert \partial"
+\bind "C-j r"			"math-insert \root"
+\bind "C-j l"			"math-limits"
+\bind "C-j S-L l"		"math-limits limits"
+\bind "C-j S-L n"		"math-limits nolimits"
+\bind "C-j S-L space"		"math-limits empty"
+
+
+\bind "C-j n"			"math-number-toggle"
+\bind "C-j S-N"			"math-number-line-toggle"
+\bind "C-j 8"			"math-insert \infty"
+
+\bind "C-j o 1"   "self-insert \#1"
+\bind "C-j o 2"   "self-insert \#2"
+\bind "C-j o 3"   "self-insert \#3"
+\bind "C-j o 4"   "self-insert \#4"
+\bind "C-j o 5"   "self-insert \#5"
+\bind "C-j o 6"   "self-insert \#6"
+\bind "C-j o 7"   "self-insert \#7"
+\bind "C-j o 8"   "self-insert \#8"
+\bind "C-j o 9"   "self-insert \#9"
+
+\bind "C-j t n"   "math-mutate none"
+\bind "C-j t t"   "math-mutate dump"
+\bind "C-j t a"   "math-mutate align"
+\bind "C-j t i"   "math-mutate simple"
+\bind "C-j t d"   "math-mutate equation"
+\bind "C-j t e"   "math-mutate eqnarray"
+\bind "C-j t m"   "math-mutate multline"
+
+\bind "C-j c i"   "tabular-feature append-column"
+\bind "C-j c d"   "tabular-feature delete-column"
+\bind "C-j c c"   "tabular-feature copy-column"
+\bind "C-j c s"   "tabular-feature swap-column"
+\bind "C-j c a"   "tabular-feature add-vline-left"
+\bind "C-j c e"   "tabular-feature delete-vline-left"
+\bind "C-j c z"   "tabular-feature add-vline-right"
+\bind "C-j c x"   "tabular-feature delete-vline-right"
+
+\bind "C-j w i"   "tabular-feature append-row"
+\bind "C-j w d"   "tabular-feature delete-row"
+\bind "C-j w c"   "tabular-feature copy-row"
+\bind "C-j w s"   "tabular-feature swap-row"
+\bind "C-j w a"   "tabular-feature add-hline-above"
+\bind "C-j w e"   "tabular-feature delete-hline-above"
+\bind "C-j w z"   "tabular-feature add-hline-below"
+\bind "C-j w x"   "tabular-feature delete-hline-below"
+
+\bind "C-j w t"   "tabular-feature valign-top"
+\bind "C-j w m"   "tabular-feature valign-middle"
+\bind "C-j w b"   "tabular-feature valign-bottom"
+\bind "C-j c l"   "tabular-feature align-left"
+\bind "C-j c m"   "tabular-feature align-center"
+\bind "C-j c r"   "tabular-feature align-right"
+
+# Decoration accents
+
+# The accent-circumflex is 'h' for 'hat', which is what most math
+# folks call it verbally.
+
+\bind "C-j ~S-quotedbl"		"math-insert \ddot"
+\bind "C-j h"				"math-insert \hat"
+\bind "C-j ~C-~M-~S-backslash"	"math-insert \grave"
+\bind "C-j ~S-slash"		"math-insert \acute"
+\bind "C-j ~C-~M-~S-ampersand"	"math-insert \tilde"
+\bind "C-j ~S-minus"		"math-insert \bar"
+\bind "C-j ~S-period"		"math-insert \dot"
+\bind "C-j S-V"				"math-insert \check"
+\bind "C-j S-U"				"math-insert \breve"
+\bind "C-j v"				"math-insert \vec"
+\bind "C-j ~S-underscore"	"math-insert \underbar"
+
+\bind "C-j b"			"math-insert \overline"
+\bind "C-j ~S-apostrophe"	"math-insert \prime"
+
+# These do pairs of: () {} [] <> ||
+
+\bind "C-j ~S-parenleft"	"math-delim ( )"
+\bind "C-j ~C-~M-~S-bracketleft" "math-delim [ ]"
+\bind "C-j ~C-~M-~S-braceleft"	"math-delim { }"
+\bind "C-j ~S-less"		"math-delim langle rangle" # produces < >
+\bind "C-j ~S-greater"		"math-delim rangle langle" # produces > <
+\bind "C-j ~C-~M-~S-bar"	"math-delim | |"
+
+
+# Note: it's easy to insert binary relations like \pm, \mp, \neq, \geq,
+# and \leq just by typing them. However it's easier to remember these:
+
+\bind "C-j ~S-plus"    "math-insert \pm"
+\bind "C-j ~S-equal"   "math-insert \neq"
+
+\bind "Escape"         "escape"
+\bind "C-j space"      "math-space"
+# FIXME: find another shortcut for cell-split as C-Tab is used for buffer-next
+# in 'cua.bind'.
+#\bind "C-Tab"          "cell-split"
+
+# math-macros
+\bind "C-plus"         "math-macro-unfold"
+# Defined in cua.bind as command-alternative to specialchar-insert hyphenation
+#\bind "C-minus"        "math-macro-fold"
+
+# This should be handled properly by some "get the next key" method
+
+\bind "C-j g a"      "math-insert \alpha"
+\bind "C-j g b"      "math-insert \beta"
+\bind "C-j g c"      "math-insert \chi"
+\bind "C-j g d"      "math-insert \delta"
+\bind "C-j g e"      "math-insert \epsilon"
+\bind "C-j g f"      "math-insert \phi"
+\bind "C-j g g"      "math-insert \gamma"
+\bind "C-j g h"      "math-insert \eta"
+\bind "C-j g i"      "math-insert \iota"
+\bind "C-j g j"      "math-insert \varphi"
+\bind "C-j g k"      "math-insert \kappa"
+\bind "C-j g l"      "math-insert \lambda"
+\bind "C-j g m"      "math-insert \mu"
+\bind "C-j g n"      "math-insert \nu"
+\bind "C-j g o"      "math-insert \omega"
+\bind "C-j g p"      "math-insert \pi"
+\bind "C-j g q"      "math-insert \vartheta"
+\bind "C-j g r"      "math-insert \rho"
+\bind "C-j g s"      "math-insert \sigma"
+\bind "C-j g t"      "math-insert \tau"
+\bind "C-j g u"      "math-insert \upsilon"
+\bind "C-j g v"      "math-insert \theta"
+\bind "C-j g w"      "math-insert \omega"
+\bind "C-j g x"      "math-insert \xi"
+\bind "C-j g y"      "math-insert \psi"
+\bind "C-j g z"      "math-insert \zeta"
+
+\bind "C-j g S-D"    "math-insert \Delta"
+\bind "C-j g S-E"    "math-insert \varepsilon"
+\bind "C-j g S-F"    "math-insert \Phi"
+\bind "C-j g S-G"    "math-insert \Gamma"
+\bind "C-j g S-I"    "math-insert \iota"
+\bind "C-j g S-J"    "math-insert \epsilon"
+\bind "C-j g S-L"    "math-insert \Lambda"
+\bind "C-j g S-O"    "math-insert \Omega"
+\bind "C-j g S-P"    "math-insert \Pi"
+\bind "C-j g S-Q"    "math-insert \vartheta"
+\bind "C-j g S-R"    "math-insert \varrho"
+\bind "C-j g S-S"    "math-insert \Sigma"
+\bind "C-j g S-T"    "math-insert \varsigma"
+\bind "C-j g S-U"    "math-insert \Upsilon"
+\bind "C-j g S-V"    "math-insert \Theta"
+\bind "C-j g S-W"    "math-insert \Omega"
+\bind "C-j g S-X"    "math-insert \Xi"
+\bind "C-j g S-Y"    "math-insert \Psi"

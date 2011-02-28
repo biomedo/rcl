@@ -1,0 +1,159 @@
+# -*- text -*-
+
+# file menus.bind
+# This file is part of LyX, the document processor.
+# Licence details can be found in the file COPYING.
+
+# author Lars Gullik Bjønnes
+# author Jean-Marc Lasgouttes
+# author Michael Gerz
+# author Jürgen Vigna
+
+# Full author contact details are available in file CREDITS.
+
+# Key bindings for so-called "invisible" menus
+
+#
+# Insert menu
+#
+
+# These ones are not supported anymore.
+#\bind "M-i minus"		"specialchar-insert hyphenation"
+#\bind "M-i p"			"specialchar-insert dots"
+#\bind "M-i e"			"specialchar-insert end-of-sentence"
+#\bind "M-i q"			"quote-insert"
+#\bind "M-i apostrophe"		"quote-insert"
+#\bind "M-i S-quotedbl"		"quote-insert"
+#\bind "M-i s h"		"space-insert hfill"
+#\bind "M-i s minus"		"specialchar-insert hyphenation"
+
+#
+# Font size menu
+#
+
+\bind "M-s t"			"font-size tiny"
+\bind "M-s S-S"			"font-size footnotesize"
+\bind "M-s s"			"font-size small"
+\bind "M-s n"			"font-size normal"
+\bind "M-s l"			"font-size large"
+\bind "M-s S-L"			"font-size larger"
+\bind "M-s h"			"font-size huge"
+\bind "M-s S-H"			"font-size giant"
+
+\bind "M-s ~S-1"		"font-size tiny"
+\bind "M-s ~S-2"		"font-size scriptsize"
+\bind "M-s ~S-3"		"font-size footnotesize"
+\bind "M-s ~S-4"		"font-size small"
+\bind "M-s ~S-5"		"font-size normal"
+\bind "M-s ~S-6"		"font-size large"
+\bind "M-s ~S-7"		"font-size larger"
+\bind "M-s ~S-8"		"font-size largest"
+\bind "M-s ~S-9"		"font-size huge"
+\bind "M-s ~S-0"		"font-size giant"
+
+\bind "M-s ~S-plus"		"font-size increase"
+\bind "M-s ~S-minus"		"font-size decrease"
+
+
+#
+# Paragraph menu
+#
+
+\bind "M-a l"			"paragraph-params \align left"
+\bind "M-a r"			"paragraph-params \align right"
+\bind "M-a c"			"paragraph-params \align center"
+# It's called Justified in the UI
+\bind "M-a j"			"paragraph-params \align block"
+\bind "M-a e"			"paragraph-params \align default"
+\bind "M-a i"			"paragraph-params \indent-toggle"
+\bind "M-a s"			"paragraph-params \paragraph_spacing single"
+\bind "M-a o"			"paragraph-params \paragraph_spacing onehalf"
+\bind "M-a d"			"paragraph-params \paragraph_spacing double"
+\bind "M-a f"			"paragraph-params \paragraph_spacing default"
+
+
+#
+# Paragraph style menu
+#
+
+\bind "C-o ~S-0"		"layout Part"
+\bind "C-o ~S-1"		"layout Chapter"
+\bind "C-o ~S-2"		"layout Section"
+\bind "C-o ~S-3"		"layout Subsection"
+\bind "C-o ~S-4"		"layout Subsubsection"
+\bind "C-o ~S-5"		"layout Paragraph"
+\bind "C-o ~S-6"		"layout Subparagraph"
+\bind "C-o ~S-asterisk ~S-0"	"layout Part*"
+\bind "C-o ~S-asterisk ~S-1"	"layout Chapter*"
+\bind "C-o ~S-asterisk ~S-2"	"layout Section*"
+\bind "C-o ~S-asterisk ~S-3"	"layout Subsection*"
+\bind "C-o ~S-asterisk ~S-4"	"layout Subsubsection*"
+\bind "C-o ~S-asterisk ~S-5"	"layout Paragraph*"
+\bind "C-o ~S-asterisk ~S-6"	"layout Subparagraph*"
+\bind "C-o a"			"layout Abstract"
+\bind "C-o S-A"			"layout Author"
+\bind "C-o M-a"			"layout Address"
+\bind "C-o C-a"			"layout Right_Address"
+\bind "C-o b"			"layout Itemize"	# bulleted list
+\bind "C-o S-B"			"layout Bibliography"
+\bind "C-o c"			"layout LyX-Code"
+\bind "C-o S-C"			"layout Comment"
+\bind "C-o d"			"layout Description"
+\bind "C-o S-D"			"layout Date"
+\bind "C-o e"			"layout Enumerate"	# numbered list
+\bind "C-o f"			"layout ShortFoilhead"	# Foils!!
+\bind "C-o S-F"			"layout Foilhead"	# Foils!!
+\bind "C-o i"			"layout Itemize"	# bulleted list
+\bind "C-o l"			"layout List"
+\bind "C-o S-L"			"layout LaTeX"
+\bind "C-o n"			"layout Enumerate"	# numbered list
+\bind "C-o q"			"layout Quote"
+\bind "C-o S-Q"			"layout Quotation"
+\bind "C-o r"			"layout ShortRotatefoilhead"	# Foils!!
+\bind "C-o S-R"			"layout Rotatefoilhead"	# Foils!!
+\bind "C-o s"			"layout Standard"
+\bind "C-o t"			"layout Title"
+\bind "C-o space"		"drop-layouts-choice"
+\bind "C-o v"			"layout Verse"
+
+\bind "C-o Left"		"outline-out"
+\bind "C-o Right"		"outline-in"
+\bind "C-o Up"			"outline-up"
+\bind "C-o Down"		"outline-down"
+
+
+# These are kept for backwards compatibility (only make sense on US keyboard)
+\bind "C-o S-at"		"layout Section*"	# C-o S-2
+\bind "C-o S-dollar"		"layout Subsubsection*"	# C-o S-4
+\bind "C-o S-numbersign"	"layout Subsection*"	# C-o S-3
+
+
+#
+# Character style menu
+#
+
+\bind "M-c b"			"font-boldsymbol"
+\bind "M-c c"			"font-noun"
+\bind "M-c e"			"font-emph"
+\bind "M-c m"			"math-mode"
+\bind "M-c r"			"font-roman"
+\bind "M-c s"			"font-sans"
+#\bind "M-c t"			"ert-insert"
+\bind "M-c u"			"font-underline"
+
+\bind "M-c Down"		"word-lowcase"
+\bind "M-c Up"			"word-upcase"
+\bind "M-c Right"		"word-capitalize"
+
+\bind "M-c space"		"font-default"
+
+
+#
+# Keyboard menu
+#
+
+\bind "M-k 1"			"keymap-primary"
+\bind "M-k 2"			"keymap-secondary"
+\bind "M-k o"			"keymap-off"
+\bind "M-k t"			"keymap-toggle"
+\bind "M-k x"			"keymap-off"
