@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-25 12:19:29 Friday by lian>
+;; Time-stamp: <2011-03-02 19:47:53 Wednesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -31,12 +31,19 @@
 (global-set-key (kbd "<M-f10>") 'tags-apropos)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; alias the emacs command
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'lian-emacs-alias)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Jump to my working dir
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-key-list
   global-map
   `(("C-x J e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-x J h" (lambda () (interactive)(dired "~")))
+    ("C-x J s" bookmark-set)
+    ("C-x J o" bookmark-bmenu-list)
     ("C-x J 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-x J 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-x J 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
