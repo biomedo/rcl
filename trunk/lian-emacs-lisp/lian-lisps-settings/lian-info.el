@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-02-22 11:15:37 Tuesday by lian>
+;; Time-stamp: <2011-03-02 18:17:36 Wednesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -75,9 +75,9 @@
         "/glouton/struct/lian/develop/Applis/ITK_Utility/tags"))
 
 (defconst lian-working-dir
-  (list"/glouton/struct/lian/develop/Applis/ITK_Utility/ITK_Utility"
-        "/glouton/struct/lian/develop/Applis/Homog/Homog"
-        "/glouton/struct/lian/develop"
+  (list (concat (getenv "DEVROOT") "/Applis/ITK_Utility/ITK_Utility")
+        (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
+        (concat (getenv "DEVROOT") "")
         "/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20"
         "~/private/LaTexDoc/"))
 
