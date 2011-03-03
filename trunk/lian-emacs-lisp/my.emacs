@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-02 19:47:53 Wednesday by lian>
+;; Time-stamp: <2011-03-03 16:27:50 Thursday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,18 +38,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Jump to my working dir
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define-prefix-command 'ctl-j-map)
+(global-set-key (kbd "C-j") 'ctl-j-map)
 (define-key-list
   global-map
-  `(("C-x J e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
-    ("C-x J h" (lambda () (interactive)(dired "~")))
-    ("C-x J s" bookmark-set)
-    ("C-x J o" bookmark-bmenu-list)
-    ("C-x J 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
-    ("C-x J 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
-    ("C-x J 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
-    ("C-x J 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
-    ("C-x J 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
-    ("C-x J 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
+  `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
+    ("C-j h" (lambda () (interactive)(dired "~")))
+    ("C-j s" bookmark-set)
+    ("C-j o" bookmark-bmenu-list)
+    ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
+    ("C-j 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
+    ("C-j 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
+    ("C-j 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
+    ("C-j 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
+    ("C-j 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Matlab settings

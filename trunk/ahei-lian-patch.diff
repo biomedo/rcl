@@ -48,7 +48,7 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-01-21 10:55:45 Friday by taoshanwen>
-+;; Time-stamp: <2011-02-23 01:08:43 Wednesday by lian>
++;; Time-stamp: <2011-03-03 16:18:09 Thursday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -83,10 +83,12 @@ Index: .emacs
  
  (require 'apropos-settings)
  (require 'completion-list-mode-settings)
-@@ -275,6 +278,9 @@
+@@ -274,7 +277,10 @@
+    ("ESC M-r" query-replace-regexp-sb)
     ("C-x M-r" query-replace-regexp-sb)
     ("M-z"     zap-to-char-sb)
-    ("C-j"     goto-line)
+-   ("C-j"     goto-line)
++   ("C-M-j"     goto-line)
 +   ("C-x F"   find-dired)
 +   ("C-u"     cua-scroll-down)
 +   ("<f9>"    kill-this-buffer)
@@ -394,6 +396,30 @@ Index: my-lisps/font-settings.el
 +    (set-default-font "Monospace 9")))
  
  (provide 'font-settings)
+Index: my-lisps/ido-settings.el
+===================================================================
+--- my-lisps/ido-settings.el	(revision 1377)
++++ my-lisps/ido-settings.el	(working copy)
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
+ 
+-;; Time-stamp: <2010-08-08 12:04:13 Sunday by taoshanwen>
++;; Time-stamp: <2011-02-26 17:28:16 Saturday by lian>
+ 
+ (if is-before-emacs-21
+     (require 'ido "ido-for-21"))
+@@ -19,6 +19,11 @@
+   (global-set-key (kbd "C-x C-f") 'ido-find-file)
+   (setq ido-max-directory-size 1000000)
+ 
++  ;; disable auto searching for files unless called explicitly
++  (setq ido-auto-merge-delay-time 99999)
++  (define-key ido-file-dir-completion-map (kbd "C-c C-s") 
++    (lambda() (interactive) (ido-initiate-auto-merge (current-buffer))))
++  
+   (defmacro def-ido-enter-command (command)
+     "Make definition of command which execute some command in ido."
+     `(defun ,(am-intern "ido-enter-" command) ()
 Index: my-lisps/vc-settings.el
 ===================================================================
 --- my-lisps/vc-settings.el	(revision 1377)
@@ -477,7 +503,7 @@ Index: my-lisps/auto-complete-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-12-03 16:55:07 Friday by taoshanwen>
-+;; Time-stamp: <2011-02-23 17:47:11 Wednesday by lian>
++;; Time-stamp: <2011-03-02 18:31:21 Wednesday by lian>
  
  (require 'auto-complete-config)
  (require 'auto-complete+)
@@ -503,7 +529,7 @@ Index: my-lisps/auto-complete-settings.el
     ('awk-mode-hook    'ac-settings-4-awk)
 -   ('tcl-mode-hook    'ac-settings-4-tcl)))
 +   ('tcl-mode-hook    'ac-settings-4-tcl)
-+   ('tcl-mode-hook    'ac-settings-4-latex)))
++   ('latex-mode-hook    'ac-settings-4-latex)))
  
  (eal-eval-by-modes
   ac-modes
@@ -592,7 +618,7 @@ Index: my-lisps/dev-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-11-29 14:42:43 Monday by taoshanwen>
-+;; Time-stamp: <2011-02-19 21:09:36 Saturday by lian>
++;; Time-stamp: <2011-03-03 11:00:18 Thursday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -633,3 +659,12 @@ Index: my-lisps/dev-settings.el
  (require 'eldoc-settings)
  
  ;; 自动给你加上括号
+@@ -211,7 +212,7 @@
+                  zjl-hl-settings
+                  ;; 把speedbar放到当前frame里面
+                  sr-speedbar-settings
+-                 codepilot-settings
++                 ;; codepilot-settings
+                  perl-settings
+                  ;; 实现程序变量的自动对齐
+                  align-settings
