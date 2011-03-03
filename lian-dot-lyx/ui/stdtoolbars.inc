@@ -66,21 +66,23 @@ ToolbarSet
 
 	Toolbar "standard" "Standard"
 		Layouts
-		Item "New document" "buffer-new"
-		Item "Open document" "file-open"
+		# Item "New document" "buffer-new"
+		# Item "Open document" "file-open"
 		Item "Save document" "buffer-write"
-		Item "Print document" "dialog-show print"
-		Separator
-		Item "Check spelling" "dialog-show spellchecker"
-		Separator
+		# Item "Print document" "dialog-show print"
+		# Separator
+		# Item "Check spelling" "dialog-show spellchecker"
+		# Separator
 		Item "Undo" "undo"
 		Item "Redo" "redo"
-		Item "Cut" "cut"
-		Item "Copy" "copy"
-		Item "Paste" "paste"
-		Item "Find and replace" "dialog-show findreplace"
-		Item "Navigate back" "bookmark-goto 0"
+		# Item "Cut" "cut"
+		# Item "Copy" "copy"
+		# Item "Paste" "paste"
+		# Item "Find and replace" "dialog-show findreplace"
+		# Item "Navigate back" "bookmark-goto 0"
 		Separator
+		Item "Text style" "dialog-show character"
+		Item "Paragraph settings" "layout-paragraph"
 		Item "Toggle emphasis" "font-emph"
 		Item "Toggle noun" "font-noun"
 		Item "Apply last" "textstyle-apply"
@@ -119,10 +121,10 @@ ToolbarSet
 		Item "Insert TeX code" "ert-insert"
 		Item "Insert math macro" "math-macro newmacroname newcommand"
 		Item "Include file" "dialog-show-new-inset include"
-		Separator
-		Item "Text style" "dialog-show character"
-		Item "Paragraph settings" "layout-paragraph"
-		Item "Thesaurus" "thesaurus-entry"
+		# Separator
+		# Item "Text style" "dialog-show character"
+		# Item "Paragraph settings" "layout-paragraph"
+		# Item "Thesaurus" "thesaurus-entry"
 	End
 	
 	Toolbar "table" "Table"

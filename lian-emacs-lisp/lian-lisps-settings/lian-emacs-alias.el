@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-02 18:20:25 Wednesday by lian>
+;; Time-stamp: <2011-03-03 17:11:02 Thursday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -21,6 +21,12 @@
 ; emacs customization for command aliases
 
 ; shortening of often used commands
+
+
+; edit
+(defalias 'uc 'uncomment)
+(defalias 'ucr 'uncomment-region)
+
 
 (defalias 'rn 'wdired-change-to-wdired-mode) ; rename file in dired
 
