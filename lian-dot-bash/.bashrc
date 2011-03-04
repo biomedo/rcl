@@ -15,6 +15,10 @@ export cdi=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circ
 
 #===============================All Self Compiled library, Taucs or SuperLU Direct Sover=========================================
 export DEVROOT=/glouton/struct/$USER/develop
+export LIAN_EMACS_LISP_DIR=/glouton/struct/lian/develop/tools/svn_cvs/rcl/lian-emacs-lisp
+export LIAN_DOC_LYXTEX_DIR=~/private/TexDocSvn/MyDocLyxTex
+export LIAN_CUR_WORK_DIR=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20
+
 #===============================The same as develop=====================================
 export DEVROOT=/glouton/struct/$USER/develop-alternative
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
