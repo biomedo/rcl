@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-02 18:17:36 Wednesday by lian>
+;; Time-stamp: <2011-03-04 11:48:05 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,64 +23,64 @@
 
 ;; persistent-path
 (defconst lian-source-file-dir
-  (list "/glouton/struct/lian/develop/Xfem/Xfem/Xfem/Xfem"
-        "/glouton/struct/lian/develop/Xext/Xext/Xext"
-        "/glouton/struct/lian/develop/Xext/Octree/Octree"
-        "/glouton/struct/lian/develop/Xext/OctreeInterface/OctreeInterface"
-        "/glouton/struct/lian/develop/SolverInterfaces/SolverBase/SolverBase"
-        "/glouton/struct/lian/develop/SolverInterfaces/SuperLu/SuperLu"
-        "/glouton/struct/lian/develop/SolverInterfaces/Lapack/Lapack"
-        "/glouton/struct/lian/develop/SolverInterfaces/Taucs/Taucs"
-        "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/PetscSeq"
-        "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/NonLinearSolver"
-        "/glouton/struct/lian/develop/Trellis/AOMD/AOMD/src"
-        "/glouton/struct/lian/develop/Trellis/AOMD/Util/Util/src"
-        "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/LinearAlgebra"
-        "/glouton/struct/lian/develop/Applis/Homog/Homog"
-        "/glouton/struct/lian/develop/Applis/ITK_Utility/ITK_Utility"))
+  (list (concat (getenv "DEVROOT") "/Xfem/Xfem/Xfem/Xfem")
+        (concat (getenv "DEVROOT") "/Xext/Xext/Xext")
+        (concat (getenv "DEVROOT") "/Xext/Octree/Octree")
+        (concat (getenv "DEVROOT") "/Xext/OctreeInterface/OctreeInterface")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SolverBase/SolverBase")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SuperLu/SuperLu")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Lapack/Lapack")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Taucs/Taucs")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/PetscSeq")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/NonLinearSolver")
+        (concat (getenv "DEVROOT") "/Trellis/AOMD/AOMD/src")
+        (concat (getenv "DEVROOT") "/Trellis/AOMD/Util/Util/src")
+        (concat (getenv "DEVROOT") "/MeshMachine/LinearAlgebra/LinearAlgebra")
+        (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
+        (concat (getenv "DEVROOT") "/Applis/ITK_Utility/ITK_Utility")))
 ;; my include path
 (defconst lian-head-file-dir
-  (list "/glouton/struct/lian/develop/Xfem/Xfem/include/"
-        "/glouton/struct/lian/develop/Applis/Homog/include"
-        "/glouton/struct/lian/develop/Applis/ITK_Utility/include"
-        "/glouton/struct/lian/develop/Xext/Xext/include"
-        "/glouton/struct/lian/develop/Xext/Octree/include"
-        "/glouton/struct/lian/develop/Xext/OctreeInterface/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/SolverBase/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/SuperLu/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/Lapack/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/Taucs/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/include"
-        "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/include"
-        "/glouton/struct/lian/develop/Trellis/AOMD/include"
-        "/glouton/struct/lian/develop/Trellis/Util/include"
-        "/glouton/struct/lian/develop/Trellis/model/include"
-        "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/include"
-        "/glouton/struct/lian/develop/Applis/Physics/include"))
+  (list (concat (getenv "DEVROOT") "/Xfem/Xfem/include/")
+        (concat (getenv "DEVROOT") "/Applis/Homog/include")
+        (concat (getenv "DEVROOT") "/Applis/ITK_Utility/include")
+        (concat (getenv "DEVROOT") "/Xext/Xext/include")
+        (concat (getenv "DEVROOT") "/Xext/Octree/include")
+        (concat (getenv "DEVROOT") "/Xext/OctreeInterface/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SolverBase/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SuperLu/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Lapack/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Taucs/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/include")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/include")
+        (concat (getenv "DEVROOT") "/Trellis/AOMD/include")
+        (concat (getenv "DEVROOT") "/Trellis/Util/include")
+        (concat (getenv "DEVROOT") "/Trellis/model/include")
+        (concat (getenv "DEVROOT") "/MeshMachine/LinearAlgebra/include")
+        (concat (getenv "DEVROOT") "/Applis/Physics/include")))
 
 (defconst lian-tags-table-list
-  (list "/glouton/struct/lian/develop/Xfem/Xfem/tags"
-        "/glouton/struct/lian/develop/Xext/Xext/tags"
-        "/glouton/struct/lian/develop/Xext/Octree/tags"
-        "/glouton/struct/lian/develop/Xext/OctreeInterface/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/SolverBase/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/SuperLu/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/Lapack/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/Taucs/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/PetscSeq/tags"
-        "/glouton/struct/lian/develop/SolverInterfaces/NonLinearSolver/tags"
-        "/glouton/struct/lian/develop/Trellis/AOMD/tags"
-        "/glouton/struct/lian/develop/MeshMachine/LinearAlgebra/tags"
-        "/glouton/struct/lian/develop/Applis/Homog/tags"
-        "/glouton/struct/lian/develop/Applis/ITK_Utility/tags"))
+  (list (concat (getenv "DEVROOT") "/Xfem/Xfem/tags")
+        (concat (getenv "DEVROOT") "/Xext/Xext/tags")
+        (concat (getenv "DEVROOT") "/Xext/Octree/tags")
+        (concat (getenv "DEVROOT") "/Xext/OctreeInterface/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SolverBase/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/SuperLu/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Lapack/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/Taucs/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/tags")
+        (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/tags")
+        (concat (getenv "DEVROOT") "/Trellis/AOMD/tags")
+        (concat (getenv "DEVROOT") "/MeshMachine/LinearAlgebra/tags")
+        (concat (getenv "DEVROOT") "/Applis/Homog/tags")
+        (concat (getenv "DEVROOT") "/Applis/ITK_Utility/tags")))
 
 (defconst lian-working-dir
   (list (concat (getenv "DEVROOT") "/Applis/ITK_Utility/ITK_Utility")
         (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
         (concat (getenv "DEVROOT") "")
-        "/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20"
-        "~/private/LaTexDoc/"))
+        (getenv "LIAN_CUR_WORK_DIR")
+        (getenv "LIAN_DOC_LYXTEX_DIR")))
 
-(defconst lian-emacs-lisp-dir "/glouton/struct/lian/develop/tools/svn_cvs/rcl/lian-emacs-lisp/")
+(defconst lian-emacs-lisp-dir (getenv "LIAN_EMACS_LISP_DIR"))
 
 (provide 'lian-info)
