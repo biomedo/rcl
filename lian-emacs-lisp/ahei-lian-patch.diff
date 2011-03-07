@@ -371,19 +371,6 @@ Index: my-lisps/c-settings.el
  
    ;; kde-emacs 一个方便开发c的工具
    (require 'kde-emacs-settings)
-Index: my-lisps/color-theme-ahei.el
-===================================================================
---- my-lisps/color-theme-ahei.el	(revision 1377)
-+++ my-lisps/color-theme-ahei.el	(working copy)
-@@ -4,7 +4,7 @@
- 
- ;; Author: ahei <ahei0802@126.com>
- ;; Keywords: color theme ahei
--;; Time-stamp: <2010-04-05 15:56:28 Monday by ahei>
-+;; Time-stamp: <2011-01-27 10:51:22 Thursday by lian>
- 
- ;; This file is free software; you can redistribute it and/or modify
- ;; it under the terms of the GNU General Public License as published by
 Index: my-lisps/font-settings.el
 ===================================================================
 --- my-lisps/font-settings.el	(revision 1377)
