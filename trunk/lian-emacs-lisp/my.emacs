@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-03 16:27:50 Thursday by lian>
+;; Time-stamp: <2011-03-04 12:27:23 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@
   global-map
   `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-j h" (lambda () (interactive)(dired "~")))
+    ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
     ("C-j s" bookmark-set)
     ("C-j o" bookmark-bmenu-list)
     ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))

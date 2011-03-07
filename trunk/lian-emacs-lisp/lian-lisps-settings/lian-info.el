@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-04 11:48:05 Friday by lian>
+;; Time-stamp: <2011-03-04 12:26:38 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -78,8 +78,7 @@
   (list (concat (getenv "DEVROOT") "/Applis/ITK_Utility/ITK_Utility")
         (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
         (concat (getenv "DEVROOT") "")
-        (getenv "LIAN_CUR_WORK_DIR")
-        (getenv "LIAN_DOC_LYXTEX_DIR")))
+        (getenv "LIAN_CUR_WORK_DIR")))
 
 (defconst lian-emacs-lisp-dir (getenv "LIAN_EMACS_LISP_DIR"))
 

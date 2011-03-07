@@ -39,4 +39,6 @@
 \bind "C-r C-f" "float-insert figure"
 \bind "C-r C-t" "float-insert table"
 \bind "C-r C-i" "dialog-show-new-inset graphics"
+\bind "C-M-n" "paragraph-down"
+\bind "C-M-p" "paragraph-up"
 
