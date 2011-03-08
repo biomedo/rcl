@@ -1,5 +1,7 @@
-# This file is written by LyX, if you want to make your own
-# modifications you should do them from inside LyX and save
+# LyX 2.0.0rc1 generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 1
 
 \bind_file "emacs"
 
@@ -19,6 +21,8 @@
 \screen_zoom 120
 \screen_font_roman "DejaVu Sans"
 \screen_font_typewriter "DejaVu Sans"
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.260000000000002 20.739999999999998 24.879999999999999
+\single_instance false
 
 #
 # COLOR SECTION ###################################
@@ -27,11 +31,6 @@
 
 #
 # PRINTER SECTION ###################################
-#
-
-
-#
-# EXPORT SECTION ####################################
 #
 
 
@@ -56,11 +55,13 @@
 # SPELLCHECKER SECTION ##############################
 #
 
+\accept_compound true
 
 #
 # LANGUAGE SUPPORT SECTION ##########################
 #
 
+\spellcheck_continuously true
 
 #
 # 2nd MISC SUPPORT SECTION ##########################

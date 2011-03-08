@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-04 12:27:23 Friday by lian>
+;; Time-stamp: <2011-03-07 20:31:51 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -25,6 +25,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; CTags, Etags table and settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq tags-table-list lian-tags-table-list)
 (global-set-key (kbd "<C-f10>") 'find-tag)
 (global-set-key (kbd "<C-f11>") (lambda () (interactive)(find-tag "" t)))
