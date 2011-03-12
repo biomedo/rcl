@@ -26,6 +26,7 @@ Format 1
 \bind "C-c C-s" "dialog-show document"
 \bind "C-c C-v" "buffer-view"
 \bind "C-c C-c" "buffer-update"
+\bind "C-c C-j" "forward-search"
 \bind "C-M-w" "cut"
 \bind "C-w" "word-delete-backward"
 \bind "C-i" "command-alternatives completion-accept;cell-forward;tab-insert;depth-increment;outline-in"
@@ -43,4 +44,5 @@ Format 1
 \bind "C-r C-i" "dialog-show-new-inset graphics"
 \bind "C-M-n" "paragraph-down"
 \bind "C-M-p" "paragraph-up"
+\bind "F10" "forward-search"
 
