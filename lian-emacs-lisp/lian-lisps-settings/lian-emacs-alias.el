@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-03 17:11:02 Thursday by lian>
+;; Time-stamp: <2011-03-16 17:03:58 Wednesday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -24,12 +24,10 @@
 
 
 ; edit
-(defalias 'uc 'uncomment)
-(defalias 'ucr 'uncomment-region)
-
+(defalias 'unc 'uncomment)
+(defalias 'uncr 'uncomment-region)
 
 (defalias 'rn 'wdired-change-to-wdired-mode) ; rename file in dired
-
 (defalias 'd 'dired-jump)
 (defalias 'g 'grep)
 (defalias 'gf 'grep-find)
@@ -52,6 +50,9 @@
 (defalias 'sbc 'set-background-color)
 
 (defalias 'rof 'recentf-open-files)
+
+; python
+(defalias 'psb 'python-send-buffer)
 
 ; elisp
 (defalias 'eb 'eval-buffer)
