@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-07 20:31:51 Monday by lian>
+;; Time-stamp: <2011-03-18 13:10:31 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -43,6 +43,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Jump to my working dir
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun emaci-mode-toggle ()
+  (interactive)
+  (if emaci-mode (emaci-mode-off) (emaci-mode-on)))
+
 (define-prefix-command 'ctl-j-map)
 (global-set-key (kbd "C-j") 'ctl-j-map)
 (define-key-list
@@ -52,6 +56,9 @@
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
     ("C-j s" bookmark-set)
     ("C-j o" bookmark-bmenu-list)
+    ("C-j C-i" emaci-mode-toggle)
+    ("C-j C-j" execute-extended-command)
+    ("C-j C-o" other-window)
     ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-j 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
@@ -83,3 +90,13 @@
 ;; edit-misc extend settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'edit-misc-ex)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; yasnippet
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(yas/load-directory (concat lian-emacs-lisp-dir "/snippets"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Global key-binding
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (global-set-key (kbd "<f8>") 'emaci-mode-on)
