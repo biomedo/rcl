@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-18 13:10:31 Friday by lian>
+;; Time-stamp: <2011-03-22 08:28:11 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -47,6 +47,8 @@
   (interactive)
   (if emaci-mode (emaci-mode-off) (emaci-mode-on)))
 
+(setq bookmark-sort-flag nil)
+
 (define-prefix-command 'ctl-j-map)
 (global-set-key (kbd "C-j") 'ctl-j-map)
 (define-key-list
@@ -54,8 +56,8 @@
   `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-j h" (lambda () (interactive)(dired "~")))
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
-    ("C-j s" bookmark-set)
-    ("C-j o" bookmark-bmenu-list)
+    ("C-j C-s" bookmark-set)
+    ("C-j C-b" bookmark-bmenu-list)
     ("C-j C-i" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
     ("C-j C-o" other-window)
