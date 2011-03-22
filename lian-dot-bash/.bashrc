@@ -130,7 +130,12 @@ alias sfr="ssh -X frioul"
 alias sen="ssh -X envau"
 alias sslwd="ssh -X lwd@localhost"
 alias sskth="ssh xiaogai@193.10.38.110"
-alias q="qstat -an"
+alias q="qstat"
+alias ql="qstat -u lian"
+alias qn="qstat -an"
+alias qnl="qstat -an -u lian"
+
+
 #--------------------------#
 ###  TWEAKING TERMINAL   ###
 #--------------------------#
