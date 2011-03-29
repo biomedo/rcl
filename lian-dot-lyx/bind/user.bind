@@ -47,4 +47,5 @@ Format 1
 \bind "C-M-p" "paragraph-up"
 \bind "F10" "forward-search"
 \bind "F6" "dialog-toggle toc"
+\bind "C-M-l" "screen-show-cursor"
 
