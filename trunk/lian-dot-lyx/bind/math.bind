@@ -109,7 +109,7 @@
 \bind "C-j ~S-slash"		"math-insert \acute"
 \bind "C-j ~C-~M-~S-ampersand"	"math-insert \tilde"
 \bind "C-j ~S-minus"		"math-insert \bar"
-\bind "C-j ~S-period"		"math-insert \dot"
+\bind "C-j ~S-period"		"math-insert \cdot"
 \bind "C-j S-V"				"math-insert \check"
 \bind "C-j S-U"				"math-insert \breve"
 \bind "C-j v"				"math-insert \vec"
@@ -124,7 +124,8 @@
 \bind "C-j ~C-~M-~S-bracketleft" "math-delim [ ]"
 \bind "C-j ~C-~M-~S-braceleft"	"math-delim { }"
 \bind "C-j ~S-less"		"math-delim langle rangle" # produces < >
-\bind "C-j ~S-greater"		"math-delim rangle langle" # produces > <
+#\bind "C-j ~S-greater"		"math-delim rangle langle" # produces > <
+\bind "C-j ~S-greater"		"math-insert \cdots" # ...
 \bind "C-j ~C-~M-~S-bar"	"math-delim | |"
 
 
