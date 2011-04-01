@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-25 11:23:34 Friday by lian>
+;; Time-stamp: <2011-04-01 12:28:50 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -62,8 +62,10 @@
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
     ("C-j C-s" bookmark-set)
     ("C-j C-b" bookmark-bmenu-list)
-    ("C-j C-i" emaci-mode-toggle)
+    ("C-j C-f" emaci-mode-toggle)
+    ("C-j f" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
+    ("C-j o" other-window)
     ("C-j C-o" other-window)
     ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
