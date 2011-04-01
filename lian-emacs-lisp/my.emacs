@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-04-01 12:28:50 Friday by lian>
+;; Time-stamp: <2011-04-01 14:35:07 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -67,6 +67,8 @@
     ("C-j C-j" execute-extended-command)
     ("C-j o" other-window)
     ("C-j C-o" other-window)
+    ("C-j k" kill-this-buffer)
+    ("C-j C-k" kill-this-buffer)
     ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-j 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
