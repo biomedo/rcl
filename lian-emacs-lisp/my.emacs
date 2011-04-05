@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-04-01 14:35:07 Friday by lian>
+;; Time-stamp: <2011-04-04 18:47:28 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -67,14 +67,16 @@
     ("C-j C-j" execute-extended-command)
     ("C-j o" other-window)
     ("C-j C-o" other-window)
+    ("C-j 1" delete-other-windows)
     ("C-j k" kill-this-buffer)
     ("C-j C-k" kill-this-buffer)
-    ("C-j 1" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
-    ("C-j 2" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
-    ("C-j 3" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
-    ("C-j 4" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
-    ("C-j 5" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
-    ("C-j 6" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
+    ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
+    ("C-j 2" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
+    ("C-j 3" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
+    ("C-j 4" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
+    ("C-j 5" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
+    ("C-j 6" (lambda () (interactive)(dired (nth 4 lian-working-dir))))
+    ("C-j 7" (lambda () (interactive)(dired (nth 5 lian-working-dir))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Matlab settings
