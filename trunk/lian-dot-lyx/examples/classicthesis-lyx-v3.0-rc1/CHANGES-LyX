@@ -1,0 +1,14 @@
+2011/03 - v3.0
+- LyX port and LaTeX version 3.0 of ClassicThesis now use the same two .sty files:
+	classicthesis.sty contains the core functionality of the style
+	classicthesis-preamble.sty is a classicthesis.sty package loader and user-configurable preamble file
+- LyX chapter files now use very few ERT's
+- successful build in LyX version 1.6.8 on Fedora Linux 13 with TeX Live 2007
+
+2009/08 - v1.1 
+- fixed two graphics file paths in Chapter04.lyx
+- built successfully in LyX version 1.6.2 on Mac OSX 10.4.11 with TeX Version 3.1415926 (Web2C 7.5.7) installed using MacTEX-2008
+
+
+2009/03 - v1.0
+- First converted to LyX from ClassicThesis version 2.5

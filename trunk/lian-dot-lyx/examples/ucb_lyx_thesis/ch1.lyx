@@ -1,0 +1,2045 @@
+#LyX 1.5.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass ucbthesis
+\begin_preamble
+\SuspendPrologue % don't print all beginning crap until near finished
+% have this so I can look at individual chapter/appendix pdf without having to go the whole thing
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introduction
+\begin_inset LatexCommand label
+name "cha:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This document is the work of Nathan Miller to copy the CU-Boulder sample
+ latex thesis into Lyx.
+ Lyx uses 
+\emph on
+.layout
+\emph default
+ files to determine which 
+\emph on
+.sty
+\emph default
+ and 
+\emph on
+.cls
+\emph default
+ files to use.
+ You should have a 
+\emph on
+ucbthesis.layout
+\emph default
+ file which tells Lyx to use the CU-Boulder 
+\emph on
+thesis
+\emph default
+ class.
+ Put that file into Lyx's layout folder (...
+\backslash
+Lyx
+\backslash
+Resources
+\backslash
+Layout
+\backslash
+), then in Lyx go to the 
+\emph on
+Tools
+\emph default
+ menu and select 
+\emph on
+Reconfigure
+\emph default
+.
+ Restart Lyx and you can select the 
+\emph on
+UC-Boulder thesis
+\emph default
+ document class under the menu 
+\emph on
+Document
+\emph default
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Settings...
+
+\emph default
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Document Class
+\emph default
+ for your Lyx files.
+ I fixed up a few things to illustrate how Lyx works, but mostly, this is
+ just copied straight from the example latex thesis.
+ 
+\end_layout
+
+\begin_layout Standard
+The original Latex sample document illustrates how to use the 
+\family typewriter
+thesis
+\family default
+ class in Lyx, originally written by John P.
+ Weiss and updated by Bruce Fast.
+ The necessary file, 
+\emph on
+thesis.cls
+\emph default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Standard
+don't know how to use 
+\backslash
+verb without ERT
+\end_layout
+
+\end_inset
+
+, is on all the main computer systems of C.U.
+ Boulder, and can be downloaded from the web site 
+\begin_inset LatexCommand htmlurl
+name "http://www.colorado.edu/its/docs/latex/thesis/"
+target "http://www.colorado.edu/its/docs/latex/thesis/"
+
+\end_inset
+
+.
+ Some requirements of the Graduate School are written into that file; page
+ size, line spacing, appropriate placement of captions for tables and figures,
+ etc.
+ Other tasks of conforming to the requirements are left to other existing
+ LaTeX packages.
+ For example, a common problem is to insert graphics --- figures and tables
+ --- into the body of the thesis
+\begin_inset Foot
+status open
+
+\begin_layout Standard
+this is easy with Lyx
+\end_layout
+
+\end_inset
+
+.
+ The Grad School specs say that a large table may be displayed in landscape
+ mode at reduced size, but its caption must also be in rotated position,
+ in the same font and size as the normal text in the body of the thesis.
+ To accomplish this, the user must invoke the 
+\family typewriter
+rotating
+\family default
+ package, the use of which is illustrated in this document.
+ See Table\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "tbl:sidewaysT"
+
+\end_inset
+
+ and Fig.\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "fig:sidewaysFig"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+References and Sections are easy in Lyx.
+ You might enjoy 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "cha:mathchapter"
+
+\end_inset
+
+ more than 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "cha:Introduction"
+
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Standard
+not sure how to make the funny S symbol for the sections in Lyx, so I just
+ left the ERT.
+\end_layout
+
+\end_inset
+
+ And undoubtedly you will like 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "sec:end"
+
+\end_inset
+
+ better than either 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "sec:cata"
+
+\end_inset
+
+, Table\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "tbl:sample3"
+
+\end_inset
+
+, or equation\InsetSpace ~
+
+\begin_inset LatexCommand ref
+reference "eq:centerline"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+You can also select formatted references from the cross-reference pop-up
+ box.
+ The following sentences are the same as the previous paragraph, but using
+ formatted references.
+ You might enjoy 
+\begin_inset LatexCommand prettyref
+reference "cha:mathchapter"
+
+\end_inset
+
+ more than 
+\begin_inset LatexCommand prettyref
+reference "cha:Introduction"
+
+\end_inset
+
+.
+ And undoubtedly you will like 
+\begin_inset LatexCommand prettyref
+reference "sec:end"
+
+\end_inset
+
+ better than either 
+\begin_inset LatexCommand prettyref
+reference "sec:cata"
+
+\end_inset
+
+, 
+\begin_inset LatexCommand prettyref
+reference "tbl:sample3"
+
+\end_inset
+
+, or 
+\begin_inset LatexCommand prettyref
+reference "eq:centerline"
+
+\end_inset
+
+.
+ Formatted references are controlled by the 
+\emph on
+prettyref.sty
+\emph default
+ file.
+ The above formatted references in the included pdf are made using the included
+ prettyref file.
+ My 
+\emph on
+prettyref.sty
+\emph default
+ file is located at (...
+\backslash
+Program Files
+\backslash
+MiKTeX 2.7
+\backslash
+tex
+\backslash
+latex
+\backslash
+prettyref
+\backslash
+).
+ After modifying the file, remember to refresh the Miktex FNDB, and reconfigure
+ Lyx.
+ (I changed all the references after this to formatted references)
+\end_layout
+
+\begin_layout Section
+Example of included image
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figures/comb.eps
+	lyxscale 20
+	width 50line%
+	scaleBeforeRotation
+	rotateAngle 90
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+\begin_inset LatexCommand label
+name "fig:latexfig"
+
+\end_inset
+
+This figure was a mess so just putting 
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+ here in it's place, but smaller and rotated.
+ mindless text to prove a point.
+ just trying to make this caption longer and longer and longer and longer.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figures/comb.eps
+	lyxscale 20
+	width 40line%
+	scaleBeforeRotation
+	rotateAngle 90
+	subcaption
+
+\end_inset
+
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+
+\begin_inset Graphics
+	filename figures/comb.eps
+	lyxscale 20
+	width 40line%
+	scaleBeforeRotation
+	rotateAngle 90
+	subcaption
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+caption[
+\end_layout
+
+\end_inset
+
+Short caption goes here.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "fig:short caption lesson"
+
+\end_inset
+
+
+\begin_inset LatexCommand prettyref
+reference "fig:latexfig"
+
+\end_inset
+
+ did not use any ERT and looks pretty in Lyx, but the caption is long and
+ looks bad in the List of Figures.
+ To enter a short caption, we need to use some ERT.
+ Also, we show how to use subfigure labels (a) and (b).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Standard
+Note that the figure label has to be placed in the long caption text.
+ It doesn't work if placed in the short caption text.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:short caption lesson"
+
+\end_inset
+
+ shows how to input figures so they have both a short and long caption.
+ 
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+ shows something or other; the image is from a PostScript file which is
+ imported into this document very easily in Lyx.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figures/comb.eps
+	lyxscale 60
+	width 40line%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+\begin_inset LatexCommand label
+name "fig:combustion"
+
+\end_inset
+
+The combustion zone in a rocket motor chamber is thin relative to the radius
+ of the chamber, etc.
+ How did this image get into the thesis? it's easy in Lyx
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Question: What are the issues in studying this subject?
+\end_layout
+
+\begin_layout Standard
+A major goal in studying solid fuel rocket motors is to create a model of
+ the dynamics of a motor chamber.
+ This involves two major goals: the combustion zone and the acoustic zone.
+ 
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+ shows this.
+ The combustion zone consists of the thin layer above the solid fuel where
+ the gasification of the fuel takes places.
+ The zone is very reactive and highly turbulent.
+ The acoustic-vortical zone is the volume of gas above the combustion zone.
+ Within this zone, the gas is non-reactive and contains acoustic waves and
+ vorticity.
+\end_layout
+
+\begin_layout Section
+Lists in 
+\family typewriter
+thesis
+\family default
+ class
+\end_layout
+
+\begin_layout Standard
+In 
+\family typewriter
+thesis
+\family default
+ class (for Colorado University), lists are defined so that nested lists
+ will be numbered or marked appropriately.
+ First, an itemized (non-enumerated) list prefaces each item with a bullet.
+ Nested itemized list use asterisks, then dashes, then dots.
+ In Lyx, just select either 
+\emph on
+itemized
+\emph default
+ or 
+\emph on
+enumerated
+\emph default
+ from the drop-down list in the upper-left corner.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ item A.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ item B.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ item C.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ subitem A.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ subsubitem A.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ subsubsubitem A.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ subsubitem B.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ subitem B.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+itemized
+\begin_inset Quotes erd
+\end_inset
+
+ item D.
+ 
+\end_layout
+
+\begin_layout Standard
+Nested enumerations appear like this.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ item A.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ item B.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ item C.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ subitem A.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ subsubitem A.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ subsubsubitem A.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ subsubitem B.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ subitem B.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+ This is 
+\begin_inset Quotes eld
+\end_inset
+
+enumerated
+\begin_inset Quotes erd
+\end_inset
+
+ item D.
+ 
+\end_layout
+
+\begin_layout Standard
+The work presented here
+\begin_inset Foot
+status open
+
+\begin_layout Standard
+Footnotes are handled neatly by LaTeX.
+\end_layout
+
+\end_inset
+
+ is an extension of Lao
+\begin_inset LatexCommand cite
+key "lao:thesis"
+
+\end_inset
+
+ and Lao et\InsetSpace ~
+al.
+\begin_inset LatexCommand cite
+key "lao:paper"
+
+\end_inset
+
+ The driving frequency is on the order of the inverse of the axial acoustic
+ time scale, 
+\begin_inset Formula $t_{A}'=L'/C_{0}'$
+\end_inset
+
+, where 
+\begin_inset Formula $L'$
+\end_inset
+
+ is the length of the cylinder and 
+\begin_inset Formula $C_{0}'$
+\end_inset
+
+ is the reference speed of sound.
+\begin_inset Foot
+status open
+
+\begin_layout Standard
+Remember the traditional method of calculating the distance of lightning?
+ See the flash, count seconds until you hear the thunder, divide by five,
+ that's the number of miles.
+ That assumes 
+\begin_inset Formula $C_{0}=\frac{1mi.}{5s}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ Radial and azimuthal velocities
+\begin_inset Foot
+status open
+
+\begin_layout Standard
+gratuitous footnote
+\end_layout
+
+\end_inset
+
+ are found to vanish exponentially fast in the downstream direction, as
+ suggested by 
+\begin_inset LatexCommand prettyref
+reference "tab:powertable"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement htb
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+\begin_inset LatexCommand label
+name "tab:powertable"
+
+\end_inset
+
+ Here is an example of a table with its own footnotes.
+ Don't use the 
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\family typewriter
+footnote
+\family default
+ macro if you don't want the footnotes at the bottom of the page.
+ Also, note that in a thesis the caption goes 
+\emph on
+above
+\emph default
+ a table, unlike figures.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="5">
+<features>
+<column alignment="none" valignment="top" width="0" special="||l|">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="none" valignment="top" width="0" special="c||">
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $P$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $Q^{\ast}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $D^{\dagger}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomline="true">
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+wave form 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVA) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kW) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVAr) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVAd) 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:latexfig"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.87 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.83 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+1.3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $\approx0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.48 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.00 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+-2.82 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+4.03 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+b 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.11 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+18.02 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+-9.75 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+14.52 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "tbl:sample2"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+24.98 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+22.26 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+9.19 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+6.64 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "tbl:sidewaysT"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+23.48 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+15.00 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+6.59 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+16.82 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:pyramid"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+24.64 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+22.81 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+-0.44 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+9.3 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="none" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:sidewaysFig"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+23.03 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+18.01 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+3.36 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+13.95 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+rule{0mm}{5mm}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $^{\ast}$
+\end_inset
+
+kVAr means reactive power.
+ 
+\newline
+ 
+\begin_inset Formula $^{\dagger}$
+\end_inset
+
+kVAd means distortion power.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+caption[
+\end_layout
+
+\end_inset
+
+short caption for table.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "tab:powertable2"
+
+\end_inset
+
+This caption is long - you might want a shorter version for the List of
+ Tables.
+ Here is a shorter version of the previous table, showing how to use short
+ & long captions.
+ Also, note that in a thesis the caption goes 
+\emph on
+above
+\emph default
+ a table, unlike figures.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features>
+<column alignment="none" valignment="top" width="0" special="||l|">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="center" valignment="top" rightline="true" width="0">
+<column alignment="none" valignment="top" width="0" special="c||">
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $P$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $Q$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $D$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomline="true">
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+wave form 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVA) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kW) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVAr) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+(kVAd) 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:latexfig"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.87 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.83 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+1.3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset Formula $\approx0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+\begin_inset LatexCommand prettyref
+reference "fig:combustion"
+
+\end_inset
+
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.48 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+25.00 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+-2.82 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+4.03 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These results provide an analytical explanation of those found from computationa
+l analysis by Fabnis et\InsetSpace ~
+al.
+\begin_inset LatexCommand cite
+key "fabnis"
+
+\end_inset
+
+ The non-axisymmetric flow near the endwall contains cross-sectional velocity
+ patterns that include flow across the cylinder axis.
+ A viscous boundary layer adjacent to the sidewall and near the endwall
+ is studied to find the transition between the transient core flow and the
+ no-slip condition on the sidewall.
+ It is found, as in Lao et\InsetSpace ~
+al.
+\begin_inset LatexCommand cite
+key "lao:paper"
+
+\end_inset
+
+, that the azimuthal component of the vorticity is proportional to the inverse
+ of the Mach number.
+ In addition, the axial component of the vorticity driven by the non-axisymmetri
+c boundary condition at the endwall is also found to be proportional to
+ the the inverse of the Mach number.
+\end_layout
+
+\end_body
+\end_document

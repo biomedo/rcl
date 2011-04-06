@@ -1,0 +1,304 @@
+#LyX 1.5.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass ucbthesis
+\begin_preamble
+\SuspendPrologue % don't print all beginning crap until near finished
+% have this so I can look at individual chapter/appendix pdf without having to go the whole thing
+
+% \OnePageChapter% (use if this chapter/appendix is 1 page long)
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Objective Symptoms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Standard
+uncomment the 
+\end_layout
+
+\begin_layout Standard
+% 
+\backslash
+OnePageChapter
+\end_layout
+
+\begin_layout Standard
+line in the preamble if this chapter/appendix is 1 page long
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+paragraph{
+\end_layout
+
+\end_inset
+
+Appendices
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ follow the same page-numbering rules as regular chapters.
+ The first page of a multi-page appendix is not numbered.
+ But the page of a single-page appendix 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ is
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ numbered.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Are they slow learners
+\series default
+ or is it a 
+\emph on
+REAL
+\emph default
+ problem? These are classic findings in the hopelessly computer challenged.
+\end_layout
+
+\begin_layout Enumerate
+Can't copy from hard drive to disk.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Can't eject disks.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The word 
+\begin_inset Quotes eld
+\end_inset
+
+disk
+\begin_inset Quotes erd
+\end_inset
+
+ has thousands of meanings to them.
+ None are correct.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Saving a document in any form is a concept totally unexplainable to them.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Desktop covered with Untitled Folders - look again, untitled folders are
+ everywhere.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+Lost
+\begin_inset Quotes erd
+\end_inset
+
+ documents found often in the Apple Menu.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Trash always full.
+ Claim they don't know how to place things in trash.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Mysterious things happen to their documents or computer when they are not
+ present.
+ AKA 
+\begin_inset Quotes eld
+\end_inset
+
+computer victims
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Highlighting = deleting.
+ Dragging = Oblivion.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Selecting, double-clicking a problem? They will always say their mouse is
+ broken.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Their double- click mechanics wants you to send them to a neurologist.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Computer always on due to fear of having to restart it.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Have never read their QuickMail - will say 
+\begin_inset Quotes eld
+\end_inset
+
+I prefer a phone call
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Have magical beliefs about what computers do.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Describes some flaky way computers could REALLY help them, but is not yet
+ available.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Constantly saying they need more 
+\begin_inset Quotes eld
+\end_inset
+
+memory
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Requests gizmos and gadgets, i.e., 
+\begin_inset Quotes eld
+\end_inset
+
+mouse leash
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+disk cozy
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Avoids eye contact when talking about computers.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,267 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass uocthesis
+\begin_preamble
+\Title{The Use of the Meta-Syntactic Variable `Foo'}
+\Author{Michael JasonSmith}
+\Year{2000}
+
+\Supervisor{Dr Andy Cockburn}
+\Department{Department of Computer Science}
+\end_preamble
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+This is Micheal JasonSmith's uocthesis example ported to LyX by Etienne
+ Laliberté (etiennlaliberte@gmail.com).
+\end_layout
+
+\begin_layout Plain Layout
+Go to 
+\family sans
+Document > Parameters > LaTeX preamble
+\family default
+ to modify the 
+\family sans
+Title, Author, Year, Supervisor, Department
+\family default
+ fields.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+prelimpages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+titlepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+dedication{To Spiny Norman.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abstract{The uses of the word `Foo' is discussed with historical context
+ and modern ramifications stemming from its use as a meta-syntactic variable.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acknowledgments{I would like to thank all the hedgehogs, without their help
+ this thesis would not be a reality.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textpages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Foo in History
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:hist"
+
+\end_inset
+
+ The first use of `foo' was during World War II, when unknown aircraft were
+ referred to as `Foo Fighters'.
+ Another related term was 
+\shape smallcaps
+Fubar
+\shape default
+, for Fucked Up Beyond All Recognition.
+ As Eric S.
+ Raymond says in the Jargon File
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raymond00jargon"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Quote
+The etymology of hackish `foo' is obscure.
+ When used in connection with `bar' it is generally traced to the WWII-era
+ Army slang acronym FUBAR (`Fucked Up Beyond All Repair'), later bowdlerized
+ to foobar.
+ It has been plausibly suggested that FUBAR was influenced by German `furchtbar'
+ (terrible).
+ It has also been reported out that 1960s computer manuals, in a usage influence
+d by Fortran's implicit-declaration feature, frequently used F00 (F followed
+ by two zeros) in examples.
+ 
+\end_layout
+
+\begin_layout Section
+Foo in Computer Science
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:cosc"
+
+\end_inset
+
+ Computer Science
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+and computing in general
+\end_layout
+
+\end_inset
+
+ has picked up on the use of `foo' to stand for something, any element but
+ no specific element.
+ It sits outside the syntax of any language (including English) and is able
+ to describe the syntax, hence the meta-syntatic nature of the word.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "example-thesis"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
