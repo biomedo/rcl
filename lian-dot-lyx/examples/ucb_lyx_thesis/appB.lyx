@@ -1,0 +1,157 @@
+#LyX 1.5.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass ucbthesis
+\begin_preamble
+\SuspendPrologue % don't print all beginning crap until near finished
+% have this so I can look at individual chapter/appendix pdf without having to go the whole thing
+
+\OnePageChapter
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Ode to Spot
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Standard
+
+\backslash
+OnePageChapter
+\end_layout
+
+\begin_layout Standard
+line in the preamble is used because this chapter/appendix is 1 page long
+ (for page numbering)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+(Data, Stardate 1403827)
+\end_layout
+
+\begin_layout Standard
+\noindent
+Throughout the ages, from Keats to Giorchamo, poets have composed 
+\begin_inset Quotes eld
+\end_inset
+
+odes
+\begin_inset Quotes erd
+\end_inset
+
+ to individuals who have had a profound effect upon their lives.
+ In keeping with that tradition I have written my next poem \SpecialChar \ldots{}
+ in honor of
+ my cat.
+ I call it\SpecialChar \ldots{}
+Ode\SpecialChar \ldots{}
+to Spot.
+ (Shot of Geordi and Worf in audience, looking mystified at each other.)
+\end_layout
+
+\begin_layout Quotation
+\noindent
+Felus cattus, is your taxonomic nomenclature 
+\newline
+ an endothermic quadruped,
+ carnivorous by nature? 
+\newline
+ Your visual, olfactory, and auditory senses 
+\newline
+ contribute
+ to your hunting skills, and natural defenses.
+ 
+\newline
+ I find myself intrigued by your sub-vocal oscillations, 
+\newline
+ a singular developmen
+t of cat communications 
+\newline
+ that obviates your basic hedonistic predilection
+ 
+\newline
+ for a rhythmic stroking of your fur to demonstrate affection.
+ 
+\newline
+ A tail is quite essential for your acrobatic talents; 
+\newline
+ you would not be
+ so agile if you lacked its counterbalance.
+ 
+\newline
+ And when not being utilized to aid in locomotion, 
+\newline
+ It often serves to
+ illustrate the state of your emotion.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+(Commander Riker begins to applaud, until a glance from Counselor Troi brings
+ him to a halt.) Commander Riker, you have anticipated my denouement.
+ However, the sentiment is appreciated.
+ I will continue.
+\end_layout
+
+\begin_layout Quotation
+\noindent
+O Spot, the complex levels of behavior you display 
+\newline
+ connote a fairly well-develo
+ped cognitive array.
+ 
+\newline
+ And though you are not sentient, Spot, and do not comprehend 
+\newline
+ I nonetheless
+ consider you a true and valued friend.
+ 
+\end_layout
+
+\end_body
+\end_document

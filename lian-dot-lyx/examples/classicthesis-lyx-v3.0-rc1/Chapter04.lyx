@@ -1,0 +1,1275 @@
+#LyX 1.6.8 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{classicthesis-preamble}
+\end_preamble
+\options fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddot,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty
+\use_default_options true
+\language english
+\inputencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine natbib_numerical
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Lyx Port Information
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "ch:LyxPortInfo"
+
+\end_inset
+
+The purpose of this chapter is to note the features and any known issues
+ with the LyX conversion of André Miede's Classic Thesis Style.
+ 
+\end_layout
+
+\begin_layout Standard
+The LyX port and the initial version of this chapter was made by Nick Mariette
+ in March 2009.
+ Upon a harmonization of the Classic Thesis 
+\family typewriter
+.sty
+\family default
+ files with the LyX port, an upgrade to v3.0 was made by Ivo Pletikosić in
+ March 2011.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you appreciate the port, please visit Nick's homepage and consider making
+ a donation: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://soundsorange.net/resources/classic-thesis-for-lyx/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also, if you like the style, please send a postcard to André who wrote the
+ original LaTeX (see Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ch:Introduction"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Section
+Basic guide
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status collapsed
+
+\begin_layout Plain Layout
+Take a look at this 
+\family typewriter
+.lyx
+\family default
+ file in LyX for coding examples and several further notes on using the
+ Classic Thesis style.
+\end_layout
+
+\end_inset
+
+ The template structure of the LyX port is different from the original in
+ that all the chapter and front&back-matter files are in the folder where
+ 
+\family typewriter
+ClassicThesis.lyx
+\family default
+, the main file of the thesis, is.
+ Graphic files are still found in 
+\family typewriter
+gfx/
+\family default
+, while the folder 
+\family typewriter
+Examples/
+\family default
+ contains LyX port of the three examples of using 
+\family typewriter
+classicthesis.sty
+\family default
+ for a book, article or curriculum vitæ.
+\end_layout
+
+\begin_layout Standard
+To start using Classic Thesis style in LyX two changes have to be made within
+ the LyX Document Settings of every .lyx file in a project:
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+modifications in 
+\family typewriter
+.lyx
+\family default
+ file Document Settings
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+call
+\family typewriter
+ 
+\backslash
+usepackage{classicthesis-preamble}
+\family default
+ in the LaTeX Preamble section 
+\end_layout
+
+\begin_layout Itemize
+make the Document Class a book or report version of KOMA-Script and add
+ some options to it.
+ 
+\end_layout
+
+\begin_layout Standard
+It's the best if all the files in a project use the same class and its options,
+ though only the class and the options of the main project file are used
+ at the compilation of the whole thesis.
+ Recommended options for KOMA-Script are found in André Miede's 
+\family typewriter
+ClassicThesis.tex
+\family default
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=lt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass[fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddo
+t,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty]{scrreprt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some other changes can be made within the LyX Document Settings, but care
+ has to be taken not to interfere with the options in the 
+\family typewriter
+.sty
+\family default
+ files of Classic Thesis.
+\end_layout
+
+\begin_layout Standard
+As of v3.0, the Classic Thesis Style for LaTeX and LyX share the same two
+ 
+\family typewriter
+.sty
+\family default
+ files.
+ User customizations of the thesis style are to be made in 
+\family typewriter
+classicthesis-preamble.sty
+\family default
+, as described in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+autoref{sec:customization}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+The first customisation you are about to make is to alter the document title,
+ author name, and other thesis details.
+ To do this, replace the data in the following lines of 
+\family typewriter
+classicthesis-preamble.sty:
+\family default
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+modifications in classicthesis-preamble.sty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "frame=lt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% **************************************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% Re-usable information 
+\end_layout
+
+\begin_layout Plain Layout
+
+% **************************************************
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+myTitle}{A Classic Thesis Style
+\backslash
+xspace} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+mySubtitle}{An Homage to...
+\backslash
+xspace} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is a code listing layout inserted from the Lyx insert menu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Further customisation can be made in 
+\family typewriter
+classicthesis-preamble.sty
+\family default
+ by choosing the options to 
+\family typewriter
+classicthesis.sty
+\family default
+ (see Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ch:Introduction"
+
+\end_inset
+
+) in a line that looks like this:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "frame=lt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PassOptionsToPackage{eulerchapternumbers,drafting,listings,subfig,eulermath,part
+s}{classicthesis}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+If you want to use backreferences from your citations to the pages they
+ were cited on, uncomment the following line:
+\begin_inset listings
+lstparams "breaklines=false,frame=lt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PassOptionsToPackage{backref}{classicthesis-preamble} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Many other customisations in 
+\family typewriter
+classicthesis-preamble.sty
+\family default
+ are possible, but you should be careful making changes there, since some
+ changes could cause errors.
+\end_layout
+
+\begin_layout Plain Layout
+Finally, changes can be made in the file 
+\family typewriter
+classicthesis.sty
+\family default
+,
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+modifications in classicthesis.sty
+\end_layout
+
+\end_inset
+
+ although this is mostly not designed for user customisation.
+ The main change that might be made here is the text-block size, for example,
+ to get longer lines of text.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+ERT usage
+\end_layout
+
+\begin_layout Standard
+Note that in converting 
+\family typewriter
+.tex
+\family default
+ files to 
+\family typewriter
+.lyx
+\family default
+, sometimes much more ERT
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The acronym ERT (Evil Red Text) refers to raw LaTeX commands inserted into
+ the body of your LyX document.
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/FAQ/ERT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is produced than necessary to use the Classic Thesis style.
+ This chapter uses minimal ERT, although some is still required for certain
+ features:
+\end_layout
+
+\begin_layout Itemize
+Font modifications (Family, Series, Shape, Size, Colour) generally don't
+ need ERT, but 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+spacedallcaps
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Spaced All Caps
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+spacedlowsmallcaps
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Spaced Low Small Caps
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, defined in the 
+\family typewriter
+classicthesis.sty
+\family default
+, do.
+\end_layout
+
+\begin_layout Itemize
+Acronyms (e.g.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ac
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+UML
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+) still require ERT, since they are not available as LyX layouts.
+\end_layout
+
+\begin_layout Itemize
+Special enumeration environment, where items are numbered by small capital
+ letters, still needs ERT 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{aenumerate}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Enumeration with small caps (aenumerate)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Second item
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{aenumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tables need some ERT (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:tables"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Itemize
+Citations, like 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bringhurst:2002"
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, and cross-references, like 
+\begin_inset Quotes eld
+\end_inset
+
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fourier"
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, can be done in the normal LyX manner.
+ Autoreferences, like 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+autoref{eq:fourier}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, can only be done with ERT 
+\end_layout
+
+\begin_layout Itemize
+Figures and sub-figures don't need ERT (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:figures"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Margin notes don't need ERT, as of v3.0 redefined
+\family typewriter
+ 
+\backslash
+marginpar{}
+\family default
+ is used instead of 
+\family typewriter
+
+\backslash
+graffito{}
+\end_layout
+
+\begin_layout Itemize
+Listings don't need ERT.
+ They can be inserted using only the LyX Insert menu (along with many other
+ items).
+\end_layout
+
+\begin_layout Itemize
+The Table of Contents doesn't need ERT.
+ It's safe just to use the included 
+\family typewriter
+Contents.lyx
+\family default
+ file.
+\end_layout
+
+\begin_layout Standard
+Watch out for missing spaces after comments in ERT - these can force following
+ text, ERT or LaTeX commands to be commented out as well.
+ It is safest to put a line feed within the ERT, or not to use comments
+ in ERT unless absolutely necessary.
+\end_layout
+
+\begin_layout Standard
+For easiest use, explore and adapt provided 
+\family typewriter
+.lyx
+\family default
+ files to make your own document.
+ It should also be fine to make new 
+\family typewriter
+.lyx
+\family default
+ files from scratch without much ERT.
+\end_layout
+
+\begin_layout Subsection
+Tables
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:tables"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Be careful of labels near section titles.
+ The label should be within a plain layout, otherwise you might get errors.
+\end_layout
+
+\end_inset
+
+To make a table, insert it using the LyX tools, then open table settings,
+ put border style to 
+\emph on
+Formal
+\emph default
+ (that will make use of better rules from the package 
+\family typewriter
+booktabs
+\family default
+), and remove midrules you don't want to have.
+ Finally, for a nicely styled table with small caps headline, add ERT formatting
+ used in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:example-1"
+
+\end_inset
+
+.
+ Make sure not to apply any styles (emphasis, centering\SpecialChar \ldots{}
+) to the ERT, or
+ you will get errors when you compile the document.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true">
+<column alignment="left" valignment="top" width="46text%">
+<column alignment="left" valignment="top" width="22text%">
+<column alignment="left" valignment="top" width="22text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableheadline{
+\end_layout
+
+\end_inset
+
+labitur bonorum pri no
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableheadline{
+\end_layout
+
+\end_inset
+
+que vista
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableheadline{
+\end_layout
+
+\end_inset
+
+human
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fastidii ea ius
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+germano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+demonstratea
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+suscipit instructior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+titulo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+personas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+quaestio philosophia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+facto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+demonstrated
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:example-1"
+
+\end_inset
+
+Nos duce infra publicava le.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Figures
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:figures"
+
+\end_inset
+
+No ERT is required for figures or subfigures, as can be seen in the LyX
+ source for Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:example-b-1"
+
+\end_inset
+
+.
+ For a large document, it is preferable not to display the inserted graphic
+ in LyX (change in the graphic settings, in the 
+\begin_inset Quotes eld
+\end_inset
+
+LaTeX and LyX options
+\begin_inset Quotes erd
+\end_inset
+
+ tab).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement bth
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename gfx/example_1.jpg
+	lyxscale 44
+	width 45line%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Asia personas duo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename gfx/example_2.jpg
+	lyxscale 44
+	width 45line%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-b-1"
+
+\end_inset
+
+Pan ma signo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-1"
+
+\end_inset
+
+Deler utilitate methodicamente con se.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Description environment
+\end_layout
+
+\begin_layout Standard
+Extra caution is needed in a description environment:
+\end_layout
+
+\begin_layout Description
+Description
+\begin_inset space \hspace{}
+\length 1ex
+\end_inset
+
+Label
+\begin_inset space \hspace{}
+\length 1ex
+\end_inset
+
+Test: Illo secundo continentes sia il, sia russo distinguer se.
+ Contos resultato preparation que se.
+\end_layout
+
+\begin_layout Description
+Yet
+\begin_inset space \hspace{}
+\length 1ex
+\end_inset
+
+Another
+\begin_inset space \hspace{}
+\length 1ex
+\end_inset
+
+Description: Lo vista ample programma pro, uno europee addresses ma, abstracte
+ intention al pan.
+ 
+\end_layout
+
+\begin_layout Standard
+Here, description labels can be entered using LyX, but protected spaces
+ do not work with the small caps description style.
+ Custom horizontal space 
+\family typewriter
+
+\backslash
+hspace{1ex}
+\family default
+ may be used instead.
+\end_layout
+
+\begin_layout Subsection
+Formulæ
+\end_layout
+
+\begin_layout Standard
+Mathematical expressions (the ones like Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fourier"
+
+\end_inset
+
+) can be entered using convenient tools provided by LyX.
+ As an example, the previous sentence features a reference to the following
+ equation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+\frac{\partial Q}{\partial t}=-\kappa\oint_{S}\vec{\nabla}T\cdot\mathrm{d}\vec{S}\label{eq:fourier}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
