@@ -115,6 +115,9 @@
   (define-key ibuffer-mode-map (kbd "p") 'ignore)
   (define-key ibuffer-mode-map (kbd "p") 'ibuffer-backward-filter-group)
 
+  (define-key ibuffer-mode-map (kbd "C-k") 'ignore)
+  (define-key ibuffer-mode-map (kbd "C-k") 'ibuffer-do-delete)
+
   ;;   (ibuffer-do-sort-by-major-mode)
   ;; 每个buffer有变量major-mode标识当前的mode
   ;; (setq ibuffer-filter-groups
