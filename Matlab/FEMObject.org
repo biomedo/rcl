@@ -1,12 +1,34 @@
 # -*- org -*-
 
-# Time-stamp: <2011-04-01 22:03:19 Friday by lian>
+# Time-stamp: <2011-04-01 22:15:29 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
 
 * How to identify a random variable 
-  Identify a random variable by the polynomial chaos and empirical K-L decomposition, please refer to the paper G.Stefanou, A.Nouy 2009. The key issue is how to estimate the coefficients of the polynimial chaos. Here a projection method using empirical CDFs is employed, in Sec. 5.2 of the paper A.nouy 2009. For the implementation of the identification in FEMObject code of matlab, firstly the input is the sample Xs, which has for example n samples. Secondly, Xpc = eicdfpcproject(Xs',20,[],'nbgauss',40); is used to get the pc decomposition of the Xs. Xpc is a PCMATRIX object whose class member 'Value' and 'PC' denote the ploynomial chaos coefficients and polynomial chaos random polynomial respectively. So with this PCMATRIX, we could own the necessary information to construct the representation of the random variable X(thet) based on the polynomial chaos.
+  Identify a random variable by the polynomial chaos and empirical K-L
+  decomposition, please refer to the paper G.Stefanou,
+  A.Nouy 2009. The key issue is how to estimate the coefficients of
+  the polynimial chaos. Here a projection method using empirical CDFs
+  is employed, in Sec. 5.2 of the paper A.nouy 2009. For the
+  implementation of the identification in FEMObject code of matlab,
+  firstly the input is the sample Xs, which has for example n
+  samples. Secondly, Xpc = eicdfpcproject(Xs',20,[],'nbgauss',40); is
+  used to get the pc decomposition of the Xs. Xpc is a PCMATRIX object
+  whose class member 'Value' and 'PC' denote the ploynomial chaos
+  coefficients and polynomial chaos random polynomial respectively. So
+  with this PCMATRIX, we could own the necessary information to
+  construct the representation of the random variable X(thet) based on
+  the polynomial chaos.
+  
 
 * How to understand x=class(x,'PCMATRIX',value,PC);
-  This kind of class definition in matlab is for old version compatibility. It can be explained as following: x is struct to be considered as a class type called PCMATRIX, value and PC are his parents. And value and PC can be looked as a member of class x, which means one could write x.value and x.PC to obtain the data you want. 
+  This kind of class definition in matlab is for old version
+  compatibility. It can be explained as following: x is struct to be
+  considered as a class type called PCMATRIX, value and PC are his
+  parents. And value and PC can be looked as a member of class x,
+  which means one could write x.value and x.PC to obtain the data you
+  want.
+  
+
+* Polynomial Hermit basis for the representation of random variables
