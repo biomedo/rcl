@@ -53,7 +53,7 @@
   (setq TeX-command-default "PdfLatex")
   (define-key LaTeX-mode-map (kbd "C-c RET") 'Tex-insert-macro-at-point)
   (define-key LaTeX-mode-map (kbd "C-c a") 'ac-start)
-  (define-key LaTex-mode-map (kbd "C-j") 'ignore)
+  (local-unset-key (kbd "C-j"))
   ;; (define-key LaTeX-mode-map (kbd "C-c m") 'Tex-insert-math-symbol)
   ;; (define-key LaTeX-mode-map (kbd "C-c v") 'pdflatex-or-view)
   ;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进

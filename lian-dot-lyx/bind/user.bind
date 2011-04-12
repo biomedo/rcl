@@ -51,4 +51,8 @@ Format 1
 \bind "F5" "dialog-toggle view-source"
 \bind "F11" "dialog-toggle progress"
 \bind "F8" "dialog-toggle findreplaceadv"
+\bind "C-j C-s" "buffer-write"
+\bind "C-o C-p" "layout-paragraph"
+\bind "C-o C-t" "dialog-show character"
+\bind "C-o C-l" "ert-insert"
 
