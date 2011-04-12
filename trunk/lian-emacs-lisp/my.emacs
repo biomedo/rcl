@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-04-05 12:56:26 Tuesday by lian>
+;; Time-stamp: <2011-04-11 09:40:48 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -60,16 +60,24 @@
   `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-j h" (lambda () (interactive)(dired "~")))
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
-    ("C-j C-s" bookmark-set)
-    ("C-j C-b" bookmark-bmenu-list)
+    ("C-j C-s" save-buffer-sb)
+    ("C-j s" bookmark-set)
+    ("C-j b" bookmark-bmenu-list)
     ("C-j C-f" emaci-mode-toggle)
     ("C-j f" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
+    ("C-j j" goto-line)
+    ("C-j C-o" delete-blank-lines)
     ("C-j o" other-window)
-    ("C-j C-o" other-window)
     ("C-j 1" delete-other-windows)
     ("C-j k" kill-this-buffer)
     ("C-j C-k" kill-this-buffer)
+    ("C-j w" copy-sexp)
+    ("C-j C-w" kill-whole-sexp)
+    ("C-j M-w" insert-cur-line)
+    ("C-j C-e" multi-term)
+    ("C-j C-n" multi-term-next)
+    ("C-j C-p" multi-term-prev)
     ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
     ("C-j 2" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 3" (lambda () (interactive)(dired (nth 1 lian-working-dir))))

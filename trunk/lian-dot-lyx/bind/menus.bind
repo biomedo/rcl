@@ -94,7 +94,7 @@
 \bind "C-o S-A"			"layout Author"
 \bind "C-o M-a"			"layout Address"
 \bind "C-o C-a"			"layout Right_Address"
-\bind "C-o b"			"layout Itemize"	# bulleted list
+#\bind "C-o b"			"layout Itemize"	# bulleted list
 \bind "C-o S-B"			"layout Bibliography"
 \bind "C-o c"			"layout LyX-Code"
 \bind "C-o S-C"			"layout Comment"
@@ -106,7 +106,7 @@
 \bind "C-o i"			"layout Itemize"	# bulleted list
 \bind "C-o l"			"layout List"
 \bind "C-o S-L"			"layout LaTeX"
-\bind "C-o n"			"layout Enumerate"	# numbered list
+\bind "C-o n"			"note-insert"
 \bind "C-o q"			"layout Quote"
 \bind "C-o S-Q"			"layout Quotation"
 \bind "C-o r"			"layout ShortRotatefoilhead"	# Foils!!
@@ -121,6 +121,9 @@
 \bind "C-o Up"			"outline-up"
 \bind "C-o Down"		"outline-down"
 
+\bind "C-o b f"		"layout BeginFrame"
+\bind "C-o b c"		"layout Columns"
+\bind "C-o b i"		"layout Column"
 
 # These are kept for backwards compatibility (only make sense on US keyboard)
 \bind "C-o S-at"		"layout Section*"	# C-o S-2
