@@ -225,7 +225,7 @@ Index: my-lisps/dired-settings.el
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/dired-settings.el
 -;; Time-stamp: <2010-11-21 21:15:20 Sunday by taoshanwen>
-+;; Time-stamp: <2011-04-04 18:56:14 Monday by lian>
++;; Time-stamp: <2011-04-13 21:02:28 Wednesday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -257,17 +257,7 @@ Index: my-lisps/dired-settings.el
  
         ("M-w"         wuxch-dired-copy)
         ("C-y"         wuxch-dired-paste)
-@@ -242,7 +245,8 @@
- 
-        ("c"           dired-do-copy)
-        ("E"           dired-ediff)
--       ("t"           sb-toggle-keep-buffer)
-+       ;; ("t"           sb-toggle-keep-buffer)
-+       ("t"           multi-term)
-        ("M-m"         dired-unmark-backward)
-        ("C-c M-m"     dired-create-directory)
-        
-@@ -250,6 +254,8 @@
+@@ -250,6 +253,8 @@
         ("C-c m"       make-check-sb)
         ("C-c M"       make-clean-sb)
         ("C-c c"       compile-buffer-sb)

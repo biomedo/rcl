@@ -23,6 +23,7 @@ export LIAN_CUR_WORK_DIR=/cassini/struct/lian/develop/BatchCalculation/Homog_Ran
 #===============================The same as develop=====================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
+# export DEVROOT=/glouton/struct/$USER/develop-alternative-2-petsc
 
 #===============================The same as develop-alternative only change the code homog ======================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-homog
@@ -130,7 +131,7 @@ alias stt="ssh -Y titan"
 alias sfr="ssh -X frioul"
 alias sen="ssh -X envau"
 alias sslwd="ssh -X lwd@localhost"
-alias sskth="ssh xiaogai@193.10.38.110"
+alias sskth="ssh xiaogai@193.10.38.139"
 alias q="qstat"
 alias ql="qstat -u lian"
 alias qn="qstat -an"
