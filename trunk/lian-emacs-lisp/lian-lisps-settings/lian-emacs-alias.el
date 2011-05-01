@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-16 17:03:58 Wednesday by lian>
+;; Time-stamp: <2011-04-28 19:58:21 Thursday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -24,8 +24,8 @@
 
 
 ; edit
-(defalias 'unc 'uncomment)
-(defalias 'uncr 'uncomment-region)
+(defalias 'uc 'uncomment)
+(defalias 'ucr 'uncomment-region)
 
 (defalias 'rn 'wdired-change-to-wdired-mode) ; rename file in dired
 (defalias 'd 'dired-jump)
@@ -72,7 +72,7 @@
 (defalias 'ssm 'shell-script-mode)
 (defalias 'cc 'calc)
 
-(defalias 'acm 'auto-complete-mode)
+(defalias 'ac 'auto-complete-mode)
 
 (defalias 'html6-mode 'lian-html6-mode)
 
