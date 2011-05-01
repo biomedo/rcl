@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-04-12 21:24:11 Tuesday by lian>
+;; Time-stamp: <2011-04-28 11:25:01 Thursday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -81,6 +81,7 @@
     ("C-j C-n" multi-term-next)
     ("C-j C-p" multi-term-prev)
     ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
+    ("C-j C-r" recentf-open-files-complete-sb)
     ("C-j 2" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 3" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-j 4" (lambda () (interactive)(dired (nth 2 lian-working-dir))))

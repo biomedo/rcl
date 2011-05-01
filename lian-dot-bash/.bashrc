@@ -22,6 +22,7 @@ export LIAN_CUR_WORK_DIR=/cassini/struct/lian/develop/BatchCalculation/Homog_Ran
 
 #===============================The same as develop=====================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative
+# export DEVROOT=/glouton/struct/$USER/develop-alternative-petsc
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2-petsc
 
