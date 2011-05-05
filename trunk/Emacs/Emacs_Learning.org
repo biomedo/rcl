@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-02-01 07:37:10 Tuesday by lian>
+# Time-stamp: <2011-05-05 20:11:24 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -27,6 +27,10 @@
   - M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
   - C-x M 查看manual，比如linux下命令或者别的命令的手册
   - C-x K 找某个key对应的命令的lisp代码
+  - C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
+  - C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
+    
+    
 * svn and vc 版本控制
   - 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
   - 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样

@@ -1,20 +1,27 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-25 09:55:46 Friday by lian>
+;; Time-stamp: <2011-05-05 20:15:09 Thursday by lian>
 
 ;; enable matlab-mode and accociate .m file with matlab-mode
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
 (autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
+(autoload 'mlint-minor-mode "mlint" "\
+Toggle mlint minor mode, a mode for showing mlint errors.
+With prefix ARG, turn mlint minor mode on iff ARG is positive.
+\\{mlint-minor-mode-map\\}
+
+\(fn &optional ARG)" t nil)
 
 ;; enable auto-complte-mode in matlab-mode
 (add-to-list 'ac-modes 'matlab-mode) 
 
 ;; Customization:
-(setq matlab-indent-function t) ; if you want function bodies indented
-;; (setq matlab-verify-on-save-flag nil) ; turn off auto-verify on save
+;; (setq matlab-indent-function t) ; if you want function bodies indented
+(setq matlab-verify-on-save-flag nil) ; turn off auto-verify on save
 
 (defun my-matlab-mode-hook ()
+  (mlint-minor-mode 1)
   (setq fill-column 76)  ; where auto-fill should wrap
   ;; (define-key matlab-mode-map (kbd "M-s") 'ignore)
   ;; (define-key matlab-mode-map (kbd "M-s") 'emaci-mode-on)
