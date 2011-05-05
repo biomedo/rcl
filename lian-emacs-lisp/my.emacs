@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-04-28 11:25:01 Thursday by lian>
+;; Time-stamp: <2011-05-02 16:38:24 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -63,8 +63,9 @@
     ("C-j C-d" dired-jump)
     ("C-j C-s" save-buffer-sb)
     ("C-j s" bookmark-set)
-    ("C-j b" bookmark-bmenu-list)
+    ("C-j m" bookmark-bmenu-list)
     ("C-j C-b" ibuffer)
+    ("C-j b" ido-switch-buffer)
     ("C-j C-f" emaci-mode-toggle)
     ("C-j f" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
@@ -80,6 +81,7 @@
     ("C-j C-e" multi-term)
     ("C-j C-n" multi-term-next)
     ("C-j C-p" multi-term-prev)
+    ("C-j C-i" indent-whole-buffer)
     ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
     ("C-j C-r" recentf-open-files-complete-sb)
     ("C-j 2" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
