@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-03-25 11:25:07 Friday by lian>
+;; Time-stamp: <2011-05-07 13:33:55 Saturday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -20,7 +20,9 @@
 
 (setq bookmark-sort-flag nil)
 
+
 (defun my-bookmark-mode-hook ()
+  (linum-mode 1)
   (define-key bookmark-bmenu-mode-map (kbd "j") 'ignore)
   (define-key bookmark-bmenu-mode-map (kbd "j") 'next-line)
   (define-key bookmark-bmenu-mode-map (kbd "k") 'ignore)
