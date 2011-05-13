@@ -1,4 +1,4 @@
-# LyX 2.0.0rc1 generated this file. If you want to make your own
+# LyX 2.0.0 generated this file. If you want to make your own
 # modifications you should do them from inside LyX and save.
 
 Format 1
@@ -17,11 +17,13 @@ Format 1
 # SCREEN & FONTS SECTION ############################
 #
 
+\scroll_below_document true
+\mac_like_word_movement true
 \screen_font_roman "DejaVu Sans"
 \screen_font_typewriter "DejaVu Sans"
 \screen_font_sizes 5 7 8 9 10 12 14.4 17.260000000000002 20.739999999999998 24.879999999999999
 \single_instance false
-\forward_search_pdf "okular --unique \"file:$$o#src:$$n $$t\""
+\forward_search_pdf "synctex view -i $$n:0:$$t -o $$o -x \"evince -i %{page+1} $$o\""
 
 #
 # COLOR SECTION ###################################
@@ -47,6 +49,7 @@ Format 1
 \completion_popup_delay 1.00
 \completion_popup_text true
 \thesaurusdir_path "/home/users/struct/lian/thesaurus"
+\hunspelldir_path "/usr/share/myspell"
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
