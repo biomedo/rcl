@@ -33,6 +33,16 @@
          <Stroke code="VK_Z" ctrl="on"/>
          <Stroke code="VK_SLASH" ctrl="on"/>
       </Action>
+      <Action id="save">
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_S" ctrl="on"/>
+         </Sequence>
+         <Sequence>
+            <Stroke code="VK_J" ctrl="on"/>
+            <Stroke code="VK_S" ctrl="on"/>
+         </Sequence>
+      </Action>
       <Action id="find-files"/>
       <Action id="insert-tab">
          <Stroke code="VK_TAB"/>
