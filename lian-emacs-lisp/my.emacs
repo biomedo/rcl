@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-13 19:23:59 Friday by lian>
+;; Time-stamp: <2011-05-18 13:58:14 Wednesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -80,6 +80,7 @@
     ("C-j C-k" kill-this-buffer)
     ("C-j w" copy-sexp)
     ("C-j C-w" kill-whole-sexp)
+    ("C-j C-y" delete-and-past-sexp)
     ("C-j M-w" insert-cur-line)
     ("C-j C-e" multi-term)
     ("C-j C-n" multi-term-next)
@@ -88,10 +89,23 @@
     ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
     ("C-j C-r" recentf-open-files-complete-sb)
     ("C-j 4" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
+    ("C-j g" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 5" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
+    ("C-j i" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-j 6" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
+    ("C-j u" (lambda () (interactive)(dired (nth 2 lian-working-dir))))
     ("C-j 7" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
     ("C-j 8" (lambda () (interactive)(dired (nth 4 lian-working-dir))))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; misc-edit settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key [C-M-up] 'move-text-up)
+(global-set-key [C-M-down] 'move-text-down)
+(global-set-key (kbd "C-M-,") 'move-text-up)
+(global-set-key (kbd "C-M-.") 'move-text-down)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Matlab settings

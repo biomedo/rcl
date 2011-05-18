@@ -1,3 +1,7 @@
+;;; Commentary:
+;;; This is extensions of edit-misc
+(require 'edit-misc)
+
 (defun move-text-internal (arg)
   (cond
    ((and mark-active transient-mark-mode)
@@ -21,23 +25,27 @@
         (forward-line -1))
       (move-to-column column t)))))
 
+;;;###autoload
 (defun move-text-down (arg)
   "Move region (transient-mark-mode active) or current line
   arg lines down."
   (interactive "*p")
   (move-text-internal arg))
 
+;;;###autoload
 (defun move-text-up (arg)
   "Move region (transient-mark-mode active) or current line
   arg lines up."
   (interactive "*p")
   (move-text-internal (- arg)))
 
+;;;###autoload
+(defun delete-and-past-sexp (&optional not-whole)
+  "delete current sexp and past yank"
+  (interactive)
+  (mark-whole-sexp not-whole)
+  (call-interactively 'cua-paste))
 
-(global-set-key [C-M-up] 'move-text-up)
-(global-set-key [C-M-down] 'move-text-down)
-(global-set-key (kbd "C-M-,") 'move-text-up)
-(global-set-key (kbd "C-M-.") 'move-text-down)
 
 (provide 'edit-misc-ex)
 
