@@ -104,6 +104,8 @@ alias yshnode8gb="qsub -l select=1:ncpus=1:mem=8Gb -I"
 alias yshnode10gb="qsub -l select=1:ncpus=1:mem=10Gb -I"
 alias yshnode12gb="qsub -l select=1:ncpus=1:mem=12b -I"
 yshnodexgb () { qsub -l select=1:ncpus=1:mem=$1Gb -I; }
+yshnodexgb_heavy ()  { qsub -l mem=$1gb -q heavy -I; }
+
 em () { emacs -q -nw $1; }
 emlocal () { LC_CTYPE=zh_CN.utf8 emacs -nw $1; }
 # emlocal () { TERM=xterm-256color LC_CTYPE=zh_CN.utf8 emacs -nw $1; }
