@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-13 18:52:19 Friday by lian>
+;; Time-stamp: <2011-05-18 16:40:22 Wednesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -67,8 +67,8 @@
         (concat (getenv "DEVROOT") "/SolverInterfaces/SuperLu/tags")
         (concat (getenv "DEVROOT") "/SolverInterfaces/Lapack/tags")
         (concat (getenv "DEVROOT") "/SolverInterfaces/Taucs/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/tags")
+        ;; (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/tags")
+        ;; (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/tags")
         (concat (getenv "DEVROOT") "/Trellis/AOMD/tags")
         (concat (getenv "DEVROOT") "/MeshMachine/LinearAlgebra/tags")
         (concat (getenv "DEVROOT") "/Applis/Homog/tags")
