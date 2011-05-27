@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-18 14:16:11 Wednesday by lian>
+;; Time-stamp: <2011-05-27 16:53:34 Friday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -33,6 +33,17 @@
 (defalias 'cs 'copy-sentence)
 (defalias 'cll 'copy-line-left)
 
+;; compile
+(defalias 'cpl 'compile)
+(setq compile-command "make -k -j 8 NODEP=1 VERS=opt")
+
+;; ediff
+(defalias 'edb 'ediff-buffers)
+(defalias 'edf 'ediff-files)
+(defalias 'edr 'ediff-revision)
+
+;; gdb
+(defalias 'gg 'gud-gdb)
 
 ;; mode
 (defalias 'ac 'auto-complete-mode)
