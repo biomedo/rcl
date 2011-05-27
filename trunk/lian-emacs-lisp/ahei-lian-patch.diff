@@ -274,7 +274,7 @@ Index: my-lisps/edit-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-09-02 17:09:59 Thursday by taoshanwen>
-+;; Time-stamp: <2011-01-28 09:57:56 Friday by lian>
++;; Time-stamp: <2011-05-27 15:18:36 Friday by lian>
  
  (require 'compile-settings)
  (require 'edit-misc)
@@ -288,6 +288,15 @@ Index: my-lisps/edit-settings.el
  
  ;;;###autoload
  (defmacro def-redo-command (fun-name redo undo)
+@@ -88,7 +89,7 @@
+    ("C-x M-M" mark-invisible-region)
+    ("M-U" del-to-begin)
+    ("C-^" case-trans)
+-   ("C-6" case-trans)
++   ;; ("C-6" case-trans)
+    ("C-w" backward-kill-word-or-kill-region)
+    ("C-x S" mark-whole-sexp)
+    ("C-x W" kill-whole-sexp)
 Index: my-lisps/select-buffer.el
 ===================================================================
 --- my-lisps/select-buffer.el	(revision 1384)
@@ -375,14 +384,14 @@ Index: my-lisps/font-settings.el
 ===================================================================
 --- my-lisps/font-settings.el	(revision 1384)
 +++ my-lisps/font-settings.el	(working copy)
-@@ -9,6 +9,6 @@
-       (huangq-fontset-consolas 17)
-     ;; (huangq-fontset-dejavu 17)))
-     ;; (huangq-fontset-fixedsys 17)
--    (set-default-font "Monospace 11")))
-+    (set-default-font "Monospace 9")))
+@@ -1,6 +1,6 @@
+ ;; -*- Emacs-Lisp -*-
  
- (provide 'font-settings)
+-;; Time-stamp: <2010-10-11 20:00:55 Monday by taoshanwen>
++;; Time-stamp: <2011-05-26 10:30:54 Thursday by lian>
+ 
+ (when (and window-system is-after-emacs-23)
+   (require 'my-fontset-win)
 Index: my-lisps/ido-settings.el
 ===================================================================
 --- my-lisps/ido-settings.el	(revision 1384)
@@ -542,27 +551,6 @@ Index: my-lisps/auto-complete-settings.el
  
  (eal-eval-by-modes
   ac-modes
-Index: my-lisps/compile-settings.el
-===================================================================
---- my-lisps/compile-settings.el	(revision 1384)
-+++ my-lisps/compile-settings.el	(working copy)
-@@ -1,6 +1,6 @@
- ;; -*- Emacs-Lisp -*-
- 
--;; Time-stamp: <2011-02-18 11:30:55 Friday by taoshanwen>
-+;; Time-stamp: <2011-01-28 23:07:30 Friday by lian>
- 
- (require 'util)
- 
-@@ -36,7 +36,7 @@
- (defun compile-settings ()
-   "Settings for `compile'."
-   ;; 设置编译命令
--  (setq compile-command "make -k")
-+  (setq compile-command "make -k -j 8 NODEP=1 VERS=opt")
- 
-   (eal-define-keys
-    makefile-mode-map-list
 Index: my-lisps/multi-term-settings.el
 ===================================================================
 --- my-lisps/multi-term-settings.el	(revision 1384)
