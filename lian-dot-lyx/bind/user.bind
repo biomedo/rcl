@@ -44,6 +44,7 @@ Format 1
 \bind "C-x 3" "split-view horizontal"
 \bind "C-x 2" "split-view vertical"
 \bind "C-x 1" "close-tab-group"
+\bind "C-x C-l" "statistics"
 \bind "C-r C-r" "dialog-show-new-inset ref"
 \bind "C-r C-c" "citation-insert"
 \bind "C-r C-l" "label-insert"

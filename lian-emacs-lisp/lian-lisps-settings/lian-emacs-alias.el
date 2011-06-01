@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-27 16:53:34 Friday by lian>
+;; Time-stamp: <2011-05-30 19:06:43 Monday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -41,6 +41,7 @@
 (defalias 'edb 'ediff-buffers)
 (defalias 'edf 'ediff-files)
 (defalias 'edr 'ediff-revision)
+(defalias 'edl 'ediff-regions-linewise)
 
 ;; gdb
 (defalias 'gg 'gud-gdb)

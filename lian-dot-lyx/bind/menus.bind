@@ -96,7 +96,7 @@
 \bind "C-o C-a"			"layout Right_Address"
 #\bind "C-o b"			"layout Itemize"	# bulleted list
 \bind "C-o S-B"			"layout Bibliography"
-\bind "C-o c"			"layout LyX-Code"
+\bind "C-o c"			"note-insert Comment"
 \bind "C-o S-C"			"layout Comment"
 \bind "C-o d"			"layout Description"
 \bind "C-o S-D"			"layout Date"
