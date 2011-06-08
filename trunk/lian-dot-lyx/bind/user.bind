@@ -35,6 +35,8 @@ Format 1
 \bind "C-c b h" "menu-open help"
 \bind "C-c C-n" "menu-open navigate"
 \bind "C-c C-i" "menu-open insert"
+\bind "C-c C-f" "master-buffer-view"
+\bind "C-c C-d" "master-buffer-update"
 \bind "C-M-w" "cut"
 \bind "C-w" "word-delete-backward"
 \bind "C-i" "command-alternatives completion-accept;cell-forward;tab-insert;depth-increment;outline-in"
