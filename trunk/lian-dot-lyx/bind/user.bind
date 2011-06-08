@@ -47,6 +47,7 @@ Format 1
 \bind "C-x 2" "split-view vertical"
 \bind "C-x 1" "close-tab-group"
 \bind "C-x C-l" "statistics"
+\bind "C-x C-x" "command-execute"
 \bind "C-r C-r" "dialog-show-new-inset ref"
 \bind "C-r C-c" "citation-insert"
 \bind "C-r C-l" "label-insert"
@@ -72,4 +73,6 @@ Format 1
 \bind "M-S-p" "buffer-previous"
 \bind "F9" "buffer-view"
 \bind "F10" "buffer-update"
+\bind "M-n" "reference-next"
+\bind "M-p" "bookmark-goto 0"
 
