@@ -10,18 +10,18 @@ export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
 #################End for GNU#################
 
-alias cdi="cd /cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20"
-export cdi=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20
+alias cdi='cd /home/users/struct/lian/private/TexDocSvn/MyDocLyxTex/Thesis/'
+# export cdi=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20
 
 #===============================All Self Compiled library, Taucs or SuperLU Direct Sover=========================================
 export DEVROOT=/glouton/struct/$USER/develop
 export LIAN_EMACS_LISP_DIR=/glouton/struct/lian/develop/tools/svn_cvs/rcl/lian-emacs-lisp
-export LIAN_DOC_LYXTEX_DIR=~/private/TexDocSvn/MyDocLyxTex
+export LIAN_DOC_LYXTEX_DIR=~/private/TexDocSvn/MyDocLyxTex/Thesis/
 # export LIAN_CUR_WORK_DIR=/cassini/struct/lian/develop/BatchCalculation/Homog_Random_Checkerboard_10240_Xfem
 export LIAN_CUR_WORK_DIR=/cassini/struct/lian/develop/BatchCalculation/Multi_Homog_Random_Circle_Fiber_Matrix_Image_10240_R20
 
 #===============================The same as develop=====================================
-export DEVROOT=/glouton/struct/$USER/develop-alternative
+#export DEVROOT=/glouton/struct/$USER/develop-alternative
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-petsc
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2-petsc
