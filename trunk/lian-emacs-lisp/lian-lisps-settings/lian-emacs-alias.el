@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-30 19:06:43 Monday by lian>
+;; Time-stamp: <2011-06-09 21:46:45 Thursday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -50,6 +50,14 @@
 (defalias 'ac 'auto-complete-mode)
 
 
+;; menubar toolbar scrollbar
+(defalias 'tb 'toggle-bar-mode)
+(defalias 'tm 'toggle-menu-bar-mode-from-frame)
+(defun toggle-bar-mode ()
+  (interactive)
+  (if menu-bar-mode (menu-bar-mode 0) (menu-bar-mode 1))
+  (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
+  (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
 
 
 
