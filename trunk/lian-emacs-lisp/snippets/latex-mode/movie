@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: movie
 # key: movie
+# group: misc
 # --
 \begin{center}
 \includemovie[

@@ -388,7 +388,7 @@ Index: my-lisps/font-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-10-11 20:00:55 Monday by taoshanwen>
-+;; Time-stamp: <2011-05-26 10:30:54 Thursday by lian>
++;; Time-stamp: <2011-06-01 10:13:22 Wednesday by lian>
  
  (when (and window-system is-after-emacs-23)
    (require 'my-fontset-win)
@@ -586,19 +586,20 @@ Index: my-lisps/yasnippet-settings.el
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2010-04-26 10:22:22 Monday by ahei>
-+;; Time-stamp: <2011-02-23 18:11:03 Wednesday by lian>
++;; Time-stamp: <2011-06-10 17:10:51 Friday by lian>
  
  (require 'yasnippet)
  
-@@ -8,6 +8,7 @@
+@@ -8,6 +8,8 @@
  
  (defun yasnippet-settings ()
    "settings for `yasnippet'."
 +  (setq yas/prompt-functions '(yas/ido-prompt yas/x-prompt yas/dropdown-prompt))
++  (setq yas/use-menu 'abbreviate)
    (setq yas/root-directory (concat my-emacs-path "snippets"))
  
    (defun yasnippet-unbind-trigger-key ()
-@@ -33,7 +34,7 @@
+@@ -33,7 +35,7 @@
  
  (eal-define-keys
   'yas/minor-mode-map

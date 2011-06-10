@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: code
 # key: code
+# group: misc
 # --
 \begin{lstlisting}
 $0

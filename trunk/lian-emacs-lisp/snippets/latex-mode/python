@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: python
 # key: py
+# group: misc
 # --
 \lstset{language=python}
 \begin[language=python]{lstlisting}
