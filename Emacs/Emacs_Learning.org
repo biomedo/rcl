@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-05-05 20:11:24 Thursday by lian>
+# Time-stamp: <2011-06-10 19:55:28 Friday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -10,13 +10,22 @@
   - outline-minor-mode 大纲模式
   - auto-complete-mode 处理自动补全的操作
   - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
+  - yasnippet is powerful mode, serving to improve your working productivity. I have collected many snippets from internet and also merge my own modification into them. Please see the root directory of my google RCL
+  - template-mode
+    1) the template mode is also a useful mode that can collect your own frequently-used code setctions into templates
+    2) C-x C-f create a file by defaut, for example aa.cc
+    3) C-c C-t template-expand-template this binding is only available in some programming mode. Still, you could M-x template-expand-template to invoke a template into current document
+    4) M-x template-new-file is used to create a new file based on the template.tpl.
+    5) tmplate tpl files are located in ahei's template directory. If needed, one allows gathering your own template files into your own directory, thereafter configer your template directory into emacss. 
+
+   
 * 帮助系统
   - C-x / {k,w,b,m,v,a}
   - C-x / K 可以搜索指定key的帮助
   - C-x / ? 显示帮助系统的帮助
   - C-x / t 给你一个简易的学习帮助系统
   - <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
-  - C-x C-d 查看某个符号的或者函数的代码
+  - C-x C-d 查看某个符号的或者函数的代码, used to directly input the function name, if you want to query the function source by input the corresponding key, please use C-x K
   - C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
   - C-x E 载入emacs的配置文件进行编辑
   - C-x G e 进入emacs配置文件的目录进行浏览
@@ -86,14 +95,14 @@
   - C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
 * 文本编辑
   - 光标操作的技巧
-    -- 如果是为了浏览目的，可以直接用emaci模式进行浏览，利用w,d进行一页一页移动，空格键和u进行半页移动，如果文章非常大则要用查找来浏览文件比较好；
-    -- 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
-    -- 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
-    -- 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
-    -- C-M-{a,e} beginning-of-defun and ending-of-defun, or C-c M-{a,e}, or C-M-{Home, End}
-    -- 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
-    -- 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
-    -- 在两个大括号之间跳动C-]
+    1) 如果是为了浏览目的，可以直接用emaci模式进行浏览，利用w,d进行一页一页移动，空格键和u进行半页移动，如果文章非常大则要用查找来浏览文件比较好；
+    2) 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
+    3) 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
+    4) 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
+    5) C-M-{a,e} beginning-of-defun and ending-of-defun, or C-c M-{a,e}, or C-M-{Home, End}
+    6) 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
+    7) 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
+    8) 在两个大括号之间跳动C-]
   - 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
   - 删除操作 C; M;  {d;k}
   - C-k 进行了重新定义，直接删除整行内容

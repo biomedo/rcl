@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-11-29 00:12:51 Monday by lian>
+# Time-stamp: <2011-06-10 19:42:37 Friday by lian>
 
 #+STARTUP: indent +OPTIONS: ^:nil author:lianweidong timestamp:nil creator:lianweidong
 * 基本功能介绍
@@ -10,6 +10,7 @@
   - S-TAB, TAB 大纲和目录切换，控制隐藏和显示控制
   - C-c /, C-c r, 根据搜索内容或者根据分类来控制显示的内容，这样文档就不显得非常乱
   - C-c C-n，C-c C-p， C-c u 浏览控制
+  - C-c - is used to change the style of subsections.
   - C-M h 选择当前点所在的整个Region
   - M-Left, M-Right, M-Top, M-Bottom, M-S-Left, M-S-Right, M-S-Bottom, M-S-Top进行标题缩进，标题级别，标题上下位置控制
   - 在没有任何内容的行上，输入列表符号之后，比如-，+等，然后按TAB，可以调节缩进和层次
