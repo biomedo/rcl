@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-10 21:59:29 Friday by lian>
+;; Time-stamp: <2011-06-11 01:25:35 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -41,10 +41,6 @@
 (global-set-key (kbd "<C-f11>") (lambda () (interactive)(find-tag "" t)))
 (global-set-key (kbd "<M-f10>") 'tags-apropos)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; alias the emacs command
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'lian-emacs-alias)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Frequently-used command and Jump to my working dir
@@ -52,6 +48,21 @@
 (defun emaci-mode-toggle ()
   (interactive)
   (if emaci-mode (emaci-mode-off) (emaci-mode-on)))
+
+(defvar last-lian-color-theme-idx 0 "lian's color theme index")
+
+(defun toggle-lian-color-themes ()
+  (interactive)
+  (setq last-lian-color-theme-idx (mod (+ last-lian-color-theme-idx 1) (length lian-color-themes)))
+  (color-theme-initialize)
+  (funcall (nth last-lian-color-theme-idx lian-color-themes))
+  (message "%s is serving" (nth last-lian-color-theme-idx lian-color-themes)))
+
+(defun toggle-bar-mode ()
+  (interactive)
+  (if menu-bar-mode (menu-bar-mode 0) (menu-bar-mode 1))
+  (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
+  (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
 
 
 (define-prefix-command 'ctl-j-map)
@@ -61,6 +72,8 @@
   `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-j h" (lambda () (interactive)(dired "~")))
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
+    ("C-j C-t" toggle-lian-color-themes)
+    ("C-j M-t" toggle-bar-mode)
     ("C-j C-d" dired-jump)
     ("C-j C-s" save-buffer-sb)
     ("C-j s" bookmark-set)
@@ -111,33 +124,44 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'matlab-settings)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; iBuffer settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'wuxch-buffer-settings)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; lyx settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (setq auto-mode-alist (cons '("\\.lyx\\'" . latex-mode) auto-mode-alist))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tex settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'latex-settings)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; edit-misc extend settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'edit-misc-ex)
 
+
 ;;;;;;;;;;;;;;;;;;
 ;; Yasnippets
 ;;;;;;;;;;;;;;;;;;
 (yas/load-directory (concat lian-emacs-lisp-dir "/snippets"))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; bookmark-settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'bookmark-settings)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; alias the emacs command
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'lian-emacs-alias)

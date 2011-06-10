@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-10 22:00:14 Friday by lian>
+;; Time-stamp: <2011-06-11 01:13:51 Saturday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -53,14 +53,9 @@
 ;; menubar toolbar scrollbar
 (defalias 'tb 'toggle-bar-mode)
 (defalias 'tm 'toggle-menu-bar-mode-from-frame)
-(defun toggle-bar-mode ()
-  (interactive)
-  (if menu-bar-mode (menu-bar-mode 0) (menu-bar-mode 1))
-  (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
-  (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
+
 
 ;; color-theme-mode my favourate theme is 'Subtle Hacker', 'Retro Orange', 'Gnome 2', 'Classic'
-
 (defalias 'ct0 'color-theme-ahei)
 (defalias 'ct1 'color-theme-classic)
 (defalias 'ct2 'color-theme-gnome2)
