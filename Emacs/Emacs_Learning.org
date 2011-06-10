@@ -1,10 +1,12 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-10 19:55:28 Friday by lian>
+# Time-stamp: <2011-06-10 21:36:26 Friday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
   坚定的学习Emacs因为从我的学习体会是，我很难找到一个东西，让你越学越兴奋，觉得有进一步学下去的欲望，emacs就是这样的东西，值得你花时间去了解他的脾气。与其让emacs适应你，不如你现在开始适应emacs，因为你会越来越发现工作在emacs上面完成你的工作是多么的高效。在现在这个图形界面操作低效，各种软件工具越来越发达的时代，你学过的很多软件都会随着时间流逝而渐渐淡出你的视线，但是我的体会就是不管出来多少软件工具，emacs会是一个经久不衰的工作系统，因为会有越来越多人会开发更多的插件来更新完善增强emacs的功能。
+
+
 * 主模式和附属模式(major-mode and minor-mode)
   - hs-minor-mode 处理block的隐藏和显示控制
   - outline-minor-mode 大纲模式
@@ -17,7 +19,10 @@
     3) C-c C-t template-expand-template this binding is only available in some programming mode. Still, you could M-x template-expand-template to invoke a template into current document
     4) M-x template-new-file is used to create a new file based on the template.tpl.
     5) tmplate tpl files are located in ahei's template directory. If needed, one allows gathering your own template files into your own directory, thereafter configer your template directory into emacss. 
-
+  - color-theme-mode
+    1) color-theme-ahei defaut theme mode
+    2) color-theme-select give you a choice to select your favrate mode
+    3) my favourate theme is 'Subtle Hacker', 'Retro Orange', 'Gnome 2', 'Classic'
    
 * 帮助系统
   - C-x / {k,w,b,m,v,a}

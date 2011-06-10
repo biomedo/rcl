@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-09 21:46:45 Thursday by lian>
+;; Time-stamp: <2011-06-10 22:00:14 Friday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -59,7 +59,14 @@
   (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
   (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
 
+;; color-theme-mode my favourate theme is 'Subtle Hacker', 'Retro Orange', 'Gnome 2', 'Classic'
 
+(defalias 'ct0 'color-theme-ahei)
+(defalias 'ct1 'color-theme-classic)
+(defalias 'ct2 'color-theme-gnome2)
+(defalias 'ct3 'color-theme-subtle-hacker)
+(defalias 'ct4 'color-theme-retro-orange)
+(defalias 'ct5 'color-theme-emacs-21)
 
 
 
