@@ -58,6 +58,10 @@ tarx () { tar xzvf $1; }
 tart () { tar tzvf $1; }
 tarb () { tar czvf $1.tar.gz $1 > $1.txt; }
 
+#---- svn related command 
+export SVN_EDITOR="em"
+svn_tar () { svn export $1 $2; tar czvf $2.tar.gz $2; rm -rf $2; }
+
 
 #---- Pour eviter les betises...
 alias rm='rm -i'
@@ -115,7 +119,7 @@ emacsecn () { emacs -q -l ~/sys_backup/dot_emacs_ecn $1; }
 emtitan () { /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs -nw $1; }
 emacstitan () { /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs $1; }
 export EDITOR="em"
-export SVN_EDITOR="em"
+
 ysh () { ssh -Y $1; }
 mck () { make -j8 checkone DIR=$1; }
 mcko () { make -j8 checkone DIR=$1 VERS=opt; }

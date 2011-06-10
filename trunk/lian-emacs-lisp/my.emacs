@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-09 08:18:35 Thursday by lian>
+;; Time-stamp: <2011-06-10 21:59:29 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -52,6 +52,7 @@
 (defun emaci-mode-toggle ()
   (interactive)
   (if emaci-mode (emaci-mode-off) (emaci-mode-on)))
+
 
 (define-prefix-command 'ctl-j-map)
 (global-set-key (kbd "C-j") 'ctl-j-map)
