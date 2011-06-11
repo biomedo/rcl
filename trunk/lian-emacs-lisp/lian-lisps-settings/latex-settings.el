@@ -5,6 +5,7 @@
 
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
+(setq auto-mode-alist (cons '("\\.tex\\'" . latex-mode) auto-mode-alist))
 
 (defun Tex-insert-macro-at-point (symbol)
   (interactive

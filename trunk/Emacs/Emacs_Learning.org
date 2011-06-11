@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-10 21:36:26 Friday by lian>
+# Time-stamp: <2011-06-11 21:01:40 Saturday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -11,7 +11,7 @@
   - hs-minor-mode 处理block的隐藏和显示控制
   - outline-minor-mode 大纲模式
   - auto-complete-mode 处理自动补全的操作
-  - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
+  - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark 命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
   - yasnippet is powerful mode, serving to improve your working productivity. I have collected many snippets from internet and also merge my own modification into them. Please see the root directory of my google RCL
   - template-mode
     1) the template mode is also a useful mode that can collect your own frequently-used code setctions into templates
@@ -95,6 +95,9 @@
   - C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
   - C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
   - M-x ediff-buffers or ediff-files文件或者缓冲器的比较
+  - ediff-buffers, ediff-files, ediff-revisions, ediff-directories
+  - ediff-patch-file, ediff-patch-buffer
+  - emerge-files, emerge-buffers, emerge-revisions, emerge-merge-directories
 * 文件查找
   - M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
   - C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
