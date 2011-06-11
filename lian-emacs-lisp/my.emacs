@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-11 01:25:35 Saturday by lian>
+;; Time-stamp: <2011-06-11 16:24:25 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -72,6 +72,7 @@
   `(("C-j e" (lambda () (interactive)(dired lian-emacs-lisp-dir)))
     ("C-j h" (lambda () (interactive)(dired "~")))
     ("C-j d" (lambda () (interactive)(dired (getenv "LIAN_DOC_LYXTEX_DIR"))))
+    ("C-j C-c" cua-set-rectangle-mark)
     ("C-j C-t" toggle-lian-color-themes)
     ("C-j M-t" toggle-bar-mode)
     ("C-j C-d" dired-jump)
