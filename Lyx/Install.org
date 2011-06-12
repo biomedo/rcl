@@ -1,0 +1,30 @@
+# -*- org -*-
+
+# Time-stamp: <2011-06-13 00:23:03 Monday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+* Install
+  - Under Windowns: Download from www.lyx.org/download directly
+  - Under Linux: sudo apt-get install lyx (not recommand, because new version is not always available)
+  - Compile from the source code: Strongly recommanded, compile nearly all the version of lyx in all linux distributions (e.g. ubuntu, fedora). I have tested the compiling even under ubuntu hardy 8.04, older LTS version. It worked perfectly.
+    
+* Tips
+  1. Compile lyx
+     - please refer to compile_lyx.sh
+  2. Spell Checkers
+     - ispell, aspell, hunspell.
+     - hunspell is the most useful of the three checkers
+     - if hunspell is not always available, e.g. ubuntu hardy, hunspell version in apt-get is too old to pass the compiliation of lyx 2.00. If in your apt-get, you can install the version >= hunspell 1.2.12, then you do not need to compile the hunspell yourself. otherwise, you need to compile hunspell yourself. then the lyx 2.00 can be compiled with hunspell spell checker.
+  3. How to compile the hunspell?
+     1) download the hunspell from http://sourceforge.net/projects/hunspell/files/Hunspell/
+     2) extracing and then going to that directory
+     3) please install stow for manage your own installed packages. sudo apt-get install stow
+     4) ./configure && make install -j 2 && sudo make install prefix=/usr/local/stow/hunspell
+     5) cd /usr/local/stow && sudo stow hunspell
+     6) now you can try to launch hunspell by typing hunspell in your terminal
+     7) if you get an error, possible reason could be that /usr/local/lib is not included by dynamic library manger, so please run the command ldconfig to solve the issue.
+  4. Dictionaries of spellcheckers and thesaurus
+     1) in my lian-dot-lyx directory, you can find the hunspell and thesaurus
+     2) in lyx, Tools->Preferences->Path, you can set the paths of hunspell and thesaurus
+  
