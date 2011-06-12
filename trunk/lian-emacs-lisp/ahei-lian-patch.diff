@@ -1,6 +1,6 @@
 Index: snippets/text-mode/perl-mode/headx
 ===================================================================
---- snippets/text-mode/perl-mode/headx	(revision 1384)
+--- snippets/text-mode/perl-mode/headx	(revision 1400)
 +++ snippets/text-mode/perl-mode/headx	(working copy)
 @@ -1,7 +1,7 @@
  #!/usr/bin/env perl
@@ -14,7 +14,7 @@ Index: snippets/text-mode/perl-mode/headx
  
 Index: snippets/text-mode/sh-mode/headx
 ===================================================================
---- snippets/text-mode/sh-mode/headx	(revision 1384)
+--- snippets/text-mode/sh-mode/headx	(revision 1400)
 +++ snippets/text-mode/sh-mode/headx	(working copy)
 @@ -1,7 +1,6 @@
  #!/usr/bin/env bash
@@ -28,7 +28,7 @@ Index: snippets/text-mode/sh-mode/headx
 +# @author lian
 Index: snippets/text-mode/python-mode/headx
 ===================================================================
---- snippets/text-mode/python-mode/headx	(revision 1384)
+--- snippets/text-mode/python-mode/headx	(revision 1400)
 +++ snippets/text-mode/python-mode/headx	(working copy)
 @@ -1,7 +1,7 @@
  #!/usr/bin/env python
@@ -42,12 +42,12 @@ Index: snippets/text-mode/python-mode/headx
  
 Index: .emacs
 ===================================================================
---- .emacs	(revision 1384)
+--- .emacs	(revision 1400)
 +++ .emacs	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2011-03-17 19:58:55 Thursday by taoshanwen>
+-;; Time-stamp: <2011-04-30 21:30:38 Saturday by taoshanwen>
 +;; Time-stamp: <2011-04-07 14:10:06 Thursday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
@@ -158,9 +158,9 @@ Index: .emacs
 -(require 'funny)
 +;; (require 'funny)
  
- ;; 模拟vi的f命令
+ ;; 模拟vi的f命令, 非常好用
  (require 'go-to-char)
-@@ -507,4 +513,4 @@
+@@ -518,4 +524,4 @@
  (sb-update)
  
  ;; 加载用户自己的配置
@@ -168,7 +168,7 @@ Index: .emacs
 +(load "~/my.emacs" t) 
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1384)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1400)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -218,7 +218,7 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
        (dolist (mode '(c-mode c++-mode))
 Index: my-lisps/dired-settings.el
 ===================================================================
---- my-lisps/dired-settings.el	(revision 1384)
+--- my-lisps/dired-settings.el	(revision 1400)
 +++ my-lisps/dired-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -268,7 +268,7 @@ Index: my-lisps/dired-settings.el
         ("C-c g"       gdb)
 Index: my-lisps/edit-settings.el
 ===================================================================
---- my-lisps/edit-settings.el	(revision 1384)
+--- my-lisps/edit-settings.el	(revision 1400)
 +++ my-lisps/edit-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -299,7 +299,7 @@ Index: my-lisps/edit-settings.el
     ("C-x W" kill-whole-sexp)
 Index: my-lisps/select-buffer.el
 ===================================================================
---- my-lisps/select-buffer.el	(revision 1384)
+--- my-lisps/select-buffer.el	(revision 1400)
 +++ my-lisps/select-buffer.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*- 
@@ -320,7 +320,7 @@ Index: my-lisps/select-buffer.el
  
 Index: my-lisps/sourcepair-settings.el
 ===================================================================
---- my-lisps/sourcepair-settings.el	(revision 1384)
+--- my-lisps/sourcepair-settings.el	(revision 1400)
 +++ my-lisps/sourcepair-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -353,7 +353,7 @@ Index: my-lisps/sourcepair-settings.el
  (eval-after-load "sourcepair"
 Index: my-lisps/c-settings.el
 ===================================================================
---- my-lisps/c-settings.el	(revision 1384)
+--- my-lisps/c-settings.el	(revision 1400)
 +++ my-lisps/c-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -382,7 +382,7 @@ Index: my-lisps/c-settings.el
    (require 'kde-emacs-settings)
 Index: my-lisps/font-settings.el
 ===================================================================
---- my-lisps/font-settings.el	(revision 1384)
+--- my-lisps/font-settings.el	(revision 1400)
 +++ my-lisps/font-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -394,7 +394,7 @@ Index: my-lisps/font-settings.el
    (require 'my-fontset-win)
 Index: my-lisps/ido-settings.el
 ===================================================================
---- my-lisps/ido-settings.el	(revision 1384)
+--- my-lisps/ido-settings.el	(revision 1400)
 +++ my-lisps/ido-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -418,13 +418,13 @@ Index: my-lisps/ido-settings.el
      `(defun ,(am-intern "ido-enter-" command) ()
 Index: my-lisps/vc-settings.el
 ===================================================================
---- my-lisps/vc-settings.el	(revision 1384)
+--- my-lisps/vc-settings.el	(revision 1400)
 +++ my-lisps/vc-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
  ;; Author: ahei <ahei0802@gmail.com>
  ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/vc-settings.el
--;; Time-stamp: <2011-01-21 10:54:35 Friday by taoshanwen>
+-;; Time-stamp: <2011-06-07 11:17:58 Tuesday by taoshanwen>
 +;; Time-stamp: <2011-01-28 01:23:46 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
@@ -433,8 +433,8 @@ Index: my-lisps/vc-settings.el
   `(emacs-lisp-mode-map c-mode-base-map sgml-mode-map
                         sh-mode-map text-mode-map conf-javaprop-mode-map
                         c++-mode-map image-mode-map makefile-gmake-mode-map
--                       org-mode-map nxml-mode-map python-mode-map perl-mode-map
--                       markdown-mode-map)
+-                       org-mode-map nxml-mode-map python-mode-map py-mode-map
+-                       markdown-mode-map perl-mode-map)
 +                       org-mode-map nxml-mode-map python-mode-map perl-mode-map)
   `(("C-c L"   vc-print-log)
     ("C-c C-u" vc-update-and-revert-buffer)
@@ -449,7 +449,7 @@ Index: my-lisps/vc-settings.el
  (eval-after-load "vc-svn"
 Index: my-lisps/misc-settings.el
 ===================================================================
---- my-lisps/misc-settings.el	(revision 1384)
+--- my-lisps/misc-settings.el	(revision 1400)
 +++ my-lisps/misc-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -472,7 +472,7 @@ Index: my-lisps/misc-settings.el
  
 Index: my-lisps/lisp-interaction-mode-settings.el
 ===================================================================
---- my-lisps/lisp-interaction-mode-settings.el	(revision 1384)
+--- my-lisps/lisp-interaction-mode-settings.el	(revision 1400)
 +++ my-lisps/lisp-interaction-mode-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -494,7 +494,7 @@ Index: my-lisps/lisp-interaction-mode-settings.el
  (eval-after-load "lisp-mode"
 Index: my-lisps/isearch-face-settings.el
 ===================================================================
---- my-lisps/isearch-face-settings.el	(revision 1384)
+--- my-lisps/isearch-face-settings.el	(revision 1400)
 +++ my-lisps/isearch-face-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -515,7 +515,7 @@ Index: my-lisps/isearch-face-settings.el
  (eval-after-load "isearch"
 Index: my-lisps/auto-complete-settings.el
 ===================================================================
---- my-lisps/auto-complete-settings.el	(revision 1384)
+--- my-lisps/auto-complete-settings.el	(revision 1400)
 +++ my-lisps/auto-complete-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -553,7 +553,7 @@ Index: my-lisps/auto-complete-settings.el
   ac-modes
 Index: my-lisps/multi-term-settings.el
 ===================================================================
---- my-lisps/multi-term-settings.el	(revision 1384)
+--- my-lisps/multi-term-settings.el	(revision 1400)
 +++ my-lisps/multi-term-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -580,7 +580,7 @@ Index: my-lisps/multi-term-settings.el
     ("M-H"   . enter-text-mode)
 Index: my-lisps/yasnippet-settings.el
 ===================================================================
---- my-lisps/yasnippet-settings.el	(revision 1384)
+--- my-lisps/yasnippet-settings.el	(revision 1400)
 +++ my-lisps/yasnippet-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
@@ -610,12 +610,12 @@ Index: my-lisps/yasnippet-settings.el
    `(yasnippet-settings))
 Index: my-lisps/dev-settings.el
 ===================================================================
---- my-lisps/dev-settings.el	(revision 1384)
+--- my-lisps/dev-settings.el	(revision 1400)
 +++ my-lisps/dev-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2010-11-29 14:42:43 Monday by taoshanwen>
+-;; Time-stamp: <2011-03-20 16:58:35 Sunday by taoshanwen>
 +;; Time-stamp: <2011-03-03 11:00:18 Thursday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
@@ -657,7 +657,7 @@ Index: my-lisps/dev-settings.el
  (require 'eldoc-settings)
  
  ;; 自动给你加上括号
-@@ -211,7 +212,7 @@
+@@ -211,13 +212,13 @@
                   zjl-hl-settings
                   ;; 把speedbar放到当前frame里面
                   sr-speedbar-settings
@@ -666,3 +666,11 @@ Index: my-lisps/dev-settings.el
                   perl-settings
                   ;; 实现程序变量的自动对齐
                   align-settings
+                  ;; 生成c程序调用图
+                  ;; http://emacser.com/emacs-cflow.htm
+-                 cflow-mode-settings
+-                 python-settings))
++                 cflow-mode-settings))
++                 ;;python-settings))
+ 
+ (provide 'dev-settings)
