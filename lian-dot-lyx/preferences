@@ -66,6 +66,7 @@ Format 1
 # LANGUAGE SUPPORT SECTION ##########################
 #
 
+\spellchecker hunspell
 \spellcheck_continuously true
 
 #

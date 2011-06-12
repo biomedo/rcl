@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-04-03 21:04:28 Sunday by lian>
+# Time-stamp: <2011-06-13 00:13:56 Monday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -19,3 +19,12 @@
 * subversion control in your private computer
   - svnadmin is used to create the empty svn database or import some file as initialization
   - you can access and checkout by the combine of svn ssh, for example, svn co svn+ssh://lian@titan/glouton/struct/lian/develop/tools/svn_cvs/lian-svn/lian DocSvn
+    
+* Configure Dynamic Linker Run Time Bindings
+  1) manage the system dynamic libraries
+  2) ldd <your executable> to query *.so linked with <your executable>
+  3) set LD_LIBRARY_PATH to a specific program to avoid the system-wide libraryies
+  4) when you use GNU compile to compile your program, you can also specify the specific path of dynamic libraries by the options rpath
+  5) ldconfig to rescan the dynamic libraries search paths
+     + add your own path in /etc/ld.so.conf.d/ or /etc/ld.so.conf
+     + invoke the command ldconfig to update the catch
