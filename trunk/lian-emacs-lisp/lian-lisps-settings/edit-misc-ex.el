@@ -64,5 +64,22 @@
   (interactive "*")
   (uniquify-all-lines-region (point-min) (point-max)))
 
+
+(eal-define-keys
+ `(emacs-lisp-mode-map lisp-interaction-mode-map java-mode-map sh-mode-map
+                       c-mode-base-map text-mode-map ruby-mode-map html-mode-map
+                       java-mode-map conf-javaprop-mode-map conf-space-mode-map
+                       python-mode-map py-mode-map perl-mode-map cperl-mode-map
+                       tcl-mode-map nxml-mode-map autoconf-mode-map)
+ `(("C-c C-x" uncomment)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; misc-edit settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key [C-M-up] 'move-text-up)
+(global-set-key [C-M-down] 'move-text-down)
+(global-set-key (kbd "C-M-,") 'move-text-up)
+(global-set-key (kbd "C-M-.") 'move-text-down)
+
 (provide 'edit-misc-ex)
 

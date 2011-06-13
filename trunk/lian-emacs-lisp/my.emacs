@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-11 16:24:25 Saturday by lian>
+;; Time-stamp: <2011-06-13 18:36:25 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -17,54 +17,73 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
+
+
 ;; all the lian-personal path settings stored in lian-info
 (require 'lian-info)
+(require 'lian-misc)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; personal information
+(setq user-mail-address "weidong.lian@gmail.com")
+(setq user-full-name    "lianweidong")
+
 ;; Global key-binding
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
+(eal-define-keys-commonly
+ global-map
+ `(("C-M-j"     goto-line)
+   ("C-x F"   find-dired)
+   ("C-u"     cua-scroll-down)
+   ("<f9>"    kill-this-buffer)
+   ("<f8>"    sb-toggle-keep-buffer)))
+;; (global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; c++ header file path and tags table and source path 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CTags, Etags table and settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq tags-table-list lian-tags-table-list)
 (global-set-key (kbd "<C-f10>") 'find-tag)
 (global-set-key (kbd "<C-f11>") (lambda () (interactive)(find-tag "" t)))
 (global-set-key (kbd "<M-f10>") 'tags-apropos)
 
+;; redefined ahie's corresponding settings
+(require 'lian-lisp-interaction-mode-settings)
+(require 'lian-auto-complete-settings)
+(require 'lian-dired-settings)
+(require 'lian-ido-settings)
+(require 'lian-multi-term-settings)
+(require 'lian-sourcepair-settings)
+(require 'lian-select-buffer-settings)
+(require 'lian-isearch-face-settings)
+(require 'lian-yasnippet-settings)
+(require 'lian-vc-settings)
+(require 'lian-c-settings)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Matlab settings
+(require 'matlab-settings)
+
+;; iBuffer settings
+(require 'wuxch-buffer-settings)
+
+;; lyx settings
+;; (setq auto-mode-alist (cons '("\\.lyx\\'" . latex-mode) auto-mode-alist))
+
+;; tex settings
+(require 'latex-settings)
+
+;; edit-misc extend settings
+(require 'edit-misc-ex)
+
+;; bookmark-settings
+(require 'bookmark-settings)
+
+;; alias the emacs command
+(require 'lian-emacs-alias)
+
 ;; Frequently-used command and Jump to my working dir
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun emaci-mode-toggle ()
-  (interactive)
-  (if emaci-mode (emaci-mode-off) (emaci-mode-on)))
-
-(defvar last-lian-color-theme-idx 0 "lian's color theme index")
-
-(defun toggle-lian-color-themes ()
-  (interactive)
-  (setq last-lian-color-theme-idx (mod (+ last-lian-color-theme-idx 1) (length lian-color-themes)))
-  (color-theme-initialize)
-  (funcall (nth last-lian-color-theme-idx lian-color-themes))
-  (message "%s is serving" (nth last-lian-color-theme-idx lian-color-themes)))
-
-(defun toggle-bar-mode ()
-  (interactive)
-  (if menu-bar-mode (menu-bar-mode 0) (menu-bar-mode 1))
-  (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
-  (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
-
-
+;; Put this C-j settings in the end to avoid being rewritten.
 (define-prefix-command 'ctl-j-map)
 (global-set-key (kbd "C-j") 'ctl-j-map)
 (define-key-list
@@ -77,7 +96,8 @@
     ("C-j M-t" toggle-bar-mode)
     ("C-j C-d" dired-jump)
     ("C-j C-s" save-buffer-sb)
-    ("C-j s" bookmark-set)
+    ("C-j s" switch-to-scratch)
+    ("C-j S" bookmark-set)
     ("C-j m" bookmark-bmenu-list)
     ("C-j C-b" ibuffer)
     ("C-j b" ido-switch-buffer)
@@ -109,60 +129,3 @@
     ("C-j 7" (lambda () (interactive)(dired (nth 3 lian-working-dir))))
     ("C-j 8" (lambda () (interactive)(dired (nth 1 lian-working-dir))))
     ("C-j 9" (lambda () (interactive)(dired (nth 2 lian-working-dir))))))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; misc-edit settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key [C-M-up] 'move-text-up)
-(global-set-key [C-M-down] 'move-text-down)
-(global-set-key (kbd "C-M-,") 'move-text-up)
-(global-set-key (kbd "C-M-.") 'move-text-down)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Matlab settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'matlab-settings)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; iBuffer settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'wuxch-buffer-settings)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; lyx settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (setq auto-mode-alist (cons '("\\.lyx\\'" . latex-mode) auto-mode-alist))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; tex settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'latex-settings)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; edit-misc extend settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'edit-misc-ex)
-
-
-;;;;;;;;;;;;;;;;;;
-;; Yasnippets
-;;;;;;;;;;;;;;;;;;
-(yas/load-directory (concat lian-emacs-lisp-dir "/snippets"))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;
-;; bookmark-settings
-;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'bookmark-settings)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; alias the emacs command
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'lian-emacs-alias)
