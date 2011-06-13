@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-11 01:13:51 Saturday by lian>
+;; Time-stamp: <2011-06-13 21:03:49 Monday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -26,6 +26,7 @@
 
 
 ;; edit
+(defalias 'ucf 'uncomment-region-function)
 (defalias 'uc 'uncomment)
 (defalias 'ucr 'uncomment-region)
 (defalias 'cwp 'copy-whole-paragraph)

@@ -19,9 +19,6 @@
 (defun lian-latex-mode-hook ()
   (auto-fill-mode)
   (set-fill-column 70)
-  (TeX-fold-mode 1)
-  (TeX-PDF-mode 1)
-  (reftex-mode)
   (setq TeX-electric-escape t)
   (setq LaTeX-math-mode t)
   (setq TeX-auto-save t)
@@ -54,14 +51,17 @@
   (setq TeX-command-default "PdfLatex")
   (define-key LaTeX-mode-map (kbd "C-c RET") 'Tex-insert-macro-at-point)
   (define-key LaTeX-mode-map (kbd "C-c a") 'ac-start)
-  (local-unset-key (kbd "C-j"))
+  ;; (local-unset-key (kbd "C-j"))
+  (unset-key LaTeX-mode-map (kbd "C-j"))
   ;; (define-key LaTeX-mode-map (kbd "C-c m") 'Tex-insert-math-symbol)
   ;; (define-key LaTeX-mode-map (kbd "C-c v") 'pdflatex-or-view)
   ;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
   ;; (setq TeX-newline-function 'newline-and-indent) ;;回车时自动缩进
-  )
+  (TeX-fold-mode 1)
+  (TeX-PDF-mode 1)
+  (reftex-mode))
 
-(add-hook 'LaTeX-mode-hook 'lian-latex-mode-hook)
 (add-hook 'LaTeX-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+(add-hook 'LaTeX-mode-hook 'lian-latex-mode-hook)
 
 (provide 'latex-settings)

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-05-05 20:15:09 Thursday by lian>
+;; Time-stamp: <2011-06-13 14:40:37 Monday by lian>
 
 ;; enable matlab-mode and accociate .m file with matlab-mode
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
@@ -25,11 +25,15 @@ With prefix ARG, turn mlint minor mode on iff ARG is positive.
   (setq fill-column 76)  ; where auto-fill should wrap
   ;; (define-key matlab-mode-map (kbd "M-s") 'ignore)
   ;; (define-key matlab-mode-map (kbd "M-s") 'emaci-mode-on)
-  (local-unset-key (kbd "M-s"))
-  (local-unset-key (kbd "C-j"))
+  ;; (local-unset-key (kbd "M-s"))
+  ;; (local-unset-key (kbd "C-j"))
+  (unset-key matlab-mode-map (kbd "M-s"))
+  (unset-key matlab-mode-map (kbd "C-j"))
   ;; (define-key matlab-mode-map (kbd "C-h") 'ignore)
   ;; (define-key matlab-mode-map (kbd "C-h") 'c-electric-backspace-kill)
-  (local-unset-key (kbd "C-h"))
+  ;; (local-unset-key (kbd "C-h"))
+  (unset-key matlab-mode-map (kbd "C-h"))
+
   (define-key matlab-mode-map (kbd "C-c C-c") 'ignore)
   (define-key matlab-mode-map (kbd "C-c C-c") 'comment)
   (define-key matlab-mode-map (kbd "C-c C-x") 'ignore)
