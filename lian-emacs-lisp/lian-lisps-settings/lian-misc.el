@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-13 18:23:46 Monday by lian>
+;; Time-stamp: <2011-06-14 13:37:45 Tuesday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -28,6 +28,7 @@
   (setq last-lian-color-theme-idx (mod (+ last-lian-color-theme-idx 1) (length lian-color-themes)))
   (color-theme-initialize)
   (funcall (nth last-lian-color-theme-idx lian-color-themes))
+  (color-theme-adjust-hl-line-face)
   (message "%s is serving" (nth last-lian-color-theme-idx lian-color-themes)))
 
 (defun toggle-bar-mode ()
@@ -35,5 +36,12 @@
   (if menu-bar-mode (menu-bar-mode 0) (menu-bar-mode 1))
   (if tool-bar-mode (tool-bar-mode 0) (tool-bar-mode 1))
   (if scroll-bar-mode (scroll-bar-mode 0) (scroll-bar-mode 1)))
+
+(defun disable-hl-underline-face ()
+  (interactive)
+  (setq hl-line-face 'hl-line-nonunderline-face)
+  (setq hl-line-overlay nil)
+  (color-theme-adjust-hl-line-face))
+
 
 (provide 'lian-misc)

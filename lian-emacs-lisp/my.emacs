@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-13 18:36:25 Monday by lian>
+;; Time-stamp: <2011-06-14 13:39:40 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,6 +26,9 @@
 ;; personal information
 (setq user-mail-address "weidong.lian@gmail.com")
 (setq user-full-name    "lianweidong")
+
+;; disable highlight-underline-face
+(disable-hl-underline-face)
 
 ;; Global key-binding
 (eal-define-keys-commonly
