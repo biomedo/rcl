@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-13 21:03:49 Monday by lian>
+;; Time-stamp: <2011-06-14 10:27:58 Tuesday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -33,6 +33,10 @@
 (defalias 'cls 'copy-lines)
 (defalias 'cs 'copy-sentence)
 (defalias 'cll 'copy-line-left)
+(defalias 'sl 'sort-lines)
+(defalias 'sc 'sort-columns)
+(defalias 'ulr 'uniquify-all-lines-region)
+(defalias 'ulb 'uniquify-all-lines-buffer)
 
 ;; compile
 (defalias 'cpl 'compile)
@@ -43,6 +47,12 @@
 (defalias 'edf 'ediff-files)
 (defalias 'edr 'ediff-revision)
 (defalias 'edl 'ediff-regions-linewise)
+(defalias 'edd 'ediff-directories)
+
+;; emerge
+(defalias 'emb 'emerge-buffers)
+(defalias 'emf 'emerge-files)
+(defalias 'emr 'emerge-revisions)
 
 ;; gdb
 (defalias 'gg 'gud-gdb)
