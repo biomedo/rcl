@@ -6,7 +6,7 @@ Index: .emacs
  ;; -*- Emacs-Lisp -*-
  
 -;; Time-stamp: <2011-04-30 21:30:38 Saturday by taoshanwen>
-+;; Time-stamp: <2011-06-13 10:19:37 Monday by lian>
++;; Time-stamp: <2011-06-16 21:39:10 Thursday by lian>
  
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
@@ -14,8 +14,8 @@ Index: .emacs
  (my-add-subdirs-to-load-path my-emacs-lisps-path)
  (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
  
-+;; lian-info
-+(require 'lian-info)
++;; lian-preload
++(require 'my-preload)
 +
  ;; 一个Emacs的16进制文件查看器，可以瞬间打开巨大的文件，比官方的hexl-mode好用
 -(require 'hexview-mode)

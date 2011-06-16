@@ -1,0 +1,18 @@
+# -*- org -*-
+
+# Time-stamp: <2011-06-16 18:37:09 Thursday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+
+* /makeatletter and /makeatother
+  1) Latex内部的命令（i.e. 我们在package文件sty，类文件cls中看到那些\@xxxx），这些命令为什么要加一个@(i.e. at symbol)？因为避免和Latex的外部命令(i.e. 也就是我们自己或者一些爱好者，latex社区的非官方的人在latex内部命令的基础上定义的一些宏)想冲突，试想如果latex内部命令也是直接定义为\xxxx，那么很可能被外部命令给覆盖掉了(e.g. 我们自己也定义了一个\xxxx和内部的命令冲突了但是我们不知道)，这样就带来很多不可预见的错误，如果这些错误不会直接报出编译通不过的错误，那么很可能导致我们很难发现的许多奇怪的问题。鉴于此因，latex内部的macro都是定义为\@开头的，显然\@被看成是一个命令标示符(i.e. 后面的字符串代表一个命令具有特殊意义)，注意只有在.sty或者.cls文档内部的这个\@才会被翻译成一个命令标示符，因为在那些文档内部latex进行了特殊的声明来把\@翻译成一个命令标示符，而在这些文档的外面\@就是一般的字符了，不具有任何标示意义，和你敲入的两个普通字符没有区别。
+  2) 那么这个和/makeatletter,/makeatother又扯上什么关系呢？当然有关系，其实我们发现当我们在重新定义一些latex命令的时候(好处就是可以不修改文档，而改变那些命令的默认功能，加入我们自己的一些附加功能)，比如我们可以看下面的一段代码：
+  \makeatletter
+  \renewcommand\subsection{\@startsection
+  {subsection}{2}{0mm}%name, level, indent
+  {-\baselineskip}%             beforeskip
+  {0.5\baselineskip}%            afterskip
+  {\normalfont\normalsize\itshape}}% style
+  \makeatother
+  我们发现我们重新定义了subsection这个命令，在定义这个命令的代码中我们看到了\@这个latex内部宏命令，如果没有这个\makeatletter这个命令\@就不会被latex解释器看作是一个宏命令而看成是一个普通的两个字符，因此可以把\makeatletter看成一个对\@字符的一个开关(当有这条语句是\@被latex翻译成命令标示符，否则翻译成两个普通的字符)。
