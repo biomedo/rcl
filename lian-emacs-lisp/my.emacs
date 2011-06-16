@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-14 13:39:40 Tuesday by lian>
+;; Time-stamp: <2011-06-16 21:31:49 Thursday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@
    ("<f8>"    sb-toggle-keep-buffer)))
 ;; (global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
 
-;; c++ header file path and tags table and source path 
+;; c++ header file path and tags table and source path
 (setq user-head-file-dir (list "."))
 (setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 
@@ -53,7 +53,6 @@
 ;; redefined ahie's corresponding settings
 (require 'lian-lisp-interaction-mode-settings)
 (require 'lian-auto-complete-settings)
-(require 'lian-dired-settings)
 (require 'lian-ido-settings)
 (require 'lian-multi-term-settings)
 (require 'lian-sourcepair-settings)

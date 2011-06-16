@@ -1,10 +1,13 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-10 20:21:26 Friday by lian>
+# Time-stamp: <2011-06-15 21:42:09 Wednesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
 * 关于电脑的使用：突然发现自己有一种洁癖症，对于自己电脑的使用关于苛求整洁、舒适、方便以及美观。今天下午为了一个小问题自己整整费了半个下午三个多小时的时间来研究一个配置。或许如果不解决这个配置，或让每天都在emacs下工作的我，觉得心理一直有个石头。事情是这样的，在emacs中的muli-term中输入ls命令，出来的目录的颜色是蓝色的，在黑色的背景下显得非常弱，看着很累眼睛，一直不愿意解决，但是一直都很不舒服。今天下狠心如果不解决就不开始工作，但是解决了之后突然觉得浪费了三个多小时的时间。心理很难过，突然为自己的这种强迫症而痛苦，因为我还要该我的paper，那个才是最重要的，应该把更多的时间花在理论和多看paper上。而不要总是去计较emacs中的一些配置和工具的使用。到目前位置基本上ahei的这个emacs让我很舒服的工作了，基本上我已经不需要做什么配置了，除非有空的时候可以研究一下。在emacs下现在进行程序开发C++，Python已经很舒服了，并且用来进行Linux的一些基本操作dired-mode等已经非常舒服了方便了。下面就要开始多看程序，蒙看理论，而不要把功夫浪费到emacs上了。但是不管如何emacs确实是一款configurer的编辑器，没有configuration是肯定不幸的。也不知道为什么这个emacs，让人如痴如醉的投入时间来配置这个东西。确实值得花时间，但是对于我这个非计算机专业，非专业程序开发的人来讲，要适可而止，而不要成为一个疯狂的emcaser。
 
 
-* Lyx and Latex
+* Lyx and Latex: they benifit their own advantages. I found that the paper writing with lyx is really very convinient and save more time. Autex in emacs accociated with latex code directly bears a very fast writing, with the time passed on and your accumulated experience in Autex of emacs, one will save more and more time in writing, neither does lyx.
+
+  
+* Emacs: strongly recommanded for you. it really saves your working time and improve your productivity in scale.

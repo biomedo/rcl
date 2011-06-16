@@ -28,6 +28,7 @@
        ("e"           dired-smart-shell-command)
        ("x"           dired-do-shell-command)
        ("X"           dired-do-flagged-delete)
+       ("G"           diredp-do-grep)
        ;; ("C-c C-d"     dired-smart-shell-command)
        ("C-c C-r"     (lambda () (interactive)(find-dired default-directory "-name '#*#' -or -name '*~'"))))))
 

@@ -118,6 +118,7 @@ emacsecn () { emacs -q -l ~/sys_backup/dot_emacs_ecn $1; }
 # emtitan () { LC_CTYPE=zh_CN.utf8 /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs -nw $1; }
 emtitan () { /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs -nw $1; }
 emacstitan () { /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs $1; }
+emacstitancn () { LC_CTYPE=zh_CN.utf8 /glouton/struct/lian/develop/tools/bin/emacs/bin/emacs $1; }
 export EDITOR="em"
 
 ysh () { ssh -Y $1; }

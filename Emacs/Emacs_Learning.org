@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-11 21:01:40 Saturday by lian>
+# Time-stamp: <2011-06-16 14:26:11 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -8,154 +8,169 @@
 
 
 * 主模式和附属模式(major-mode and minor-mode)
-  - hs-minor-mode 处理block的隐藏和显示控制
-  - outline-minor-mode 大纲模式
-  - auto-complete-mode 处理自动补全的操作
-  - cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark 命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
-  - yasnippet is powerful mode, serving to improve your working productivity. I have collected many snippets from internet and also merge my own modification into them. Please see the root directory of my google RCL
-  - template-mode
-    1) the template mode is also a useful mode that can collect your own frequently-used code setctions into templates
-    2) C-x C-f create a file by defaut, for example aa.cc
-    3) C-c C-t template-expand-template this binding is only available in some programming mode. Still, you could M-x template-expand-template to invoke a template into current document
-    4) M-x template-new-file is used to create a new file based on the template.tpl.
-    5) tmplate tpl files are located in ahei's template directory. If needed, one allows gathering your own template files into your own directory, thereafter configer your template directory into emacss. 
-  - color-theme-mode
-    1) color-theme-ahei defaut theme mode
-    2) color-theme-select give you a choice to select your favrate mode
-    3) my favourate theme is 'Subtle Hacker', 'Retro Orange', 'Gnome 2', 'Classic'
+  1. hs-minor-mode 处理block的隐藏和显示控制
+  2. outline-minor-mode 大纲模式
+  3. auto-complete-mode 处理自动补全的操作
+  4. cua-mode 可以方便进行矩形操作，默认M-x cua-mode之后，可以输入C-RET进入矩形mark模式显示多个光标进行编辑操作,如果C-RET快捷键被覆盖了的情况下，可以直接执行M-x cua-set-rectangle-mark 命令来切换到多光标模式。另外在ahei的Dea配置文件下，有的时候第一次激活不了cua-mode，可以选中一些内容就可以激活了。然后就正常了，这或许是一个小的bug
+  5. yasnippet is powerful mode, serving to improve your working productivity. I have collected many snippets from internet and also merge my own modification into them. Please see the root directory of my google RCL
+  6. template-mode
+     1) the template mode is also a useful mode that can collect your own frequently-used code setctions into templates
+     2) C-x C-f create a file by defaut, for example aa.cc
+     3) C-c C-t template-expand-template this binding is only available in some programming mode. Still, you could M-x template-expand-template to invoke a template into current document
+     4) M-x template-new-file is used to create a new file based on the template.tpl.
+     5) tmplate tpl files are located in ahei's template directory. If needed, one allows gathering your own template files into your own directory, thereafter configer your template directory into emacss. 
+  7. color-theme-mode
+     1) color-theme-ahei defaut theme mode
+     2) color-theme-select give you a choice to select your favrate mode
+     3) my favourate theme is 'Subtle Hacker', 'Retro Orange', 'Gnome 2', 'Classic'
+  8. dired-mode
+     1) find-dired,find-grep-in-dir, dired-do-query-replace-regexp
+     2) diredp-do-grep is used to invoke grep for the marked file in dired buffer and then display the grep results in new dired buffer
+     3) C-k, D are used to delete files
+     4) e -> dired-smart-shell-command
+     5) x -> dired-do-shell-command
+     6) * C-h is used to query the marking command
    
 * 帮助系统
-  - C-x / {k,w,b,m,v,a}
-  - C-x / K 可以搜索指定key的帮助
-  - C-x / ? 显示帮助系统的帮助
-  - C-x / t 给你一个简易的学习帮助系统
-  - <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
-  - C-x C-d 查看某个符号的或者函数的代码, used to directly input the function name, if you want to query the function source by input the corresponding key, please use C-x K
-  - C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
-  - C-x E 载入emacs的配置文件进行编辑
-  - C-x G e 进入emacs配置文件的目录进行浏览
-  - C-x / b is equal to M-x describe-bindings
-  - C-x / a is M-x apropos
-  - M-x apropos-command, then input your keyworkd for example "buffer"
-  - M-x info
-  - M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
-  - C-x M 查看manual，比如linux下命令或者别的命令的手册
-  - C-x K 找某个key对应的命令的lisp代码
-  - C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
-  - C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
+  1. C-x / {k,w,b,m,v,a}
+  2. C-x / K 可以搜索指定key的帮助
+  3. C-x / ? 显示帮助系统的帮助
+  4. C-x / t 给你一个简易的学习帮助系统
+  5. <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
+  6. C-x C-d 查看某个符号的或者函数的代码, used to directly input the function name, if you want to query the function source by input the corresponding key, please use C-x K
+  7. C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
+  8. C-x E 载入emacs的配置文件进行编辑
+  9. C-x G e 进入emacs配置文件的目录进行浏览
+  10. C-x / b is equal to M-x describe-bindings
+  11. C-x / a is M-x apropos
+  12. M-x apropos-command, then input your keyworkd for example "buffer"
+  13. M-x info
+  14. M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
+  15. C-x M 查看manual，比如linux下命令或者别的命令的手册
+  16. C-x K 找某个key对应的命令的lisp代码
+  17. C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
+  18. C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
     
     
 * svn and vc 版本控制
-  - 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
-  - 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样
-  - C-c C-a 添加到版本库
-  - M-x vc-dir 相当于把svn -st列到dired中去，方便管理快捷键C-x v d
-  - M-x ediff-buffers, ediff-revision等好多命令来进行buffer和buffer比较或者文件和文件比较，或者版本库中对应的文件版本比较，三个以下文件比较，以及他们直接交叉比较等，好处就是他能够高亮度不同的位置以及通过一些快捷键来浏览这些不同
+  1. 命令非常多，没必要全部记住，随着逐步学习使用来记住，但是要学会帮助系统，比如直接用C-x / m就能调出帮助系统然后C-s输入svn来查看相关的命令
+  2. 充分利用M-x svn 然后按他Tab来提示你有那些命令，输入相关的命令和快捷键效果一样
+  3. C-c C-a 添加到版本库
+  4. M-x vc-dir 相当于把svn -st列到dired中去，方便管理快捷键C-x v d
+  5. M-x ediff-buffers, ediff-revision等好多命令来进行buffer和buffer比较或者文件和文件比较，或者版本库中对应的文件版本比较，三个以下文件比较，以及他们直接交叉比较等，好处就是他能够高亮度不同的位置以及通过一些快捷键来浏览这些不同
+
+
 * emacs中的特殊字符输入问题
-  - C-q X X是你要输入的特殊字符，比如回车符，Tab符，
-  - 输入C-q 然后输入特殊字符，此时C-m就是RET符，而C-j是换行符，注意unix文件系统的用\n表示换行功能，也就是c-j，而window下则是\r\n也就是C-j C-m
-  - C-num X 可以连续输入指定的字符次数,X可以重复输入num次，主义如果次数超过9次要用C-u num X
-  - C-i 是Tab键，C-m 是Ret， 有时候c-j也是Ret
+  1. C-q X X是你要输入的特殊字符，比如回车符，Tab符，
+  2. 输入C-q 然后输入特殊字符，此时C-m就是RET符，而C-j是换行符，注意unix文件系统的用\n表示换行功能，也就是c-j，而window下则是\r\n也就是C-j C-m
+  3. C-num X 可以连续输入指定的字符次数,X可以重复输入num次，主义如果次数超过9次要用C-u num X
+  4. C-i 是Tab键，C-m 是Ret， 有时候c-j也是Ret
+
 * 全局操作
-  - C-x s 切换到*scratch*
-  - C-x N 切换显示行号
-  - export TERM=xterm-256color; emacs -nw
-  - M-x list-colors-display 列出来颜色设置框
-  - C-x i 插入文件到光标处
-  - M-1 M-! 在当前光标位置插入执行的shell命令
-  - M-! 执行shell命令结果显示在shell output buffer
-  - M-| 针对某一特定区域执行命令(shell-command-on-region)
-  - C-c M-C 拷贝当前文件的名字到剪切板
-  - M-x command-frequence 显示历史命令的使用频率
-  - M-x command-history 显示使用过的历史命令
-  - C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
-  - C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
-  - C-x C-n Markset当前行并且移动到下一行
-  - M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
-  - M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
-  - M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词
-  - M-{{,}} backward-paragraph and forward-paragraph向前和向后光标，按照不同的段落
-  - C-x , and C-x . 与上面两个操作类似，小跳转 recent-jump-small-forward and recent-jump-small-backward in recent-jump-settings.el
-  - C-x C-r 打开最近操作的文件列表，然后按Tab键就会列出来，或者直接输入第一个字母进行查询
-  - C-x b 或者 C-x C-f 然后 C-b 这样就能列出当前的buffer，我没发现的一个功能就是在这个时候按C-k可以删除buffer这样就非常方便了
-  - C-x C-b 这个操作会产生一个Ibuffer来存放当前的buffer列表，你可以用m来mark指定的buffer，然后进行批量操作比如保存S，关闭D等操作
-  - C-x q 切换当前的主模式
-  - C-x C-x 重新激活Mark Region
-  - M-' 在最近的两个buffer间切换
-  - S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
-  - 在multi-term mode模式下，C-l可以上个命令很长的显示结果
-  - C-x {[,]} 前一页后一页
+  1. C-x s 切换到*scratch*
+  2. C-x N 切换显示行号
+  3. export TERM=xterm-256color; emacs -nw
+  4. M-x list-colors-display 列出来颜色设置框
+  5. C-x i 插入文件到光标处
+  6. M-1 M-! 在当前光标位置插入执行的shell命令
+  7. M-! 执行shell命令结果显示在shell output buffer
+  8. M-| 针对某一特定区域执行命令(shell-command-on-region)
+  9. C-c M-C 拷贝当前文件的名字到剪切板
+  10. M-x command-frequence 显示历史命令的使用频率
+  11. M-x command-history 显示使用过的历史命令
+  12. C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
+  13. C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
+  14. C-x C-n Markset当前行并且移动到下一行
+  15. M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
+  16. M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
+  17. M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词
+  18. M-{{,}} backward-paragraph and forward-paragraph向前和向后光标，按照不同的段落
+  19. C-x , and C-x . 与上面两个操作类似，小跳转 recent-jump-small-forward and recent-jump-small-backward in recent-jump-settings.el
+  20. C-x C-r 打开最近操作的文件列表，然后按Tab键就会列出来，或者直接输入第一个字母进行查询
+  21. C-x b 或者 C-x C-f 然后 C-b 这样就能列出当前的buffer，我没发现的一个功能就是在这个时候按C-k可以删除buffer这样就非常方便了
+  22. C-x C-b 这个操作会产生一个Ibuffer来存放当前的buffer列表，你可以用m来mark指定的buffer，然后进行批量操作比如保存S，关闭D等操作
+  23. C-x q 切换当前的主模式
+  24. C-x C-x 重新激活Mark Region
+  25. M-' 在最近的两个buffer间切换
+  26. S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
+  27. 在multi-term mode模式下，C-l可以上个命令很长的显示结果
+  28. C-x {[,]} 前一页后一页
+
 * 文件操作
-  - C-x F   find-grep-in-current-dir
-  - C-x f   find-grep-in-dir
-  - C-x M-f find-grep-current-word-in-current-dir
-  - C-x M-F find-grep-current-word
-  - M-x find-dired 用指定查找命令进行查找，按C-j进行查找参数设置，把查询到的结果dired-mode中显示
-  - M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
-  - C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
-  - C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
-  - M-x ediff-buffers or ediff-files文件或者缓冲器的比较
-  - ediff-buffers, ediff-files, ediff-revisions, ediff-directories
-  - ediff-patch-file, ediff-patch-buffer
-  - emerge-files, emerge-buffers, emerge-revisions, emerge-merge-directories
+  1. C-x F   find-grep-in-current-dir
+  2. C-x f   find-grep-in-dir
+  3. C-x M-f find-grep-current-word-in-current-dir
+  4. C-x M-F find-grep-current-word
+  5. M-x find-dired 用指定查找命令进行查找，按C-j进行查找参数设置，把查询到的结果dired-mode中显示
+  6. M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
+  7. C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
+  8. C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
+  9. M-x ediff-buffers or ediff-files文件或者缓冲器的比较
+  10. ediff-buffers, ediff-files, ediff-revisions, ediff-directories
+  11. ediff-patch-file, ediff-patch-buffer
+  12. emerge-files, emerge-buffers, emerge-revisions, emerge-merge-directories
+
 * 文件查找
-  - M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
-  - C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
+  1. M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
+  2. C-x f进行find-grep操作可以列出来指定路径下包含指定关键字的文件，可以过滤掉svn路径或者备份文件夹和文件等
+
+
 * 文本编辑
-  - 光标操作的技巧
-    1) 如果是为了浏览目的，可以直接用emaci模式进行浏览，利用w,d进行一页一页移动，空格键和u进行半页移动，如果文章非常大则要用查找来浏览文件比较好；
-    2) 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
-    3) 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
-    4) 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
-    5) C-M-{a,e} beginning-of-defun and ending-of-defun, or C-c M-{a,e}, or C-M-{Home, End}
-    6) 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
-    7) 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
-    8) 在两个大括号之间跳动C-]
-  - 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
-  - 删除操作 C; M;  {d;k}
-  - C-k 进行了重新定义，直接删除整行内容
-  - M-K 用来删除当前光标所在位置之后的当前行的内容
-  - C-M k 用来删除当前光标之后的整个段落
-  - M-D 删除当前光标所处的单词
-  - M-DEL或者C-Backspae 向后删除一个单词
-  - C-o 从当前光标位置插入新的空行，而保持当前光标位置不变
-  - M-\ 删除当前输入点前后的空格
-  - M-w 复制Region内容到剪切板，如果Region内容为空，则拷贝当前行内容到Kill Ring
-  - M-W 复制Region内容并粘帖到下面
-  - C-x M-w 复制一行并粘贴到下一行
-  - C-x M-W 复制一个sexp并粘贴到下面
-  - C-w 剪切Region内容到Kill Ring， 如果Region为空，则向后剪切一个单词
-  - C-x w 复制一个sexp(symbol expression)
-  - C-x W 删除一个sexp
-  - C-x S 选择一个sexp
-  - C-x h 全部选中
-  - M-h 分块只能选中mark paragraph
-  - C-x C-i 全部代码进行缩进C-x TAB
-  - C-c C-q 是缩进一个函数，只控制和整理一个函数的缩进
-  - C-x C-o可以删除空白行
-  - C-x C-t 可以移动行
-  - C-x a 自动对齐功能
-  - C-x C-{;,=} 写注释段的时候用的
-  - M-U 删除到行首
+  1. 光标操作的技巧
+     1) 如果是为了浏览目的，可以直接用emaci模式进行浏览，利用w,d进行一页一页移动，空格键和u进行半页移动，如果文章非常大则要用查找来浏览文件比较好；
+     2) 如果主要是为了编辑目的，那么可以首先用上面方法进行大体定位，然后进行段落或者语法块范围移动，其次进行单词移动或者表达式范围移动，最后进行单个字母移动；
+     3) 如果是大的段落移动一般要考虑M-{A;E}快捷键或者M-{a;e}或者M-{[;]}；
+     4) 通过大的段落的移动我们大概定出来范围来了，然后用C-M-{n,p},在括号表达式之间切换来找到对应的行；
+     5) C-M-{a,e} beginning-of-defun and ending-of-defun, or C-c M-{a,e}, or C-M-{Home, End}
+     6) 如果是行为单位移动C-{n,p}，如果是在一行中的行首C-{a,e}；
+     7) 如果是比行更小为单位移动，单词移动为M-{f;b}，字母移动为C-{f,b}
+     8) 在两个大括号之间跳动C-]
+  2. 光标移动操作C；M；C-M； {a,e}, {f,b}, {n,p}
+  3. 删除操作 C; M;  {d;k}
+  4. C-k 进行了重新定义，直接删除整行内容
+  5. M-K 用来删除当前光标所在位置之后的当前行的内容
+  6. C-M k 用来删除当前光标之后的整个段落
+  7. M-D 删除当前光标所处的单词
+  8. M-DEL或者C-Backspae 向后删除一个单词
+  9. C-o 从当前光标位置插入新的空行，而保持当前光标位置不变
+  10. M-\ 删除当前输入点前后的空格
+  11. M-w 复制Region内容到剪切板，如果Region内容为空，则拷贝当前行内容到Kill Ring
+  12. M-W 复制Region内容并粘帖到下面
+  13. C-x M-w 复制一行并粘贴到下一行
+  14. C-x M-W 复制一个sexp并粘贴到下面
+  15. C-w 剪切Region内容到Kill Ring， 如果Region为空，则向后剪切一个单词
+  16. C-x w 复制一个sexp(symbol expression)
+  17. C-x W 删除一个sexp
+  18. C-x S 选择一个sexp
+  19. C-x h 全部选中
+  20. M-h 分块只能选中mark paragraph
+  21. C-x C-i 全部代码进行缩进C-x TAB
+  22. C-c C-q 是缩进一个函数，只控制和整理一个函数的缩进
+  23. C-x C-o可以删除空白行
+  24. C-x C-t 可以移动行
+  25. C-x a 自动对齐功能
+  26. C-x C-{;,=} 写注释段的时候用的
+  27. M-U 删除到行首
     
 * Cedet IDE
-  + C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache
-  + C-c C-j 代码跳转
-  + C-c j 跳转到当前buffer对应的tag
-  + C-x M-j 全局符号跳转
-  + C-c s切换到对应的h文件
-  + C-x B semantic-mrub-switch-tags 用来切换到刚才访问过的Tags
+  1. C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache
+  2. C-c C-j 代码跳转
+  3. C-c j 跳转到当前buffer对应的tag
+  4. C-x M-j 全局符号跳转
+  5. C-c s切换到对应的h文件
+  6. C-x B semantic-mrub-switch-tags 用来切换到刚才访问过的Tags
     
 * 窗口操作
-  - C-x 0 关闭本窗口
-  - C-x 1 只留下一个窗口
-  - C-x 2 垂直均分窗口
-  - C-x 3 水平均分窗口
-  - C-x o 切换到别的窗口
-  - C-x s 保存所有窗口的缓冲
-  - C-x b 选择当前窗口的缓冲区
-  - C-x ^ 纵向扩大窗口
-  - C-x } 横向扩大窗口
+  1. C-x 0 关闭本窗口
+  2. C-x 1 只留下一个窗口
+  3. C-x 2 垂直均分窗口
+  4. C-x 3 水平均分窗口
+  5. C-x o 切换到别的窗口
+  6. C-x s 保存所有窗口的缓冲
+  7. C-x b 选择当前窗口的缓冲区
+  8. C-x ^ 纵向扩大窗口
+  9. C-x } 横向扩大窗口
+
 * 技巧Tis
   - dired-mode模式下，为了更加灵活的操作文件，我们可以利用X或者！命令来对dired-mode中标记的文件执行shell command，所以非常重要的一点就是知道其中使用的通配符{*,?},可以测试两个命令来学习这个区别。在用X或者！，进入dired中命令提示符后，输入echo Hello+ *，查看结果；然后在输入echo Hello+ ?，查看结果。这两个结果的区别非常重要，也就是说shell命令是对列表中的每一个文件分别执行，还是shell命令只执行一次，把所有文件追加到命令后面。如果需要更加复杂的执行和控制操作，可以通过for循环来实现，比如 for toto in * ; do echo ${toto}+Hello; done
   - 

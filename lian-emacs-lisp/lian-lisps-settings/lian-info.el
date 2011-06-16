@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-11 01:40:17 Saturday by lian>
+;; Time-stamp: <2011-06-16 21:31:43 Thursday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -91,5 +91,8 @@
         'color-theme-hober
         'color-theme-retro-orange
         'color-theme-standard))
+
+(require 'lian-dired-settings)
+
 
 (provide 'lian-info)
