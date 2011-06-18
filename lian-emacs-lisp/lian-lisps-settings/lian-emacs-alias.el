@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-17 23:13:51 Friday by lian>
+;; Time-stamp: <2011-06-18 22:13:15 Saturday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -42,6 +42,10 @@
 ;; compile
 (defalias 'cpl 'compile)
 (setq compile-command "make -k -j 8 NODEP=1 VERS=opt")
+
+;; tex
+(defalias 'tcm 'TeX-command-master)
+
 
 ;; ediff
 (defalias 'edb 'ediff-buffers)

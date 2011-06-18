@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-16 14:26:11 Thursday by lian>
+# Time-stamp: <2011-06-18 21:27:10 Saturday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -33,23 +33,24 @@
    
 * 帮助系统
   1. C-x / {k,w,b,m,v,a}
-  2. C-x / K 可以搜索指定key的帮助
-  3. C-x / ? 显示帮助系统的帮助
-  4. C-x / t 给你一个简易的学习帮助系统
-  5. <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
-  6. C-x C-d 查看某个符号的或者函数的代码, used to directly input the function name, if you want to query the function source by input the corresponding key, please use C-x K
-  7. C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
-  8. C-x E 载入emacs的配置文件进行编辑
-  9. C-x G e 进入emacs配置文件的目录进行浏览
-  10. C-x / b is equal to M-x describe-bindings
-  11. C-x / a is M-x apropos
-  12. M-x apropos-command, then input your keyworkd for example "buffer"
-  13. M-x info
-  14. M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
-  15. C-x M 查看manual，比如linux下命令或者别的命令的手册
-  16. C-x K 找某个key对应的命令的lisp代码
-  17. C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
-  18. C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
+  2. C-x / {f,v} query function or variable
+  3. C-x / K 可以搜索指定key的帮助
+  4. C-x / ? 显示帮助系统的帮助
+  5. C-x / t 给你一个简易的学习帮助系统
+  6. <快捷键前缀> C-h 可以查询当前的Mode中以指定快捷键开头的命令快捷键列表
+  7. C-x C-d 查看某个符号的或者函数的代码, used to directly input the function name, if you want to query the function source by input the corresponding key, please use C-x K
+  8. C-x m 当你进入一个模式的时候这个命令非常好用，可以查找这个模式的帮助和快捷键
+  9. C-x E 载入emacs的配置文件进行编辑
+  10. C-x G e 进入emacs配置文件的目录进行浏览
+  11. C-x / b is equal to M-x describe-bindings
+  12. C-x / a is M-x apropos
+  13. M-x apropos-command, then input your keyworkd for example "buffer"
+  14. M-x info
+  15. M-x apropos -- 就是那个把所以匹配的命令都列出来的帮助命令
+  16. C-x M 查看manual，比如linux下命令或者别的命令的手册
+  17. C-x K 找某个key对应的命令的lisp代码
+  18. C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
+  19. C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
     
     
 * svn and vc 版本控制
