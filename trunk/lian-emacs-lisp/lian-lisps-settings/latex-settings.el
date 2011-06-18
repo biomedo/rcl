@@ -32,31 +32,39 @@
           ;; if tex-master-file is a.tex then:
           ;; %t -- a.tex     %d -- a.dvi     %s -- a
           ;; %f -- a.ps
-          ("Latex" "latex %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run latex")
+          ("latex" "latex %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run latex")
           ;; ("xelatex" "xelatex -synctex=1 %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run Xetex")
           ;; ("dvi2pdf" "dvipdfmx -v %d" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run dvipdfmx")
           ;; ("edvi2ps" "dvips %d" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run dvips")
           ;; ("ps2pdf14" "ps2pdf14.bat %f" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run ps2pdf14.bat")
-          ("PdfLatex" "pdflatex %s" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run pdflatex")
+          ("pdflatex" "pdflatex %s" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run pdflatex")
           ;; ("toc" "gbk2uni %s" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run gbk2uni")
           ;; ("BibTex" "bibtex8 %s" TeX-run-BibTeX nil t :help "Run BibTeX")
-          ("BibTex" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
-          ("View" "evince -w %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run Viewer")
-          ("LianLatex" "lian-latex %t %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run Viewer")
-          ("Index" "makeindex %s" TeX-run-command nil t :help "Create index file")
-          ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
-          ("All Clean" "(TeX-clean t)" TeX-run-function nil t :help "Delete all generated files")
-          ("Delete" "pdfclose --file %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Close pdf file")))
+          ("bibtex" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
+          ("viewpdf" "evince -w %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run Viewer")
+          ("lianlatex" "lian-latex %t %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LianLatex")
+          ("makepdf" "make" TeX-run-TeX nil (latex-mode doctex-mode) :help "make file to compile")
+          ("index" "makeindex %s" TeX-run-command nil t :help "Create index file")
+          ("clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
+          ("cleanall" "(TeX-clean t)" TeX-run-function nil t :help "Delete all generated files")
+          ("delete" "pdfclose --file %s.pdf" TeX-run-TeX nil (latex-mode doctex-mode) :help "Close pdf file")))
   
   (setq TeX-command-default "PdfLatex")
   (define-key LaTeX-mode-map (kbd "C-c RET") 'Tex-insert-macro-at-point)
   (define-key LaTeX-mode-map (kbd "C-c a") 'ac-start)
+  (define-key LaTeX-mode-map (kbd "C-c C-c") 'comment)
+  (define-key LaTeX-mode-map (kbd "C-c C-x") 'uncomment)
+  (define-key LaTeX-mode-map (kbd "C-c C-v") '(TeX-command "makepdf"))
+  (define-key LaTeX-mode-map (kbd "C-c v") '(TeX-command "viewpdf"))
+  
+  
+  
   ;; (local-unset-key (kbd "C-j"))
   (unset-key LaTeX-mode-map (kbd "C-j"))
   ;; (define-key LaTeX-mode-map (kbd "C-c m") 'Tex-insert-math-symbol)
   ;; (define-key LaTeX-mode-map (kbd "C-c v") 'pdflatex-or-view)
   ;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
-  ;; (setq TeX-newline-function 'newline-and-indent) ;;回车时自动缩进
+  (setq TeX-newline-function 'newline-and-indent) ;;回车时自动缩进
   (TeX-fold-mode 1)
   (TeX-PDF-mode 1)
   (reftex-mode))

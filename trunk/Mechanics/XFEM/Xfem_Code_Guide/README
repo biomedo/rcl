@@ -12,14 +12,8 @@ To compile Xfem_Guide_Cn.tex, you need:
 
 3. We use the following fonts:
 
-   AR PL UMing
-   AR PL UKai [1]
-   Droid Sans Fallback [2]
-
-   They can be retrieved here:
-   [1] http://www.freedesktop.org/wiki/Software/CJKUnifonts/Download
-   [2] http://android.git.kernel.org/?p=platform/frameworks/base.git;a=tree;f=data/fonts;hb=HEAD
-
+   WinFonts
+   Adobe
 4. make
 
 5. If you have any problems, please contact: 
