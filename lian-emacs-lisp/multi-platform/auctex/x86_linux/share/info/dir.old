@@ -1,0 +1,194 @@
+-*- Text -*-
+This is the file .../info/dir, which contains the topmost node of
+the Info hierarchy.  The first time you invoke Info you start off
+looking at that node, which is (dir)Top.
+
+File: dir	Node: Top	This is the top of the INFO tree
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "?" lists all Info commands, "d" returns here,
+  "mCoreutils<Return>" visits Coreutils topic, etc.
+  Or click mouse button 2 on a menu item or cross reference to select
+  it.
+  --- PLEASE ADD DOCUMENTATION TO THIS TREE. (See INFO topic first.) ---
+
+In Ubuntu, Info `dir' entries are added with the command
+`install-info'.  Please refer to install-info(8) for usage details.
+
+* Menu: The list of major topics begins on the next line.
+
+Basics
+* Coreutils: (coreutils).		Core GNU (file, text, shell)
+					utilities.
+* Common options: (coreutils)Common options.
+					Common options.
+* File permissions: (coreutils)File permissions.
+					Access modes.
+* Date input formats: (coreutils)Date input formats.
+* Finding files: (find).		Operating on files matching certain
+					criteria.
+
+Miscellaneous:
+* Rluserman: (rluserman).		GNU Readline Library API
+
+Utilities
+* Gzip: (gzip). 			The gzip command for compressing
+					files.
+
+Disk Management
+* Fdutils: (fdutils).			Linux floppy utilities
+
+Editors
+* nano: (nano). 			Small and friendly text editor.
+
+Emacs
+* Ada mode: (emacs-23/ada-mode).	Emacs mode for editing and compiling
+					Ada code.
+* AUCTeX: (auctex).			A sophisticated TeX environment for
+					Emacs.
+* Auth-source: (emacs-23/auth). 	The Emacs auth-source library.
+* Autotype: (emacs-23/autotype).	Convenient features for text that you
+					enter frequently in Emacs.
+* Calc: (emacs-23/calc).		Advanced desk calculator and
+					mathematical tool.
+* CC Mode: (emacs-23/ccmode).		Emacs mode for editing C, C++,
+					Objective-C, Java, Pike, AWK, and
+					CORBA IDL code.
+* CL: (emacs-23/cl).			Partial Common Lisp support for Emacs
+					Lisp.
+* D-Bus: (emacs-23/dbus).		Using D-Bus in Emacs.
+* Dired-X: (emacs-23/dired-x).		Dired Extra Features.
+* EasyPG Assistant: (emacs-23/epa).	An Emacs user interface to GNU Privacy
+					Guard.
+* Ebrowse: (emacs-23/ebrowse).		A C++ class browser for Emacs.
+* Ediff: (emacs-23/ediff).		A visual interface for comparing and
+					merging programs.
+* Elisp: (emacs-23/elisp).		The Emacs Lisp Reference Manual.
+* Emacs: (emacs-23/emacs).		The extensible self-documenting text
+					editor.
+* Emacs FAQ: (emacs-23/efaq).		Frequently Asked Questions about
+					Emacs.
+* Emacs Lisp Intro: (emacs-23/eintr).	A simple introduction to Emacs Lisp
+					programming.
+* Emacs MIME: (emacs-23/emacs-mime).	Emacs MIME de/composition library.
+* ERC: (emacs-23/erc).			Powerful, modular, and extensible IRC
+					client for Emacs.
+* Eshell: (emacs-23/eshell).		A command shell implemented in Emacs
+					Lisp.
+* EUDC: (emacs-23/eudc).		An Emacs client for directory servers
+					(LDAP, PH).
+* Flymake: (emacs-23/flymake).		A universal on-the-fly syntax checker.
+* Forms: (emacs-23/forms).		Emacs package for editing data bases
+					by filling in forms.
+* Gnus: (emacs-23/gnus).		The newsreader Gnus.
+* IDLWAVE: (emacs-23/idlwave).		Major mode and shell for IDL files.
+* Info: (emacs-23/info).		How to use the documentation browsing
+					system.
+* Ispell: (ispell).			Using ISPELL, an interactive spelling
+					corrector, inside Emacs.
+* Mairix: (emacs-23/mairix-el). 	Emacs interface to the Mairix mail
+					indexer.
+* Message: (emacs-23/message).		Mail and news composition mode that
+					goes with Gnus.
+* MH-E: (emacs-23/mh-e).		Emacs interface to the MH mail system.
+* Newsticker: (emacs-23/newsticker).	A Newsticker for Emacs.
+* nXML Mode: (emacs-23/nxml-mode).	XML editing mode with RELAX NG
+					support.
+* Org Mode: (emacs-23/org).		Outline-based notes management and
+					organizer
+* PCL-CVS: (emacs-23/pcl-cvs).		Emacs front-end to CVS.
+* PGG: (emacs-23/pgg).			Emacs interface to various PGP
+					implementations.
+* Rcirc: (emacs-23/rcirc).		Internet Relay Chat (IRC) client.
+* RefTeX: (emacs-23/reftex).		Emacs support for LaTeX
+					cross-references and citations.
+* Remember: (emacs-23/remember).	Simple information manager for Emacs
+* SASL: (emacs-23/sasl).		The Emacs SASL library.
+* SC: (emacs-23/sc).			Supercite lets you cite parts of
+					messages you're replying to, in
+					flexible ways.
+* SES: (emacs-23/ses).			Simple Emacs Spreadsheet
+* Sieve: (emacs-23/sieve).		Managing Sieve scripts in Emacs.
+* SMTP: (emacs-23/smtpmail).		Emacs library for sending mail via
+					SMTP.
+* Speedbar: (emacs-23/speedbar).	File/Tag summarizing utility.
+* TRAMP: (emacs-23/tramp).		Transparent Remote Access, Multiple
+					Protocol GNU Emacs remote file access
+					via rsh and rcp.
+* URL: (emacs-23/url).			URL loading package.
+* VIP: (emacs-23/vip).			An older VI-emulation for Emacs.
+* VIPER: (emacs-23/viper).		The newest Emacs VI-emulation mode.
+					(also, A VI Plan for Emacs Rescue or
+					the VI PERil.)
+* Widget: (emacs-23/widget).		The "widget" package used by the Emacs
+					Customization facility.
+* WoMan: (emacs-23/woman).		Browse UN*X Manual Pages "W.O.
+					(without) Man".
+
+Development
+* Com_err: (com_err).			A Common Error Description Library for
+					UNIX.
+* gettext: (gettext).			GNU gettext utilities.
+* autopoint: (gettext)autopoint Invocation.
+					Copy gettext infrastructure.
+* envsubst: (gettext)envsubst Invocation.
+					Expand environment variables.
+* gettextize: (gettext)gettextize Invocation.
+					Prepare a package for gettext.
+* M4: (m4).				The GNU m4 macro preprocessor.
+* msgattrib: (gettext)msgattrib Invocation.
+					Select part of a PO file.
+* msgcat: (gettext)msgcat Invocation.	Combine several PO files.
+* msgcmp: (gettext)msgcmp Invocation.	Compare a PO file and template.
+* msgcomm: (gettext)msgcomm Invocation. Match two PO files.
+* msgconv: (gettext)msgconv Invocation. Convert PO file to encoding.
+* msgen: (gettext)msgen Invocation.	Create an English PO file.
+* msgexec: (gettext)msgexec Invocation. Process a PO file.
+* msgfilter: (gettext)msgfilter Invocation.
+					Pipe a PO file through a filter.
+* msgfmt: (gettext)msgfmt Invocation.	Make MO files out of PO files.
+* msggrep: (gettext)msggrep Invocation. Select part of a PO file.
+* msginit: (gettext)msginit Invocation. Create a fresh PO file.
+* msgmerge: (gettext)msgmerge Invocation.
+					Update a PO file from template.
+* msgunfmt: (gettext)msgunfmt Invocation.
+					Uncompile MO file into PO file.
+* msguniq: (gettext)msguniq Invocation. Unify duplicates for PO file.
+* ngettext: (gettext)ngettext Invocation.
+					Translate a message with plural.
+* xgettext: (gettext)xgettext Invocation.
+					Extract strings into a PO file.
+* ISO639: (gettext)Language Codes.	ISO 639 language codes.
+* ISO3166: (gettext)Country Codes.	ISO 3166 country codes.
+* Ipc: (ipc).				System V interprocess communication
+					facilities
+
+Network Applications
+* Wget: (wget). 			The non-interactive network
+					downloader.
+
+Administration
+* Stow: (stow). 			GNU Stow.
+
+Software development
+* Automake: (automake-1.10).		Making GNU standards-compliant
+					Makefiles.
+
+Information:
+* Debian menu: (menu).			The Debian menu system
+
+Programming & development tools.
+* DDD: (ddd).				The Data Display Debugger.
+* DDD-Themes: (ddd-themes).		Writing DDD Themes.
+
+Viewers
+* gv: (gv).				The GNU PostScript and PDF viewer.
+
+General Commands
+* Cpio: (cpio). 			A program to manage archives of files.
+* dc: (dc).				Arbitrary precision RPN "Desktop
+					Calculator".
+* Ed: (ed).				The GNU line editor.
+* Screen: (screen).			Full-screen window manager.
+* sed: (sed).				Stream EDitor.
+* Time: (time). 			A utility to time the execution of a
+					command

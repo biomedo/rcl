@@ -2,6 +2,7 @@
 # Makefile for TeX Live documentation.  Public domain.
 TEX = xelatex
 doc = xfem_guide_cn
+# doc = test
 source = $(doc).tex
 pdf = $(doc).pdf
 
@@ -9,7 +10,7 @@ all: $(pdf)
 
 env = TEXINPUTS=./:./config:${TEXINPUTS}; export TEXINPUTS;
 
-$(pdf): $(source) ./config/tex-live-zh-cn.sty
+$(pdf): $(source) ./config/*.*
 	$(env) $(TEX) $<
 	$(env) $(TEX) $<
 

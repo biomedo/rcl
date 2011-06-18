@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-16 10:56:11 Thursday by lian>
+# Time-stamp: <2011-06-17 22:04:55 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -33,3 +33,7 @@
   - find . -wholename "./*128*Size.m", the option -wholename is veryuseful, regarding the fullname include the path, so you can make full use of this command to filter the path or name of no interest.
   - find . -path "./***bac/abf**/"
   - options -path, ! -path, -and, -or, etc.
+
+* install fonts
+  - copy *.ttf to your ~/.fonts
+  - cd ~/.fonts && mkfontscale && mkfontdir && fc-cache
