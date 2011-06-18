@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# key : codef
+# group: environments
+# name : \begin{figure} ... \end{figure}
+# --
+\begin{figure}[htbp]
+  \lstinputlisting{$1} 
+  \caption{${2:caption}}
+  \label{${3:"waiting for reftex-label call..."$(unless yas/modified-p (reftex-label nil 'dont-insert))}}
+\end{figure}
