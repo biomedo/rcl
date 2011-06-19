@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-16 21:31:49 Thursday by lian>
+;; Time-stamp: <2011-06-19 14:19:53 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@
 (require 'lian-yasnippet-settings)
 (require 'lian-vc-settings)
 (require 'lian-c-settings)
-
+(require 'lian-emaci-settings)
 
 ;; Matlab settings
 (require 'matlab-settings)
@@ -103,7 +103,7 @@
     ("C-j m" bookmark-bmenu-list)
     ("C-j C-b" ibuffer)
     ("C-j b" ido-switch-buffer)
-    ("C-j C-f" emaci-mode-toggle)
+    ("C-j C-f" ido-find-file)
     ("C-j f" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
     ("C-j j" goto-line)
