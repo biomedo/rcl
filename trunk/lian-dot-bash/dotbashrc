@@ -67,7 +67,7 @@ svn_tar () { svn export $1 $2; tar czvf $2.tar.gz $2; rm -rf $2; }
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias nano='nano -w'
+alias nano='nano -w -u'
 alias ssh='ssh -X'
 alias ls="ls --color=auto -F"
 alias lsp="pwd && ls --color=auto -F"
