@@ -14,10 +14,12 @@ dateTime=`date '+%F_%T'`
 
 # auctex depends on the system, e.g. x86_linux, x86_64_linux
 auctex=./lian-lisps/auctex
-osauctex="./multi-platform/auctex/$(../lian-dot-bash/getarch)"
-if [[ -f "$auctex" && ! -L "$auctex" ]]; then
+if [[ -d "$auctex" && ! -L "$auctex" ]]; then
     mv "$auctex" "./auctex-backup-$dateTime-by-install"
+elif [[ -d "$auctex" && -L "$auctex" ]]; then
+    rm -f "$auctex"
 fi
+osauctex="../multi-platform/auctex/$(../lian-dot-bash/getarch)"
 ln -sf "$osauctex" "$auctex"
 
 # firstly go to ahei's path and revert all the modification and then apply
