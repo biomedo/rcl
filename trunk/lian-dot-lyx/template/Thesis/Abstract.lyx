@@ -1,0 +1,185 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+NOM et Prénom : LIAN Weidong 
+\end_layout
+
+\begin_layout Standard
+Laboratoire d’accueil : GEM 
+\end_layout
+
+\begin_layout Standard
+Email :Wei-Dong.Lian@ec-nantes.fr
+\end_layout
+
+\begin_layout Standard
+Directeur de thèse : Patrice CARTRAUD 
+\end_layout
+
+\begin_layout Standard
+Spécialité : Génie Mécanique
+\end_layout
+
+\begin_layout Standard
+Titre de la thèse : Développement de méthode numérique d'homogénéisation
+ à partir d'image de microstructure des matériaux
+\end_layout
+
+\begin_layout Standard
+Résumé :La modélisation des éléments finis est maintenant bien reconnue
+ comme un moyen puissant pour déterminer le comportement global des matériaux
+ à microstructures complexes.
+ Parmi eux, pixelisée élément fini est les plus populaires.
+ Ils sont en fait très pratique à utiliser, puisque le maillage d'éléments
+ finis est construit automatiquement à partir de l'image à convertir chaque
+ voxel (ou un groupe de voxels) dans un élément.
+\end_layout
+
+\begin_layout Standard
+Nous avons récemment proposé une approche numérique alternative pour incorporer
+ des images dans les modèles numériques, s'appelant des éléments finis étendus
+ (X-FEM).
+ L'une des intérêts les plus attrayantes de cette méthode est que le maillage
+ n'a pas besoin de se conformer à la géométrie de la microstructure.
+ Même si pixelisée modèles des éléments finis ont été utilisées pour de
+ nombreuses applications, il semble que moins d'attention a été pris en
+ compte à l'évaluation de leur précisions.
+ L'objectif de ce travail est de développer une méthode basé la couplage
+ de X-FEM & LevelSet, et de comparer les précisions de ces deux approches,
+ en se concentrant sur les caractéristiques microscopiques et macroscopiques.
+\end_layout
+
+\begin_layout Standard
+La première partie de l'étude porte la segmentation d'image sur des matériaux
+ composites, en obtenant les valeur de levelset.
+ Levelset est appliqué à représenter la géométrie implicite.
+\end_layout
+
+\begin_layout Standard
+La deuxième partie est consacré à l'application aux problèmes impliquant
+ des géométries complexes ou aléatoires dans la cadre d'homogénéisation,
+ en assurant de l'efficacité en terme de convergence de l'approche X-FEM
+ en fonction de maillage, et de la validation de X-FEM en prédiction la
+ propriété des matériaux homogénéisée.
+\end_layout
+
+\begin_layout Standard
+Enfin, on s'intéresse à la prise en compte des comparaison entre X-FEM et
+ pixelisée FEM.
+ Exemples de fibres et de particules de matériaux composites de l'élasticité
+ sont étudiés, leur microstructure étant caractérisé par une image numérique.
+\end_layout
+
+\begin_layout Standard
+Mots clés : maillage, X-FEM, multi-échelle, homogénéisation, matériaux
+\end_layout
+
+\begin_layout Standard
+From Patrice apres correction:
+\end_layout
+
+\begin_layout Standard
+Grâce aux méthodes modernes de caractérisation des matériaux, il est possible
+ d’obtenir des images numériques de leur microstructure d’une grande précision.
+ L’objectif de ce travail est d’exploiter ces images en tant que données
+ d’entrée de modèles numériques.
+ L’application concerne l’homogénéisation du comportement du matériau, c’est-à-d
+ire la détermination de ses propriétés macroscopiques à partir de l’analyse
+ de sa microstructure.
+ L’objectif de nos travaux est donc de développer une méthode numérique
+ permettant d’incorporer facilement dans le calcul des données qui se présentent
+ sous la forme d’une image.
+\end_layout
+
+\begin_layout Standard
+La méthode la plus utilisée dans la littérature consiste à reprendre pour
+ le modèle de calcul exactement la même grille que celle correspondant à
+ l’image.
+ Ainsi en 2D à chaque pixel sera associé un élément fini.
+ L’avantage de cette méthode est que la génération du modèle de calcul est
+ directe.
+ Cependant les surfaces physiques ne sont pas régulières car suivant le
+ contour des pixels et la taille du modèle est celle de l’image, ce qui
+ devient vite prohibitif pour des applications 3D.
+ C’est pourquoi au GeM a été développée une méthode alternative basée sur
+ une extension de la méthode des éléments finis (X-FEM) et la méthode des
+ level-sets.
+ En effet la méthode des level-sets est très bien adaptée au traitement
+ de l’image, l’identification des différentes phases de la microstructure
+ étant obtenue par un processus de segmentation.
+ Ceci permet en outre d’obtenir une représentation régulière des surfaces
+ physiques.
+ La méthode X-FEM, quant à elle, permet de s’affranchir des problèmes de
+ maillage, puisque celui-ci peut ne pas se conformer aux surfaces physiques.
+ Ainsi , dans les applications qui nous concernent, c’est-à-dire l’étude
+ de la microstructure de matériaux hétérogènes, l’interface entre deux hétérogén
+éités peut traverser un élément fini.
+ Ceci enlève toute difficulté pour générer le maillage.
+ Après avoir présenté le principe de ces deux méthodes et leur mise en œuvre,
+ l’exposé portera sur l’étude de leurs performances respectives, évaluées
+ en termes de précision sur les résultats obtenus.
+ 
+\end_layout
+
+\end_body
+\end_document

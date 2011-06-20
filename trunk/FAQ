@@ -1,0 +1,11 @@
+
+常见问题
+
+
+* 在Linux下尤其CentreOS中emacs中文字体显示问题
+  中文字体在fedora或者其它系统上总有怪现象，解决思路如下：
+  - DejaVu Sans Mono 下载放在你的~/.fonts
+  - 同时下载文泉驿正黑也到上面那个目录
+  - cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
+  - 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
+  - 这样配合lian-dot-emacs/my.emacs中设置字体的配置，字体就很好看了

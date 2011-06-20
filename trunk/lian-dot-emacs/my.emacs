@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-19 14:19:53 Sunday by lian>
+;; Time-stamp: <2011-06-20 13:35:03 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,6 +29,19 @@
 
 ;; disable highlight-underline-face
 (disable-hl-underline-face)
+
+;; my fonts
+;; 中文字体在fedora或者其它系统上总有怪现象，解决思路如下：
+;; 1. DejaVu Sans Mono 下载放在你的~/.fonts
+;; 2. 下载文泉驿正黑也到上面那个目录
+;; 3. cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
+;; 4. 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
+;; 5. 这样配合下面脚本基本上不会出问题字体就很好看了.
+(setq my-latin-font "DejaVu Sans Mono")
+(setq my-chinese-font "新宋体")
+(setq my-latin-size 14)
+(setq my-chinese-size 17)
+(huangq-set-font my-latin-size my-chinese-size)
 
 ;; Global key-binding
 (eal-define-keys-commonly
