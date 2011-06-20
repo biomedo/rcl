@@ -145,6 +145,29 @@
   取当前对象所包含的点的个数，1表示想当前对象包含的线的个数，同理2表示
   面，3表示体；如果当前对象是点，想获取的对象的类型是面，那么这是他就直
   接给你返回与这个点相连的面的个数。
+
+\item 从一个网格我们可以创建一个region，比如xRegion all(data->mesh)。此
+  时如果我们利用xPhySurface将这个region分割为matrix和inclusion两个部
+  分，要注意此时的tag，我们现在讨论的是all.begin()和all.end()之间的这
+  些mEntity，其中分割导致的sub-Entity并不含在其中，主要
+  是all.begin()和all.end(）之间的实体，也就是说你如果用xRegionFilter
+  filter\_regin(all.begin(), all.end(), xAccept("inclusion"))，此时获得
+  这个时候获取的inclusion部分，不是准确的按照那个levelset边界来划分
+  的，因为all.begin()到all.end()中不包含那个sub-Entity。而为什么我们在
+  积分的时候就可以呢，因为在积分的时候我们有两个选
+  择，xIntergrationRulePartion和xIntergrationRuleBaisc，此时如果你选
+  择baisc那么你只是对那个不准确的边界的inclusion部分进行积分，而如果你
+  选择用Partition，那么这个规则就会把被边界分割的单元按照几块分别进行积
+  分，每小块(i.e. subelement)对应他们自己的材料特性，但是主要此时形函数
+  却还是选择那个整块单元所对应的估计函数，这就是为什么你会看
+  到e\_appro和e\_entity在xFormBilinear中。因为在xfem中subelement只是为
+  了积分策略才存在的，实际上求解空间中并不存在这些子单元对应的形函
+  数，所以就是为什么对subelemnt积分时要选择他的父亲单元来获得形函数。
+  而subentity和父entity之间的关系都是在xPhysSurface中来分割确定的。
+\item xIntegrationRulePartition的构造函数有两个版本，在第二个构造函数
+  中我们可以指定一个filter这样的话，我们就可以滤过一些被分割开的
+  subelements。这样就可以控制输出结果中是不是包含subelements。
+
 \end{enumerate}
 
 \section{常用代码}
