@@ -12,8 +12,77 @@ Table of Contents
 5 Notes
 6 Mechanics
 
+
 请参考目录下的HowTo，其中详细解释了如何安装和使用这些配置文件。
 
 email: weidong.lian@gmail.com
 
 
+Tress of Contents
+=================
+
+.
+|-- ChangeLog
+|-- FAQ
+|-- HOWTO
+|-- Mechanics
+|   `-- XFEM
+|-- Notes
+|   |-- diary.org
+|   |-- emacs-org-mode.org
+|   |-- emacs.org
+|   |-- latex.org
+|   |-- linux.org
+|   |-- lyx.org
+|   |-- matlab-fem-object.org
+|   |-- matlab.org
+|   |-- python.org
+|   `-- xfem.org
+|-- README
+|-- TODO
+|-- achives
+|   `-- dotemacs_LiXueBai
+|-- lian-dot-bash
+|   |-- dotbash_profile
+|   |-- dotbashrc
+|   |-- dotnanorc
+|   |-- dotpyworc
+|   |-- dotself_load_dir_colors
+|   |-- dotself_load_xmodmap
+|   `-- getarch
+|-- lian-dot-emacs
+|   |-- ahei-lian-patch.diff
+|   |-- install.sh
+|   |-- lian-lisps
+|   |-- lian-lisps-settings
+|   |-- multi-platform
+|   |-- my.emacs
+|   `-- snippets
+|-- lian-dot-lyx
+|   |-- bind
+|   |-- docs
+|   |-- examples
+|   |-- fonts
+|   |-- hunspell
+|   |-- layouts
+|   |-- preferences
+|   |-- pwl_english.dict
+|   |-- pwl_french.dict
+|   |-- scripts
+|   |-- template
+|   |-- texmf
+|   |-- thesaurus
+|   `-- ui
+|-- lian-dot-matlab
+|   `-- CustomEmacsSet.xml
+`-- linux-utility
+    |-- Sys_Install.sh
+    |-- compile_autex.sh
+    |-- compile_emacs.sh
+    |-- compile_lyx.sh
+    |-- ibus_compile.sh
+    |-- imagemagick.sh
+    |-- installed-software
+    `-- sources.list.ubuntu804
+
+24 directories, 39 files
