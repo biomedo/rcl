@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-20 13:35:03 Monday by lian>
+;; Time-stamp: <2011-06-21 02:54:42 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
 ;; 4. 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
 ;; 5. 这样配合下面脚本基本上不会出问题字体就很好看了.
 (setq my-latin-font "DejaVu Sans Mono")
-(setq my-chinese-font "新宋体")
+(setq my-chinese-font "微软雅黑")
 (setq my-latin-size 14)
 (setq my-chinese-size 17)
 (huangq-set-font my-latin-size my-chinese-size)
@@ -75,6 +75,7 @@
 (require 'lian-vc-settings)
 (require 'lian-c-settings)
 (require 'lian-emaci-settings)
+(require 'lian-org-settings)
 
 ;; Matlab settings
 (require 'matlab-settings)
