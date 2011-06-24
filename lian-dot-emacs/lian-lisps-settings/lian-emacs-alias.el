@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-18 22:13:15 Saturday by lian>
+;; Time-stamp: <2011-06-22 21:58:22 Wednesday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -64,6 +64,7 @@
 
 ;; mode
 (defalias 'ac 'auto-complete-mode)
+(defalias 'og 'org-mode)
 
 
 ;; menubar toolbar scrollbar

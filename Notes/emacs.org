@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-18 21:27:10 Saturday by lian>
+# Time-stamp: <2011-06-23 18:18:57 Thursday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -50,7 +50,8 @@
   16. C-x M 查看manual，比如linux下命令或者别的命令的手册
   17. C-x K 找某个key对应的命令的lisp代码
   18. C-x Q toggle-debug-on-quite This is a very useful command, when you encounter the command or operation taking more time, you can c-g to cancle it, with this debug-on-quite options you can get the function taking your time.
-  19. C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
+  19. C-x M-E toggle-debug-on-error 如果你想在运行elisp命令出错时进行调试就打开这个选项
+  20. C-j C-h this command will show you the C-j prefix command list that I reconfigured for the frequently-used operations
     
     
 * svn and vc 版本控制
@@ -69,33 +70,34 @@
 
 * 全局操作
   1. C-x s 切换到*scratch*
-  2. C-x N 切换显示行号
-  3. export TERM=xterm-256color; emacs -nw
-  4. M-x list-colors-display 列出来颜色设置框
-  5. C-x i 插入文件到光标处
-  6. M-1 M-! 在当前光标位置插入执行的shell命令
-  7. M-! 执行shell命令结果显示在shell output buffer
-  8. M-| 针对某一特定区域执行命令(shell-command-on-region)
-  9. C-c M-C 拷贝当前文件的名字到剪切板
-  10. M-x command-frequence 显示历史命令的使用频率
-  11. M-x command-history 显示使用过的历史命令
-  12. C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
-  13. C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
-  14. C-x C-n Markset当前行并且移动到下一行
-  15. M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
-  16. M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
-  17. M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词
-  18. M-{{,}} backward-paragraph and forward-paragraph向前和向后光标，按照不同的段落
-  19. C-x , and C-x . 与上面两个操作类似，小跳转 recent-jump-small-forward and recent-jump-small-backward in recent-jump-settings.el
-  20. C-x C-r 打开最近操作的文件列表，然后按Tab键就会列出来，或者直接输入第一个字母进行查询
-  21. C-x b 或者 C-x C-f 然后 C-b 这样就能列出当前的buffer，我没发现的一个功能就是在这个时候按C-k可以删除buffer这样就非常方便了
-  22. C-x C-b 这个操作会产生一个Ibuffer来存放当前的buffer列表，你可以用m来mark指定的buffer，然后进行批量操作比如保存S，关闭D等操作
-  23. C-x q 切换当前的主模式
-  24. C-x C-x 重新激活Mark Region
-  25. M-' 在最近的两个buffer间切换
-  26. S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
-  27. 在multi-term mode模式下，C-l可以上个命令很长的显示结果
-  28. C-x {[,]} 前一页后一页
+  2. C-x 4 a add-change-log-entry-other-window, add-change-log-entry 可以用来写changelog文件，会根据时间和你的svn信息来辅助写书changelog文件，一般比较大的变化才需要加入changelog
+  3. C-x N 切换显示行号
+  4. export TERM=xterm-256color; emacs -nw
+  5. M-x list-colors-display 列出来颜色设置框
+  6. C-x i 插入文件到光标处
+  7. M-1 M-! 在当前光标位置插入执行的shell命令
+  8. M-! 执行shell命令结果显示在shell output buffer
+  9. M-| 针对某一特定区域执行命令(shell-command-on-region)
+  10. C-c M-C 拷贝当前文件的名字到剪切板
+  11. M-x command-frequence 显示历史命令的使用频率
+  12. M-x command-history 显示使用过的历史命令
+  13. C-c u 跳转到当前位置所在的上层标题上去 outline-up-heading in outline-settings.el
+  14. C-M-h Markset整个函数区域，也就是整个函数区域处于选中状态 outline-mark-subtree in outline-settings.el
+  15. C-x C-n Markset当前行并且移动到下一行
+  16. M-, 跳转到上次光标所在的位置，包括所有的buffer recent-jump-backward in recent-jump-settings.el
+  17. M-. 跳转到下次光标所在的位置，包括所有的buffer recent-jump-forward in recent-jump-settings.el
+  18. M-{N,P} 切换到不同的buffer，在这个命令前面加一个C-c前缀就变成了，查找下一个或者上一个当前光标处的单词
+  19. M-{{,}} backward-paragraph and forward-paragraph向前和向后光标，按照不同的段落
+  20. C-x , and C-x . 与上面两个操作类似，小跳转 recent-jump-small-forward and recent-jump-small-backward in recent-jump-settings.el
+  21. C-x C-r 打开最近操作的文件列表，然后按Tab键就会列出来，或者直接输入第一个字母进行查询
+  22. C-x b 或者 C-x C-f 然后 C-b 这样就能列出当前的buffer，我没发现的一个功能就是在这个时候按C-k可以删除buffer这样就非常方便了
+  23. C-x C-b 这个操作会产生一个Ibuffer来存放当前的buffer列表，你可以用m来mark指定的buffer，然后进行批量操作比如保存S，关闭D等操作
+  24. C-x q 切换当前的主模式
+  25. C-x C-x 重新激活Mark Region
+  26. M-' 在最近的两个buffer间切换
+  27. S-Mouse1 Shift按住了，拖动鼠标左键，可以移动显示内容
+  28. 在multi-term mode模式下，C-l可以上个命令很长的显示结果
+  29. C-x {[,]} 前一页后一页
 
 * 文件操作
   1. C-x F   find-grep-in-current-dir

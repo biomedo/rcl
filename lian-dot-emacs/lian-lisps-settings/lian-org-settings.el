@@ -25,8 +25,10 @@
 
   (defun lian-org-hook-settings ()
     "Hook settings for `org'."
-    (auto-fill-mode)
-    (set-fill-column 70))
+    ;; (auto-fill-mode)
+    ;; (set-fill-column 70)
+    (message "org-mode")
+    )
   (add-hook 'org-mode-hook 'lian-org-hook-settings))
 
 

@@ -48,8 +48,8 @@ Format 1
 \completion_inline_text true
 \completion_popup_delay 1.00
 \completion_popup_text true
-\thesaurusdir_path "~/thesaurus"
-\hunspelldir_path "~/hunspell"
+\thesaurusdir_path "/home/users/struct/lian/thesaurus"
+\hunspelldir_path "/home/users/struct/lian/hunspell"
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
@@ -66,6 +66,7 @@ Format 1
 # LANGUAGE SUPPORT SECTION ##########################
 #
 
+\spellchecker hunspell
 \spellcheck_continuously true
 
 #
@@ -78,6 +79,7 @@ Format 1
 # FORMATS SECTION ##########################
 #
 
+\format "pdf2" "pdf" "PDF (pdflatex)" "F" "evince" "" "document,vector,menu=export"
 
 #
 # CONVERTERS SECTION ##########################

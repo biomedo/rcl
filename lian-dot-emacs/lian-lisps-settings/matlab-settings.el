@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-13 14:40:37 Monday by lian>
+;; Time-stamp: <2011-06-24 16:25:00 Friday by lian>
 
 ;; enable matlab-mode and accociate .m file with matlab-mode
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
@@ -36,8 +36,8 @@ With prefix ARG, turn mlint minor mode on iff ARG is positive.
 
   (define-key matlab-mode-map (kbd "C-c C-c") 'ignore)
   (define-key matlab-mode-map (kbd "C-c C-c") 'comment)
-  (define-key matlab-mode-map (kbd "C-c C-x") 'ignore)
-  (define-key matlab-mode-map (kbd "C-c C-x") 'uncomment))
+  (define-key matlab-mode-map (kbd "C-c C-d") 'ignore)
+  (define-key matlab-mode-map (kbd "C-c C-d") 'uncomment))
 
 (add-hook 'matlab-mode-hook 'my-matlab-mode-hook)
 

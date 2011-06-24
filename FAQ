@@ -1,11 +1,19 @@
 
-常见问题
+* 常见问题
 
 
-* 在Linux下尤其CentreOS中emacs中文字体显示问题
-  中文字体在fedora或者其它系统上总有怪现象，解决思路如下：
-  - DejaVu Sans Mono 下载放在你的~/.fonts
-  - 同时下载文泉驿正黑也到上面那个目录
-  - cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
-  - 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
-  - 这样配合lian-dot-emacs/my.emacs中设置字体的配置，字体就很好看了
+** 在Linux下尤其CentreOS中emacs中文字体显示问题
+   中文字体在fedora或者其它系统上总有怪现象，解决思路如下：
+   - DejaVu Sans Mono 下载放在你的~/.fonts
+   - 同时下载文泉驿正黑也到上面那个目录
+   - cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
+   - 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
+   - 这样配合lian-dot-emacs/my.emacs中设置字体的配置，字体就很好看了
+
+** 奇怪evince界面乱码
+   为了能够更好管理自己安装的字体，尤其那些中文字体，我把我的字体都放
+   在~/.fonts下面了结果就是evince不好用了，界面字体都变成？？？了，后来
+   了解到主要原因是因为我们把非*.ttf,*.otf字体放在该目录下了。如果你把
+   那些非ttf,otf字体删除了的话就发现一切正常了。如果还想继续把自己的字
+   体放在单独的目录下，就要考虑自己修改/etc/fonts/font.conf或
+   者~/.fonts.conf这样就能来加载里一个你自己定义的路径下的字体了。

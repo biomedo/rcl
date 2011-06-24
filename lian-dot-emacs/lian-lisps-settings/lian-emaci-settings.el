@@ -1,5 +1,5 @@
 ;; -*- Emacs-Lisp -*-
-;; Time-stamp: <2011-06-19 21:27:15 Sunday by lian>
+;; Time-stamp: <2011-06-23 21:39:12 Thursday by lian>
 
 (require 'util)
 (require 'emaci)
@@ -9,7 +9,7 @@
  'emaci-mode-map
  `((";" emaci-roll-down)
    ("i" emaci-roll-up)
-   ("I" emaci-roll-down)))
+   ("I" highlight-symbol-at-point)))
 
 (defun lian-emaci-settings ()
   "lian's settings for `emaci'."
