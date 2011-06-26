@@ -1,3 +1,7 @@
+2011-06-24  lianweidong  <weidong.lian@gmail.com>
+
+	* add lian-template that stores the templates for various documents, lyx, latex for chinese.
+
 2011-06-20  lianweidong  <weidong.lian@gmail.com>
 
 	* add font setting in my.emacs
