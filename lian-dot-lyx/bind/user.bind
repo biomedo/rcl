@@ -11,6 +11,7 @@ Format 1
 \unbind "C-i" "space-insert hfill"
 \unbind "C-m" "mark-toggle"
 \unbind "C-u" "font-underline"
+\unbind "C-g" "cancel"
 
 \bind "C-h" "char-delete-backward"
 \bind "C-z" "undo"
@@ -75,4 +76,5 @@ Format 1
 \bind "F10" "buffer-update"
 \bind "M-n" "reference-next"
 \bind "M-p" "bookmark-goto 0"
+\bind "C-g" "cancel escape"
 
