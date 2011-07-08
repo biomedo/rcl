@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-26 23:40:15 Sunday by lian>
+;; Time-stamp: <2011-07-08 22:02:23 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -35,7 +35,8 @@
    ("C-x F"   find-dired)
    ("C-u"     cua-scroll-down)
    ("<f9>"    kill-this-buffer)
-   ("<f8>"    sb-toggle-keep-buffer)))
+   ("<f8>"    other-frame)
+   ("<f7>"    sb-toggle-keep-buffer)))
 ;; (global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
 
 ;; c++ header file path and tags table and source path
@@ -61,6 +62,8 @@
 (require 'lian-c-settings)
 (require 'lian-emaci-settings)
 (require 'lian-org-settings)
+(require 'lian-svn-settings)
+
 
 ;; Matlab settings
 (require 'matlab-settings)
@@ -105,6 +108,7 @@
     ("C-j C-f" ido-find-file)
     ("C-j f" emaci-mode-toggle)
     ("C-j C-j" execute-extended-command)
+    ("C-j C-v" svn-status)
     ("C-j j" goto-line)
     ("C-j C-o" delete-blank-lines)
     ("C-j o" other-window)
