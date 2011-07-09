@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-07-09 19:20:34 Saturday by lian>
+;; Time-stamp: <2011-07-09 21:48:48 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -113,6 +113,8 @@
     ("C-j C-v" svn-status)
     ("C-j j" goto-line)
     ("C-j C-o" delete-blank-lines)
+    ("C-j l" other-frame)
+    ("C-j C-l" make-frame-command)
     ("C-j o" other-window)
     ("C-j 0" delete-window)
     ("C-j 1" delete-other-windows)
