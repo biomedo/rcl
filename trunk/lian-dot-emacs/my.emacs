@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-07-08 22:02:23 Friday by lian>
+;; Time-stamp: <2011-07-09 19:20:34 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,20 +28,22 @@
 (setq user-full-name    "lianweidong")
 
 
+;; c++ header file path and tags table and source path
+(setq user-head-file-dir (list "."))
+(setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
+
+
 ;; Global key-binding
 (eal-define-keys-commonly
  global-map
  `(("C-M-j"     goto-line)
-   ("C-x F"   find-dired)
-   ("C-u"     cua-scroll-down)
-   ("<f9>"    kill-this-buffer)
-   ("<f8>"    other-frame)
-   ("<f7>"    sb-toggle-keep-buffer)))
+   ("C-x F"     find-dired)
+   ("C-u"       cua-scroll-down)
+   ("<f9>"      kill-this-buffer)
+   ("<f8>"      other-frame)
+   ("<f7>"      sb-toggle-keep-buffer)))
 ;; (global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
 
-;; c++ header file path and tags table and source path
-(setq user-head-file-dir (list "."))
-(setq user-head-file-dir (append user-head-file-dir lian-head-file-dir))
 
 ;; CTags, Etags table and settings
 (setq tags-table-list lian-tags-table-list)
@@ -136,18 +138,7 @@
     ("C-j 9" (lambda () (interactive)(dired (nth 2 lian-working-dir))))))
 
 
-;; disable highlight-underline-face
-(disable-hl-underline-face)
+;; theme misc: faces and fonts etc.
+(require 'lian-theme-settings)
 
-;; my fonts
-;; 中文字体在fedora或者其它系统上总有怪现象，解决思路如下：
-;; 1. DejaVu Sans Mono 下载放在你的~/.fonts
-;; 2. 下载文泉驿正黑也到上面那个目录
-;; 3. cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
-;; 4. 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
-;; 5. 这样配合下面脚本基本上不会出问题字体就很好看了.
-(setq my-latin-font "DejaVu Sans Mono")
-(setq my-chinese-font "微软雅黑")
-(setq my-latin-size 14)
-(setq my-chinese-size 17)
-(huangq-set-font my-latin-size my-chinese-size)
+(lian-theme-misc)
