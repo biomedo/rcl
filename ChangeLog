@@ -1,3 +1,7 @@
+2011-07-09  lianweidong  <weidong.lian@gmail.com>
+
+	* add lian-template/lyx/thesis/README, introducing how to use thesis template
+
 2011-06-24  lianweidong  <weidong.lian@gmail.com>
 
 	* add lian-template that stores the templates for various documents, lyx, latex for chinese.

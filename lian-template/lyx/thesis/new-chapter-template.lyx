@@ -45,7 +45,7 @@ customHeadersFooters
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false, linkcolor=blue, citecolor=red"
 \papersize a4paper
 \use_geometry false
 \use_amsmath 2
