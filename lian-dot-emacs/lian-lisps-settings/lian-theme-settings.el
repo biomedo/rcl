@@ -35,10 +35,10 @@
 (defun lian-after-make-frame-settings (frame)
   (setq color-theme-is-global nil)
   (select-frame frame)
-  (lian-color-theme))
+  (color-theme-lian))
 
 
-(defun lian-color-theme ()
+(defun color-theme-lian ()
   (interactive)
   (color-theme-ahei)
   (lian-theme-misc))
