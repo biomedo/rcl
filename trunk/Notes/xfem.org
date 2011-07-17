@@ -1,32 +1,32 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-23 20:23:07 Thursday by lian>
+# Time-stamp: <2011-07-16 00:14:40 Saturday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
-* XFEM程序的读书笔记
-  1. xFiniteElement这个类的理解，这个类的作用就是输入一个mEntity对象，他就能帮你返回对应的xValueKey，记住不管怎么样，不管输入的什么样的对象点，线，面，体对象等（dim=0，1，2，3），他都会帮你返回点对象的ValueKey,也就是说那些对象都被最终分解为点对象，因为有限元计算关心的是节点信息，因此经过这类他就会帮你返回网格中节点对应的xValueKey，而通过xValueManager就可以获得对应的xDoubleValue。而整个网格对应的xDoubleValue和xValueKey都是通过DeclareInterpolation来创建的。
-  2. xClassRegion这个类可以返回xMesh（mMesh）网格中的点，线，面，体的集合，通过这些对象的ntity_id，注意这个entity_id，其实就是在gmsh生成网格时对应的physicalindex。
-  3. xField这个类是连接了xSpace和实际的xDoubleValueManager，因此我们直接可以通过xField.beginValues(mEntity)和xField.endValues(mEntity）来返回mEntity对应的xDoubleValue，不管mEntity的类型是点线面体。同理xField.beginFcts(mEntity）返回对应的shapefunction。
-  4. xAssembler类用来集成全局刚度矩阵和全局载荷向量，在该类中分为集成矩阵还是向量，若是集成矩阵时要提供I，J，Value信息，如果要集成载荷阵列则要提供I,Value信息。并且实际上I，J信息的提供只是需要一个在整体刚度矩阵中的位置信息即可，在当前XFEM程序中不采用整型数来编号，而是通过每个节点的xDoubleValue的指针，也就是xDoubleValueManager中的Iterator来进行。
-  5. xSpaceLagrange,xSpaceComposite,xSpaceFiltered等对象的主要作用是获取形函数（Fcts）和键值的（femKey）。核心工作就是你可以输入一个mEntity*e，注意这个Entity可以是体，面，线，点各种对象，他会根据定义的Space的自由度空间，返回对应节点的ValueKey以及Function。也就是输入一个从大的对象返回对应点对象对应的节点自由度信息.具体的实现参见代码xSpaceLagrange::getKeys(mEntity* e,femKeys*keys)，其中涉及了对各种不同的几何对象如何获取对应几何对象的基本节点，然后再根据空间自由度，向量场还是标量场，来生成对应的自由度所对应的xValueKey。所以仅仅是生成xValueKey。
-  6. 当看到xEval是就是重载了括号运算符的一个函数对象，返回值的类型就是模板提供的参数。比如xEvalConst表示返回常数,xEvalFctAtPoint返回给定的函数在某点的值；xEvalUnary或者xEvalBinary返回指定的单一参数或者二参数谓词的返回值，也就是计算指定谓词的返回值。xValOperatorand,xValOperator数值操作运算符。 
-  7. xEval,xEvalConst,xEvalFctAtPoint,xEvalUnary,xEvalBinary,当看到这些函数时，要在浅意识有几点认识。第一，只有xEval字样就表示要进行一个Evaluation,这个求值，是建立在给定每个单元的xGeoElm m_appro, m_eteg参数然后返回一个计算的值，计算返回值的类型就是xEval<T>中的T所指定的参数；第二，如果看到xEvalUnary and xEvalBinary就意味着首先要对n在构造函数中传入的两个xEval类型的派生对象进行求值运算，然后他们分别求值运算的结果，作为Unary或者Binary的参数，在进行一次Unary或者Binary操作符的运算，得到的结果作为xEvalBinary求值运算的返回值。比如xEvalBinary< xMult<xTensor4, xTensor2, xTensor2> > eval_stress(hooke, eval_strain);，这条语句的意思就是说，要进行一次求值运算，首先对构造函数传入的参数hook，和eval_strain分别进行他们对应的operator()(xGeoElement* appro, xGeoElement* integ, returntype& res)进行求值运算，然后他们的返回的计算结果，分别是xTensor4和xTensor2类型的，他们分别作为二维谓词xMult的两个参数，再进行求值运算，得到的结果作为最终的返回值。因此可以看出整个这个xEvalBinary的返回值类型应该是xMult<xTensor4, xTensor2, xTensor2>中最后一个参数类型，而xMult<xTensor4,xTensor2,xTensor2>头两个参数的类型就分别是hooke和eval_strain的返回值类型。因此我们可以说xEvalBinary,或者xEvalUnary的意思就是首先进行xEval求值运算，然后返回值在进行Binary或者Unary操作符对应的运算。
-  8. 一些概念，对于每个节点都有xValueKey xDoubleValue ShapeFuction,通过xfield来管理，xvaluemanager。对于组装整体刚度矩阵，需要对每个单元进行积分，求解其单元刚度矩阵，而后装配到整体刚度矩阵。对每个进行积分求解单元刚度矩阵，就需要遍历每个单元，每个单元在遍历其中的节点来进行积分。
-  9. xMesh中的xVertex对应的就是节点的几何对象，其中的Id就是gmsh文件中的nodeid因此在输出的dcl.dbg文件中也就是xDoubleManager中输出的调试信息的Enti id号。这样一旦出现问题时，可以对照gmsh和dcl.dbg文件来找到问题。
-  10. mEntity e_integ and e_appro; xGeoElement geo_integ and geo_appro;区别就是当一个单元被加强时，zerolevel与单元相交，这个时候整个单元叫做e_appro and geo_appro，而那些小的subelements我们叫做e_Integ and geo_integ，这个小的单元是用来获取积分点然后进行积分的。也就是说对整个大的单元的积分，转变成了对小的单元的积分的和。这样在每个小单元内部材料的特性就是一致的。一个大的单元有几个小的sub单元构成，但是记住一条规则小的单元的某些在大的单元中间节点上不存在shapefunction，因为这些sub-element只是用来积分更加准确，实际上估计空间中并不存在这些自由度。这些小的子单元和大的单元享有共同形函数，但是他们有自己的积分点和Jacbian行列式。具体的积分点是通过xGeoElement::getUVW来获取的。如果有获取常规坐标下的积分点要用getXYZ，遍历积分点可以通过for(int k = 0; k < nb; k++)geo_integ->setUVW(k);
-  11. 如何xspace类型是scalar比如温度，则求得的温度场和场的Gradient操作分别是double和xVector类型;如果xspace的类型是Vector比如位移场，则求得的位移场以及场的Gradient操作分别为xVector和xTensor2。
-  12. xFormBiLinear是用来组装左侧的刚度矩阵的，而xFormLinear是用来生成对应的载荷阵列的，也就是右侧的向量。如何将双线性形式和线性形式组装到对应的矩阵？通过Assemble这个函数就可以将对应的线性和双线形式组装到对应的矩阵和向量中。这个函数是重载函数，有多种版本形式.
-  13. Assemble双线性形式的程序流程如下：首先要确定你的test function的估 计函数和你的shapefunction是否一致，这里可以指定不同的函数空间，对于常规固体力学问题往往采用伽辽金法来建立有限元格式，因此test function的估计空间和求解的估计空间是一致的。在程序中通过参数test and trial来进行区分，如果选取一致那么就属于加辽金法。首先遍历你输入的积分区域（一般可是边，面，体），这样程序实际就是用来处理积分区域中的每个子区域。对于每个小的子区域，也就是一条边，一个面，一个体，程序中的变量就是e_integ，另外就是获取估计函数，因为在xfem中需要对一个有两种材料的单元进行积分，而这个单元就是通过levelset来分割的，因此我们要对这种单元进行分割，然后分别对两侧积分，要注意这只是一种积分策略，实际上我们的估计空间中根本不存在这样两个子单元，而只有整个单元，因此对这样的子单元积分时就要用到包含这个子单元的大的单元的形函数来积分。这样这个积分对象的形函数就不是自身节点对应的形函数了。所以这就是为什么在程序中经常看到有e_integ和e_appro，分别表示就是积分对象以及这个积分对象的估计函数。这样对于每个小的子区域，我们可以通过xFiniteElement这个对象获得相应的Shape Functions，这样就获得对应的刚度矩阵了，比如对于一个二维三角形单元区域，有六个自由度，如果加上加强节点就有12个自由度，这样组合出来对应就是一个12X12的矩阵，矩阵每个元素都对应两个下标，这样你能标定把每个元素按照他们在整体刚度矩阵中的位置，组装上去了。要注意两点，第一即使是对于一个单元里面的subdomain进行积分，那么形函数个数取决于单元区域，而不是取决于subdomain，我们只是从subdomain上获得准去的材料特性以及高斯积分点，这样即使是对于这个比自己小的subdomain，那么刚度矩阵仍然是12X12大小的。s
-  14. xFormBiLinear是如何工作的呢？他的工作非常简单就是当你给我subdomain对象即e_integ以及对应的估计函数对象e_appro，以及对应的形函数，他就会对每个高斯积分点处刚度矩阵就行累加，获得最终的subdomain对整体刚度矩阵的贡献。主要在xFormBiLinear中，在对每个高斯积分点积分之前，它都会把对应的高斯积分点的坐标放置在xGeoElem(e_appro)中，这样就方便我们调用了。但是对于每个高斯积分点如何积分呢，是采用双线性形式，但是双线性形式格式是什么样的呢？利用C++语言中的虚拟函数这样我们就从xFormBiLinear中实现派生了大量的其它子类，比如xFormBiLinearWithLaw, xFormBiLinearWithoutLaw等。
-  15. xFormBiLInearWithoutlaw中accumulate_png是首先返回在某个积分点处各个形函数对应的值（如何有Operator，就应用那个operator，一般是gradient操作符），分别对左项和右侧项执行这个操作，叫做values_left, and values_right。获取该高斯积分点的权值和对应的雅阁比行列式的值wdet，然后将获取的values_left 12和values_right 12，分别相乘并乘以wdet，这样最终就获取了，12X12的刚度矩阵。
-  16. 关于如何从一个Entity访问与其相关的Entity，比如从节点访问和节点相连的单元。mEntity* e; e->size(level); e是一个基类指针，可以指向vertex，edge，face，volume等，level表示想获取的对象的size，比如0获取当前对象所包含的点的个数，1表示想当前对象包含的线的个数，同理2表示面，3表示体；如果当前对象是点，想获取的对象的类型是面，那么这是他就直接给你返回与这个点相连的面的个数。
-  17. 从一个网格我们可以创建一个region，比如xRegion all(data->mesh)。此时如果我们利用xPhySurface将这个region分割为matrix和inclusion两个部分，要注意此时的tag，我们现在讨论的是all.begin()和all.end()之间的这些mEntity，其中分割导致的sub-Entity并不含在其中，主要是all.begin()和all.end(）之间的实体，也就是说你如果用xRegionFilter filter_regin(all.begin(), all.end(), xAccept("inclusion"))，此时获得这个时候获取的inclusion部分，不是准确的按照那个levelset边界来划分的，因为all.begin()到all.end()中不包含那个sub-Entity。而为什么我们在积分的时候就可以呢，因为在积分的时候我们有两个选择，xIntergrationRulePartion和xIntergrationRuleBaisc，此时如果你选择baisc那么你只是对那个不准确的边界的inclusion部分进行积分，而如果你选择用Partition，那么这个规则就会把被边界分割的单元按照几块分别进行积分，每小块(i.e. subelement)对应他们自己的材料特性，但是主要此时形函数却还是选择那个整块单元所对应的估计函数，这就是为什么你会看到e_appro和e_entity在xFormBilinear中。因为在xfem中subelement只是为了积分策略才存在的，实际上求解空间中并不存在这些子单元对应的形函数，所以就是为什么对subelemnt积分时要选择他的父亲单元来获得形函数。而subentity和父entity之间的关系都是在xPhysSurface中来分割确定的。
-  18. xClassRegion是另一种方式从all中来获取一个子区域网格的办法。可以根据physical index以及维数来释放一个子区域。
-  19. xIntegrationRulePartition的构造函数有两个版本，在第二个构造函数中我们可以指定一个filter这样的话，我们就可以滤过一些被分割开的subelements。这样就可以控制输出结果中是不是包含subelements。
-  20. xCommandOnGeomElem可以用来作为ApplyCommandOnIntegrationRule的参数对某些单元进行积分操作。注意，xIntegrateEvalCommand是真正的对每一个给定的单元和给定xEval进行了积分操作，而注意xPlotCommand确指是将对应单元的一些量进行输出比如displacement, stain, stress, strain energy etc.,而没有进行如何任何积分操作，当然积分操作也可以。
+** XFEM程序的读书笔记
+   1. xFiniteElement这个类的理解，这个类的作用就是输入一个mEntity对象，他就能帮你返回对应的xValueKey，记住不管怎么样，不管输入的什么样的对象点，线，面，体对象等（dim=0，1，2，3），他都会帮你返回点对象的ValueKey,也就是说那些对象都被最终分解为点对象，因为有限元计算关心的是节点信息，因此经过这类他就会帮你返回网格中节点对应的xValueKey，而通过xValueManager就可以获得对应的xDoubleValue。而整个网格对应的xDoubleValue和xValueKey都是通过DeclareInterpolation来创建的。
+   2. xClassRegion这个类可以返回xMesh（mMesh）网格中的点，线，面，体的集合，通过这些对象的ntity_id，注意这个entity_id，其实就是在gmsh生成网格时对应的physicalindex。
+   3. xField这个类是连接了xSpace和实际的xDoubleValueManager，因此我们直接可以通过xField.beginValues(mEntity)和xField.endValues(mEntity）来返回mEntity对应的xDoubleValue，不管mEntity的类型是点线面体。同理xField.beginFcts(mEntity）返回对应的shapefunction。
+   4. xAssembler类用来集成全局刚度矩阵和全局载荷向量，在该类中分为集成矩阵还是向量，若是集成矩阵时要提供I，J，Value信息，如果要集成载荷阵列则要提供I,Value信息。并且实际上I，J信息的提供只是需要一个在整体刚度矩阵中的位置信息即可，在当前XFEM程序中不采用整型数来编号，而是通过每个节点的xDoubleValue的指针，也就是xDoubleValueManager中的Iterator来进行。
+   5. xSpaceLagrange,xSpaceComposite,xSpaceFiltered等对象的主要作用是获取形函数（Fcts）和键值的（femKey）。核心工作就是你可以输入一个mEntity*e，注意这个Entity可以是体，面，线，点各种对象，他会根据定义的Space的自由度空间，返回对应节点的ValueKey以及Function。也就是输入一个从大的对象返回对应点对象对应的节点自由度信息.具体的实现参见代码xSpaceLagrange::getKeys(mEntity* e,femKeys*keys)，其中涉及了对各种不同的几何对象如何获取对应几何对象的基本节点，然后再根据空间自由度，向量场还是标量场，来生成对应的自由度所对应的xValueKey。所以仅仅是生成xValueKey。
+   6. 当看到xEval是就是重载了括号运算符的一个函数对象，返回值的类型就是模板提供的参数。比如xEvalConst表示返回常数,xEvalFctAtPoint返回给定的函数在某点的值；xEvalUnary或者xEvalBinary返回指定的单一参数或者二参数谓词的返回值，也就是计算指定谓词的返回值。xValOperatorand,xValOperator数值操作运算符。 
+   7. xEval,xEvalConst,xEvalFctAtPoint,xEvalUnary,xEvalBinary,当看到这些函数时，要在浅意识有几点认识。第一，只有xEval字样就表示要进行一个Evaluation,这个求值，是建立在给定每个单元的xGeoElm m_appro, m_eteg参数然后返回一个计算的值，计算返回值的类型就是xEval<T>中的T所指定的参数；第二，如果看到xEvalUnary and xEvalBinary就意味着首先要对n在构造函数中传入的两个xEval类型的派生对象进行求值运算，然后他们分别求值运算的结果，作为Unary或者Binary的参数，在进行一次Unary或者Binary操作符的运算，得到的结果作为xEvalBinary求值运算的返回值。比如xEvalBinary< xMult<xTensor4, xTensor2, xTensor2> > eval_stress(hooke, eval_strain);，这条语句的意思就是说，要进行一次求值运算，首先对构造函数传入的参数hook，和eval_strain分别进行他们对应的operator()(xGeoElement* appro, xGeoElement* integ, returntype& res)进行求值运算，然后他们的返回的计算结果，分别是xTensor4和xTensor2类型的，他们分别作为二维谓词xMult的两个参数，再进行求值运算，得到的结果作为最终的返回值。因此可以看出整个这个xEvalBinary的返回值类型应该是xMult<xTensor4, xTensor2, xTensor2>中最后一个参数类型，而xMult<xTensor4,xTensor2,xTensor2>头两个参数的类型就分别是hooke和eval_strain的返回值类型。因此我们可以说xEvalBinary,或者xEvalUnary的意思就是首先进行xEval求值运算，然后返回值在进行Binary或者Unary操作符对应的运算。
+   8. 一些概念，对于每个节点都有xValueKey xDoubleValue ShapeFuction,通过xfield来管理，xvaluemanager。对于组装整体刚度矩阵，需要对每个单元进行积分，求解其单元刚度矩阵，而后装配到整体刚度矩阵。对每个进行积分求解单元刚度矩阵，就需要遍历每个单元，每个单元在遍历其中的节点来进行积分。
+   9. xMesh中的xVertex对应的就是节点的几何对象，其中的Id就是gmsh文件中的nodeid因此在输出的dcl.dbg文件中也就是xDoubleManager中输出的调试信息的Enti id号。这样一旦出现问题时，可以对照gmsh和dcl.dbg文件来找到问题。
+   10. mEntity e_integ and e_appro; xGeoElement geo_integ and geo_appro;区别就是当一个单元被加强时，zerolevel与单元相交，这个时候整个单元叫做e_appro and geo_appro，而那些小的subelements我们叫做e_Integ and geo_integ，这个小的单元是用来获取积分点然后进行积分的。也就是说对整个大的单元的积分，转变成了对小的单元的积分的和。这样在每个小单元内部材料的特性就是一致的。一个大的单元有几个小的sub单元构成，但是记住一条规则小的单元的某些在大的单元中间节点上不存在shapefunction，因为这些sub-element只是用来积分更加准确，实际上估计空间中并不存在这些自由度。这些小的子单元和大的单元享有共同形函数，但是他们有自己的积分点和Jacbian行列式。具体的积分点是通过xGeoElement::getUVW来获取的。如果有获取常规坐标下的积分点要用getXYZ，遍历积分点可以通过for(int k = 0; k < nb; k++)geo_integ->setUVW(k);
+   11. 如何xspace类型是scalar比如温度，则求得的温度场和场的Gradient操作分别是double和xVector类型;如果xspace的类型是Vector比如位移场，则求得的位移场以及场的Gradient操作分别为xVector和xTensor2。
+   12. xFormBiLinear是用来组装左侧的刚度矩阵的，而xFormLinear是用来生成对应的载荷阵列的，也就是右侧的向量。如何将双线性形式和线性形式组装到对应的矩阵？通过Assemble这个函数就可以将对应的线性和双线形式组装到对应的矩阵和向量中。这个函数是重载函数，有多种版本形式.
+   13. Assemble双线性形式的程序流程如下：首先要确定你的test function的估 计函数和你的shapefunction是否一致，这里可以指定不同的函数空间，对于常规固体力学问题往往采用伽辽金法来建立有限元格式，因此test function的估计空间和求解的估计空间是一致的。在程序中通过参数test and trial来进行区分，如果选取一致那么就属于加辽金法。首先遍历你输入的积分区域（一般可是边，面，体），这样程序实际就是用来处理积分区域中的每个子区域。对于每个小的子区域，也就是一条边，一个面，一个体，程序中的变量就是e_integ，另外就是获取估计函数，因为在xfem中需要对一个有两种材料的单元进行积分，而这个单元就是通过levelset来分割的，因此我们要对这种单元进行分割，然后分别对两侧积分，要注意这只是一种积分策略，实际上我们的估计空间中根本不存在这样两个子单元，而只有整个单元，因此对这样的子单元积分时就要用到包含这个子单元的大的单元的形函数来积分。这样这个积分对象的形函数就不是自身节点对应的形函数了。所以这就是为什么在程序中经常看到有e_integ和e_appro，分别表示就是积分对象以及这个积分对象的估计函数。这样对于每个小的子区域，我们可以通过xFiniteElement这个对象获得相应的Shape Functions，这样就获得对应的刚度矩阵了，比如对于一个二维三角形单元区域，有六个自由度，如果加上加强节点就有12个自由度，这样组合出来对应就是一个12X12的矩阵，矩阵每个元素都对应两个下标，这样你能标定把每个元素按照他们在整体刚度矩阵中的位置，组装上去了。要注意两点，第一即使是对于一个单元里面的subdomain进行积分，那么形函数个数取决于单元区域，而不是取决于subdomain，我们只是从subdomain上获得准去的材料特性以及高斯积分点，这样即使是对于这个比自己小的subdomain，那么刚度矩阵仍然是12X12大小的。s
+   14. xFormBiLinear是如何工作的呢？他的工作非常简单就是当你给我subdomain对象即e_integ以及对应的估计函数对象e_appro，以及对应的形函数，他就会对每个高斯积分点处刚度矩阵就行累加，获得最终的subdomain对整体刚度矩阵的贡献。主要在xFormBiLinear中，在对每个高斯积分点积分之前，它都会把对应的高斯积分点的坐标放置在xGeoElem(e_appro)中，这样就方便我们调用了。但是对于每个高斯积分点如何积分呢，是采用双线性形式，但是双线性形式格式是什么样的呢？利用C++语言中的虚拟函数这样我们就从xFormBiLinear中实现派生了大量的其它子类，比如xFormBiLinearWithLaw, xFormBiLinearWithoutLaw等。
+   15. xFormBiLInearWithoutlaw中accumulate_png是首先返回在某个积分点处各个形函数对应的值（如何有Operator，就应用那个operator，一般是gradient操作符），分别对左项和右侧项执行这个操作，叫做values_left, and values_right。获取该高斯积分点的权值和对应的雅阁比行列式的值wdet，然后将获取的values_left 12和values_right 12，分别相乘并乘以wdet，这样最终就获取了，12X12的刚度矩阵。
+   16. 关于如何从一个Entity访问与其相关的Entity，比如从节点访问和节点相连的单元。mEntity* e; e->size(level); e是一个基类指针，可以指向vertex，edge，face，volume等，level表示想获取的对象的size，比如0获取当前对象所包含的点的个数，1表示想当前对象包含的线的个数，同理2表示面，3表示体；如果当前对象是点，想获取的对象的类型是面，那么这是他就直接给你返回与这个点相连的面的个数。
+   17. 从一个网格我们可以创建一个region，比如xRegion all(data->mesh)。此时如果我们利用xPhySurface将这个region分割为matrix和inclusion两个部分，要注意此时的tag，我们现在讨论的是all.begin()和all.end()之间的这些mEntity，其中分割导致的sub-Entity并不含在其中，主要是all.begin()和all.end(）之间的实体，也就是说你如果用xRegionFilter filter_regin(all.begin(), all.end(), xAccept("inclusion"))，此时获得这个时候获取的inclusion部分，不是准确的按照那个levelset边界来划分的，因为all.begin()到all.end()中不包含那个sub-Entity。而为什么我们在积分的时候就可以呢，因为在积分的时候我们有两个选择，xIntergrationRulePartion和xIntergrationRuleBaisc，此时如果你选择baisc那么你只是对那个不准确的边界的inclusion部分进行积分，而如果你选择用Partition，那么这个规则就会把被边界分割的单元按照几块分别进行积分，每小块(i.e. subelement)对应他们自己的材料特性，但是主要此时形函数却还是选择那个整块单元所对应的估计函数，这就是为什么你会看到e_appro和e_entity在xFormBilinear中。因为在xfem中subelement只是为了积分策略才存在的，实际上求解空间中并不存在这些子单元对应的形函数，所以就是为什么对subelemnt积分时要选择他的父亲单元来获得形函数。而subentity和父entity之间的关系都是在xPhysSurface中来分割确定的。
+   18. xClassRegion是另一种方式从all中来获取一个子区域网格的办法。可以根据physical index以及维数来释放一个子区域。
+   19. xIntegrationRulePartition的构造函数有两个版本，在第二个构造函数中我们可以指定一个filter这样的话，我们就可以滤过一些被分割开的subelements。这样就可以控制输出结果中是不是包含subelements。
+   20. xCommandOnGeomElem可以用来作为ApplyCommandOnIntegrationRule的参数对某些单元进行积分操作。注意，xIntegrateEvalCommand是真正的对每一个给定的单元和给定xEval进行了积分操作，而注意xPlotCommand确指是将对应单元的一些量进行输出比如displacement, stain, stress, strain energy etc.,而没有进行如何任何积分操作，当然积分操作也可以。
 
-* XFEM中有用代码
-** 填充一个新的xField对象
+** XFEM中有用代码
+*** 填充一个新的xField对象
   下面的代码用来fill一个新的field，有的时候
      经常需要建立一个场，然后利用我们求解的场的结果来填充或者生成这样
      一个附加场，比如在研究误差是，为了要保存每一个点的误差，则要创建
@@ -49,7 +49,7 @@
   }
 #+end_src
 
-** 如何检查边界条件或者释放一些特殊区域来校验模型
+*** 如何检查边界条件或者释放一些特殊区域来校验模型
 #+begin_src c++
   void PlotBoundary(xMesh *mesh, int tagPhysicalIndex, int dim)
   {
