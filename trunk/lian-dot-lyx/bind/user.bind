@@ -12,6 +12,7 @@ Format 1
 \unbind "C-m" "mark-toggle"
 \unbind "C-u" "font-underline"
 \unbind "C-g" "cancel"
+\unbind "C-o f" "layout ShortFoilhead"
 
 \bind "C-h" "char-delete-backward"
 \bind "C-z" "undo"
@@ -70,6 +71,7 @@ Format 1
 \bind "C-o C-space" "dialog-show-new-inset space"
 \bind "C-o C-s" "dialog-show character"
 \bind "C-o C-o" "inset-toggle"
+\bind "C-o f" "footnote-insert"
 \bind "M-S-n" "buffer-next"
 \bind "M-S-p" "buffer-previous"
 \bind "F9" "buffer-view"
