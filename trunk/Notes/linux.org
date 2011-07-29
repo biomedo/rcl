@@ -1,39 +1,48 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-17 22:04:55 Friday by lian>
+# Time-stamp: <2011-07-29 13:38:06 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
-* 记录一些常用的快捷键和命令
-  - 设置系统中一些颜色设置可以用dircolors -b, dircolors --print-database
-    -- 首先用命令dircolors –print-database > ~/.dir_colors，然后编辑那个文件，文件中有编辑规则，在.bashrc中添加代码eval “`dircolors -b ~/.dir_colors`”
-  - ls --color, grep --color
-  - linux下查找查看帮助文档info <查找命令或者内容>，比如info readline, info ls等就可以查看对应的文档
-  - bind -P可以查看终端中快捷键的绑定,bind -v查看可用的配置信息
-  - 可以通过配置~/.inputrc来改变readline程序的快捷键的配置，并且注意到readline可以绑定并影响系统中的好多程序。比如bash,mysql,gdb,ftp等
-  - terminal中很多快捷键记不住怎么办？可以自己方便的查找比如bind -P | grep 'complete'
+** 记录一些常用的快捷键和命令
+   - 设置系统中一些颜色设置可以用dircolors -b, dircolors --print-database
+     -- 首先用命令dircolors –print-database > ~/.dir_colors，然后编辑那个文件，文件中有编辑规则，在.bashrc中添加代码eval “`dircolors -b ~/.dir_colors`”
+   - ls --color, grep --color
+   - linux下查找查看帮助文档info <查找命令或者内容>，比如info readline, info ls等就可以查看对应的文档
+   - bind -P可以查看终端中快捷键的绑定,bind -v查看可用的配置信息
+   - 可以通过配置~/.inputrc来改变readline程序的快捷键的配置，并且注意到readline可以绑定并影响系统中的好多程序。比如bash,mysql,gdb,ftp等
+   - terminal中很多快捷键记不住怎么办？可以自己方便的查找比如bind -P | grep 'complete'
 
-* Gnome-terminal中的快捷键
-  - 快捷见和emacs的快捷键类似，可以参考《ahei 高效的bash》以及王垠的Read《Bash readline 使用技巧》这两篇文章
-  - 
-* subversion control in your private computer
-  - svnadmin is used to create the empty svn database or import some file as initialization
-  - you can access and checkout by the combine of svn ssh, for example, svn co svn+ssh://lian@titan/glouton/struct/lian/develop/tools/svn_cvs/lian-svn/lian DocSvn
-    
-* Configure Dynamic Linker Run Time Bindings
-  1) manage the system dynamic libraries
-  2) ldd <your executable> to query *.so linked with <your executable>
-  3) set LD_LIBRARY_PATH to a specific program to avoid the system-wide libraryies
-  4) when you use GNU compile to compile your program, you can also specify the specific path of dynamic libraries by the options rpath
-  5) ldconfig to rescan the dynamic libraries search paths
-     + add your own path in /etc/ld.so.conf.d/ or /etc/ld.so.conf
-     + invoke the command ldconfig to update the catch
+** Gnome-terminal中的快捷键
+   - 快捷见和emacs的快捷键类似，可以参考《ahei 高效的bash》以及王垠的Read《Bash readline 使用技巧》这两篇文章
+   - 
+** subversion control in your private computer
+   - svnadmin is used to create the empty svn database or import some file as initialization
+   - you can access and checkout by the combine of svn ssh, for example, svn co svn+ssh://lian@titan/glouton/struct/lian/develop/tools/svn_cvs/lian-svn/lian DocSvn
+     
+** Configure Dynamic Linker Run Time Bindings
+   1) manage the system dynamic libraries
+   2) ldd <your executable> to query *.so linked with <your executable>
+   3) set LD_LIBRARY_PATH to a specific program to avoid the system-wide libraryies
+   4) when you use GNU compile to compile your program, you can also specify the specific path of dynamic libraries by the options rpath
+   5) ldconfig to rescan the dynamic libraries search paths
+      + add your own path in /etc/ld.so.conf.d/ or /etc/ld.so.conf
+      + invoke the command ldconfig to update the catch
 
-* find command
-  - find . -wholename "./*128*Size.m", the option -wholename is veryuseful, regarding the fullname include the path, so you can make full use of this command to filter the path or name of no interest.
-  - find . -path "./***bac/abf**/"
-  - options -path, ! -path, -and, -or, etc.
+** find command
+   - find . -wholename "./*128*Size.m", the option -wholename is veryuseful, regarding the fullname include the path, so you can make full use of this command to filter the path or name of no interest.
+   - find . -path "./***bac/abf**/"
+   - options -path, ! -path, -and, -or, etc.
 
-* install fonts
-  - copy *.ttf to your ~/.fonts
-  - cd ~/.fonts && mkfontscale && mkfontdir && fc-cache
+** install fonts
+   - copy *.ttf to your ~/.fonts
+   - cd ~/.fonts && mkfontscale && mkfontdir && fc-cache
+
+** 如何同步更新工作目录内容
+   rsync --exclude-from 'exclude.txt' -e ssh -avz  lian@titan:/glouton/struct/lian/develop/PGD .
+   exclude.txt :
+   *.pos
+   *.so                                                                                                                        
+   *.tar.gz                                                                                                                    
+   *.o
+   rsync --exclude-from 'exclude.txt' --max-size=10m -e ssh -avz  lian@titan:/glouton/struct/lian/develop/Xfem develSave/
