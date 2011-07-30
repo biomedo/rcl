@@ -1,0 +1,37 @@
+# -*- org -*-
+
+# Time-stamp: <2011-07-30 23:16:40 Saturday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+* Backup list
+
+** Backup /home/lian home/Makefile for more details
+    ~/.thunderbird
+
+** Backup /glouton/struct/lian/develop/ glouton/Makefile for more details    
+    /glouton/struct/lian/develop/Applis
+    /glouton/struct/lian/develop/code
+    /glouton/struct/lian/develop/FEMOBJECT
+    /glouton/struct/lian/develop/ImageData
+    /glouton/struct/lian/develop/latest
+    /glouton/struct/lian/develop/MeshMachine
+    /glouton/struct/lian/develop/Physics
+    /glouton/struct/lian/develop/SolverInterfaces
+    /glouton/struct/lian/develop/Util
+    /glouton/struct/lian/develop/Xcrack
+    /glouton/struct/lian/develop/Xext
+    /glouton/struct/lian/develop/Xfem
+    /glouton/struct/lian/develop/ZorgLib
+
+** Backup /cassini/lian/ cassini/Makefile for more details
+    /cassini/lian/Mendeley/
+    /cassini/lian/MyCollect/
+    /cassini/lian/MyDocSvn/
+    /cassini/lian/MyPub/
+    /cassini/lian/MyPhotos/
+    /cassini/lian/Rcl/
+    
+
+* Usage
+  You can enter into each subdirectory to invoke the make file for backup them seperately. Still, you make call the Makefile in current path for backup all these directories.

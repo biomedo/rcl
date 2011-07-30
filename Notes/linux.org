@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-07-29 13:38:06 Friday by lian>
+# Time-stamp: <2011-07-30 20:51:01 Saturday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -46,3 +46,6 @@
    *.tar.gz                                                                                                                    
    *.o
    rsync --exclude-from 'exclude.txt' --max-size=10m -e ssh -avz  lian@titan:/glouton/struct/lian/develop/Xfem develSave/
+
+** Mount the usb disk forcely if $LogFile occour
+   sudo mount -t ntfs-3g /dev/sdb8 /media/cdrom0/ -o force
