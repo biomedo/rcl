@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-07-09 21:48:48 Saturday by lian>
+;; Time-stamp: <2011-08-05 20:46:29 Friday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
  global-map
  `(("C-M-j"     goto-line)
    ("C-x F"     find-dired)
-   ("C-u"       cua-scroll-down)
+   ;; ("C-u"       cua-scroll-down)
    ("<f9>"      kill-this-buffer)
    ("<f8>"      other-frame)
    ("<f7>"      sb-toggle-keep-buffer)))
