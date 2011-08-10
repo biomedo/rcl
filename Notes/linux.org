@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-07-30 20:51:01 Saturday by lian>
+# Time-stamp: <2011-07-31 00:02:36 Sunday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -49,3 +49,7 @@
 
 ** Mount the usb disk forcely if $LogFile occour
    sudo mount -t ntfs-3g /dev/sdb8 /media/cdrom0/ -o force
+
+** svn change source tips
+   svn+ssh://lian@titan/glouton/struct/lian/develop/tools/svn_cvs/lian-svn/
+   svn switch --relocate svn+ssh://lian@titan/glouton/struct/lian/develop/tools/svn_cvs/lian-svn/lian file:///cassini/lian/lian-svn/lian

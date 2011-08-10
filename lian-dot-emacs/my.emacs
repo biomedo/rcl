@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-08-05 20:46:29 Friday by lian>
+;; Time-stamp: <2011-08-07 23:34:34 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -40,8 +40,8 @@
    ("C-x F"     find-dired)
    ;; ("C-u"       cua-scroll-down)
    ("<f9>"      kill-this-buffer)
-   ("<f8>"      other-frame)
-   ("<f7>"      sb-toggle-keep-buffer)))
+   ;; ("<f8>"      other-frame)
+   ("<f8>"      sb-toggle-keep-buffer)))
 ;; (global-set-key (kbd "<f8>") 'sb-toggle-keep-buffer)
 
 
