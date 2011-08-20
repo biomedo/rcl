@@ -22,6 +22,7 @@ Format 1
 \unbind "C-period" "specialchar-insert end-of-sentence"
 \unbind "C-j l" "math-limits"
 \unbind "M-w" "copy"
+\unbind "M-c c" "font-noun"
 
 \bind "C-h" "char-delete-backward"
 \bind "C-z" "undo"
@@ -47,6 +48,7 @@ Format 1
 \bind "C-c C-i" "menu-open insert"
 \bind "C-c C-f" "master-buffer-view"
 \bind "C-c C-d" "master-buffer-update"
+\bind "C-c s" "dialog-show prefs"
 \bind "C-i" "command-alternatives completion-accept;cell-forward;tab-insert;depth-increment;outline-in"
 \bind "C-m" "break-paragraph"
 \bind "C-2" "mark-toggle"
@@ -112,4 +114,6 @@ Format 1
 \bind "C-semicolon" "label-goto"
 \bind "M-w" "command-alternatives copy-label-as-reference; copy"
 \bind "C-w" "command-alternatives cut; word-delete-backward"
+\bind "M-c n" "font-noun"
+\bind "M-c M-c" "command-sequence word-capitalize;char-forward"
 
