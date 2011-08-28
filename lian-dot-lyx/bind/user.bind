@@ -110,6 +110,7 @@ Format 1
 \bind "C-u c" "dialog-show toc citation"
 \bind "C-u g" "dialog-show toc graphics"
 \bind "C-u r" "dialog-show toc label"
+\bind "C-u C-p" "argument-insert"
 \bind "M-o" "command-execute"
 \bind "C-semicolon" "label-goto"
 \bind "M-w" "command-alternatives copy-label-as-reference; copy"
