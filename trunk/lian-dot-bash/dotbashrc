@@ -130,7 +130,7 @@ mcko () { make -j8 checkone DIR=$1 VERS=opt; }
 gb () { cat ~/.bashrc | grep $1; }
 gh () { history | grep $1; }
 g () { $1 | grep $2; }
-alias mtlab='matlab -nojvm -nodisplay -nosplash'
+#alias mtlab='matlab -nojvm -nodisplay -nosplash'
 alias m='matlab -nojvm -nodisplay -nosplash'
 alias mtcomsol='comsol matlab -ml -nodesktop -ml -nosplash'
 alias mtcomsol35='/usr/local/comsol/comsol35a/bin/comsol -np 10 matlab -mlroot /usr/local/matlab/2009b/ -ml -nodesktop -ml -nosplash'

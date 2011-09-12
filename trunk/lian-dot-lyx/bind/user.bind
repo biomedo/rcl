@@ -22,7 +22,7 @@ Format 1
 \unbind "C-period" "specialchar-insert end-of-sentence"
 \unbind "C-j l" "math-limits"
 \unbind "M-w" "copy"
-\unbind "M-c c" "font-noun"
+\unbind "M-c u" "font-underline"
 
 \bind "C-h" "char-delete-backward"
 \bind "C-z" "undo"
@@ -117,4 +117,5 @@ Format 1
 \bind "C-w" "command-alternatives cut; word-delete-backward"
 \bind "M-c n" "font-noun"
 \bind "M-c M-c" "command-sequence word-capitalize;char-forward"
+\bind "M-c l" "word-lowcase"
 

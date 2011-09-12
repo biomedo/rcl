@@ -1,11 +1,11 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-10 19:42:37 Friday by lian>
+# Time-stamp: <2011-09-12 20:17:22 Monday by lian>
 
 #+STARTUP: indent +OPTIONS: ^:nil author:lianweidong timestamp:nil creator:lianweidong
-* 基本功能介绍
-  Org mode 是 emacs 中的一个主模式。 Org 是 organization 的缩写。这个模式的主要作用是用来记笔记，写 todo list，org mode 有一个目标，就是希望每件事情都只记录一次。个人觉得Org Mode主要是写一些比较简单的文档，一些学习记录，笔记等，如果是逻辑性比较强，比较复杂的文档那是Tex的范畴或者Lyx的范畴。也要尽量避免使用关于复杂的功能，我这里列出来的下面的一些功能是一些比较常用的，完成日常的学习记录笔记一点问题都没有，足够了。
-* 文档结构
+** 基本功能介绍
+Org mode 是 emacs 中的一个主模式。 Org 是 organization 的缩写。这个模式的主要作用是用来记笔记，写 todo list，org mode 有一个目标，就是希望每件事情都只记录一次。个人觉得Org Mode主要是写一些比较简单的文档，一些学习记录，笔记等，如果是逻辑性比较强，比较复杂的文档那是Tex的范畴或者Lyx的范畴。也要尽量避免使用关于复杂的功能，我这里列出来的下面的一些功能是一些比较常用的，完成日常的学习记录笔记一点问题都没有，足够了。
+** 文档结构
   - M-RET，C-RET, C-c RET, C-M RET, C-S RET 用来创建新的Item
   - S-TAB, TAB 大纲和目录切换，控制隐藏和显示控制
   - C-c /, C-c r, 根据搜索内容或者根据分类来控制显示的内容，这样文档就不显得非常乱
@@ -20,15 +20,16 @@
   - 脚注是通过C-c C-x f命令来实现的，C-c C-c命令用于在脚注和引用脚注的地方进行切换
   - 五个或者五个以上的分隔符- 是一个水平分割线
 
-* 表格
+** 表格
   - C-c | 来创建表格，可以指定行和列数来创建默认样式的表格
   - C-c C-c re-align表格，也就是重新计算表格宽度信息，而比改变光标的位置
   - TAB, S-TAB, RET， 用来在表格中移动光标，用来输入
   - M-Left, M-Right, M-Top, M-Bottom, M-S-Left, M-S-Right, M-S-Bottom, M-S-Top，用来移动光标或者删除行列或者内容
-* 超级链接
-  C-c C-l来创建各种超级链接
-* 引用文字或者代码
-  我常用到的引用文字的标签是#+BEGIN_EXAMPLE / #+END_EXAMPLE ，在这之间的文字会保留原有的格式。对于代码而言，可以用#+BEGIN_SRC SRC_TYPE / #+END_SRC，其中SRC_TYPE用来指定代码的类型，如lisp, java, c, c++等。结合HTMLIZE可以让导出的HTML页面里的代码被按照语法着色。为了保留引文的格式，还可以使用#+BEGIN_VERSE / #+END_VERSE 和#+BEGIN_QUOTE/ #+END_QUOTE. 将引文居中排版可以使用#+BEGIN_CENTER / #+END_CENTER.
+** 超级链接
+C-c C-l来创建各种超级链接
+** 引用文字或者代码
+- 我常用到的引用文字的标签是#+BEGIN_EXAMPLE / #+END_EXAMPLE ，在这之间的文字会保留原有的格式。对于代码而言，可以用#+BEGIN_SRC SRC_TYPE / #+END_SRC，其中SRC_TYPE用来指定代码的类型，如lisp, java, c, c++等。结合HTMLIZE可以让导出的HTML页面里的代码被按照语法着色。为了保留引文的格式，还可以使用#+BEGIN_VERSE / #+END_VERSE 和#+BEGIN_QUOTE/ #+END_QUOTE. 将引文居中排版可以使用#+BEGIN_CENTER / #+END_CENTER.
+- in my emacs configuration, you can input src then the yasnippet will prompt you to input the SRC_TYPE (i.e. the XXXX-mode, for example matlab-mode, here you should specify the SRC_TYPE as matlab), then you can edit the src code in matlab-mode's hilighters by C-C '.
 
-* Footnotes
+** Footnotes
 [fn:1] Org官网http://orgmode.org/guide
