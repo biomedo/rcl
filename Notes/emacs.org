@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-23 18:18:57 Thursday by lian>
+# Time-stamp: <2011-09-03 18:46:06 Saturday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -150,10 +150,12 @@
   21. C-x C-i 全部代码进行缩进C-x TAB
   22. C-c C-q 是缩进一个函数，只控制和整理一个函数的缩进
   23. C-x C-o可以删除空白行
-  24. C-x C-t 可以移动行
-  25. C-x a 自动对齐功能
-  26. C-x C-{;,=} 写注释段的时候用的
-  27. M-U 删除到行首
+  24. C-x a 自动对齐功能
+  25. C-x C-{;,=} 写注释段的时候用的
+  26. M-U 删除到行首
+  27. M-c, M-l, M-u 字母大小写转换已经首字母大写转换等
+  28. C-t, M-t, C-x C-t, C-M-t 可以移动操作
+  29. C-M-, and C-M-. 移动选定的区域或者当前行
     
 * Cedet IDE
   1. C-c , , 强制刷新当前文件对应的buffer，重新建立tags cache

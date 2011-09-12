@@ -30,7 +30,7 @@ Format 1
 #
 
 \set_color "cursor" "#ff0000"
-\set_color "appendix" "#ffaa00"
+\set_color "appendix" "#0000ff"
 
 #
 # PRINTER SECTION ###################################
