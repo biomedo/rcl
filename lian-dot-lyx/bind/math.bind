@@ -32,6 +32,8 @@
 
 # These are defined for the math menu:
 
+Format 1
+
 \bind "C-j f"			"math-insert \frac"
 \bind "C-j s"			"math-insert \sqrt"
 \bind "C-j x"			"math-subscript"
@@ -73,30 +75,30 @@
 \bind "C-j t e"   "math-mutate eqnarray"
 \bind "C-j t m"   "math-mutate multline"
 
-\bind "C-j c i"   "tabular-feature append-column"
-\bind "C-j c d"   "tabular-feature delete-column"
-\bind "C-j c c"   "tabular-feature copy-column"
-\bind "C-j c s"   "tabular-feature swap-column"
-\bind "C-j c a"   "tabular-feature add-vline-left"
-\bind "C-j c e"   "tabular-feature delete-vline-left"
-\bind "C-j c z"   "tabular-feature add-vline-right"
-\bind "C-j c x"   "tabular-feature delete-vline-right"
+\bind "C-j c i"   "inset-modify tabular append-column"
+\bind "C-j c d"   "inset-modify tabular delete-column"
+\bind "C-j c c"   "inset-modify tabular copy-column"
+\bind "C-j c s"   "inset-modify tabular swap-column"
+\bind "C-j c a"   "inset-modify tabular add-vline-left"
+\bind "C-j c e"   "inset-modify tabular delete-vline-left"
+\bind "C-j c z"   "inset-modify tabular add-vline-right"
+\bind "C-j c x"   "inset-modify tabular delete-vline-right"
 
-\bind "C-j r i"   "tabular-feature append-row"
-\bind "C-j r d"   "tabular-feature delete-row"
-\bind "C-j r c"   "tabular-feature copy-row"
-\bind "C-j r s"   "tabular-feature swap-row"
-\bind "C-j r a"   "tabular-feature add-hline-above"
-\bind "C-j r e"   "tabular-feature delete-hline-above"
-\bind "C-j r z"   "tabular-feature add-hline-below"
-\bind "C-j r x"   "tabular-feature delete-hline-below"
+\bind "C-j r i"   "inset-modify tabular append-row"
+\bind "C-j r d"   "inset-modify tabular delete-row"
+\bind "C-j r c"   "inset-modify tabular copy-row"
+\bind "C-j r s"   "inset-modify tabular swap-row"
+\bind "C-j r a"   "inset-modify tabular add-hline-above"
+\bind "C-j r e"   "inset-modify tabular delete-hline-above"
+\bind "C-j r z"   "inset-modify tabular add-hline-below"
+\bind "C-j r x"   "inset-modify tabular delete-hline-below"
 
-\bind "C-j r t"   "tabular-feature valign-top"
-\bind "C-j r m"   "tabular-feature valign-middle"
-\bind "C-j r b"   "tabular-feature valign-bottom"
-\bind "C-j c l"   "tabular-feature align-left"
-\bind "C-j c m"   "tabular-feature align-center"
-\bind "C-j c r"   "tabular-feature align-right"
+\bind "C-j r t"   "inset-modify tabular valign-top"
+\bind "C-j r m"   "inset-modify tabular valign-middle"
+\bind "C-j r b"   "inset-modify tabular valign-bottom"
+\bind "C-j c l"   "inset-modify tabular align-left"
+\bind "C-j c m"   "inset-modify tabular align-center"
+\bind "C-j c r"   "inset-modify tabular align-right"
 
 # Decoration accents
 
