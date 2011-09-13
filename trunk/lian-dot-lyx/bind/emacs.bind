@@ -25,6 +25,8 @@
 #
 # Happy tuning!
 
+Format 1
+
 \bind "C-~S-at"			"mark-on"
 \bind "C-a"			"line-begin"
 \bind "C-b"			"char-backward"
@@ -134,7 +136,11 @@
 #bind "F10"                    "------"
 
 \bind "M-x"			"command-execute"
+\bind "C-M-o"			"dialog-show toc"
 
+\bind "M-equal"			"buffer-zoom-in"
+\bind "M-plus"			"buffer-zoom-in"
+\bind "M-minus"			"buffer-zoom-out"
 
 #
 # Motion group
