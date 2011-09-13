@@ -11,7 +11,7 @@
 # Full author contact details are available in file CREDITS.
 
 # The interface is designed (partially) following the KDE Human Interface
-# Guidelines (http://usability.kde.org/hig/)
+# Guidelines (http://techbase.kde.org/Projects/Usability/HIG)
 
 # Casing Rules:
 # Capitalize all words in the element, with the following exceptions: 
@@ -88,7 +88,7 @@ Menuset
 
 	Menu "file_export"
 		ExportFormats
-		Item "More Formats & Options...|F" "buffer-export custom"
+		Item "More Formats & Options...|O" "buffer-export custom"
 	End
 
 #
@@ -352,7 +352,7 @@ Menuset
 		Submenu "Custom Insets" "insert_custom"
 		Submenu "File|e" "insert_file"
 		Submenu "Box[[Menu]]" "insert_box"
-		OptSubMenu "Insert Regular Expression" "context-edit-regexp"
+		OptSubmenu "Insert Regular Expression" "context-edit-regexp"
 		Separator
 		Item "Citation...|C" "dialog-show-new-inset citation"
 		Item "Cross-Reference...|R" "dialog-show-new-inset ref"
@@ -581,11 +581,11 @@ Menuset
 	End
 
 	Menu "examples"
-		Item "Linguistics Manual|L" "help-open linguistics"
 		Item "Braille Manual|B" "help-open Braille"
-		Item "XY-pic Manual|X" "help-open xypic"
-		Item "Multicolumn Manual|M" "help-open multicol"
 		Item "Feynman-diagram Manual|F" "help-open FeynmanDiagrams"
+		Item "Linguistics Manual|L" "help-open linguistics"
+		Item "Multicolumn Manual|M" "help-open multicol"
+		Item "XY-pic Manual|X" "help-open xypic"
 	End
 
 
