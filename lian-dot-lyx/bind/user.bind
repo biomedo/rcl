@@ -74,6 +74,7 @@ Format 1
 \bind "C-j C-l" "dialog-show mathmatrix"
 \bind "C-j C-w" "command-sequence word-select ; cut"
 \bind "C-j w" "command-sequence word-select ; copy"
+\bind "C-j C-y" "command-sequence word-select ; paste"
 \bind "C-o C-p" "layout-paragraph"
 \bind "C-o C-l" "ert-insert"
 \bind "C-o C-s" "dialog-show character"
@@ -118,4 +119,5 @@ Format 1
 \bind "M-c n" "font-noun"
 \bind "M-c M-c" "command-sequence word-capitalize;char-forward"
 \bind "M-c l" "word-lowcase"
+\bind "C-M-y" "clipboard-paste paragraph"
 

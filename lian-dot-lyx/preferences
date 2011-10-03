@@ -9,6 +9,9 @@ Format 1
 # MISC SECTION ######################################
 #
 
+# Display graphics within LyX
+# true|false
+\display_graphics false
 \user_name "Lian Weidong"
 \user_email "weidong.lian@gmail.com"
 \preview_scale_factor 1.2
