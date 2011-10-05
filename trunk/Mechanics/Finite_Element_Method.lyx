@@ -116,11 +116,11 @@ Then the Jacobian operator is derived as
 \frac{\partial}{\partial r}\\
 \frac{\partial}{\partial s}\\
 \frac{\partial}{\partial t}
-\end{array}\right\} =\left[\begin{array}{ccc}
+\end{array}\right\} =\underset{\mathrm{Jacobian}\,\mathbf{J}}{\underbrace{\left[\begin{array}{ccc}
 \frac{\partial x}{\partial r} & \frac{\partial y}{\partial r} & \frac{\partial z}{\partial r}\\
 \frac{\partial x}{\partial s} & \frac{\partial y}{\partial s} & \frac{\partial z}{\partial s}\\
 \frac{\partial x}{\partial t} & \frac{\partial y}{\partial t} & \frac{\partial z}{\partial t}
-\end{array}\right]\left\{ \begin{array}{c}
+\end{array}\right]}}\left\{ \begin{array}{c}
 \frac{\partial}{\partial x}\\
 \frac{\partial}{\partial y}\\
 \frac{\partial}{\partial z}
@@ -129,7 +129,15 @@ Then the Jacobian operator is derived as
 
 \end_inset
 
+The integration term can be deal with 
+\begin_inset Formula 
+\[
+\mathrm{d}v=\det\mathbf{J}\mathrm{d}r\mathrm{d}s\mathrm{d}t
+\]
 
+\end_inset
+
+ 
 \end_layout
 
 \end_body
