@@ -1,0 +1,492 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass elsarticle
+\begin_preamble
+%%%%%%%%%%%%%%%%
+%%%% refformat for prettyref
+%%%%%%%%%%%%%%%%
+\newrefformat{eq}{Eq.~(\ref{#1})}
+\newrefformat{fig}{Fig.~\ref{#1}}
+\newrefformat{cha}{Ch.~\ref{#1}}
+\newrefformat{sec}{Section~\ref{#1}}
+\newrefformat{sub}{Section~\ref{#1}}
+\newrefformat{tab}{Tab.~\ref{#1}}
+\end_preamble
+\options 5p
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "xxx"
+\pdf_author "xxx"
+\pdf_subject "xxx"
+\pdf_keywords "xxx"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_numerical
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Title
+\end_layout
+
+\begin_layout Author
+Firstname
+\begin_inset space ~
+\end_inset
+
+Lastname
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+ecn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+F2.
+\begin_inset space ~
+\end_inset
+
+L2
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+ecn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+F3.
+\begin_inset space ~
+\end_inset
+
+L3
+\begin_inset Argument
+status collapsed
+
+\begin_layout Plain Layout
+ecn
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex CorAuthormark
+status collapsed
+
+\begin_layout Plain Layout
+cor1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Email
+email@univ-est.fr
+\end_layout
+
+\begin_layout Address
+Adress here 
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+ecn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corresponding author
+Corresponding author.
+ Tel.: +46 xxx xxx xxx; fax: +33 xxx xxx xxx
+\begin_inset Argument
+status collapsed
+
+\begin_layout Plain Layout
+cor1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Abstract here
+\end_layout
+
+\begin_layout Keywords
+First 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+sep
+\end_layout
+
+\end_inset
+
+ Second 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+sep
+\end_layout
+
+\end_inset
+
+ thired 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+sep
+\end_layout
+
+\end_inset
+
+ sdfasdf
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+Introduction
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Introduction"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{N}\int_{1}^{100}x\cdot\beta\gamma\mathrm{d}x=100\label{eq:equalbel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:equalbel"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Conclude here
+\end_layout
+
+\begin_layout Section
+Frequently Used Graphics Groups
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 100col%
+	groupId column_width_1_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 90col%
+	groupId column_width_1_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 80col%
+	groupId column_width_1_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 70col%
+	groupId column_width_1_small
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 50col%
+	groupId column_width_2_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 45col%
+	groupId column_width_2_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 40col%
+	groupId column_width_2_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 35col%
+	groupId column_width_2_small
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 50text%
+	groupId text_width_2_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 45text%
+	groupId text_width_2_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 40text%
+	groupId text_width_2_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 35text%
+	groupId text_width_2_small
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 100text%
+	groupId text_width_1_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 90text%
+	groupId text_width_1_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 80text%
+	groupId text_width_1_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 70text%
+	groupId text_width_1_small
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+Thanks
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "BibGrphDb"
+options "elsarticle-num"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

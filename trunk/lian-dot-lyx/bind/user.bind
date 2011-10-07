@@ -112,7 +112,6 @@ Format 1
 \bind "C-u g" "dialog-show toc graphics"
 \bind "C-u r" "dialog-show toc label"
 \bind "C-u C-p" "argument-insert"
-\bind "M-o" "command-execute"
 \bind "C-semicolon" "label-goto"
 \bind "M-w" "command-alternatives copy-label-as-reference; copy"
 \bind "C-w" "command-alternatives cut; word-delete-backward"
@@ -120,4 +119,6 @@ Format 1
 \bind "M-c M-c" "command-sequence word-capitalize;char-forward"
 \bind "M-c l" "word-lowcase"
 \bind "C-M-y" "clipboard-paste paragraph"
+\bind "M-o d" "command-sequence paragraph-params \\indent; paragraph-params \\align default"
+\bind "M-o c" "command-sequence paragraph-params \\indent; paragraph-params \\align center"
 
