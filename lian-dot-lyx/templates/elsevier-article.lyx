@@ -382,6 +382,96 @@ status collapsed
 \begin_layout Standard
 \align center
 \begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 50line%
+	groupId line_width_2_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 45line%
+	groupId line_width_2_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 40line%
+	groupId line_width_2_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 35line%
+	groupId line_width_2_small
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 100line%
+	groupId line_width_1_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 90line%
+	groupId line_width_1_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 80line%
+	groupId line_width_1_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 70line%
+	groupId line_width_1_small
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
