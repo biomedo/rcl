@@ -79,6 +79,7 @@ Format 1
 \bind "C-o C-l" "ert-insert"
 \bind "C-o C-s" "dialog-show character"
 \bind "C-o f" "footnote-insert"
+\bind "C-o m" "layout Minisec"
 \bind "M-S-n" "buffer-next"
 \bind "M-S-p" "buffer-previous"
 \bind "F9" "buffer-view"
