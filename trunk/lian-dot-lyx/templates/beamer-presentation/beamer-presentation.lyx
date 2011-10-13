@@ -4,7 +4,7 @@
 \begin_header
 \textclass beamer
 \begin_preamble
-\input{beamerthemeChangchun.sty}
+\input{./Extra/beamerthemeChangchun.sty}
 \usepackage{ae,aecompl}
 \end_preamble
 \use_default_options true
@@ -78,12 +78,16 @@ Short Title ...
 
 \end_layout
 
+\begin_layout Subtitle
+You can give a subtitle, if you have
+\end_layout
+
 \begin_layout Author
-Weidong Lian
+Name
 \end_layout
 
 \begin_layout Institute
-Ecole Centrale de Nantes
+Your University
 \begin_inset Newline newline
 \end_inset
 
@@ -122,118 +126,10 @@ Ecole Centrale de Nantes
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="0">
-<column alignment="left" valignment="top" width="0">
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Directeur de thèse :
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-P.
- CARTRAUD
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Co-encadrants :
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-G.
- LEGRAIN
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Phantom HPhantom
-status open
-
-\begin_layout Plain Layout
-dsfdfddfdfdfddfdfd
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-A.
- NOUY
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\begin_inset Argument
-status collapsed
-
-\begin_layout Plain Layout
-GEM
-\end_layout
-
-\end_inset
-
-
+\begin_layout Date
+November 20, 2020
 \end_layout
 
 \begin_layout Standard
@@ -244,22 +140,10 @@ GEM
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Note Comment
+status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-selectlanguage{english}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status collapsed
 
@@ -327,6 +211,11 @@ tableofcontents[currentsection,currentsubsection]
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout BeginFrame
 Outline
 \end_layout
@@ -348,16 +237,90 @@ LatexCommand tableofcontents
 Problematic
 \end_layout
 
-\begin_layout Section
-Image-based Homogenization
+\begin_layout Subsection
+What is the problem?
+\end_layout
+
+\begin_layout BeginFrame
+First Test
+\end_layout
+
+\begin_layout ColumnsCenterAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+sdfsdafa
+\end_layout
+
+\begin_layout Itemize
+dfasdfsdfp
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Extra/logo-GEM-color-vector.eps
+	lyxscale 50
+	width 80col%
+	groupId column_width_1_normal
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+dfsd
+\end_layout
+
+\begin_layout Enumerate
+sdfasdfasd
+\end_layout
+
+\begin_layout Enumerate
+dfsdaf
+\end_layout
+
+\begin_layout Subsection
+How to deal with the problem
+\end_layout
+
+\begin_layout BeginFrame
+sdfasd
+\end_layout
+
+\begin_layout ExampleBlock
+{This is an example}
+\end_layout
+
+\begin_layout ExampleBlock
+Increment Examples
+\end_layout
+
+\begin_layout ExampleBlock
+Define
 \end_layout
 
 \begin_layout Section
-Edge Effects
+Proposed Approach
 \end_layout
 
 \begin_layout Section
-Three-scale
+Numerical Results
+\end_layout
+
+\begin_layout Section
+Conclusions
 \end_layout
 
 \begin_layout BeginFrame
@@ -370,7 +333,7 @@ status collapsed
 
 \begin_layout Plain Layout
 
-{The remarkable advantage of subdomain extraction}
+{The remarkable advantage}
 \end_layout
 
 \end_inset
@@ -389,7 +352,7 @@ status collapsed
 
 \end_inset
 
-unbiased mean values of homogenized properties
+Items 1
 \end_layout
 
 \begin_deeper
@@ -404,7 +367,7 @@ status open
 
 \end_inset
 
-smaller dispersions than classical homog extraction
+sdfsad
 \end_layout
 
 \begin_layout Itemize
@@ -418,11 +381,7 @@ status open
 
 \end_inset
 
-much tighter bounds (
-\begin_inset Formula $[S_{\Sigma}^{app-1}(\textrm{SUBC}),C_{E}^{app}(\textrm{KUBC})]$
-\end_inset
-
-)
+much smaller
 \end_layout
 
 \begin_layout Itemize
@@ -436,25 +395,28 @@ status open
 
 \end_inset
 
-for the case PERIODIC is not easy or impossible to to be applied
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<3->
-\end_layout
-
-\end_inset
-
-a cheaper computational cost than classical homogenization extraction but
- more accurate
+Cheapter
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+xxxxxxxxx
+\end_layout
+
+\begin_layout Itemize
+More Transition Effects, please refer to the beamerguidev3.0 manual online
+\end_layout
+
 \begin_layout EndFrame
 
 \end_layout
