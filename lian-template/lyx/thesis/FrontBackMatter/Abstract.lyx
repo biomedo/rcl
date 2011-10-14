@@ -1,0 +1,159 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman lmodern
+\font_sans lmss
+\font_typewriter lmtt
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Abstract
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Abstract}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mtcaddchapter{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Development of an Image-based Computational Homogenization Approach with
+ X-FEM and Level-set
+\end_layout
+
+\begin_layout Plain Layout
+Image-based Computational Homogenization of the Elastic Behavior of Materials
+ with Complex Microstructure 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Add some Abstract here.
+ and Keywords
+\end_layout
+
+\begin_layout Standard
+XXXXXXXXXXXXX
+\end_layout
+
+\begin_layout Standard
+XXXX
+\end_layout
+
+\begin_layout Standard
+At last a three scale homogenization approach is presented for problems
+ where the macroscale is much larger than the microscale.
+ An intermediate mesoscale is considered, with a size lower than the RVE
+ size.
+ At this mesoscale comp mesoscopic modeling scale, and a spatial distribution
+ of apparent properties coming form the previous step.
+ Applying again classical homogenization methods at this new scale allows
+ the determination of RVE size.
+\end_layout
+
+\begin_layout Description
+Keywords: multiscale; computational
+\begin_inset space ~
+\end_inset
+
+homogenization; image-based
+\begin_inset space ~
+\end_inset
+
+modeling; X-FEM; RVE
+\end_layout
+
+\end_body
+\end_document
