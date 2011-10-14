@@ -4,7 +4,7 @@
 \begin_header
 \textclass scrbook
 \begin_preamble
-\input{./preamble/master-preamble.cfg}
+\input{preamble/master-preamble.cfg}
 \end_preamble
 \options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
 \use_default_options true
@@ -173,7 +173,7 @@ Image-based Computational Homogenization of the Elastic Behavior of Materials
 
 \begin_layout Standard
 \begin_inset Branch Face
-status open
+status collapsed
 
 \begin_layout Standard
 \begin_inset CommandInset include
@@ -341,7 +341,7 @@ filename "FrontBackMatter/Abstract-fr.lyx"
 
 \begin_layout Standard
 \begin_inset Branch Acknowledgments
-status open
+status collapsed
 
 \begin_layout Standard
 \begin_inset CommandInset include
