@@ -1,0 +1,1037 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+%\input{../preamble/child-preamble.cfg}
+\usepackage{minitoc}
+\dominitoc
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\begin_modules
+customHeadersFooters
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman lmodern
+\font_sans lmss
+\font_typewriter lmtt
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Template"
+\pdf_author "Weidong LIAN"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false, linkcolor=blue, citecolor=red"
+\papersize a4paper
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\branch NoChildDocument
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Computational Homogenization for Multi-scale Analysis
+\end_layout
+
+\begin_layout Standard
+Industrial and engineering materials, as well as natural materials are heterogen
+eous at a certain scale.
+ This feature significantly influences their macroscopic behavior.
+ In the past decades, multi-scale analysis of the mechanical behavior of
+ multi-phase materials has been the subject of a large amount of research.
+ A better understanding of the mechanical responses of multi-phase materials
+ will actually advance the design and optimization of composites in industry.
+ Multi-scale modeling is used to estimate, describe or quantify the macroscopic
+ property of an engineering material as a function of various parameters
+ involved at microscale.
+ One of the key issues lies in the definition of a bridge that links different
+ scales.
+ Various techniques have been proposed to deal with this challenging work.
+ Among them, a class of homogenization techniques exists and has been regarded
+ as a powerful mean for characterizing mechanical responses of heterogeneous
+ materials.
+\end_layout
+
+\begin_layout Standard
+Homogenization technique was first developed within the framework of elasticity
+ in order to estimate effective linear elastic properties of heterogeneous
+ materials, see 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hill1963"
+
+\end_inset
+
+.
+ A high level of efficiency and robustness has been reached, especially
+ for linear properties.
+ Some notable techniques are listed as follows
+\end_layout
+
+\begin_layout Itemize
+Voigt-Reuss bounds
+\end_layout
+
+\begin_layout Itemize
+Hashin-Shtrikman bounds 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "HASHIN1963"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mori-Tanaka model 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Mori1973"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Self-consistent method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Beran1968"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For more details see 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hill1963,Willis1981,Suquet1985,suquet1997,Nemat-Nasser1998,Zohdi2005,Ostojastarzewski2006"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+However, these techniques are based on approximations or analytical solutions
+ which are only available for simple geometries.
+ Suffering from these limitations, they are usually restricted to certain
+ microstructures and simple material models.
+ For instance, in the case of a high contrast of material constants of constitue
+nts, the bounds are usually too loose to offer an effective estimation.
+ Self-consistent method can give a reasonable prediction but only in the
+ case of a very specific morphology of the components.
+ In addition, micro-morphologies and physical behaviors of constituents
+ of composites are becoming increasingly more and more complex.
+ 
+\end_layout
+
+\begin_layout Standard
+In order to overcome these limitations, computational homogenization along
+ with the development of computational methods has been proposed as a practical
+ tool to estimate effective properties.
+ This technique offers a good balance between general applicability on complex
+ microstructures (e.g.
+ complex micro-morphology) and the automated testing of different samples.
+ Remarkable progresses has been made, see 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "huet1990,sab1992,suquet1997,Michel1999,Forest2000,Auriault2009"
+
+\end_inset
+
+.
+ The homogenization problem at microscale is indeed a boundary value problem
+ which can be solved by FEM (Finite Element Method) or other appropriate
+ numerical strategies.
+ The boundary value problem normally corresponds to several types of boundary
+ conditions (e.g.
+ Dirichlet, Neumann or Periodic) from which apparent properties are derived.
+\end_layout
+
+\begin_layout Section
+Image-Based Computational Homogenization
+\end_layout
+
+\begin_layout Standard
+Advances in medical and material imaging technology have made it possible
+ to capture 3D high-resolution images of materials.
+ There is also an increasing need to develop a numerical method that is
+ able to incorporate a material image data into the numerical model.
+ The FEM may be a preferred numerical strategy for computational homogenization
+ owing to its robustness and accuracy.
+ 
+\end_layout
+
+\begin_layout Standard
+However, mesh generation of FE model based on material images is usually
+ a time-consuming task especially for complex 3D micro-geometries.
+ The meshing process generally consists of (a) segmenting the material image
+ into several groups of interest, (b) extracting geometrical surfaces of
+ domains from the segmented data, and (c) building elements within these
+ extracted boundaries.
+ Despite already available robust algorithms, these techniques are often
+ time-consuming and intractable for the complex topologies typical of image
+ data.
+ In most cases, it can not mesh multi-domains, as multiple surfaces are
+ often non-conforming with gaps or overlaps at conjoined interfaces where
+ manual operations are usually required.
+ 
+\end_layout
+
+\begin_layout Standard
+Alternatively, the so-called 
+\emph on
+voxel-based meshing
+\emph default
+ technique can directly built a mesh from the segmented material image in
+ an easy and straightforward way.
+ This technique has been initially suggested by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Keyak1990,Hollister1994"
+
+\end_inset
+
+ and has been widely used after that.
+ However, voxel-based mesh produces a large number of finite elements, thus
+ leading to a huge computational cost.
+ Practically, advanced solution techniques and supercomputers are required
+ to solve the corresponding problem.
+ Moreover, voxel-based meshes also produce less accurate stresses 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Charras2000"
+
+\end_inset
+
+ due to intrinsically jagged boundaries.
+ Although smoothing algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Camacho1997,Cebral2001"
+
+\end_inset
+
+ can be employed to improve local stress accuracy, these improvements to
+ some extent are still limited to certain applications.
+\end_layout
+
+\begin_layout Standard
+In certain applications where complexities of mesh generation based on material
+ images are issues of concern, it is appealing to develop a numerical approach
+ which on one hand decreases meshing complexities, but still possesses a
+ reasonable accuracy on the other.
+ In view of that, an alternative computational approach 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Moes2003,Legrain2010"
+
+\end_inset
+
+ has been recently proposed with the use of X-FEM 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Belytschko2003"
+
+\end_inset
+
+ as the numerical solution strategy for computational homogenization.
+ One of the most appealing features of X-FEM is that mesh does not necessarily
+ follow geometrical boundaries, which can significantly simplify the meshing
+ process.
+ Therefore, a regular (or structured) mesh is sufficient for X-FEM modeling.
+ Moreover, the X-FEM can be coupled with the level-set method in order to
+ combine capabilities of image segmentation.
+ 
+\end_layout
+
+\begin_layout Standard
+The present work in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Image-based-Computational-Modeli"
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+and
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Comparison-XFEM-Voxel-FEM"
+
+\end_inset
+
+ is an expand of 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Moes2003,Legrain2010"
+
+\end_inset
+
+, and is dedicated to the image-based modeling for complex 2D and 3D heterogeneo
+us materials.
+ Image segmentation for 
+\emph on
+realistic
+\emph default
+ materials, and the combination of it into numerical models are presented.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Comparison-XFEM-Voxel-FEM"
+
+\end_inset
+
+ is dedicated to the comparison between X-FEM and voxel-based FEM about
+ the accuracy and efficiency.
+ Several numerical examples (e.g.
+ matrix-fiber, ceramic-metallic, cereal solid food) are considered in order
+ to investigate their macroscopic properties with the use of X-FEM and voxel-bas
+ed FEM.
+ Moreover, the accuracy about microscopic quantities computed from the two
+ approaches is also compared.
+\end_layout
+
+\begin_layout Section
+Edge Effects for Computational Homogenization
+\end_layout
+
+\begin_layout Standard
+In some experiments but also in numerical simulations of heterogeneous materials
+, it is not convenient to treat large specimens, thus only small specimens
+ are available for testing mechanical responses and obtaining apparent moduli.
+ Yet the size of the specimen may have a strong influence on mechanical
+ responses which are also sensitive to different kinds of boundary conditions
+ (e.g.
+ Dirichlet, Neumann or Periodic), which has been reported by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "huet1990,Hazanov1994,Jiang2002,Kanit2003"
+
+\end_inset
+
+.
+ In other words, three types of boundary conditions lead to quite different
+ estimates (i.e.
+ so-called apparent properties) of effective modulus.
+ This difference decreases for an increasing size of specimen as shown in
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:introduction-edge-effects"
+
+\end_inset
+
+a.
+ If the RVE
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+RVE stands for the representative volume element.
+\end_layout
+
+\end_inset
+
+ size is defined such that this difference is below a desired tolerance,
+ it will lead to large specimens to determine effective properties.
+ Of course, large specimens will require huge computational resources.
+\end_layout
+
+\begin_layout Standard
+Although numerical efficiency can be achieved by solving the problem through
+ parallel computations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Feyel2000,Kouznetsova2002"
+
+\end_inset
+
+, it is still appealing to determine effective properties with small specimens
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The small specimen will produce a relatively small number of degrees of
+ freedom, thus leading to low computational cost.
+\end_layout
+
+\end_inset
+
+.
+ Computational homogenization approach usually requires an assumption of
+ boundary conditions.
+ This assumption will lead to an approximation of the solution near the
+ edges of the microstructure, i.e.
+ any kind of boundary conditions imposed on the microstructure will lead
+ to this approximation.
+ This can be observed from the fact that different B.C.s
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Note that here 
+\begin_inset Quotes eld
+\end_inset
+
+different B.C.s
+\begin_inset Quotes erd
+\end_inset
+
+ means Dirichlet, Neumann or Periodic boundary conditions.
+ They will lead to the same results for a sufficiently large sample.
+\end_layout
+
+\end_inset
+
+ lead to difference apparent properties for a fixed specimen.
+ 
+\series bold
+The influence caused by boundary conditions will be called 
+\emph on
+edge effects
+\emph default
+ in the following
+\series default
+, which can be decreased with the help of an extraction of apparent properties
+ from an interior zone of the specimen.
+ It involves a calculation of average strains and stresses in the interior
+ zone, which will be called a subdomain in the following.
+ Note that this treatment is similar to the experimental process where the
+ loading (boundary conditions) is imposed on the specimen (sample) but only
+ the interior region (subdomain) of the specimen is considered to obtain
+ the physical properties (subdomain results).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Figures_Subdomain_Extraction/edge_effects.eps
+	lyxscale 50
+	width 45col%
+	groupId column_width_2_large
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Computational homogenization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Figures_Subdomain_Extraction/edge_effects_subdomain.eps
+	lyxscale 50
+	width 45col%
+	groupId column_width_2_large
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Subdomain extraction approach
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:introduction-edge-effects"
+
+\end_inset
+
+Convergence of apparent properties to the effective one with increasing
+ specimen size for different types of boundary conditions.
+ The two figures are depicted with the same scale.
+ In figure b, the abscissa stands for the subdomain size of a sample.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The present work in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Subdomain-Extraction"
+
+\end_inset
+
+ concerns the investigation of a subdomain extraction approach in order
+ to obtain unbiased apparent properties from small specimens, see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:introduction-edge-effects"
+
+\end_inset
+
+b.
+ This subdomain extraction process may be viewed as a post-processing of
+ the homogenization method.
+ Details on the formulation of different choices of the subdomain extraction
+ and their comparisons are illustrated.
+ The edge effects region (i.e.
+ boundary conditions influence region) is introduced, as well as the determinati
+on of its width.
+ Moreover, several numerical examples are considered to investigate the
+ accuracy of the proposed approach.
+\end_layout
+
+\begin_layout Section
+Three-scale Homogenization
+\end_layout
+
+\begin_layout Standard
+In the process of computational homogenization, one needs to determine the
+ size of the representative volume element (RVE).
+ Mostly, the existence of a RVE is assumed and its size is initially given
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In practice, the size of RVE is taken as large as possible with regard to
+ computational resources.
+\end_layout
+
+\end_inset
+
+.
+ However, the quantification of RVE size today is still a major question
+ to be answered.
+ Notable attempts have been made in literature 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Drugan1996,Kanit2003,Gitman2007"
+
+\end_inset
+
+ to analyze the RVE size.
+ The authors normally employ computational homogenization methods to test
+ mechanical responses for increasing sample sizes and then a statistical
+ analysis is performed to determine the RVE size.
+ 
+\end_layout
+
+\begin_layout Standard
+In the statistical analysis, the key issue is to measure the mean value
+ and standard deviation of apparent properties of concern for a series of
+ samples with increasing volume sizes.
+ Once the measurement of these statistical quantities is determined, various
+ criteria combined with these statistical information can be defined to
+ determine the RVE size in the context of different applications, see e.g.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kanit2003,Gitman2007"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In the statistical process above, a series of samples with increasing volume
+ sizes is required to be analyzed.
+ In practice, one needs to randomly extract these samples from the whole
+ specimen (or the whole image), i.e.
+ so-called random subsampling or random window sampling.
+ Moreover, the sample number required for each considered volume size is
+ still a question to be answered.
+\end_layout
+
+\begin_layout Standard
+Furthermore, the scale gap between microscale (i.e.
+ 
+\begin_inset Formula $1\mathrm{\mu m}$
+\end_inset
+
+) and macroscale (i.e.
+ 
+\begin_inset Formula $1\mathrm{m}$
+\end_inset
+
+) ranges from approximately 
+\begin_inset Formula $10^{4}\sim10^{6}$
+\end_inset
+
+.
+ The conventional two-scale modeling will lead to the treatment of huge
+ data in discretization step.
+ To overcome these limitations, a three-scale homogenization process is
+ introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:threescale-homog-approach"
+
+\end_inset
+
+ to measure statistical quantities of concern with a low computational cost,
+ even considering 
+\emph on
+large 
+\emph default
+macro samples.
+ Generally, the three-scale homogenization includes the following two homogeniza
+tion steps
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+labelindent=
+\backslash
+parindent,leftmargin=*,label=Step~
+\backslash
+arabic*,widest=step~4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+From microscale to mesoscale: Computing mesoscopic properties from a two-scale
+ modeling of micro-heterogeneities
+\end_layout
+
+\begin_layout Enumerate
+From mesoscale to macroscale: These mesoscopic properties are directly used
+ for generating macro samples on which macroscopic properties can be obtained
+\end_layout
+
+\begin_layout Standard
+This is the conventional three-scale homogenization process that consists
+ of two homogenizations.
+ Alternatively, in this work the randomness of the mesoscopic properties
+ is investigated and identified using the probabilistic identification.
+ Then, this randomness is considered in the regeneration of macro samples.
+ Owing to the separation of scales, the corresponding computational cost
+ can be significantly decreased compared to a classical two-scale homogenization.
+ 
+\end_layout
+
+\begin_layout Standard
+In order to regenerate the macro samples, a probabilistic identification
+ of a random mesoscopic stiffness tensor is introduced with the use of polynomia
+l chaos expansion.
+ The coefficients of this expansion are estimated by an efficient empirical
+ projection technique.
+ This identification can also be used for the quantification and propagation
+ of uncertainties of apparent properties at a certain scale.
+\end_layout
+
+\begin_layout Standard
+The application of this three-scale homogenization is dedicated to the measureme
+nt of statistical quantities of concern as a function of sample size.
+ The comparison between the proposed three-scale approach and conventional
+ two-scale homogenization is conducted.
+ The error propagated between scales is also analyzed for the three-scale
+ homogenization.
+ Finally, the RVE sizes estimated from these approaches are also presented.
+\end_layout
+
+\begin_layout Section
+Scope and Outline
+\end_layout
+
+\begin_layout Standard
+The aim of this thesis is to develop an image-based computational homogenization
+ approach with the use of X-FEM/Level-set as the numerical strategy.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A subdomain extraction homogenization method is proposed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Subdomain-Extraction"
+
+\end_inset
+
+ to significantly decrease the edge effects and thus computational cost.
+ The computational cost is actually a key issue in the framework of image-based
+ modeling.
+ A three-scale homogenization process is also introduced with the advantage
+ of a much lower computational cost.
+ This process can be used for (a) investigating the quantification and propagati
+on of uncertainties in multi-scale analysis and (b) measuring statistical
+ quantities of apparent properties in order to estimate the RVE size.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Image-based-Computational-Modeli"
+
+\end_inset
+
+, the image-based modeling with X-FEM and levelset is introduced.
+ Image-based modeling techniques are shortly reviewed.
+ Level set image segmentation is then presented to compute the levelset
+ corresponding to a microstructure.
+ The X-FEM is briefly recalled, as well as various choices of enrichment
+ functions.
+ The combination of X-FEM and levelset is then presented.
+ Finally, uniform and octree meshing strategies for X-FEM are mentioned
+ with the consideration of computational cost.
+\end_layout
+
+\begin_layout Standard
+In order to validate the proposed X-FEM/Levelset modeling strategy, 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Comparison-XFEM-Voxel-FEM"
+
+\end_inset
+
+ is dedicated to the comparison between X-FEM and voxel-based FEM in the
+ framework of computational homogenization.
+ A short review of the two approaches is introduced.
+ Details on the formulation of microscopic boundary value problem are given.
+ Various validation examples are also considered to investigate the accuracy
+ of the proposed methodology and the voxel-based FEM.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Comparison-XFEM-Voxel-FEM"
+
+\end_inset
+
+ ends with two numerical examples corresponding to 
+\emph on
+realistic
+\emph default
+ materials: a ceramic-metallic composite and cereal solid food.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Subdomain-Extraction"
+
+\end_inset
+
+, a subdomain extraction method is presented with the aim of estimating
+ the effective property from small specimens.
+ A brief review implying edge effects (i.e.
+ influence of boundary conditions) is first presented.
+ Then, details on the formulation of the subdomain extraction are given.
+ Numerical examples are finally presented to study the accuracy of the proposed
+ subdomain approach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:threescale-homog-approach"
+
+\end_inset
+
+ introduces a three-scale homogenization framework to measure some statistical
+ quantities of interest as a function of sample volume size with a low computati
+onal cost.
+ This chapter begins with a short introduction of available definitions
+ of RVE.
+ A criterion designed for tracking standard deviation of apparent properties
+ is discussed.
+ A probabilistic identification of random apparent stiffness tensor is introduce
+d using polynomial chaos expansion.
+ Thereafter, the regeneration of microstructures with the help of the identified
+ random stiffness tensor is presented.
+ At last, numerical examples are given to assess the accuracy of the proposed
+ methodology versus the two-scale approach.
+ Likewise, the estimated RVE sizes obtained from different approaches are
+ depicted.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Conclusions-General"
+
+\end_inset
+
+ gives a brief summary of the conclusions and recommendations in practical
+ applications of the proposed techniques and methodologies.
+ Perspectives of future developments of this work are shortly discussed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch NoChildDocument
+status open
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "../Bibliography"
+options "authordate1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 100col%
+	groupId column_width_1_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 90col%
+	groupId column_width_1_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 80col%
+	groupId column_width_1_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 70col%
+	groupId column_width_1_small
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 50col%
+	groupId column_width_2_full
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 45col%
+	groupId column_width_2_large
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 40col%
+	groupId column_width_2_normal
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Dummy_Files.eps
+	lyxscale 50
+	width 35col%
+	groupId column_width_2_small
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
