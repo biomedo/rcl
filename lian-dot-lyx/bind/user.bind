@@ -112,7 +112,7 @@ Format 1
 \bind "C-u c" "dialog-show toc citation"
 \bind "C-u g" "dialog-show toc graphics"
 \bind "C-u r" "dialog-show toc label"
-\bind "C-u C-p" "argument-insert"
+\bind "C-u C-o" "argument-insert"
 \bind "C-semicolon" "label-goto"
 \bind "M-w" "command-alternatives copy-label-as-reference; copy"
 \bind "C-w" "command-alternatives cut; word-delete-backward"

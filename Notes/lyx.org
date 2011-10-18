@@ -1,15 +1,15 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-13 00:23:03 Monday by lian>
+# Time-stamp: <2011-10-18 12:44:26 Tuesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
-* Install
+** Install
   - Under Windowns: Download from www.lyx.org/download directly
   - Under Linux: sudo apt-get install lyx (not recommand, because new version is not always available)
   - Compile from the source code: Strongly recommanded, compile nearly all the version of lyx in all linux distributions (e.g. ubuntu, fedora). I have tested the compiling even under ubuntu hardy 8.04, older LTS version. It worked perfectly.
     
-* Tips
+** Tips
   1. Compile lyx
      - please refer to compile_lyx.sh
   2. Spell Checkers
@@ -27,4 +27,19 @@
   4. Dictionaries of spellcheckers and thesaurus
      1) in my lian-dot-lyx directory, you can find the hunspell and thesaurus
      2) in lyx, Tools->Preferences->Path, you can set the paths of hunspell and thesaurus
-  
+        
+        
+** Graphics in Lyx/Latex
+   1. Direct Graphics Image
+      - Vectorized: eps,svg,pdf,wmf
+      - Rasterized: png,bmp,jpeg
+   2. Latex Code
+      - Tikz/Pgf: support pdflatex and beamer, thus being the most popular between functionality and compatibility
+      - PSTricks: post script support, no support for pdflatex, but ps2pdf, The most powerful.
+   3. The practical choice of your figures
+      - Matlab Figures: Matfig2pgf can be used to convert .fig to .pgf or .tkiz
+      - Inkscape Dias: Plugins of Inkscape to convert Inkscape to .tkiz
+      - Dia Charts: Directly convert to .tkiz format, and easiliy adapt the size of the charts with du in the regenrated .tkiz files
+      - For simple figures: one can code them directly by tkiz or pgf script
+      - Eps Figures: Eps files can be directly converted to .pgf by eps2pgf library
+      - The latex /resizebox{0.9/columnwidth}{!}{you inputed figure}
