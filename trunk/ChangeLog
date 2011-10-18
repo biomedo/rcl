@@ -1,3 +1,7 @@
+2011-10-18  lianweidong  <weidong.lian@gmail.com>
+
+	* add lian-dot-lyx/scripts/ matlab2tikz to convert matlab fig to tikz format. and tikz can gain many advantages and define animations in beamer presentation. google it for more details.
+
 2011-10-14  lianweidong  <weidong.lian@gmail.com>
 
 	* modify lian-template/lyx/thesis/, now a new version is released.
@@ -25,3 +29,4 @@
 
 
 
+ 
