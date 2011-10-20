@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-09-27 18:14:25 Tuesday by lian>
+# Time-stamp: <2011-10-19 02:35:23 Wednesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 ** XFEM程序的读书笔记
@@ -28,14 +28,14 @@
        - 在程序中统一采用张量表示，这样好处就是我们不用管2D还是3D问题我们都可以用统一方式来处理，比如如果是标量场，getval,getgrad将分别返回scalor和一个vector，这属于正常情况；而除此之外不管是2D向量场还是3D都采用张量表示了，也就是说getval返回一个vector有三个分量，不管二维还是三维只要把不使用的分量标记为0即可，这是getgrad将会返回一个3X3的tensor2，没有定义的场空间对应的component都为zero；这样的一种策略虽然适当浪费资源但是极大的降低了编程的复杂度，可以采用统一的过程处理。并且在组装单元刚度矩阵式也是计算完了就返回不会存储每一个节点的getval和getgrad。
        - 在处理材料的本构关系时，最终是返回一个3X3X3X3的四阶张量，不管是二维还是三维问题我们都按照三维的本构情况来处理，因为对于二维情况strain张量的z轴分量全部为0，这样即使我们的stiffness tensor是按照三维情况来给出的也无所谓。
 
-     
+         
 
 ** XFEM中有用代码
 *** 填充一个新的xField对象
-  下面的代码用来fill一个新的field，有的时候
-     经常需要建立一个场，然后利用我们求解的场的结果来填充或者生成这样
-     一个附加场，比如在研究误差是，为了要保存每一个点的误差，则要创建
-     一个误差域来存储这些误差。
+    下面的代码用来fill一个新的field，有的时候
+    经常需要建立一个场，然后利用我们求解的场的结果来填充或者生成这样
+    一个附加场，比如在研究误差是，为了要保存每一个点的误差，则要创建
+    一个误差域来存储这些误差。
 #+begin_src c++
   void fillField(xRegion& reg, xField &field, xEval<xTensor2> & eval_stress)
   {
@@ -69,4 +69,12 @@
       Export(toto, pexport1, nameBnd.c_str(), integration_ruleB, bc.begin(), bc.end());
   }
 #+end_src
-   
+  
+*** How to check the filtered region
+#+begin_src c++
+    xFilteredRegion<xIter, xAccept>  matrix(all.begin(), all.end(), xAccept("matrix"));
+    xIntegrationRuleBasic integration_tmp(3);
+    Export(stress, pexport, "STRESS", integration_tmp, matrix.begin(), matrix.end());
+#+end_src
+
+
