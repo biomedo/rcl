@@ -26,6 +26,7 @@ export DEVROOT=/glouton/struct/$USER/develop-alternative
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2-petsc
 #export DEVROOT=/glouton/struct/$USER/develop-alternative-3
+export DEVROOT=/cassini/struct/lian/eXlibris
 
 #===============================The same as develop-alternative only change the code homog ======================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-homog

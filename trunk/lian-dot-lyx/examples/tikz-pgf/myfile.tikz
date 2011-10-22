@@ -8,13 +8,9 @@
 % 
 \begin{tikzpicture}
 
-% defining custom colors
-\definecolor{mycolor1}{rgb}{1,0,1}
-\definecolor{mycolor2}{rgb}{0.6,0.2,0}
-\definecolor{mycolor3}{rgb}{0,1,1}
-
-
 \begin{loglogaxis}[%
+width=\figurewidth,
+height=\figureheight,
 cycle list={%
 solid,blue,mark=*\\%
 solid,red,mark=square*\\%
@@ -22,18 +18,16 @@ solid,green,mark=triangle*\\%
 dashed,blue,mark=x\\%
 dashed,red,mark=+\\%
 dashed,green,mark=pentagen*\\%
-},  
+},
 scale only axis,
-width=0.9\textwidth,
-height=0.6\textheight,
 xmin=84.9506, xmax=894.106,
 ymin=0.0758505, ymax=1.41696,
 xlabel={$\text{subsample size L}_s$},
-\only<1->{title={std apparent bulk modulus and his confidence interva}},
+title={std apparent bulk modulus and his confidence interva},
 legend entries={$\text{sub K d}=16$,$\text{sub P d}=16$,$\text{sub S d}=16$,$\text{cla K d}=0$,$\text{cla P d}=0$,$\text{cla S d}=0$},
 legend style={nodes=right}]
 
-\only<2->{
+\only<1->{
   
 \addplot 
 % plot [error bars/.cd, y dir = both, y explicit]
@@ -46,6 +40,10 @@ coordinates{
 coordinates{
  (96,0.883535)+-(0.0,0.0211645)(224,0.374989)+-(0.0,0.0167891)(480,0.182681)+-(0.0,0.0140891)(736,0.117461)+-(0.0,0.0131117) 
 };
+
+}
+
+\only<2->{
 
 \addplot 
 % plot [error bars/.cd, y dir = both, y explicit]
@@ -75,5 +73,6 @@ coordinates{
  (128,0.446173)+-(0.0,0.0130255)(256,0.25251)+-(0.0,0.0109139)(512,0.153946)+-(0.0,0.0142859)(768,0.105573)+-(0.0,0.0136605) 
 };
 };
+
 \end{loglogaxis}
 \end{tikzpicture}
