@@ -1,0 +1,126 @@
+% ~~~~~~~~~~~~ %
+% tab size = 4 %
+% ~~~~~~~~~~~~ %
+
+\documentclass[a4paper, 10pt, twocolumn, twoside]{article} % ~~~~~~ %
+%																	%
+% for IEEE articles ~ incompatibility with amsthm package			%
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconference} % ~ %
+%\documentclass[letterpaper, 10 pt]{ieeetransactions} % ~~~~~~~~~~~ %
+%\makeatletter														%
+%\let\IEEEproof\proof												%
+%\let\IEEEendproof\endproof											%
+%\let\proof\@undefined												%
+%\let\endproof\@undefined											%
+%\makeatother														%
+%																	%
+\usepackage[latin1]{inputenc}										%
+\usepackage[english]{babel}											%
+\usepackage[T1]{fontenc}											%
+\usepackage{dsfont}													%
+\usepackage{booktabs}												%
+\usepackage[table]{xcolor}											%
+%\usepackage{makeidx}												%
+\usepackage{fancyhdr}												%
+\usepackage{lastpage}												%
+\usepackage{amsmath, amssymb, amsfonts, amsthm}						% 
+\usepackage[	left	= 2.5cm, right	= 2.5cm,					%
+				bottom	= 2.5cm, top	= 2.5cm,					%
+				bindingoffset	= 1cm]{geometry}					%
+%																	%
+\usepackage{ifpdf}													%
+\ifpdf																%
+	% ~~~~~~~~~~~~~~ if compiling with ``pdflatex'' ~~~~~~~~~~~~~~~ %
+	%																%
+	\usepackage[pdftex]{graphicx}									% 
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}					%
+	\usepackage[colorlinks,hyperindex,pagebackref=true]{hyperref}	%
+	\pdfminorversion=6												%
+\else																%
+	% ~~~~~~~~~~~~~~~~ if compiling with ``latex'' ~~~~~~~~~~~~~~~~ %
+	%																%
+	\usepackage[dvips]{graphicx}									% 
+	\usepackage[hyperindex]{hyperref}								%
+\fi	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\usepackage{eso-pic}												%
+\usepackage{tikz}				% (note: AFTER \pdfminorversion)	%
+\usetikzlibrary{arrows,decorations.text,decorations.pathmorphing}	%
+\usetikzlibrary{decorations.footprints,fadings,calc,trees,mindmap}	%
+\usetikzlibrary{shadows,patterns,positioning,shapes,matrix,fit}		%
+\usetikzlibrary{intersections}										%
+\usepackage[switch, pagewise, mathlines]{lineno}					%
+\usepackage[color=white!90!black, textwidth=3cm]{todonotes}			%
+%																	%
+\usepackage{algorithm}												%
+\usepackage[noend]{algorithmic}										%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+% in order to call \includegraphics{myImage}						%
+% instead of \includegraphics{../images/myImage}					%
+\graphicspath{{../Images/}}											%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
+
+\newif\ifWorkingOnLinux
+\newif\ifWorkingOnWindows
+\newif\ifWorkingOnMac
+%
+\WorkingOnLinuxtrue
+\WorkingOnWindowsfalse
+\WorkingOnMacfalse
+
+
+\input{../Scripts/pagestyles}
+\input{../Scripts/ridefinitions}
+\input{../Scripts/hyphenation}
+\input{../Scripts/information}
+\input{../Scripts/figuresgraphicalsettings}
+\input{../Scripts/tablesgraphicalsettings}
+\input{../Scripts/formatting}
+\input{../Scripts/background}
+\input{../Scripts/newcommands}
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
+%\makeindex
+
+\begin{document}
+
+%% for IEEE articles
+%\IEEEoverridecommandlockouts    % for the \thanks
+%\overrideIEEEmargins            % for the IEEE margins
+
+%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+%\maketitle						% print the standard LaTeX title
+%\input{../Scripts/titlePage}	% print the user defined title
+%\tableofcontents				% print the table of contents
+%\listoftables					% print the table of tables
+%\listoffigures					% print the table of figures
+
+
+%\input{abstract}
+%\input{introduction}
+%\input{}
+%\input{conclusions}
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\addcontentsline	{toc}{section}{References}						%
+\bibliographystyle	{../Bibliography/ieeetransactions}				%
+\bibliography		{../Bibliography/bibliography}					%
+%\printindex														%
+%\listoftodos														%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
+\end{document}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %

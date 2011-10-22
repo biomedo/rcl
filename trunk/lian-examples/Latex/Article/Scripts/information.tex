@@ -1,0 +1,63 @@
+\def\TITLE			{My title}
+\def\SHORTTITLE		{M.\ T.}
+\def\AUTHOR			{My author}
+\def\SHORTAUTHOR	{M.\ A.}
+\def\INSTITUTE		{Department of Information Engineering}
+\def\SHORTINSTITUTE	{DEI - UniPd}
+\def\SUBJECT		{Subject of the work}
+\def\KEYWORDS		{List of Keywords}
+\def\CREATOR		{University of Padova}
+%
+\ifpdf \hypersetup
+{
+	pdftitle		= {\TITLE},
+	pdfauthor		= {\AUTHOR},
+	pdfsubject		= {\SUBJECT},
+	pdfcreator		= {\CREATOR},
+	pdfproducer		= {\INSTITUTE},
+	pdfkeywords		= {\KEYWORDS},
+	%
+%	pdfpagemode		= FullScreen,	% full screen when opening the document
+	pdfstartview	= Fit,			% how to open the document (Fit FitH FitV FitR FitB)
+	pdfstartpage	= 1,			% page where to open the document
+	pdfnewwindow	= true,			% open the document in a new window?
+	pdfcenterwindow	= true,			%
+	pdftoolbar		= false,		% do you want to show Acrobat's toolbar?
+	pdfmenubar		= false,		% do you want to show Acrobat's menu?
+	%
+	% colori degli hyperlinks
+	colorlinks		= false,			% false: boxed    true: colored
+	linkbordercolor	= 0.8 0.8 0.8,		% (RGB) normal links
+	citebordercolor	= 0.8 0.8 0.8,		% (RGB) citations links
+	filebordercolor	= 0.8 0.8 0.8,		% (RGB) files links
+	urlbordercolor	= 0.8 0.8 0.8,		% (RGB) URLs links
+}
+%
+\urlstyle{same}							% URLs style [same | commented]
+%
+\fi
+%
+\title	{\TITLE}
+\author
+{
+	\AUTHOR
+	\thanks
+	{
+		This work was supported by the Italian CaRiPaRo Foundation under the Wise-Wai funded project and by European Community's Seventh Framework Programme under agreement n.\ FP7-ICT-223866 - FeedNetBack.
+	}
+}
+\date	{}								% keep empty for no dates
+
+
+% NOTE: hyperref could cause some warnings like:
+%
+%    ''Package hyperref Warning: Token not allowed in a PDFDocEncoded string:''
+% 
+% if you want to remove them you have to substitute the sentence using \texorpdfstring{}{} command like
+% in the following example:
+% \def\INSTITUTE
+% {
+%	\texorpdfstring
+%	{Department of Information Engineering \\ University of Padova}		% actual TeX string
+%	{Department of Information Engineering University of Padova}		% Bookmark used by hyperref
+% }

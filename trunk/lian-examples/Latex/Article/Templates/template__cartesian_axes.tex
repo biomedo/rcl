@@ -1,0 +1,33 @@
+% ----------------------------------------------------------------
+% AXES
+%
+\def\XAxisTicsLength{0.2}
+\def\YAxisTicsLength{0.1}
+%
+% ----------------------------------------------------------------
+\draw [sAxisStyle] (0,0) -- (10,0) node [right, at end] {$x$};
+%
+\foreach \XAxisTicValue / \XAxisTicLabel in
+{
+	0 / a,
+	2 / b,
+	4 / c,
+	6 / d,
+	8 / e
+}
+\draw[sAxisStyle, -] (\XAxisTicValue, \XAxisTicsLength) -- (\XAxisTicValue, -\XAxisTicsLength)
+node [below, at end] {\XAxisTicLabel};
+%
+% ----------------------------------------------------------------
+\draw [sAxisStyle] (0,0) -- (0,10) node [above, at end] {$y$};
+%
+\foreach \YAxisTicValue / \YAxisTicLabel in
+{
+	0 / a,
+	2 / b,
+	4 / c,
+	6 / d,
+	8 / e
+}
+\draw[sAxisStyle, -] (\YAxisTicsLength, \YAxisTicValue) -- (-\YAxisTicsLength, \YAxisTicValue)
+node [left, at end] {\YAxisTicLabel};

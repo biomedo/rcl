@@ -1,0 +1,343 @@
+% ------------ %
+% tab size = 4 %
+% ------------ %
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% TIPOLOGIA DI DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[landscape, boxedsections, a3, 14pt]{sciposter} % ----------- %
+%																			%
+\usepackage[latin1]{inputenc}												%
+\usepackage[italian]{babel}													%
+\usepackage[T1]{fontenc}													%
+\usepackage{amsmath, amssymb, amsfonts, amsthm}								% per i teoremi
+\usepackage{multicol}														%
+%																			%
+\usepackage{ifpdf}															%
+\ifpdf																		%
+	% --------- parte considerata se si compila con ``pdflatex'' ---------- %
+	%																		%
+	\usepackage[pdftex]{graphicx}											% carica il driver pdftex
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}							% estensioni utilizzabili
+	\usepackage[colorlinks,hyperindex,pagebackref=true]{hyperref}			% per gli hyperlinks
+\else																		%
+	% --------- parte considerata se si compila con ``latex'' ------------- %
+	%																		%
+	\usepackage[dvips]{graphicx}											% carica il driver dvips
+	\usepackage[hyperindex]{hyperref}										% per gli hyperlinks
+\fi	% --------------------------------------------------------------------- %
+%																			%
+\usepackage{eso-pic}														% per lo sfondo sulle pagine
+\usepackage{tikz}															% per sfondi con shadings
+%																			%
+% percorso relativo delle immagini (per fare \includegraphics{immagine}		%
+% al posto di \includegraphics{../images/immagine}							%
+\graphicspath{{../images/}}													%
+%																			%
+\hyphenpenalty=1000															% reduces hypenation
+\exhyphenpenalty=1000														% reduces hypenation
+% ------------------------------------------------------------------------- %
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% STILE DEL POSTER %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ################### OPZIONI DI CLASSE ###################
+%
+%
+% ------------- dimensioni del poster -------------
+%
+%	tipo		denominazione	dimensioni				normal font size
+%
+%	a0			ISO A0			( 83.96cm x 118.82cm)	25pt.
+%	a1			ISO A1			( 59.40cm x  83.96cm)	20pt.
+%	a2			ISO A2			( 41.98cm x  59.40cm)	17pt.
+%	a3			ISO A3			( 29.70cm x  41.98cm)	14pt.
+%	ansiE		ANSI E			( 86.36cm x 111.76cm)	25pt.
+%	ansiD		ANSI D			( 55.88cm x  86.36cm)	20pt.
+%	ansiC		ANSI C			( 43.18cm x  55.88cm)	17pt.
+%	tabloid		ANSI B			( 27.90cm x  43.18cm)	14pt.
+%	ra0			ISO RA0			( 86.00cm x 122.00cm)	25pt.
+%	ra1			ISO RA1			( 61.00cm x  86.00cm)	20pt.
+%	ra2			ISO RA2			( 43.00cm x  61.00cm)	17pt.
+%	b0			ISO B0			(100.00cm x 141.40cm)	30pt.
+%	b1			ISO B1			( 70.70cm x 100.00cm)	25pt.
+%	b2			ISO B2			( 50.00cm x  70.70cm)	20pt.
+%	b3			ISO B3			( 35.40cm x  50.00cm)	17pt.
+%
+%	custom		bisogna modificare il file papercustom.cfg (vedi il manuale)
+%
+%
+% ------------- dimensioni dei fonts -------------
+%
+% 14pt => normal font size = 14.40pt.
+% 17pt => normal font size = 17.28pt.
+% 20pt => normal font size = 20.74pt.
+% 25pt => normal font size = 24.88pt.
+% 30pt => normal font size = 29.86pt.
+% 36pt => normal font size = 35.83pt.
+%
+%
+% ------------- stile delle sezioni -------------
+%
+%	stile				descrizione
+%
+%	boxedsections		sezioni con boxes ombreggiati
+%	plainboxedsections	sezioni con boxes non ombreggiati
+%	ruledsections		sezioni sottolineate
+%	plainsections		nessun effetto ed allineamento a sinistra
+
+
+% colori
+%\definecolor{TextCol}		{rgb}	{0.0, 0.0, 0.0}		% testo normale
+%\definecolor{BoxCol}		{rgb}	{0.9, 0.9, 0.9}		% sfondo dei box delle sezioni
+%\definecolor{SectionCol}	{rgb}	{1.0, 0.0, 0.5}		% testo dei box delle sezioni
+
+
+% eventuali loghi a fianco del titolo
+\leftlogo	[0.9]	{logo_dei_big}	% logo a sinistra del titolo [fattore di scala: 0->1]
+\rightlogo	[0.9]	{logo_unipd}	% logo a destra del titolo [fattore di scala: 0->1]
+%\noleftlogo						% per non avere logo a sinistra
+%\norightlogo						% per non avere logo a destra
+%\nologos							% per non avere nessun logo
+
+
+% eventuale logo in basso del poster
+%\renewcommand{\footlogo}
+%{	\resizebox	{0.3\logowidth}						% dimensione (frazione di quella dei loghi in alto)
+%				{!}									% boh
+%				{\includegraphics{logo_unipd}}	}	% file
+%\LEFTSIDEfootlogo									% decommentare se si vuole il foot-logo a sinistra
+
+
+% size dei vari fonts: Huge | huge | LARGE | Large | large | normalsize | small | footnotesize | scriptsize | tiny
+%\renewcommand{\titlesize}		{\huge}		% titolo
+%\renewcommand{\authorsize}		{\Large}	% autore
+%\renewcommand{\instsize}		{\large}	% istituto
+%\renewcommand{\sectionsize}	{\Large}	% sezione
+%\renewcommand{\subsectionsize}	{\large}	% sottosezione
+
+
+% settaggio dei margini della pagina
+%\setmargins[3cm]
+
+
+% stili delle captions
+%
+% pezzo iniziale
+%\renewcommand	{\mastercapstartstyle}	[1]	{\textit{\textbf{#1}}}	% generale
+%\renewcommand	{\algcapstartstyle}		[1]	{\textsc{\textbf{#1}}}	% algoritmi
+%\renewcommand	{\figcapstartstyle}		[1]	{\textsc{\textbf{#1}}}	% figure
+%\renewcommand	{\tablecapstartstyle}	[1]	{\textsc{\textbf{#1}}}	% tabelle
+%
+% testo
+%\renewcommand	{\mastercapbodystyle}	{\bfseries}		% generale
+%\renewcommand	{\algcapbodystyle}		{\bfseries}		% algoritmi
+%\renewcommand	{\figcapbodystyle}		{\bfseries}		% figure
+%\renewcommand	{\tablecapbodystyle}	{\bfseries}		% tabelle
+%
+% numeri
+%\renewcommand	{\thealgorithm}	{\Roman{algorithm}}		% algoritmi
+%\renewcommand	{\thefigure}	{\Roman{figure}}		% figure
+%\renewcommand	{\thetable}		{\Roman{table}}			% tabelle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% SFONDO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------ colore uniforme ------------
+%
+%\definecolor{mainCol}		{rgb}	{1.0, 1.0, 0.9}		% sfondo del poster
+
+
+% ------------ shading ------------
+%
+%\pgfdeclarehorizontalshading
+%	{horizontal}					% nome
+%	{2cm}							% altezza della figura
+%	{	rgb(0cm)=(1.0, 1.0, 1.0);	% colore iniziale
+%		rgb(1cm)=(0.90, 1.0, 0.6)}	% colore finale
+%%
+%\pgfdeclareradialshading
+%	{radial}						% nome
+%	{\pgfpoint{1.0cm}{0.7cm}}		% posizione del centro di illuminazione (0,0 è in mezzo alla sfera)
+%	{	rgb(0cm)=(0.9, 0.0, 0.0);	% colore iniziale
+%		rgb(2cm)=(0.5, 0.0, 0.0)}	% colore finale
+%%
+%\AddToShipoutPicture
+%{
+%	\begin{tikzpicture}[remember picture,overlay,shading=horizontal]
+%		%
+%		% nota: aumentare o diminuire gli xshift ed yshift per posizionare il rettangolo
+%		% correttamente all'interno del foglio che si sta usando
+%		%
+%		\node (aa)	[xshift=-100cm,yshift=-50.0cm]	at	(current page.south west)	{};
+%		\node (bb)	[xshift=+100cm,yshift=+50.0cm]	at	(current page.north east)	{};
+%		\shade[shading angle=-90]	(aa)	rectangle	(bb);
+%		%
+%	\end{tikzpicture}
+%}
+
+
+% ------------ immagine da file ------------
+%
+%\AddToShipoutPicture
+%{
+%	\put(0,0)
+%	{
+%		\parbox[b][\paperheight]{\paperwidth}
+%		{
+%			\vfill
+%			\centering
+%			\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{logo_unipd}
+%			\vfill
+%		}
+%	}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% RIDEFINIZIONI %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ----------- solo se si usano i pacchetti ams ------------ %
+
+
+% --> ridefinizione degli stili degli ambienti numerati
+%
+%\newtheoremstyle{mystyle}	% nome dello stile
+%{3pt}						% spazio bianco sopra l'ambiente
+%{8pt}						% spazio bianco sotto l'ambiente
+%{}							% font del corpo
+%{}							% identazione (da empty a \parindent)
+%{\bfseries}				% font della testa
+%{.}						% punteggiatura dopo la testa
+%{\newline}					% spazio dopo la testa (da empty a \newline)
+%{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}		% formattazione della testa
+%
+%
+% --> ridefinizione degli ambienti numerati
+%
+% \newtheorem	{nome_univoco}			% ID del teorema (nel testo usa \begin{nome_univoco}
+%				[contatore_associato]	% [opzionale] puo' non essere univoco per i vari nomi_univoci
+%				{testo}					% cosa verra' stampato nel documento
+%				[sezione]				% [opzionale] indica a quale tipo di unita' di sezionamento
+%										% legare la numerazione
+%
+%\theoremstyle		{definition}
+%\newtheorem		{definizione}	{Definizione}
+%\newtheorem		{ipotesi}		{Ipotesi}
+%\newtheorem		{teorema}		{Teorema}
+%\newtheorem		{algoritmo}		{Algoritmo}
+%
+%
+% esempio di utilizzo:
+%
+% \begin{teorema}[Pitagora]
+% 	La somma dei quadrati\ldots
+% \end{teorema}
+%
+% in questo modo viene fuori Teorema 5.2 (Pitagora). La somma dei quadrati...
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% SILLABAZIONI CORRETTE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{hyphenation}		% inclusione del file contenente le sillabazioni corrette
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% INFORMAZIONI SUL DOCUMENTO %%%%%%%%%%%%%%%%%%%
+
+
+% informazioni sul documento
+\def\TITLE			{Prova di Poster}
+\def\AUTHOR			{Damiano Varagnolo}
+\def\SHORTAUTHOR	{D. Varagnolo}
+\institute			{Dipartimento di Ingegneria dell'Informazione -- Università di Padova}
+\email				{damiano.varagnolo@dei.unipd.it}
+\date				{}			% let empty if you do not want dates
+\conference
+{
+	\begin{tabular}{p{0.3\textwidth}p{0.7\textwidth}}
+		%
+		{\bf ConferenceName}, ConferenceDate, ConferencePlace	& \multicolumn{1}{r}{Poster derived from \SHORTAUTHOR, \textit{\TITLE},} \\
+		& \multicolumn{1}{r}{WherePublished} \\
+		%
+	\end{tabular}
+}
+%
+\title		{\TITLE}
+\author		{\AUTHOR}
+
+
+\ifpdf \hypersetup
+{
+	% informazioni sul documento
+	pdftitle		= {\TITLE},
+	pdfauthor		= {\AUTHOR},
+	pdfsubject		= {Esempio di Poster},
+	pdfcreator		= {\AUTHOR},
+	pdfproducer		= {Università di Padova},
+	pdfkeywords		= {Poster, LaTeX},
+	%
+	% modalità di visione del documento
+	pdfpagemode		= FullScreen,		% se si vuole il full screen quando il documento viene aperto
+	pdfstartview	= FitH,				% modalità di visione del documento aperto (Fit FitH FitV FitR FitB)
+	pdfstartpage	= 1,				% pagina su cui si vuole che venga aperto il file
+	pdfnewwindow	= true,				% se si vuole che il pdf venga aperto su una finestra nuova
+	pdfcenterwindow	= true,				% se si vuole che il pdf venga aperto al centro dello schermo
+	%
+	% colori degli hyperlinks
+	linkbordercolor	= 0.8 0.8 0.8,		% (RGB) links normali
+	citebordercolor	= 0.8 0.8 0.8,		% (RGB) links di citazione
+	filebordercolor	= 0.8 0.8 0.8,		% (RGB) links ai files
+	urlbordercolor	= 0.8 0.8 0.8,		% (RGB) links agli URL
+} \fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% README %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% CAPTIONS: per le figure / tabelle il comando \caption ha un parametro
+% aggiuntivo che indica quanta percentuale di larghezza della colonna
+% la caption deve utilizzare.
+%
+% Esempio: \caption[0.5]{Questa caption è larga il 50\% della colonna in cui si trova}
+%
+% PROBLEMA: per gli ambienti algorithm bisogna settare il nome a mano
+% mediante il seguente comando:
+\renewcommand	{\algorithmname}	{Algoritmo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% INIZIO DEL DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\maketitle
+%
+\begin{multicols}{3}	% numero di colonne da utilizzare
+%
+\input{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{unsrt}										% stile della bibliografia
+
+\bibliography{../bibliography/bibliography}						% file database della bibliografia
+
+\end{multicols}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------------> FINE DEL DOCUMENTO <--------------- %
+%
+% Dopo il comando seguente non si può più mettere nulla
+%
+\end{document}		

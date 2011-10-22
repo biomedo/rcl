@@ -1,0 +1,60 @@
+#!/bin/bash
+#
+# ----------------------------------------------------------------
+# Specifico il progetto associato.
+#
+#$ -P 30_Ricerca
+#
+#
+#
+#
+# ----------------------------------------------------------------
+# Redireziono lo standard error e lo standard output nei files
+# specificati. Se questi non vengono specificati, allora vengono
+# generati dei files con suffissi .eXXX (error) e .oXXX (output),
+# dove XXX e' il numero di accodamento del job nel server blade
+# (in questo modo ogni simulazione avra' un file di errori e di
+# output diversi).
+#
+# #$ -cwd -e simulation_errors.txt -o simulation_output.txt
+#
+#
+#
+#
+# ----------------------------------------------------------------
+# Voglio ricevere una mail quando:
+# - b (beginning): il job e' stato avviato;
+# - e (end):       il job e' stato terminato;
+# - a (abort):     il job e' stato abortito o rischedulato;
+# - s (suspend):   il job e' stato sospeso;
+# - n (none):      mai.
+#
+#$ -m a
+#
+#
+#
+#
+# ----------------------------------------------------------------
+# Invoco la simulazione matlab.
+cd ~/MYDIRECTORYHERE/
+matlab -nodisplay -r main
+
+
+
+
+# ----------------------------------------------------------------
+#                        Esempi di comandi
+#
+# 
+# > qsub JobLauncher.job
+#
+# Lancia il file corrente (bisogna connettersi a bella.unipd.it).
+#
+#
+#
+# > qstat
+#
+# Controlla lo stato di avanzamento dei vari jobs (se si mette
+# l'opzione -j XXXX dove XXXX e' il numero del job, allora si ha
+# un output "verbose").
+# ----------------------------------------------------------------
