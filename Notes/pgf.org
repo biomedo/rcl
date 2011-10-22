@@ -1,0 +1,18 @@
+# -*- org -*-
+
+# Time-stamp: <2011-10-21 02:44:50 Friday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+** Utility Packages
+   - pgfkeys, pgffor, pgfcalender
+   - pgfpages is used to assemble several pages into a single page.
+
+** Commands
+   - \tikz \draw xxxxx;  is equal to \tikz{\draw xxx}. These are embeded into the current document.
+   - \begin{tikzpicture} xxx; xxx; \end{tikzpicture}. Alternative insert tikz env
+   - \tikzset{help lines/.style=very thin}, tikzset can set the predefined style. As such, the whole document bears the same style for a certain object or path. This is useful. if you want to keep the same fonts, font size and line width throughout the whole document.
+   - \draw[help lines] (0,0) grid (5,5); use the predefined style.
+** Misc
+   - The default unit is 1 cm
+

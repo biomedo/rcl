@@ -1,0 +1,68 @@
+% DECOMMENT THE PREFERRED OPTION
+
+
+
+% -------------------------------------------------------------------
+% image
+%
+% \setbeamertemplate{background}
+% {
+% 	\centering
+% 	{
+% 		\includegraphics[width=\paperwidth,height=\paperheight]{background_file.jpg}
+% 	}
+% }
+
+
+
+% -------------------------------------------------------------------
+% horizontal shading
+%
+% \pgfdeclarehorizontalshading
+% {horizontal}					% name of the shading
+% {2cm}							% shading height
+% {	rgb(0cm)=(1.0, 1.0, 1.0);	% initial color
+% 	rgb(1cm)=(1.0, 1.0, 0.8)}	% final color
+%
+% \AddToShipoutPicture
+% {
+% 	\begin{tikzpicture}[remember picture,overlay,shading=horizontal]
+% 		\node (aa)	[xshift=-\textwidth,yshift=-\textheight]	at	(current page.south west)	{};
+% 		\node (bb)	[xshift=+\textwidth,yshift=+\textheight]	at	(current page.north east)	{};
+% 		\shade[shading angle=-90]	(aa)	rectangle	(bb);
+% 	\end{tikzpicture}
+% }
+
+
+
+% -------------------------------------------------------------------
+% radial shading
+%
+% \pgfdeclareradialshading
+% {radial}						% nome
+% {\pgfpoint{1.0cm}{0.7cm}}		% posizione del centro di illuminazione (0,0 è in mezzo alla sfera)
+% {	rgb(0cm)=(0.9, 0.0, 0.0);	% colore iniziale
+% 	rgb(2cm)=(0.5, 0.0, 0.0)}	% colore finale
+%
+% \AddToShipoutPicture
+% {
+% 	\begin{tikzpicture}[remember picture,overlay,shading=radial]
+% 		\node (aa)	[xshift=-\textwidth,yshift=-\textheight]	at	(current page.south west)	{};
+% 		\node (bb)	[xshift=+\textwidth,yshift=+\textheight]	at	(current page.north east)	{};
+% 		\shade (aa)	rectangle	(bb);
+% 	\end{tikzpicture}
+% }
+
+
+
+% -------------------------------------------------------------------
+% text
+%
+% \AddToShipoutPicture
+% {
+% 	\begin{tikzpicture}[remember picture,overlay]
+% 		\node [rotate=-60,scale=10,text opacity=0.1]
+% 		at (current page.center)
+% 		{For peer review only};
+% 	\end{tikzpicture}
+% }

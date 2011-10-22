@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-07-16 00:13:16 Saturday by lian>
+# Time-stamp: <2011-10-22 16:36:32 Saturday by lian>
 
 #+OPTIONS: author:nil timestamp:nil creator:nil
 
@@ -10,3 +10,5 @@
 
 ** TODO 考虑在emacs的auctex中加入一些Tex-Command-master，目的是方便latex生成的文件的预览
    比如不直接生成pdf格式，直接在Makefile中加入代码生成html格式然后用emacs的w3m来预览和reload，这样比较快，并且在终端下也能进行生成预览，检查书写文档，尤其对于宽屏显示器尤其方便，可以在emacs的集成的环境中方便书写latex文档。
+
+** TODO Learn how to add the animation and inline draw graphics using Tikz/Tgf

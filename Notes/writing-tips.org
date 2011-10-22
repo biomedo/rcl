@@ -1,0 +1,76 @@
+
+Writing Tips
+ 
+This is a list of errors people shouldn't do when writing articles / reports / etc., grouped into categories. Obviously this is not an absolute list: it reflects my point of view, and it doesn't claim to be perfect. If you have suggestions (or if you notice some errors) I will be pleased to evaluate them and (possibly) to modify this page.
+ 
+Errors on mathematical environments:
+    * not inserting variable-sized symbols in the mathematical environments (most of all parenthesis);
+    * forgetting the punctuation marks before and at the end of the equations;
+    * indenting incorrectly after the equations.
+ 
+ Errors on figures / tables:
+    * using fonts inside the figures or tables that are pretty much smaller than the rest of the work;
+    * not placing the "." at the end of each caption;
+    * using non-descriptive captions for the figures and tables;
+    * using colours in a way that printing in B/W would lead to misunderstandings;
+    * not inserting the measure and its units in the axes of the figures or inside the tables (for example, it should be written "Time [sec.]").
+ 
+Errors on generic text:
+    * using incorrect hyphenations;
+    * using misoriented quotation marks (they must "point" versus the quoted sentence/word);
+    * not indenting the paragraphs (but not the first of the various sections! It should be not indented);
+    * not placing the "." at the end of each footnote;
+    * using incorrect / incomplete punctuation marks inside the itemized environments (as to do not use the ";" at the end of each item and the "." at the end of the last one);
+    * letting non-resolved references in the document;
+    * mixing languages inside the document (for example, ...Appendix A: si dimostra che...).
+ 
+Advices for a better readability:
+    * keep the same notation through the various chapters / sections; people can get very confused if the same symbol has different meanings (even if in different places);
+    * use the same fonts (kind, size) inside the various figures, tables, and the rest of the text;
+    * use not breakable spaces between a citation/reference and the word before it (for example, in LaTeX: ...note that the Equation~\eqref{equ:my_equation} refers...);
+    * insert the table of contents for documents with more than 30 pages;
+    * insert the index / list of figures / list of tables for documents with more than 100 pages.
+ 
+For some general hints on writing and presenting, read the following (very interesting):
+* Hints On Writing Technical Papers and Making Presentations, Victor O. K. Li
+* Small guide to giving presentations, Markus P¨¹schel
+* Small guide to making nice tables, Markus P¨¹schel
+ 
+Hints on presentations
+
+Usage of the "Impress!ve" viewer (http://impressive.sourceforge.net/)
+ 
+List of commands (more on http://impressive.sourceforge.net/manual.php)
+ 
+left mouse  ->  next slide
+page down  ->  next slide
+space  ->  next slide
+right mouse  ->  previous slide
+page up  ->  previous slide
+backspace  ->  previous slide
+q  ->  exit
+esc  ->  exit
+tab  ->  overview toggling
+t  ->  clock toggling
+home  ->  go to first slide
+end  ->  go to last slide
+l  ->  go to the previously last seen slide
+b  ->  fade the screen to black
+w  ->  fade the screen to white
+f  ->  full screen toggling
+enter  ->  spotlight toggling
++ / -  ->  adjust the spotlight size 
+mouse wheel  ->  adjust the spotlight size
+left mouse (dragging a box)  ->  highglight a box
+right mouse (on a highlighted box)  ->  remove the highlight of that box
+z  ->  zoom toggling
+right mouse  ->  move on the image whenever in zoom modality
+ 
+Installation of the "Impress!ve" viewer for ubuntu versions:
+ 
+1 - installation) install the following packages using the command: sudo apt-get install python python-opengl python-pygame python-imaging xpdf-reader gs pdftk xdg-utils mplayer
+In case of failure, it could be that in: /etc/apt/sources.list the following two lines: deb http://us.archive.ubuntu.com/ubuntu jaunty universe    deb-src http://us.archive.ubuntu.com/ubuntu jaunty universe     are missing. In case, add them and then run: sudo apt-get update
+ 
+2) download the impressive.py script from: http://sourceforge.net/projects/impressive/files/
+ 
+3) copy the script impressive.py in the folder of your .pdf presentation. For options, launche ./impressive --help

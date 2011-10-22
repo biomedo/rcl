@@ -1,0 +1,70 @@
+\def\TITLE			{Presentation template}
+\def\SHORTTITLE		{template}
+\def\AUTHOR			{Author template}
+\def\SHORTAUTHOR	{AT}
+\def\INSTITUTE		{Institute template}
+\def\SHORTINSTITUTE	{IT}
+\def\SUBJECT		{Make a presentation template.}
+\def\KEYWORDS		{Presentation, template}
+\def\CREATOR		{University of template}
+\def\DATE			{March 8 2010}
+%
+%
+\def\THANKS
+{
+	\thanks
+	{
+		work supported by Uncle Duck
+	}
+}
+%
+\ifpdf \hypersetup
+{
+	pdftitle		= {\TITLE},
+	pdfauthor		= {\AUTHOR},
+	pdfsubject		= {\SUBJECT},
+	pdfcreator		= {\CREATOR},
+	pdfproducer		= {\INSTITUTE},
+	pdfkeywords		= {\KEYWORDS},
+	%
+%	pdfpagemode		= FullScreen,		% se si vuole il full screen quando il documento viene aperto
+	pdfstartview	= Fit,				% modalità di visione del documento aperto (Fit FitH FitV FitR FitB)
+	pdfstartpage	= 1,				% pagina su cui si vuole che venga aperto il file
+	pdfnewwindow	= true,				% se si vuole che il pdf venga aperto su una finestra nuova
+	pdfcenterwindow	= true,				% se si vuole che il pdf venga aperto al centro dello schermo
+	pdftoolbar		= false,			% if you want to show Acrobat's toolbar
+	pdfmenubar		= false,			% if you want to show Acrobat's menu
+	%
+	colorlinks		= false,			% false: boxed links    true: colored links
+	linkbordercolor	= 0.8 0.8 0.8,		% (RGB) links normali
+	citebordercolor	= 0.8 0.8 0.8,		% (RGB) links di citazione
+	filebordercolor	= 0.8 0.8 0.8,		% (RGB) links ai files
+	urlbordercolor	= 0.8 0.8 0.8,		% (RGB) links agli URL
+}
+%
+\urlstyle{same}							% stile degli URL [same - commentato]
+%
+\fi
+%
+\title		[\SHORTTITLE]		{\TITLE}
+\author		[\SHORTAUTHOR]		{\AUTHOR}
+\date		{\DATE}
+\institute	[\SHORTINSTITUTE]	{\INSTITUTE}
+%
+% if you want the current slide's index
+%\author		[\SHORTAUTHOR \\ $\;$ \\ \insertframenumber $\;\!\!$ on \inserttotalframenumber]		{\AUTHOR}
+
+
+% NOTE: hyperref could cause some warnings like:
+%
+%    ''Package hyperref Warning: Token not allowed in a PDFDocEncoded string:''
+% 
+% if you want to remove them you have to substitute the sentence using \texorpdfstring{}{} command like
+% in the following example:
+% \def\INSTITUTE
+% {
+%	\texorpdfstring
+%	{Department of Information Engineering \\ University of Padova}		% actual TeX string
+%	{Department of Information Engineering University of Padova}		% Bookmark used by hyperref
+% }
+

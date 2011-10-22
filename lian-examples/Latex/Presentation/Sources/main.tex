@@ -1,0 +1,75 @@
+% ~~~~~~~~~~~~ %
+% tab size = 4 %
+% ~~~~~~~~~~~~ %
+
+% WARNING: if the compiler returns the error ``incompatible list can't be unboxed''
+% try to decomment the following \RequirePackage command:
+%\RequirePackage{atbegshi} 
+
+\documentclass % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+[																	%
+	12pt,															%
+	hyperref={pdfpagelabels=false},									% ?? no spaces - boh?
+	xcolor	= pdftex, dvipsnames, table,							%
+% 	handout,														% decomment for handouts
+]																	%
+{beamer}															%
+%																	%
+\usepackage[latin1]{inputenc}										%
+\usepackage[english]{babel}											%
+\usepackage[T1]{fontenc}											%
+\usepackage{amsmath, amssymb, amsfonts, amsthm}						%
+\usepackage{graphicx}												%
+\usepackage{hyperref}												%
+\usepackage{booktabs}												%
+%																	%
+\usepackage{ifpdf}													%
+\ifpdf																%
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~ ``pdflatex'' ~~~~~~~~~~~~~~~~~~~~~~ %
+	%																%
+\else																%
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ``latex'' ~~~~~~~~~~~~~~~~~~~~~~~ %
+	%																%
+\fi	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\usepackage{tikz}				% (note: AFTER \pdfminorversion)	%
+\usetikzlibrary{arrows,decorations.text,decorations.pathmorphing}	%
+\usetikzlibrary{decorations.footprints,fadings,calc,trees,mindmap}	%
+\usetikzlibrary{shadows,patterns,positioning,shapes,matrix,fit}		%
+\usetikzlibrary{intersections}										%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\graphicspath{{../Images/}}											%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\input{../Scripts/information}										%
+\input{../Scripts/formatting}										%
+\input{../Scripts/background}										%
+\input{../Scripts/figuresgraphicalsettings}							%
+\input{../Scripts/tablesgraphicalsettings}							%
+\input{../Scripts/ridefinitions}									%
+\input{../Scripts/newcommands}										%
+\input{../Scripts/hyphenation}										%
+%																	%
+\begin{document}													%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
+\input{titlepage}
+\input{table_of_contents}
+%
+%\input{}
+%
+\input{endingpage}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+%																	%
+\bibliographystyle{../Bibliography/cell}							%
+\bibliography{../Bibliography/bibliography}							%
+\input{table__impressive_commands}									%
+%																	%
+\end{document}														%
+%																	%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %

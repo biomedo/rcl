@@ -1,0 +1,109 @@
+% --> numbered environments style ridefinition example:
+%
+%\newtheoremstyle{mystyle}	% name of the style
+%{3pt}						% vertical space before the environment
+%{8pt}						% vertical space after the environment
+%{}							% body's font
+%{}							% indentation (empty -> \parindent)
+%{\bfseries}				% header's font
+%{.}						% punctuation after the header
+%{\newline}					% space after the header (empty -> \newline)
+%{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}	% header formatting
+%											% (cancel for the default)
+%
+%
+% --> numbered environments ridefinition example
+%
+% \newtheorem	{unique_name}			% environment's ID
+%										% (use \begin{unique_name})
+%				[associated_counter]	% [optional] could be not
+%										% unambiguous
+%				{text}					% what will be printed
+%				[sezione]				% [optional] to which kind of
+%										% sectioning the enumeration
+%										% will be tied
+%
+%
+%
+%
+%
+%
+\newcounter{generalCounter}
+\setcounter{generalCounter}{0}
+
+\theoremstyle	{definition}
+\newtheorem		{proposition}	[generalCounter]	{Proposition}
+\newtheorem		{assumption}	[generalCounter]	{Assumption}
+\newtheorem		{hypothesis}	[generalCounter]	{Hypothesis}
+\newtheorem		{remark}		[generalCounter]	{Remark}
+\newtheorem		{strategy}		[generalCounter]	{Strategy}
+\newtheorem		{question}		[generalCounter]	{Question}
+%
+%
+%
+%
+%
+%
+% usage example:
+%
+% \begin{theorem}[Pitagora]
+% 	The square of...
+% \end{theorem}
+
+
+
+% ---------------------------------------------------------------------
+
+
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \newcounter{nome_contatore}[contatore_gia_esistente]	% crea un contatore con il nome indicato,
+% 														% il cui valore viene azzerato ogni volta che quello
+% 														% opzionale (tra parentesi quadre) viene incrementato;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \setcounter{nome_contatore}{valore}					% assegna il valore indicato al contatore (deve
+% 														% trattarsi di un valore intero, che eventualmente puo'
+% 														% essere negativo);
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \stepcounter{nome_contatore}							% incrementa il contatore di una singola unità e
+% 														% azzera eventualmente i contatori che dipendono da questo;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \refstepcounter{nome_contatore}						% si comporta come \stepcounter, con la differenza che
+% 														% coinvolge la creazione di un riferimento se seguito dal
+% 														% comando \label;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \addtocounter{nome_contatore}{valore}					% aggiunge al contatore il valore indicato (deve
+% 														% trattarsi di un valore intero, che eventualmente puo'
+% 														% essere negativo);
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \arabic{nome_contatore}								% traduce il valore del contatore in un numero arabo
+% 														% nella composizione finale;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \thenome_contatore									% quando viene creato un contatore, si crea
+% 														% implicitamente questo comando, con il quale si ottiene
+% 														% il valore del contatore nella composizione finale,
+% 														% espresso in modo predefinito (di solito si tratta di
+% 														% un numero arabo);
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \alph{nome_contatore}									% traduce il valore del contatore in una lettera
+% 														% minuscola singola, pertanto si possono rappresentare
+% 														% solo valori da 1 a 26;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \Alph{nome_contatore}									% traduce il valore del contatore in una lettera
+% 														% maiuscola singola, pertanto si possono rappresentare
+% 														% solo valori da 1 a 26;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \roman{nome_contatore}								% traduce il valore del contatore in un numero romano
+% 														% con lettere minuscole, pertanto non si possono
+% 														% rappresentare valori negativi;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \Roman{nome_contatore}								% traduce il valore del contatore in un numero romano
+% 														% con lettere maiuscole, pertanto non si possono
+% 														% rappresentare valori negativi;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \fnsymbol{nome_contatore}								% traduce il valore del contatore in un simbolo, ma
+% 														% sono disponibili solo nove simboli, pertanto si
+% 														% rappresentano valori da 1 a 9;
+% ----------------------------------------------------- % ------------------------------------------------------------
+% \value{nome_contatore}								% ottiene il valore del contatore, da usare all'interno
+% 														% di un'espressione (non riguarda la composizione).
+% ----------------------------------------------------- % ------------------------------------------------------------
