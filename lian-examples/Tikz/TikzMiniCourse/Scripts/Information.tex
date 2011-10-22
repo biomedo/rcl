@@ -1,0 +1,47 @@
+\def\TITLE			{\Tikz Mini Course for Automatic Control People}		% on the first slide
+\def\SHORTTITLE		{\Tikz Mini Course}										% on ``testatine''
+\def\AUTHOR			{Padova Automatic Control Group}						% on the first slide
+\def\SHORTAUTHOR	{Automatic Control Group}								% on ``testatine''
+\def\INSTITUTE		{University of Padova - Italy}							% on the first slide
+\def\SHORTINSTITUTE	{UniPd}													% on ``testatine''
+\def\SUBJECT		{Mini course on \Tikz}
+\def\KEYWORDS		{LaTeX, TikZ, figures, Automatic Control People}
+\def\CREATOR		{Damiano Varagnolo}
+%
+\ifpdf \hypersetup
+{
+	pdftitle		= {\TITLE},
+	pdfauthor		= {\AUTHOR},
+	pdfsubject		= {\SUBJECT},
+	pdfcreator		= {\CREATOR},
+	pdfproducer		= {\INSTITUTE},
+	pdfkeywords		= {\KEYWORDS},
+	%
+%	pdfpagemode		= FullScreen,		%
+	pdfstartview	= Fit,				% (Fit FitH FitV FitR FitB)
+	pdfstartpage	= 1,				%
+	pdfnewwindow	= true,				%
+	pdfcenterwindow	= true,				%
+	pdftoolbar		= false,			% if you want to show Acrobat's toolbar
+	pdfmenubar		= false,			% if you want to show Acrobat's menu
+	%
+	% hyperlinks colors
+	colorlinks		= false,			% false: boxed links    true: colored links
+	linkbordercolor	= 0.8 0.8 0.8,		% (RGB)
+	citebordercolor	= 0.8 0.8 0.8,		% (RGB)
+	filebordercolor	= 0.8 0.8 0.8,		% (RGB)
+	urlbordercolor	= 0.8 0.8 0.8,		% (RGB)
+}
+%
+\urlstyle{same}							% URL stile
+%
+\fi
+%
+\title		[\SHORTTITLE]		{\TITLE}
+\author		[\SHORTAUTHOR]		{\AUTHOR}
+\date		{}									% keep empty for no dates
+\institute	[\SHORTINSTITUTE]	{\INSTITUTE}
+%
+% if you want the current slide's index
+%\author		[\SHORTAUTHOR \\ $\;$ \\ \insertframenumber $\;\!\!$ on \inserttotalframenumber]		{\AUTHOR}
+

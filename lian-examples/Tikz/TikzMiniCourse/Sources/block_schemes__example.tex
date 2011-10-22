@@ -1,0 +1,55 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale			= 1,	% to scale horizontally everything but the text
+	yscale			= 1,	% to scale vertically everything but the text
+]
+
+
+
+
+
+
+\uncover<1->
+{
+	% blocks
+	\node																	(nInput)		{$r$};
+	\node [sSumBlockStyle,    right of=nInput,      node distance = 1.2cm]	(nSum)			{};
+	\node [sNormalBlockStyle, right of=nSum,        node distance = 2.2cm]	(nController)	{controller};
+	\node [sNormalBlockStyle, right of=nController, node distance = 3.4cm]	(nSystem)		{system};
+	\node [                   above of=nSystem,     node distance = 1.5cm]	(nNoise)		{noise};
+	\node [                   right of=nSystem,     node distance = 2.8cm]	(nOutput)		{$y$};
+	%
+	% auxiliary nodes
+	\node 												(nAuxOne) at ($(nSystem)!0.7!(nOutput)$) {};
+	\node [below of = nAuxOne, node distance = 1.3cm]	(nAuxTwo) {};
+	%
+	%
+	% connections
+	\draw [sArrowsStyle] (nInput)         -- (nSum)				node [very near end, above] {$+$};
+	\draw [sArrowsStyle] (nSum)           -- (nController)		node [midway, above] {$e$};
+	\draw [sArrowsStyle] (nController)    -- (nSystem)			node [above, midway] {$u$};
+	\draw [sArrowsStyle] (nNoise)         -- (nSystem);
+	\draw [sLinesStyle]  (nSystem)        -- (nAuxOne.center); % note the usage of ``.center''
+	\draw [sArrowsStyle] (nAuxOne.center) -- (nOutput);
+	\draw [sLinesStyle]  (nAuxOne.center) -- (nAuxTwo.center);
+	\draw [sArrowsStyle] (nAuxTwo.center) -| (nSum)				node [near end, above right] {$-$};
+}
+
+
+
+
+\uncover<2-2> % only for understanding the construction of the figure
+{
+	\node [circle, fill = red, minimum size = 2mm] at (nAuxOne) {};
+	\node [circle, fill = red, minimum size = 2mm] at (nAuxTwo) {};
+}
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+

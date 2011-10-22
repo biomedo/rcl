@@ -1,0 +1,120 @@
+\section{Basic concepts}
+
+
+
+\begin{frame}
+	%
+	\frametitle{Environment declaration}
+	%
+	\begin{itemize}
+		%
+		\item template file for floating figures: \\
+			\begin{center}
+				\url{./Sources/template__floating_figure_declaration.tex}
+			\end{center}
+		%
+		\vspace{1cm}
+		%
+		\item template file for non floating figures: \\
+			\begin{center}
+				\url{./Sources/template__non_floating_figure_declaration.tex}
+			\end{center}
+		%
+	\end{itemize}
+	%
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{First main objects: nodes}
+	%
+	Main properties:
+	%
+	\begin{itemize}
+		\item they are labelled (in order to be referenced)
+		\item they can be placed everywhere
+		\item you can write \LaTeX\ code inside them
+		\item can be \emph{fully} customized
+	\end{itemize}
+	%
+	\vspace{1cm}
+	%
+	(example file: \url{./Sources/basic_concepts__nodes_examples.tex})
+	%
+	\input{basic_concepts__nodes_examples}
+	%
+\end{frame}
+
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Second main objects: paths}
+	%
+	Main properties:
+	%
+	\begin{itemize}
+		\item can be drawn everywhere - connect everything
+		\item can have text along them
+		\item can be \emph{fully} customized
+	\end{itemize}
+	%
+	\vspace{1cm}
+	%
+	(example file: \url{./Sources/basic_concepts__paths_examples.tex})
+	%
+	\input{basic_concepts__paths_examples}
+	%
+\end{frame}
+
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Well, not all can be done in a single presentation$\ldots$}
+	%
+	\begin{center}
+	\begin{tikzpicture}
+		%
+		\node [WarningTextStyle]
+		{and the coordinates specification??};
+		%
+	\end{tikzpicture}
+	\end{center}
+	%
+	too time consuming to be fully explained! We'll use only:
+	%
+	\begin{itemize}
+		%
+		\item absolute coordinates (like \texttt{at (1.3cm, 2.1cm)})
+		%
+		\item relative coordinates (like \texttt{above this guy, left of this other})
+		%
+	\end{itemize}
+	%
+	\uncover<2->
+	{
+		\begin{center}
+		\begin{tikzpicture}
+			%
+			\node [scope fading = east]
+			{\large{again: \alert{take a look a the manual$\ldots\ldots\ldots$}}};
+			%
+		\end{tikzpicture}
+		\end{center}
+	}
+	%
+\end{frame}
+

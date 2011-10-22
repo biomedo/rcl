@@ -1,0 +1,58 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+
+\uncover<1->
+{
+	% nodes declaration
+	\node (nGray)	[GenericNodeStyle, text=gray]	at	(-5, 0)	{gray};
+	\node (nRed)	[GenericNodeStyle, text=red]	at	(1, 2)	{red};
+	\node (nBlue)	[GenericNodeStyle, text=blue]	at	(1, -1)	{blue};
+	\node (nYellow)	[GenericNodeStyle, text=yellow!80!black]	at	(4, 1.5)	{yellow};
+}
+
+
+
+
+\uncover<2->
+{
+	% first straight connection
+	\draw
+	[
+		color	= black!40!white,
+		ultra thick,
+		->
+	]
+	(nGray) |- (nRed);
+}
+
+
+
+
+
+\uncover<3->
+{
+	\draw
+	[
+		color	= blue,
+		ultra thick,
+		->
+	]
+	(nBlue.east) -| (nYellow.240);
+}
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+

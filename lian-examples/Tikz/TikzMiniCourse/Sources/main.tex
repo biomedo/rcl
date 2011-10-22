@@ -1,0 +1,73 @@
+% ------------ %
+% tab size = 4 %
+% ------------ %
+
+
+% -----------------------------------------------%
+% Content in this presentation is licensed under %
+%   a Creative Commons Attribution 3.0 License   %
+% -----------------------------------------------%
+
+
+\documentclass[12pt, hyperref={pdfpagelabels=false}]{beamer} % ------------ %
+%                                                                           %
+\usepackage[latin1]{inputenc}                                               %
+\usepackage[english]{babel}                                                 %
+\usepackage[T1]{fontenc}                                                    %
+\usepackage{amsmath, amssymb, amsfonts, amsthm}                             %
+\usepackage{graphicx}                                                       %
+%                                                                           %
+\usepackage{ifpdf}                                                          %
+\ifpdf                                                                      %
+    \usepackage{hyperref}                                                   %
+\else                                                                       %
+\fi % --------------------------------------------------------------------- %
+%
+%
+%
+%
+% load the pgf - TikZ package
+\usepackage{tikz}
+%
+% load some TikZ libraries
+% - REMARK: do not use blanks or newlines between the libraries
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
+%
+% NOTE!! If you want to use the ``intersections' library you have
+% to use the latest developement version from www.texample.net
+%
+%
+%
+\graphicspath{{../Images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\Tikz{Ti\emph{k}Z\ }
+%
+\input{../Scripts/SlidesStyle}
+\input{../Scripts/Information}
+\input{graphical_settings}
+
+\providecommand\thispdfpagelabel[1]{} % add by lian to avoid a bug in
+                                % beamer or one need to update beamer
+                                % to the newest version
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+%
+\input{title}
+\input{introduction}
+\input{basic_concepts}
+\input{nodes}
+\input{paths}
+\input{connection_of_nodes}
+\input{nets}
+\input{block_schemes}
+\input{warnings}
+\input{mind_map}
+\input{thanks}
+%
+\end{document}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

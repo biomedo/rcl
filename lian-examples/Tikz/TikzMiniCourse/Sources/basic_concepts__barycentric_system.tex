@@ -1,0 +1,40 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,						% to scale horizontally everything but the text
+	yscale	= 1,						% to scale vertically everything but the text
+	transform canvas	= {scale = 1},	% to scale everything, also the text
+]
+
+
+\coordinate (content)	at (90:3cm);
+\coordinate (structure)	at (210:3cm);
+\coordinate (form)		at (-30:3cm);
+
+\node [above]			at (content)	{content oriented};
+\node [below left]		at (structure)	{structure oriented};
+\node [below right]		at (form)		{form oriented};
+
+\draw [thick,gray] (content.south) -- (structure.north east) -- (form.north west) -- cycle;
+
+\node at (barycentric cs:content=0.5,	structure=0.1,	form=1)		{PostScript};
+\node at (barycentric cs:content=1 ,	structure=0,	form=0.4)	{DVI};
+\node at (barycentric cs:content=0.5,	structure=0.5,	form=1)		{PDF};
+\node at (barycentric cs:content=0 ,	structure=0.25,	form=1)		{CSS};
+\node at (barycentric cs:content=0.5,	structure=1,	form=0)		{XML};
+\node at (barycentric cs:content=0.5,	structure=1,	form=0.4)	{HTML};
+\node at (barycentric cs:content=1 ,	structure=0.2,	form=0.8)	{\TeX};
+\node at (barycentric cs:content=1 ,	structure=0.6,	form=0.8)	{\LaTeX};
+\node at (barycentric cs:content=0.8,	structure=0.8,	form=1)		{Word};
+\node at (barycentric cs:content=1 ,	structure=0.05,	form=0.05)	{ASCII};
+
+
+\end{tikzpicture}
+%
+\caption{Barycentric system usage example}
+\label{fig:basic_concepts__barycentric_system}
+%
+\end{center}
+\end{figure}
+

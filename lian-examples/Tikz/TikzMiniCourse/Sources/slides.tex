@@ -1,0 +1,266 @@
+% esempio di pagina del titolo della presentazione
+%
+\begin{frame}
+	%
+	% scrive nome, cognome, titolo della presentazione, ecc
+	\titlepage
+	%
+	% inserisco due immagini 
+	\begin{center}
+	\begin{tabular}{ccc}
+		%
+		% immagine a sinistra
+		\includegraphics[height = 1.3cm]{Logo} &
+		%
+		% spazio tra le immagini
+		$~~~$ &
+		%
+		% immagine a destra
+		\includegraphics[height = 1.3cm]{Logo} \\
+		%
+	\end{tabular}
+	\end{center}
+	%
+\end{frame}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Esempi di uso del testo}
+
+
+\subsection{Testo semplice}
+
+
+\begin{frame}
+	%
+	\frametitle{Titolo della slide corrente}
+	%
+	\uncover<1->{Scopro dal primo click questo testo}
+	%
+	% lascio un po' di spazio
+	\vspace*{0.4cm}
+	%
+	% scrivo un po' piu' in largo
+	\begin{Large}
+		%
+		% faccio un elenco puntato (si puo' anche usare enumerate o description)
+		\begin{itemize}
+			%
+			\item<2->{scopro questo dal \alert{secondo} click};
+			%
+			% un altro po' di spazio
+			\vspace*{0.4cm}
+			%
+			\item<3->{scopro questo dal \alert{terzo} click}.
+			%
+		\end{itemize}
+		%
+	\end{Large}
+	%
+\end{frame}
+
+
+\subsection{Testo con i boxes}
+
+
+\begin{frame}
+	%
+	\frametitle{Titolo della slide corrente}
+	%
+	\begin{block}{titolo del primo blocco}
+		%
+		\begin{enumerate}
+			%
+			\item<1-> questo è un esempio
+			\item<2-> di slide con un primo \ldots
+			%
+		\end{enumerate}
+		%
+	\end{block}
+	%
+	\begin{block}{titolo del secondo blocco}
+		%
+		\begin{enumerate}
+			%
+			\item<3-> \ldots e con un secondo blocco!
+			%
+		\end{enumerate}
+		%
+	\end{block}
+	%
+\end{frame}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Esempi di uso delle immagini}
+
+
+% slide con 3 figure: una al centro e due sotto di quella al centro affiancate
+% (come le ``x'' sotto):
+%
+%    x
+%  x   x
+%
+\begin{frame}
+	%
+	\frametitle{Titolo della slide corrente}
+	%
+	% nota: l'overlayarea serve per allocare una zona costante di slide
+	% (altrimenti il posizionamento varia da click a click)
+	\begin{overlayarea}{5cm}{3cm} % {width}{height}
+		%
+		figura durante i clicks 1 e 2 \\
+		(allineata a sinistra) \\
+		%
+		\begin{flushleft}
+			%
+			% nota: handout: il numero serve per quando si vuole stampare i lucidi
+			% su carta (gli "handouts") ed indica se si vuole che la figura venga
+			% stampata (1) o meno (0)
+			\onslide<1- | handout:0>
+			{
+				\includegraphics<1-2>[height=1cm] {Logo}
+			}
+			%
+		\end{flushleft}
+		%
+	\end{overlayarea}
+	%
+	% figure appaiate
+	\begin{columns}[c]
+		%
+		\begin{column}{5cm}
+			%
+			\begin{overlayarea}{5cm}{3cm} % {width}{height}
+				%
+				figura durante i clicks 2 e 3 \\
+				(allineata al centro) \\
+				%
+				\begin{center}
+					%
+					\onslide<2-3 | handout:1>
+					{
+						\includegraphics<2-3>[height=1cm] {Logo}
+					}
+					%
+				\end{center}
+				%
+			\end{overlayarea}
+			%
+		\end{column}
+		%
+		\begin{column}{5cm}
+			%
+			\begin{overlayarea}{5cm}{3cm} % {width}{height}
+				%
+				figura durante i clicks 3 e 4 \\
+				(allineata a destra) \\
+				%
+				\begin{flushright}
+					%
+					\onslide<3-4 | handout:0>
+					{
+						\includegraphics<3-4>[height=1cm] {Logo}
+					}
+					%
+				\end{flushright}
+				%
+			\end{overlayarea}
+			%
+		\end{column}
+		%
+	\end{columns}
+	%
+\end{frame}
+
+
+
+
+
+
+
+
+
+% slide in cui le varie figure restano sulla slide durante un numero
+% limitato di click, e compaiono / scompaiono sulla stessa posizione
+% (in pratica come fossero i vari fotogrammi di un ``film'')
+%
+\begin{frame}
+	%
+	\frametitle{Titolo della slide corrente}
+	%
+	\begin{columns}[c]
+		%
+		\begin{column}{5cm}
+			%
+			\begin{itemize}
+				%
+				\item<1-2> {\color[rgb]{0.6,0.6,0.6} Prima figura (slides 1-2);}
+				%
+				\item<3-4> {\color[rgb]{0.4,0.4,0.4} seconda figura (slides 3-4);}
+				%
+				\item<5-6> {\color[rgb]{0.2,0.2,0.2} terza figura (slides 5-6).}
+				%
+			\end{itemize}
+			%
+		\end{column}
+		%
+		%
+		\begin{column}{5cm}
+			%
+			\begin{overlayarea}{5cm}{4cm} % {width}{height}
+				%
+				\begin{overprint}
+					%
+					% NOTE NOTE NOTE: handout:numero serve per quando si 
+					%                 vuole stampare i lucidi (gli "handouts")
+					%
+					\onslide<1-2| handout:0>
+					{
+						\includegraphics<1-2>[height = 2.13cm] {first}
+					}
+					%
+					\onslide<3-4| handout:0>
+					{
+						\includegraphics<3-4>[height = 2.13cm] {second}
+					}
+					%
+					\onslide<5-6| handout:1>
+					{
+						\includegraphics<5-6>[height = 2.13cm] {third}
+					}
+					%
+				\end{overprint}
+				%
+			\end{overlayarea}
+			%
+		\end{column}
+		%
+	\end{columns}
+	%
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusioni}
+
+
+\begin{frame}
+	%
+	\frametitle{Semplice, no?}
+	%
+\end{frame}

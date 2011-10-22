@@ -1,0 +1,105 @@
+\section{Nodes}
+\label{sec:nodes}
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Nodes: how to set the shape}
+	%
+	(example file: \url{./Sources/nodes__examples_of_shapes.tex} - using \texttt{shapes} library)
+	%
+	\input{nodes__examples_of_shapes}
+	%
+\end{frame}
+
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Avoid hard coding: styles definitions will make you save LOTS of time}
+	%
+	\begin{center}
+	\begin{tikzpicture}
+		%
+		\node [WarningTextStyle] {declare the styles in a \\ separate file and input it somewhere};
+		%
+	\end{tikzpicture}
+	\end{center}
+	%
+	(example file: \url{./Sources/graphical_settings.tex})
+	%
+\end{frame}
+
+
+
+
+\subsection{Positioning}
+\label{ssec:positioning}
+
+
+\begin{frame}
+	%
+	\frametitle{Nodes positioning: absolute coordinates}
+	%
+	we can place the various nodes using absolute coordinates \\
+	%
+	(example file: \url{./Sources/nodes__absolute_positioning.tex})
+	%
+	\input{nodes__absolute_positioning}
+	%
+\end{frame}
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Nodes positioning: relative coordinates}
+	%
+	place the various nodes using relative coordinates \\
+	%
+	(example file: \url{./Sources/nodes__relative_positioning.tex})
+	%
+	\input{nodes__relative_positioning}
+	%
+\end{frame}
+
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Nodes positioning: matricial positioning}
+	%
+	place the various nodes inside a matrix \\
+	%
+	(example file: \url{./Sources/nodes__matricial_positioning.tex} - requires \texttt{matrix} library)
+	%
+	\input{nodes__matricial_positioning}
+	%
+	(read the manual! This library has \alert{really useful tools}!)
+	%
+\end{frame}
+
+ 
+
+
+
+
+\begin{frame}
+	%
+	\frametitle{Automatic fit of sets of nodes}
+	%
+	(example file: \url{./Sources/nodes__fitting_sets_of_nodes.tex} - requires \texttt{fit} library)
+	%
+	\input{nodes__fitting_sets_of_nodes}
+	%
+\end{frame}
+
+
+

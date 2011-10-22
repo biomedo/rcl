@@ -1,0 +1,65 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale = 1.0,
+	yscale = 1.0
+]
+
+
+
+\uncover<1->
+{
+	\node (nBayStation) [BayStationStyle] at \BayStationPosition {bs};
+	\node (nSensorOne)		[SensorNodeStyle] at \SensorOnePosition			{1};
+	\node (nSensorTwo)		[SensorNodeStyle] at \SensorTwoPosition			{2};
+	\node (nSensorThree)	[SensorNodeStyle] at \SensorThreePosition		{3};
+	\node (nSensorFour)		[SensorNodeStyle] at \SensorFourPosition		{4};
+	\node (nSensorFive)		[SensorNodeStyle] at \SensorFivePosition		{5};
+	\node (nSensorSix)		[SensorNodeStyle] at \SensorSixPosition			{6};
+	\node (nSensorSeven)	[SensorNodeStyle] at \SensorSevenPosition		{7};
+	\node (nSensorEight)	[SensorNodeStyle] at \SensorEightPosition		{8};
+	\node (nSensorNine)		[SensorNodeStyle] at \SensorNinePosition		{9};
+	\node (nSensorTen)		[SensorNodeStyle] at \SensorTenPosition			{10};
+	\node (nSensorEleven)	[SensorNodeStyle] at \SensorElevenPosition		{11};
+	\node (nSensorTwelve)	[SensorNodeStyle] at \SensorTwelvePosition		{12};
+	\node (nSensorThirteen)	[SensorNodeStyle] at \SensorThirteenPosition	{13};
+	\node (nSensorFourteen)	[SensorNodeStyle] at \SensorFourteenPosition	{14};
+	\node (nSensorFifteen)	[SensorNodeStyle] at \SensorFifteenPosition		{15};
+}
+
+
+
+
+\uncover<2->
+{
+	\node [FittingStyle, fit=(nSensorOne) (nSensorTwo) (nSensorThree)] {};
+}
+
+\uncover<3->
+{
+	\node [FittingStyle, fit=(nSensorFour) (nSensorFive) (nSensorSix) (nSensorSeven)] {};
+}
+
+\uncover<4->
+{
+	\node [FittingStyle, fit=(nSensorSeven) (nSensorEight) (nSensorNine) (nSensorTen)] {};
+}
+
+\uncover<5->
+{
+	\node [FittingStyle, fit=(nSensorTen) (nSensorEleven) (nSensorTwelve)] {};
+}
+
+\uncover<6->
+{
+	\node [FittingStyle, fit=(nSensorTwelve) (nSensorThirteen) (nSensorFourteen) (nSensorFifteen)] {};
+}
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+ 
