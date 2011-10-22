@@ -1,0 +1,72 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+\uncover<1->
+{
+	% text along a path
+	\draw
+	[
+		decorate,
+		decoration =
+		{
+			text along path,
+			text color	= blue,
+			text		= This is a text along a path. Note how some portion of the path is lost.
+		}
+	]
+	(0,0) .. controls (3,3) and (9,3) .. (9,0);
+}
+
+
+\uncover<2-2>
+{
+	\node [circle, fill = gray, minimum size = 3mm] at (0,0) {};
+	\node [circle, fill = gray, minimum size = 3mm] at (3,3) {};
+	\node [circle, fill = gray, minimum size = 3mm] at (9,3) {};
+	\node [circle, fill = gray, minimum size = 3mm] at (9,0) {};
+	\draw
+	[
+		line width	= 0.1cm,
+		color		= red,
+	]
+	(0,0) .. controls (3,3) and (9,3) .. (9,0);
+}
+
+
+
+\uncover<4->
+{
+	\node
+	[
+		draw,
+		thick,
+		minimum height	= 2cm,
+		minimum width	= 3.5cm,
+		fill			= yellow!50,
+		inner xsep		= 0.3cm,
+		inner ysep		= 0.3cm,
+		decorate,
+		decoration =
+		{
+			random steps,
+			segment length	= 0.1cm,
+			amplitude		= 0.09cm
+		}
+	]
+	at (4.5,-1)
+	{Saved from trash};
+}
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+

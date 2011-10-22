@@ -1,0 +1,47 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[xscale = 0.5, yscale = 0.5]
+%
+%
+\draw[color=black, domain=-10:10, samples=1000]
+% variable		nome della variabile (di default x)
+% samples		numero di campioni
+% domain		1.4:32.1
+% samples at	{1, 3, 4, 9}
+% very thick | thick | ...
+%
+%
+plot[id=gauss, smooth, tension=1]
+% parametric	gnuplot usa t come variabile e la funzione deve essere scritta così: function(f(t),g(t))
+% id			nome del file .table generato
+% prefix		prefisso del nome del file .table (si puo' dare un percorso, tipo prefix = ../images/tables/)
+% mark			tipo di mark [* | + | x]
+% mark repeat	ogni quanti mark plottarli
+% mark phase	sfasamento iniziale
+% mark indices	{1, 2, 4, 19} quali mark plottare
+% mark size		dimensione
+% mark options	{color=blue, rotate=180} gli si danno delle opzioni
+% sharp plot
+% smooth
+% tension
+% smooth cycle
+% ycomb			a barre in y
+% xcomb			a barre in x
+% polar comb	a barre polare
+% only marks	
+%
+%
+function{1 / (sqrt(2 * 3.1415)) * exp( - ((x - 1)**2) / (2**2))}
+% oppure file{filepath.table}
+%
+%
+node[right, yshift = 0, xshift = 0]
+%
+%
+%
+{aereo};
+%
+%
+\end{tikzpicture}
+\end{center}
+\end{figure}

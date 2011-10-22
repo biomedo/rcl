@@ -1,0 +1,94 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,						% to scale horizontally everything but the text
+	yscale	= 1,						% to scale vertically everything but the text
+]
+
+\uncover<1->
+{
+	\node
+	(nCircle)
+	[
+		shape			= circle,
+		top color		= white,			% | filling of the node
+		bottom color	= green!20!white,	% |
+		text			= red,				% colour of the fonts
+		draw			= green,			% colour of the border
+		rotate			= 10,				% angle of rotation
+		thick,								% thickness of the border
+	]
+	{a circle};								% note: position not specified!
+}
+
+\uncover<2->
+{
+	\node
+	(nStar)
+	[
+		right = of		  nCircle,			% position
+		shape			= star,				% shape
+		draw			= blue,				% colour of the border
+		top color		= white,			% | filling of the node
+		bottom color	= blue!20!white,	% |
+		text			= blue,				% colour of the fonts
+		rotate			= -10,				% angle of rotation
+		thick,								% thickness of the border
+	]
+	{a star};
+}
+
+\uncover<3->
+{
+	\node
+	(nStarburst)
+	[
+		right = of		  nStar,			% position
+		shape			= starburst,		% shape
+		starburst points		= 11,		% | shape parameters
+		starburst point height	= 1.5cm,	% |
+		draw			= red,				% colour of the border
+		top color		= yellow,			% | filling of the node
+		bottom color	= yellow,			% |
+		text			= red,				% colour of the fonts
+		font			= \Large,			% shape of the font
+		rotate			= 0,				% angle of rotation
+		very thick,							% thickness of the border
+		drop shadow,
+	]
+	{a starburst};
+}
+
+\uncover<4->
+{
+	\node
+	(nCloudCallout)
+	[
+		% shape and shape properties
+		shape						= cloud callout,
+		cloud puffs					= 11,
+		aspect						= 2.5,
+		cloud puff arc				= 120,
+		callout pointer start size	= .25 of callout,
+		callout pointer end size	= .15 of callout,
+		callout relative pointer	= {(315:2cm)},	% angle - distance
+		callout pointer segments	= 2,
+		%
+		draw			= black!90!white,	% colour of the border
+		top color		= white,			% | filling of the node
+		bottom color	= black!30!white,	% |
+		text			= black!90!white,	% colour of the fonts
+		text width		= 4cm,				%
+		align			= center,			% text alignment
+		very thick,							% thickness of the border
+	]
+	at (nStar)
+	{uhm maybe better to take a look at the manual$\ldots$};
+}
+
+\end{tikzpicture}
+%
+\end{center}
+\end{figure}
+

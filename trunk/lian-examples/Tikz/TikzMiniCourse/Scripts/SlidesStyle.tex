@@ -1,0 +1,40 @@
+
+
+% in order to remove some warnings
+\let\Tiny=\tiny
+
+
+% as uncovered text should be before being unveiled; options
+% -> dynamic	[automatically appear]
+% -> invisible	[invisible]
+% -> trasparent	[= opacity in %]
+\setbeamercovered{invisible}
+
+
+% theme
+%
+%\usetheme		[hideothersubsections,left,width=1.8cm]{Hannover}
+\usetheme		[]{CambridgeUS}
+\usefonttheme	[]{default}
+\usecolortheme	[]{default}
+\useinnertheme	[]{default}
+\useoutertheme	[]{default}
+
+
+% logo (automatically displaced where the theme requires it)
+% the object between curly brackets is a .pdf file
+\logo{\includegraphics[height = 1cm]{logo_dei_small}}
+
+
+% if you do want the navigation symbols then comment the next line
+\setbeamertemplate{navigation symbols}{}
+
+
+% set background as transparent (otherwise some images could not be seen)
+\setbeamercolor{background canvas}{bg=}
+
+
+% background image
+%\setbeamertemplate{background}
+%{\centering{\includegraphics[width=\paperwidth,height=\paperheight]{background_image_file}}}
+

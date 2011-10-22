@@ -1,0 +1,21 @@
+\section{Warnings}
+
+
+\begin{frame}
+	%
+	\frametitle{Warnings, i.e.\ what to \alert{do not} do}
+	%
+	\begin{itemize}
+		%
+		\item<2-> \alert{do not forget semicolons}; if compiler runs until $+\infty$ without responding then almost surely you forgot a semicolon
+		%
+		\item<3-> \alert{do not use numbers for the names of the nodes}; if you write \texttt{$\ldots$node (nMyNode1) [$\ldots$} you will get hundreds of errors!! Accepted syntax: \texttt{$\ldots$node (nMyNodeOne) [$\ldots$}
+		%
+		\item<4-> \alert{watch out in changing the order of the nodes / paths properties}: sometimes the compiler is not able to understand if things are written in a non-expected order
+		%
+		\item<5-> \alert{did you forgot to include the library?} Sometimes strange errors are due to the fact that you didn't include the opportune \Tikz library
+		%
+	\end{itemize}
+	%
+\end{frame}
+

@@ -1,0 +1,47 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+\matrix
+(mnMatrixOfNodes)	% this is the name of the ``super node''
+[
+	matrix of nodes,
+	right delimiter	= \rmoustache,
+	above delimiter	= \{,
+	row sep			= 5mm,
+	column sep		= 5mm
+]
+{
+	% first row
+	\node (nSensorOne) [SensorNodeStyle] {1}; & % DON'T FORGET SEMICOLONS!!
+	&
+	&
+	\node (nSensorTwo) [SensorNodeStyle] {2}; \\ % DON'T FORGET SEMICOLONS!!
+	%
+	%
+	% second row
+	&
+	&
+	\node (nSensorThree) [SensorNodeStyle] {3}; & % DON'T FORGET SEMICOLONS!!
+	\\
+	%
+	%
+	% third row
+	&
+	\node (nSensorFour) [SensorNodeStyle] {4}; & % DON'T FORGET SEMICOLONS!!
+	&
+	\node (nBayStation) [BayStationStyle] {bs}; \\ % DON'T FORGET SEMICOLONS!!
+};
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+

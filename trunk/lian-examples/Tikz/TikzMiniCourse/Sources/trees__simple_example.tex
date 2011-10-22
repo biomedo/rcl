@@ -1,0 +1,38 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+\node {root}
+child
+{
+	node {left}
+}
+child
+{
+	node {right}
+	child
+	{
+		node {child 1}
+	}
+	child
+	{
+		node {child 2}
+	}
+};
+
+
+
+\end{tikzpicture}
+%
+\caption{Simple example of a tree.}
+\label{fig:trees__simple_example}
+%
+\end{center}
+\end{figure}
+

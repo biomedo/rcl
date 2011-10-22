@@ -1,0 +1,82 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 0.8,	% to scale horizontally everything but the text
+	yscale	= 0.9,	% to scale vertically everything but the text
+]
+
+
+
+
+
+\uncover<1->
+{
+	% intuitive positioning
+	\draw
+	[
+		color	= blue!40,
+		thick,
+		-open triangle 45
+	]
+	(0,0) -- (2,5)
+	node[black, at end]				{this is at the end}
+	node[black, near end]			{this is at the near end}
+	node[black, midway]				{this is at the midway}
+	node[black, very near start]	{this is at the very near start};
+}
+
+
+
+
+
+
+
+\uncover<2->
+{
+	% numerical positioning
+	\draw
+	[
+		color	= red!50,
+		ultra thick,
+		dotted,
+		-open triangle 45
+	]
+	(5,0) -- (7,5)
+	node[black, pos=0.0]			{this is at position 0.0}
+	node[black, pos=0.3]			{this is at position 0.3}
+	node[black, pos=0.5]			{this is at position 0.5}
+	node[black, pos=1.1]			{this is at position 1.1};
+}
+
+
+
+
+
+
+\uncover<3->
+{
+	% sloping
+	\draw
+	[
+		color	= black!30!orange,
+		thick,
+		-open triangle 45
+	]
+	(-2,2) -- (-5.0,6.5)
+	node
+	[				% here we define some properties of the node!
+		midway,
+		sloped,
+		above,
+		color = black!30!orange
+	]
+	{sloped text};
+}
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}

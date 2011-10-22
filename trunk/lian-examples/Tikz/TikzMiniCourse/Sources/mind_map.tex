@@ -1,0 +1,157 @@
+\section{Mindmap}
+
+
+\begin{frame}
+\frametitle{Mindmap}
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+[
+%
+transform canvas = {scale = 0.64},
+mindmap,
+text = black,
+grow cyclic,
+%
+% ---------------------------------- styles
+paths/.style =
+{
+	concept color	= blue!40,
+	faded/.style	= {concept color = blue!40}
+},
+connections/.style =
+{
+	concept color	= orange!80,
+	faded/.style	= {concept color = orange!40}
+},
+myNodes/.style =
+{
+	concept color	= yellow!80,
+	faded/.style	= {concept color = yellow!40}
+},
+%
+% ---------------------------------- general
+every node/.style =
+{
+	concept,
+	circular drop shadow,
+	execute at begin node = \hskip0pt
+},
+%
+% ---------------------------------- root
+root concept/.append style =
+{
+	concept color	= black,
+	fill			= white,
+	line width		= 1ex,
+	text			= black,
+%	font			= \scshape
+},
+%
+% ---------------------------------- first level
+level 1/.append style =
+{
+	level distance	= 4.3cm,
+	sibling angle	= -140,
+%	font			= \scshape
+},
+%
+% ---------------------------------- second level
+level 2/.append style =
+{
+	level distance	= 3cm,
+	sibling angle	= -60,
+%	font			= \large
+},
+]
+
+
+
+\node [root concept] {This Talk} % root
+	child [myNodes]
+	{
+		node {Nodes}
+		child
+		{
+			node {can be fully customized}
+		}
+		child
+		{
+			node {are labeled}
+		}
+		child
+		{
+			node {write inside using \LaTeX}
+		}
+	}
+	child [paths]
+	{
+		node {Paths}
+		child
+		{
+			node {connect everything}
+		}
+		child
+		{
+			node {can put labels on them}
+		}
+		child
+		{
+			node {used for decorations}
+		}
+	}
+	child [connections]
+	{
+		node {Connections}
+		child
+		{
+			node {straight}
+		}
+		child
+		{
+			node {curved}
+		}
+		child
+		{
+			node {horizontal / vertical}
+		}
+	}
+;
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+
+
+
+
+
+
+
+\begin{tikzpicture}
+[transform canvas = {scale = 0.3}]
+\path
+[
+	xshift = -1.0cm,
+	yshift = -10.5cm,
+	draw = blue,
+	decorate,
+	decoration = 
+	{
+		text along path,
+		text = {entirely written in |\color{red} \LaTeXe| ||using |\color{red} \texttt{Beamer}| ||and |\color{red}|Ti|||\color{red}\emph{k}| |||\color{red}|Z|| },
+		text color = blue,
+	}
+]
+(0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0) sin (7,-1);
+\end{tikzpicture}
+
+
+\end{frame}
+
+

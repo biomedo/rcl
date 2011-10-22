@@ -1,0 +1,19 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+\node (nSensorOne)		[SensorNodeStyle]							{1};
+\node (nSensorTwo)		[SensorNodeStyle, right of = nSensorOne]	{2};
+\node (nSensorThree)	[SensorNodeStyle, right of = nSensorTwo]	{3};
+\node (nBayStation)		[BayStationStyle, below of = nSensorTwo]	{bs};
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+

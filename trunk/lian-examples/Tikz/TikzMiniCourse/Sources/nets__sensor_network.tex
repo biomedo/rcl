@@ -1,0 +1,61 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+
+\uncover<1->
+{
+	% bridges nodes
+	\node	[BridgeNodeStyle]	(b1)	at	(0.8, 4.5)	{1};
+	\node	[BridgeNodeStyle]	(b2)	at	(2.5, 0.8)	{2};
+	\node	[BridgeNodeStyle]	(b3)	at	(4.3, 3.2)	{3};
+	\node	[BridgeNodeStyle]	(b4)	at	(8.4, 4.8)	{4};
+	%
+	% normal nodes
+	\node	[NormalNodeStyle]	(n5)	at	(2.0, 2.8)	{5};
+	\node	[NormalNodeStyle]	(n6)	at	(3.1, 4.9)	{6};
+	\node	[NormalNodeStyle]	(n7)	at	(4.1, 1.1)	{7};
+	\node	[NormalNodeStyle]	(n8)	at	(6.1, 2.0)	{8};
+	\node	[NormalNodeStyle]	(n9)	at	(5.0, 5.8)	{9};
+	\node	[NormalNodeStyle]	(n10)	at	(6.0, 4.3)	{10};
+	\node	[NormalNodeStyle]	(n11)	at	(7.7, 3.2)	{11};
+}
+
+
+
+
+\uncover<2->
+{
+	% connections
+	\draw	[-, thick]	(b1) -- (n5);
+	\draw	[-, thick]	(b1) -- (n6);
+	%
+	\draw	[-, thick]	(b2) -- (n7);
+	%
+	\draw	[-, thick]	(b3) -- (n6);
+	\draw	[-, thick]	(b3) -- (n7);
+	\draw	[-, thick]	(b3) -- (n8);
+	%
+	\draw	[-, thick]	(b4) -- (n9);
+	\draw	[-, thick]	(b4) -- (n10);
+	\draw	[-, thick]	(b4) -- (n11);
+	%
+	\draw	[-, thick]	(n7) -- (n8);
+	\draw	[-, thick]	(n9) -- (n10);
+	\draw	[-, thick]	(n10) -- (n11);
+	%
+	\draw	[triangle 60-triangle 60, thick, dotted]	(b3) -- (n10)
+	node	[midway, above, sloped, font=\bfseries, text=red!70!black] {new};
+}
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}

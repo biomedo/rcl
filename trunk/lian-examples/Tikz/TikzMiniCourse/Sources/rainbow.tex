@@ -1,0 +1,153 @@
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+
+
+
+% ---------------------- sun
+\node
+[
+	shape			= circle,
+	draw			= yellow!80!red,
+	thick,
+	fill			= yellow,
+	minimum size	= 5mm,
+	decorate,
+	decoration		=
+	{
+		bumps,
+		amplitude		= 0.8mm,
+		segment length	= 2.08mm
+	}
+]
+(nOverTheRainbow)
+at (1.3,1.3)
+{};
+
+
+
+
+
+\def\DeltaX{0.1cm}
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= red,
+	line width	= \DeltaX
+]
+(0,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm
+]
+(1,1);
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= orange,
+	line width	= \DeltaX
+]
+(0 + \DeltaX,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm - \DeltaX
+]
+(1,1 - \DeltaX);
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= yellow,
+	line width	= \DeltaX
+]
+(0 + 2*\DeltaX,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm - 2*\DeltaX
+]
+(1,1 - 2*\DeltaX);
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= green,
+	line width	= \DeltaX
+]
+(0 + 3*\DeltaX,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm - 3*\DeltaX
+]
+(1,1 - 3*\DeltaX);
+
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= blue,
+	line width	= \DeltaX
+]
+(0 + 4*\DeltaX,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm - 4*\DeltaX
+]
+(1,1 - 4*\DeltaX);
+
+
+
+
+% ------------------------------------------
+\draw
+[
+	color		= violet,
+	line width	= \DeltaX
+]
+(0 + 5*\DeltaX,0)
+arc
+[
+	start angle	= 180,
+	end angle	= 90,
+	radius		= 1cm - 5*\DeltaX
+]
+(1,1 - 5*\DeltaX);
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+

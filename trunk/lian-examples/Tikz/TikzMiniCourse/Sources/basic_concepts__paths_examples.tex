@@ -1,0 +1,32 @@
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+[
+	xscale	= 1,	% to scale horizontally everything but the text
+	yscale	= 1,	% to scale vertically everything but the text
+]
+
+\draw
+[
+	->,										% kind of line
+	rounded corners		= 0.4cm,			% behavior of the corners
+	color				= blue!80!white,	%
+	line width			= 0.1cm,			%
+	dash pattern		= on 0.1cm    off 0.2cm    on 0.5cm    off 0.3cm,
+	%
+	postaction			=					% after having drawn the line ...
+	{										%
+		decorate,							% decorate it
+		decoration		=					% with which decoration?
+		{
+			text along path,				% with some text...
+			text			= {try to do this automatically in other ways 8-)}, % ...(this text)...
+			text color		= blue!30!white	% ...of this color
+		}
+	}
+]
+(0cm,0cm) -- (1cm,1cm) -- (3cm,0cm) -- (8cm,0cm); % DON'T FORGET THE SEMICOLON!!
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
