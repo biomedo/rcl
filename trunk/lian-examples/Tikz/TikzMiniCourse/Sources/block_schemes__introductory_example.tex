@@ -2,61 +2,61 @@
 \begin{center}
 \begin{tikzpicture}
 [
-	xscale	= 1.0,
-	yscale	= 1.0,
-	transform canvas = {scale = 0.6},
-	auto,
-	%
-	DecisionStyle/.style =
-	{
-		diamond,
-		draw		= blue,
-		thick,
-		fill		= blue!20,
-		text width	= 4.5em,
-		align		= flush center,
-		inner sep	= 1pt
-	},
-	%
-	BlockStyle/.style =
-	{
-		rectangle,
-		draw			= blue,
-		thick,
-		fill			= blue!20,
-		text width		= 5em,
-		align			= center,
-		rounded corners,
-		minimum height	= 4em
-	},
-	%
-	CloudLineStyle/.style =
-	{
-		draw,
-		ultra thick,
-		color	= red,
-		-latex,
-		shorten	>= 2pt,
-		dotted
-	},
-	%
-	BlockLineStyle/.style =
-	{
-		draw,
-		ultra thick,
-		color	= blue,
-		-latex,
-		shorten	>= 2pt
-	},
-	%
-	CloudStyle/.style =
-	{
-		draw			= red,
-		thick,
-		ellipse,
-		fill			= red!20,
-		minimum height	= 2em
-	}
+    xscale  = 1.0,
+    yscale  = 1.0,
+    transform canvas = {scale = 0.6},
+    auto,
+    %
+    DecisionStyle/.style =
+    {
+        diamond,
+        draw        = blue,
+        thick,
+        fill        = blue!20,
+        text width  = 8em,
+        align       = flush center,
+        inner sep   = 1pt
+    },
+    %
+    BlockStyle/.style =
+    {
+        rectangle,
+        draw            = blue,
+        thick,
+        fill            = blue!20,
+        text width      = 7.5em,
+        align           = center,
+        rounded corners,
+        minimum height  = 2em
+    },
+    %
+    CloudLineStyle/.style =
+    {
+        draw,
+        ultra thick,
+        color   = red,
+        -latex,
+        shorten >= 2pt,
+        dotted
+    },
+    %
+    BlockLineStyle/.style =
+    {
+        draw,
+        ultra thick,
+        color   = blue,
+        -latex,
+        shorten >= 2pt
+    },
+    %
+    CloudStyle/.style =
+    {
+        draw            = red,
+        thick,
+        ellipse,
+        fill            = red!20,
+        minimum height  = 2em
+    }
 ]
 
 
@@ -64,41 +64,41 @@
 \matrix [column sep = 5mm, row sep = 7mm]
 {
 % row 1
-\node [CloudStyle] (expert)	{expert};			&
-\node [BlockStyle] (init)	{initialize model};	&
-\node [CloudStyle] (system)	{system};			\\
+\node [CloudStyle] (expert) {expert};           &
+\node [BlockStyle] (init)   {initialize model}; &
+\node [CloudStyle] (system) {system};           \\
 %
 % row 2
-															&
-\node [BlockStyle] (identify)	{identify candidate model};	&
-															\\
+                                                            &
+\node [BlockStyle] (identify)   {identify candidate model}; &
+                                                            \\
 %
 % row 3
-\node [BlockStyle] (update)		{update model};					&
-\node [BlockStyle] (evaluate)	{evaluate candidate models};	&
-																\\
+\node [BlockStyle] (update)     {update model};                 &
+\node [BlockStyle] (evaluate)   {evaluate candidate models};    &
+                                                                \\
 %
 % row 4
-																&
-\node [DecisionStyle] (decide)	{is best candidate};			&
-																\\
+                                                                &
+\node [DecisionStyle] (decide)  {is best candidate};            &
+                                                                \\
 % row 5
-																&
-\node [BlockStyle] (stop)	{stop};								&
-																\\
+                                                                &
+\node [BlockStyle] (stop)   {stop};                             &
+                                                                \\
 }; % end matrix
 
 
 
-\draw	[BlockLineStyle]	(init)		-- (identify);
-\draw	[BlockLineStyle]	(identify)	-- (evaluate);
-\draw	[BlockLineStyle]	(evaluate)	-- (decide);
-\draw	[BlockLineStyle]	(update)	|- (identify);
-\draw	[BlockLineStyle]	(decide)	-| (update)		node [near start, color = black]	{yes} ;
-\draw	[BlockLineStyle]	(decide)	-- (stop)		node [midway, color = black]		{no} ;
-\draw	[CloudLineStyle]	(expert)	-- (init);
-\draw	[CloudLineStyle]	(system)	-- (init);
-\draw	[CloudLineStyle]	(system)	|- (evaluate);
+\draw   [BlockLineStyle]    (init)      -- (identify);
+\draw   [BlockLineStyle]    (identify)  -- (evaluate);
+\draw   [BlockLineStyle]    (evaluate)  -- (decide);
+\draw   [BlockLineStyle]    (update)    |- (identify);
+\draw   [BlockLineStyle]    (decide)    -| (update)     node [near start, color = black]    {yes} ;
+\draw   [BlockLineStyle]    (decide)    -- (stop)       node [midway, color = black]        {no} ;
+\draw   [CloudLineStyle]    (expert)    -- (init);
+\draw   [CloudLineStyle]    (system)    -- (init);
+\draw   [CloudLineStyle]    (system)    |- (evaluate);
 
 
 
