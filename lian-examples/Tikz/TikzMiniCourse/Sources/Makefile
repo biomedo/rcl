@@ -2,7 +2,7 @@
 # in the same directory with your tex files. Still, you can
 # put it anywhere for your usage by readapting the path in
 # this script
-# Time-stamp: <2011-10-22 21:21:38 Saturday by lian>
+# Time-stamp: <2011-10-22 22:58:57 Saturday by lian>
 
 TEX = pdflatex
 doc = main

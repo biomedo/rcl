@@ -36,7 +36,7 @@
   (defun lian-latex-mode-hook ()
     "Lian's latex mode hook"
     (setq autopair-dont-activate t)
-    (auto-fill-mode)
+    (auto-fill-mode 0)
     (set-fill-column 70)
     (lian-latex-keys)
     (setq LaTeX-math-mode t)
