@@ -37,7 +37,7 @@
     "Lian's latex mode hook"
     (setq autopair-dont-activate t)
     (auto-fill-mode 0)
-    (set-fill-column 70)
+    (set-fill-column 140)
     (lian-latex-keys)
     (setq LaTeX-math-mode t)
     ;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
