@@ -86,6 +86,7 @@ Format 1
 \bind "C-o C-o" "drop-layouts-choice"
 \bind "C-o b b" "layout BeginFrame"
 \bind "C-o b e" "layout EndFrame"
+\bind "C-o S-s" "layout Structure"
 \bind "M-S-n" "buffer-next"
 \bind "M-S-p" "buffer-previous"
 \bind "F9" "buffer-view"
@@ -128,4 +129,7 @@ Format 1
 \bind "C-M-y" "clipboard-paste paragraph"
 \bind "M-o d" "command-sequence paragraph-params \\indent; paragraph-params \\align default"
 \bind "M-o c" "command-sequence paragraph-params \\indent; paragraph-params \\align center"
+\bind "M-i a" "flex-insert Alert"
+\bind "M-i s" "flex-insert Structure"
+\bind "M-i M-i" "inset-dissolve charstyle"
 
