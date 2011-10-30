@@ -42,7 +42,7 @@
     (setq LaTeX-math-mode t)
     ;; (setq LaTeX-document-regexp "document\\|CJK\\*?")  ;; CJK 环境中不缩进
     (setq-default TeX-master nil)
-    (setq TeX-electric-escape t)
+    (setq TeX-electric-escape nil)
     (setq TeX-auto-save t)
     (setq TeX-parse-self t)
     (setq preview-scale-function 1.5)
