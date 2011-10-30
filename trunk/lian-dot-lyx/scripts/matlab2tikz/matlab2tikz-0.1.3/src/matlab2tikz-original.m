@@ -349,22 +349,22 @@ function m2t = saveToFile( m2t, fid, fileWasOpen )
 
   m2t.content.name = 'tikzpicture';
 
-  % m2t.content.options = appendOptions( m2t.content.options, ...
-  %                                      m2t.tikzOptions );
+  m2t.content.options = appendOptions( m2t.content.options, ...
+                                       m2t.tikzOptions );
 
   % don't forget to define the colors
-  % if size(m2t.requiredRgbColors,1)
-  %     m2t.content = append( m2t.content, ...
-  %                           sprintf('\n%% defining custom colors\n') ...
-  %                         );
-  %     for k = 1:size(m2t.requiredRgbColors,1)
-  %         m2t.content = append( m2t.content, ...
-  %                               sprintf('\\definecolor{mycolor%d}{rgb}{%g,%g,%g}\n', k,     ...
-  %                                                         m2t.requiredRgbColors(k,:)) ...
-  %                             );
-  %     end
-  %     m2t.content = append( m2t.content, sprintf('\n') );
-  % end
+  if size(m2t.requiredRgbColors,1)
+      m2t.content = append( m2t.content, ...
+                            sprintf('\n%% defining custom colors\n') ...
+                          );
+      for k = 1:size(m2t.requiredRgbColors,1)
+          m2t.content = append( m2t.content, ...
+                                sprintf('\\definecolor{mycolor%d}{rgb}{%g,%g,%g}\n', k,     ...
+                                                          m2t.requiredRgbColors(k,:)) ...
+                              );
+      end
+      m2t.content = append( m2t.content, sprintf('\n') );
+  end
 
   % finally print it to the file
   printAll( m2t.content, fid );
@@ -715,30 +715,30 @@ function m2t = drawAxes( m2t, handle, alignmentOptions )
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   % get grids
   isGrid = 0;
-  % if strcmp( get( handle, 'XGrid'), 'on' );
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'xmajorgrids' );
-  %     isGrid = 1;
-  % end
-  % if strcmp( get( handle, 'XMinorGrid'), 'on' );
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'xminorgrids' );
-  %     isGrid = 1;
-  % end
-  % if strcmp( get( handle, 'YGrid'), 'on' )
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'ymajorgrids' );
-  %     isGrid = 1;
-  % end
-  % if strcmp( get( handle, 'YMinorGrid'), 'on' );
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'yminorgrids' );
-  %     isGrid = 1;
-  % end
-  % if strcmp( get( handle, 'ZGrid'), 'on' )
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'zmajorgrids' );
-  %     isGrid = 1;
-  % end
-  % if strcmp( get( handle, 'ZMinorGrid'), 'on' );
-  %     m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'zminorgrids' );
-  %     isGrid = 1;
-  % end
+  if strcmp( get( handle, 'XGrid'), 'on' );
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'xmajorgrids' );
+      isGrid = 1;
+  end
+  if strcmp( get( handle, 'XMinorGrid'), 'on' );
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'xminorgrids' );
+      isGrid = 1;
+  end
+  if strcmp( get( handle, 'YGrid'), 'on' )
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'ymajorgrids' );
+      isGrid = 1;
+  end
+  if strcmp( get( handle, 'YMinorGrid'), 'on' );
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'yminorgrids' );
+      isGrid = 1;
+  end
+  if strcmp( get( handle, 'ZGrid'), 'on' )
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'zmajorgrids' );
+      isGrid = 1;
+  end
+  if strcmp( get( handle, 'ZMinorGrid'), 'on' );
+      m2t.currentAxesContainer.options = appendOptions( m2t.currentAxesContainer.options, 'zminorgrids' );
+      isGrid = 1;
+  end
 
   % set the line style
   if isGrid
@@ -975,7 +975,7 @@ function str = plotLine( opts, xData, yData, yDeviation )
     end
 
     str = [ str, ...
-            sprintf( ['\\addplot \n'] ) ];
+            sprintf( ['\\addplot [',opts,']\n'] ) ];
     if errorbarMode
         str = [ str, ...
                 sprintf('plot [error bars/.cd, y dir = both, y explicit]\n') ];
@@ -3541,9 +3541,9 @@ function [ m2t, lOpts ] = getLegendOpts( m2t, handle )
   lStyle = appendOptions( lStyle, 'nodes=right' );
 
   if ~isempty( lStyle )
-      % lOpts = appendOptions( lOpts, ...
-      %                        ['legend style={' collapse(lStyle,',') '}'] ...
-      %                      );
+      lOpts = appendOptions( lOpts, ...
+                             ['legend style={' collapse(lStyle,',') '}'] ...
+                           );
   end
 
 end
@@ -3897,7 +3897,7 @@ function axisLabels = getAxisLabels( handle )
 
   axisLabels.y = get( get( handle, 'YLabel' ), 'String' );
   if iscell(axisLabels.y)
-      axisLabels.y = [ axisLabels.y{:} ];
+      axisLabels.y = axisLabels.y{:};
   end
   axisLabels.yInterpreter = get( get( handle, 'YLabel' ), 'Interpreter' );
 
@@ -5056,7 +5056,7 @@ end
 function printAll( env, fid )
 
     if ~isempty(env.comment)
-        % fprintf( fid, '%% %s\n', strrep( env.comment, sprintf('\n'), sprintf('\n%% ') ) );
+        fprintf( fid, '%% %s\n', strrep( env.comment, sprintf('\n'), sprintf('\n%% ') ) );
     end
 
     if isempty( env.options )
