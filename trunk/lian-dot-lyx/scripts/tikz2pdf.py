@@ -74,6 +74,7 @@ if os.path.exists(templateFilename):
 else:
 	template = r"""\documentclass{article}
 
+\usepackage{beamerarticle}
 \usepackage{nicefrac,amsmath,pifont}
 \usepackage{tikz,pgfplots}
 \usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
