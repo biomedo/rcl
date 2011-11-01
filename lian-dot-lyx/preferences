@@ -83,7 +83,7 @@ Format 1
 # FORMATS SECTION ##########################
 #
 
-\format "pdf2" "pdf" "PDF (pdflatex)" "F" "acroread" "" "document,vector,menu=export"
+\format "pdf2" "pdf" "PDF (pdflatex)" "F" "xpdf" "" "document,vector,menu=export"
 
 #
 # CONVERTERS SECTION ##########################
