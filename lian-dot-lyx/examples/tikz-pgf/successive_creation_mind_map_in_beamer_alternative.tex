@@ -1,0 +1,161 @@
+\documentclass{beamer} 
+\RequirePackage{helvet} 
+\usepackage{tikz} 
+\usetikzlibrary{mindmap,trees,shadows} 
+
+\begin{document} 
+
+\makeatletter 
+\def\tikz@collect@child hild{% 
+  \pgfutil@ifnextchar<{\tikz@collect@child@overlay}% 
+  {\pgfutil@ifnextchar[{\tikz@collect@childA}{\tikz@collect@childA[]}}% 
+} 
+\def\tikz@collect@child@overlay<#1>{% 
+  \pgfutil@ifnextchar[{\tikz@collect@child@@overlay{#1}}{\tikz@collect@childA[child 
+    overlay={#1}]}}%} 
+
+\def\tikz@collect@child@@overlay#1[{\tikz@collect@childA[child overlay={#1},} 
+
+\def\tikzprocessoverlay#1#2#3{% 
+  \def\beamer@doifinframe{#2}% 
+  \def\beamer@doifnotinframe{#3}% 
+  \beamer@masterdecode{#1}% 
+  \beamer@donow% 
+} 
+
+% Extra hackery to allow preactions on different layers. 
+% 
+\def\tikz@extra@preaction#1{% 
+  {% 
+    \pgfsys@beginscope% 
+    \setbox\tikz@figbox=\box\voidb@x% 
+    \begingroup\tikzset{#1}\expandafter\endgroup% 
+    \expandafter\def\expandafter\tikz@preaction@layer\expandafter{\tikz@preaction@layer}% 
+    \ifx\tikz@preaction@layer\pgfutil@empty% 
+    \path[#1];% do extra path 
+    \else% 
+    \begin{pgfonlayer}{\tikz@preaction@layer}% 
+      \path[#1];% 
+    \end{pgfonlayer} 
+    \fi% 
+    \pgfsyssoftpath@setcurrentpath\tikz@actions@path% restore 
+    \tikz@restorepathsize% 
+    \pgfsys@endscope% 
+  }% 
+} 
+\let\tikz@preaction@layer=\pgfutil@empty 
+
+\tikzset{preaction layer/.store in=\tikz@preaction@layer} 
+
+\makeatother 
+
+\tikzset{% 
+  child overlay/.code={% 
+    \tikzprocessoverlay{#1}{}% 
+    {% 
+      \tikzset{% 
+        circle connection bar switch color/.code={}, 
+        edge from parent/.style={draw=none}, 
+        every node/.style={ 
+          concept, draw=none, fill=none, 
+          execute at begin node={\setbox0=\hbox\bgroup\hskip0pt\let\\=\relax}, 
+          execute at end node=\egroup\phantom{\box0} 
+        }% 
+      }% 
+    }% 
+  } 
+} 
+
+\pgfdeclarelayer{shadow} 
+\pgfsetlayers{shadow,main} 
+
+\tikzset{ 
+  use shadow/.style={% 
+    copy shadow={% 
+      preaction layer=shadow, fill=gray!25, draw=none, 
+      shadow xshift=0.5ex, shadow yshift=-0.5ex 
+    } 
+  }, 
+  small mindmap/.style={ 
+    level 1/.append style={level 1 concept}, 
+    level 2/.append style={level 2 concept}, 
+    level 3/.append style={level 3 concept}, 
+    level 4/.append style={level 4 concept}, 
+    every concept/.style={align=center, font=\tiny\strut, text=black, 
+      outer sep=-.25pt}, 
+    text width=2cm, 
+    concept color=root color, 
+    level 1 concept/.style={ 
+      text width=1.5cm, 
+      level distance=3cm, 
+      sibling angle=75, 
+      counterclockwise from=285, 
+      every child/.style={concept color=level 1 color}, 
+    }, 
+    level 2 concept/.style={ 
+      text width=1.125cm, 
+      level distance=3cm, 
+      sibling angle=30, 
+      clockwise from=30, 
+      every child/.style={concept color=level 2 color},   
+    }, 
+    level 3 concept/.style={ 
+      text width=1cm, 
+      level distance=3cm, 
+      sibling angle=30, 
+      clockwise from=30, 
+      every child/.style={concept color=level 3 color}, 
+    },  
+    every node/.style={concept, execute at begin node=\hskip0pt, use shadow}, 
+    every circle connection bar/.append style={append after 
+      command={[use shadow]}} 
+  }, 
+  spoken language/.style=, 
+  figurative utterances/.style=, 
+  irony/.style=, 
+  sarcasm/.style=, 
+} 
+
+\colorlet{root color}{blue!25} 
+\colorlet{level 1 color}{purple!50} 
+\colorlet{level 2 color}{red!50} 
+\colorlet{level 3 color}{pink!50} 
+\colorlet{highlight}{orange!25!yellow} 
+
+\pgfkeysdefargs{/tikz/assign color}{#1 to #2}{\colorlet{#2}{#1}} 
+
+\begin{frame} 
+
+  \frametitle{Figurative language, irony and sarcasm} 
+
+  \begin{tikzpicture}[remember picture, overlay, small mindmap] 
+
+    \only<14>{ 
+      \tikzset{ 
+        concept color=highlight, 
+        figurative utterances/.style={assign color=highlight to level 1 color}, 
+        irony/.style={assign color=highlight to level 2 color}, 
+        sarcasm/.style={assign color=highlight to level 3 color}, 
+      } 
+    } 
+    \node <1-> at ([shift={(0cm,0cm)}]current page.west) [spoken language] 
+    {Spoken \\ Language} 
+    child <2-> {node {Literal \\ Utterances}} 
+    child <3->  [figurative utterances] {node {Figurative \\ Utterances} 
+      child <4-> {node {Metaphor}} 
+      child <5-> {node {Simile}} 
+      child <6-> [irony] {node  {Irony} 
+        child <9-> {node {Hyperbole}} 
+        child <10-> {node {Understatement}} 
+        child <11-> {node {Rhetorical Questions}} 
+        child <12-> [sarcasm] {node  {Sarcasm}} 
+        child <13-> {node {Jocularity}} 
+      } 
+      child <7->{node {Idiom}} 
+      child <8->{node {Indirect \\ Requests}}}; 
+
+  \end{tikzpicture} 
+
+\end{frame} 
+
+\end{document}

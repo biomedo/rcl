@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-06-21 00:34:06 Tuesday by lian>
+# Time-stamp: <2011-11-04 18:32:46 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -17,4 +17,10 @@
     {\normalfont\normalsize\itshape}}   % style
   \makeatother
 #+end_src
-我们发现我们重新定义了subsection这个命令，在定义这个命令的代码中我们看到了\@这个latex内部宏命令，如果没有这个\makeatletter这个命令\@就不会被latex解释器看作是一个宏命令而看成是一个普通的两个字符，因此可以把\makeatletter看成一个对\@字符的一个开关(当有这条语句是\@被latex翻译成命令标示符，否则翻译成两个普通的字符)。
+  我们发现我们重新定义了subsection这个命令，在定义这个命令的代码中我们看到了\@这个latex内部宏命令，如果没有这个\makeatletter这个命令\@就不会被latex解释器看作是一个宏命令而看成是一个普通的两个字符，因此可以把\makeatletter看成一个对\@字符的一个开关(当有这条语句是\@被latex翻译成命令标示符，否则翻译成两个普通的字符)。
+
+** useful commnads
+  1. \setcounter or \addtocounter
+  2. \nointerlineskip is effective, you want to ignore the defaut lines skips
+  3. \centering{} differs from \begin{center} .. \end{center}, without extra paragraph vertical spaces.
+

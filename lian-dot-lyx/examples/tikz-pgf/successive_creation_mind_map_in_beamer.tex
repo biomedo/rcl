@@ -1,0 +1,39 @@
+\documentclass{beamer} 
+\usepackage{tikz} 
+\usetikzlibrary{mindmap} 
+\begin{document} 
+\begin{frame} 
+
+  \onslide<1->
+  { 
+    \tikzstyle{hardfaults} = [concept color=black!50,opacity=0] 
+    \tikzstyle{softfaults} = [concept color=black!50,opacity=0] 
+    \tikzstyle{isolation} = [concept color=black!50] 
+    \tikzstyle{accommodation} = [concept color=black!50]
+  } 
+  \only<2->{\tikzstyle{hardfaults} = [concept color=green!50!black]} 
+  \only<3->{\tikzstyle{softfaults} = [concept color=green!50!black]} 
+  \only<4->{\tikzstyle{isolation} = [concept color=red!50!black]} 
+  \only<5->{\tikzstyle{accommodation} = [concept color=red!50!black]} 
+
+  \begin{figure} 
+    \begin{tikzpicture}[scale=0.8,transform shape,mindmap, text=white] 
+      \node [concept] {FDI\\requirements} [clockwise from=0] 
+      child [hardfaults] { 
+        node[concept] (nav) {Hard faults\\detection} 
+      } 
+      child [softfaults] { 
+        node[concept] (nav) {Soft faults\\detection} 
+      } 
+      child [isolation]{ 
+        node[concept] (ctrl) {Isolation} 
+      } 
+      child [accommodation] { 
+        node[concept] {Accommo-\\dation} 
+      } 
+      ; 
+    \end{tikzpicture} 
+  \end{figure} 
+
+\end{frame} 
+\end{document}
