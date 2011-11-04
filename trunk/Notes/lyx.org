@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-10-20 17:19:45 Thursday by lian>
+# Time-stamp: <2011-11-04 18:35:15 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -45,27 +45,39 @@
       - The latex /resizebox{0.9/columnwidth}{!}{you inputed figure}
 
         
-** Beamer in Lyx
+** COMMENT Beamer in Lyx
    1. One Frame has several slides to control the animation and overlays
    2. \altert{} is similar to the \emph, the \alert command needs to be entered in TEX-mode, which is awkward. It’s easier to just paint the text in red.
    3. \pause will pause and wait another item
    4. \uncover<3>{content} this means uncover the content for a specified slides, but on all other slides, it still occupies the sapces
    5. \only<3>{content} is similar to \uncover, but without occupation of its spaces on the other slides
    6. For the following commands, adding an overlay specification causes the command to be simply ignored on slides that are not included in the specification: \textbf, \textit, \textsl, \textrm, \textsf, \color, \alert, \structure.
-      #+begin_src latex-mode
-        \begin{frame}
-        \color<2-3>[rgb]{1,0,0} This text is red on slides 2 and 3, otherwise black.
-        \end{frame}
-      #+end_src
-   7. \visible and \invisible are similar to \only
-   8. \alt<2>{On Slide 2}{Not on slide 2.} a set and its alternative
-   9. \temporal, see below
+#+begin_src latex
+  \begin{frame}
+    \color<2-3>[rgb]{1,0,0} This text is red on slides 2 and 3, otherwise black.
+  \end{frame}
+#+end_src
+   1. \visible and \invisible are similar to \only
+   2. \alt<2>{On Slide 2}{Not on slide 2.} a set and its alternative
+   3. \temporal, see below
       \temporal<3-4>{Shown on 1, 2}{Shown on 3, 4}{Shown 5, 6, 7, ...}
       \temporal<3,5>{Shown on 1, 2, 4}{Shown on 3, 5}{Shown 6, 7, 8, ...}
-   10. If in the ordinary article document, you want to use the .tikz file but without removeing all the overlap specifications, you just need to include the beamerarticle in your preamble, e.g. \usepackage{beamerarticle}. With the help of this package, all the beamer overlap specifications commands will be suppressed, since we are in beamerarticle mode but beamer presentation mode.
-   11. Note that the different between \inlcudegraphcs{}<2->  and \visible<2->{\inlcudegraphcs{}}, the later one will still occupy the space if it is not shown.
-   12. in many commands, you can directly use <3-> or <3,4,5>, etc. They means only<3-> and only<3,4,5> respectively.
-
-
-
-** 
+   4. If in the ordinary article document, you want to use the .tikz file but without removeing all the overlap specifications, you just need to include the beamerarticle in your preamble, e.g. \usepackage{beamerarticle}. With the help of this package, all the beamer overlap specifications commands will be suppressed, since we are in beamerarticle mode but beamer presentation mode.
+   5. Note that the different between \inlcudegraphcs{}<2->  and \visible<2->{\inlcudegraphcs{}}, the later one will still occupy the space if it is not shown.
+   6. in many commands, you can directly use <3-> or <3,4,5>, etc. They means only<3-> and only<3,4,5> respectively.
+   7. Before Items you can add <alert@1>,<2-| alert@2-8>,<9-| alert@9>,<only@-9| visible@8->,<only@10->
+   8. \begin{actionenv}<2-| alert@3-4,6> This text is shown the same way as the text below. \end{actionenv}
+   9. \action<alert@2>{Could also have used \alert<2>{}.}
+   10. \item<2-| alert@2-3>
+   11. \beamerpauses the current value of the Latex counter beamerpauses, which is 1 at the beginning of the frame
+   12. Economic Writings
+#+begin_src latex
+  \begin{itemize}[<+-| alert@+>]
+  \item Apple
+  \item Peach
+  \item Plum
+  \item Orange
+  \end{itemize}
+#+end_src
+  1. Any occurence of a +-sign may be followed by an offset in round brackets. This offset will be added to the value of beamerpauses. Thus, if beamerpauses is 2, then <+(1)-> expands to <3-> and <+(-1)-+> expands to <1-2>
+  2. 

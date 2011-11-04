@@ -1,0 +1,21 @@
+\documentclass{article} 
+\usepackage{tikz} 
+
+\begin{document} 
+
+\begin{tikzpicture}[>=latex,scale=2]
+  \foreach \x in {-1, 0, 1} {
+    \foreach \y in {0, 1, 2} {
+      \path node (\x-\y) at (\x+\y-1, \y-\x) {};
+    }
+  }
+  % \path[->] (0-0) edge [bend right = 30] (0-1);
+
+  \node (a) at (0,0) {a};
+  \node (b) at (10em,10em) {b};
+  \path[->] (a) edge node (c) [above] {lianweidong} (b);
+  \node [above] at (c.north) {haha};
+
+\end{tikzpicture}
+
+\end{document}
