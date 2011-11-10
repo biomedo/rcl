@@ -52,8 +52,8 @@ Format 1
 \completion_inline_text true
 \completion_popup_delay 1.00
 \completion_popup_text true
-\thesaurusdir_path "/home/users/struct/lian/thesaurus"
-\hunspelldir_path "/home/users/struct/lian/hunspell"
+\thesaurusdir_path "~/thesaurus"
+\hunspelldir_path "~/hunspell"
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
