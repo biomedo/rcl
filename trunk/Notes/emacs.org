@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-09-03 18:46:06 Saturday by lian>
+# Time-stamp: <2011-11-05 01:05:27 Saturday by lian>
 
 #+OPTIONS: ^:nil author:lian timestamp:nil creator:nil
 * 介绍和个人体会
@@ -104,14 +104,15 @@
   2. C-x f   find-grep-in-dir
   3. C-x M-f find-grep-current-word-in-current-dir
   4. C-x M-F find-grep-current-word
-  5. M-x find-dired 用指定查找命令进行查找，按C-j进行查找参数设置，把查询到的结果dired-mode中显示
-  6. M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
-  7. C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
-  8. C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
-  9. M-x ediff-buffers or ediff-files文件或者缓冲器的比较
-  10. ediff-buffers, ediff-files, ediff-revisions, ediff-directories
-  11. ediff-patch-file, ediff-patch-buffer
-  12. emerge-files, emerge-buffers, emerge-revisions, emerge-merge-directories
+  5. C-x M-s isearch-forward-cur-word
+  6. M-x find-dired 用指定查找命令进行查找，按C-j进行查找参数设置，把查询到的结果dired-mode中显示
+  7. M-x dired-do-query-replace-regexp 对dired-mode中marked的文件进行交互查找替换操作
+  8. C-x d 列出当前正在编辑的文件所在的目录的文件列表 dired-jump；或者C-x C-f查找文件然后在找到目标目录后，按C-j也能显示目录列表
+  9. C-x C-f当进入这个命令模式时，可以用C-t进入正则表达式模式，或者C-e进入编辑模式
+  10. M-x ediff-buffers or ediff-files文件或者缓冲器的比较
+  11. ediff-buffers, ediff-files, ediff-revisions, ediff-directories
+  12. ediff-patch-file, ediff-patch-buffer
+  13. emerge-files, emerge-buffers, emerge-revisions, emerge-merge-directories
 
 * 文件查找
   1. M-x find-dired 然后出来提示浏览路径，然后C-j结束并且指定搜索配置比如-name '*.h' -or -name '*.cc'，然后开始进入查找并把结果列在dired-mode下，这时就可以充分利用dired-mode下的各种文件操作了，比如Q在marked files中进行查找替换，或者M-g对文件进行grep操作，或者X执行shell命令
