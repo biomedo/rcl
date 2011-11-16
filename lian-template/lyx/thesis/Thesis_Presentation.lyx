@@ -4,8 +4,7 @@
 \begin_header
 \textclass beamer
 \begin_preamble
-\input{preamble/beamerthemeChangchun.sty}
-\usepackage{ae,aecompl}
+\input{preamble/beamer-preamble.tex}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -193,7 +192,7 @@ xxx ddd
 
 \begin_layout Plain Layout
 \begin_inset Phantom HPhantom
-status open
+status collapsed
 
 \begin_layout Plain Layout
 dsfdfddfdfdfddfdfd
@@ -222,7 +221,7 @@ xx yyy
 
 
 \begin_inset Argument
-status open
+status collapsed
 
 \begin_layout Plain Layout
 dfdd
@@ -257,8 +256,52 @@ selectlanguage{english}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Comment
-status open
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frametitle{Outline of Presentation}    
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tableofcontents[currentsection,hideallsubsections] 
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -361,7 +404,7 @@ unbiased mean values of homogenized properties
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -376,7 +419,7 @@ smaller dispersions than classical homog extraction
 \begin_deeper
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -394,7 +437,7 @@ much tighter bounds (
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -408,7 +451,7 @@ for the case PERIODIC is not easy or impossible to to be applied
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -427,16 +470,189 @@ Computation for Large Images
 \end_layout
 
 \begin_layout BeginFrame
-Three-scale Strategies
+Objective of This Work
 \end_layout
 
+\begin_layout Standard
+\begin_inset Flex Structure
+status collapsed
+
+\begin_layout Plain Layout
+Objective: Develop an Enhanced Computational Homogenization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Image-based modeling for 
+\begin_inset Flex Structure
+status collapsed
+
+\begin_layout Plain Layout
+complex
+\end_layout
+
+\end_inset
+
+ microstructures using X-FEM/Levelset
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Alternative approaches for extraction of 
+\begin_inset Flex Structure
+status collapsed
+
+\begin_layout Plain Layout
+meso- and macro-scopic
+\end_layout
+
+\end_inset
+
+ properties
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Computation for 
+\begin_inset Flex Alert
+status collapsed
+
+\begin_layout Plain Layout
+large
+\end_layout
+
+\end_inset
+
+ images
+\end_layout
+
+\begin_layout OverlayArea
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\backslash
+textwidth}{0.8
+\backslash
+textheight}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Only
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<2>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Chapters/Figures_Subdomain_Extraction/edge_effects.eps
+	lyxscale 50
+	width 35col%
+	groupId column_width_2_small
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Chapters/Figures_Subdomain_Extraction/edge_effects.eps
+	lyxscale 50
+	width 35col%
+	groupId column_width_2_small
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout BeginFrame
-Outline of Presentation
+Style Of Outline Default
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Outline of Presentation Hiding subsections
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents[hideallsubsections]
+\end_layout
 
 \end_inset
 
@@ -460,6 +676,322 @@ Boundary Value Problem
 \end_layout
 
 \begin_layout BeginFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+[label=idl-appro-img-mod]
+\end_layout
+
+\end_inset
+
+Ideal Approaches for Image-Based Modeling
+\end_layout
+
+\begin_layout Uncover
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features islongtable="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Advantages
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Drawbacks
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Voxel-Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Easy, Automatic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Jagged Boundary
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Geometry
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Mesh Generation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+Huge Cost
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Conforming
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Smooth Surfaces
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Challenging, Manually
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Physical Surface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Adaptive Mesh Size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+Mesh Generation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Uncover
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\color none
+Ideal-Approach 
+\begin_inset Flex Alert
+status collapsed
+
+\begin_layout Plain Layout
+
+\color none
+Easy Mesh Generation but Accurate Geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Uncover
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Structure
+Non Conforming Meshes
+\end_layout
+
+\begin_layout Itemize
+Composite Finite Elements Method [F.
+ Liehr et al, 2009]
+\end_layout
+
+\begin_layout Itemize
+Finite Cell Approach [D.
+ Duster, 2008]
+\end_layout
+
+\begin_layout Itemize
+Finite Cover Method [K.
+ Terada et al, 2003]
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Alert
+status collapsed
+
+\begin_layout Plain Layout
+X-FEM, eXtended Finite Element Method [N.
+ Moes et al, 2003]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
 Various Numerical Strategies
 \end_layout
 
@@ -472,51 +1004,220 @@ X-FEM/Levelset Modeling
 \end_layout
 
 \begin_layout BeginFrame
-Meshing Strategies
+eXtended Finite Element Method
 \end_layout
 
-\begin_layout BeginFrame
-Calculation of Levelset
+\begin_layout Structure
+X-FEM: Partition of unity method [Babuska1996], Local enrichment of FE approxima
+tion [Moes1999]
 \end_layout
 
-\begin_layout BeginFrame
-Image Segmentation
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{\textrm{X-FEM}}(\boldsymbol{x})=\underbrace{\sum_{i\in I}u_{i}N_{i}(\boldsymbol{x})}_{\text{Classical}}+\underbrace{\sum_{j\in J}a_{j}N_{j}(\boldsymbol{x})F(\boldsymbol{x})}_{\text{Enriched}}
+\]
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+0.5
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Chapters/Figures_Subdomain_Extraction/edge_effects.eps
+	lyxscale 50
+	width 80col%
+	groupId column_width_1_normal
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+0.5
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Structure
+status collapsed
+
+\begin_layout Plain Layout
+Advantage
+\end_layout
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Itemize
+Level-Set Values 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+arrowTikz
+\end_layout
+
+\end_inset
+
+ Physical surfaces (piece-wise linear)
+\end_layout
+
+\begin_layout Itemize
+Mesh does not necessarily match physical surface
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Alert
+status collapsed
+
+\begin_layout Plain Layout
+Enrichment function 
+\begin_inset Formula $F(x)$
+\end_inset
+
+ ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Validation Examples
 \end_layout
 
-\begin_layout BeginFrame
-Model Assessment via Effective Properties
+\begin_layout AgainFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<4>
+\end_layout
+
+\end_inset
+
+idl-appro-img-mod
 \end_layout
 
 \begin_layout BeginFrame
 Model Assessment via Analysis of Local Quantities
 \end_layout
 
+\begin_layout BeginFrame
+Concluding Remarks
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+The subdomain process leads to
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Significantly decrease the distance 
+\begin_inset Formula $Z_{\mathrm{KUBC}}-Z_{\mathrm{SUBC}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Small specimen Accurate physical properties
+\end_layout
+
+\begin_layout Itemize
+Similar mean and standard deviation for different B.C.s
+\end_layout
+
+\begin_layout Itemize
+Small 
+\begin_inset Formula $d^{\mathrm{min}}$
+\end_inset
+
+, around the size of micro-heterogeneities
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Numerical Examples
 \end_layout
 
-\begin_layout BeginFrame
-A Ceramic-metallic Composite Material
+\begin_layout AgainFrame
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3-4>
 \end_layout
 
-\begin_layout ExampleBlock
-{dfadsf}
-\end_layout
+\end_inset
 
-\begin_layout ExampleBlock
-dfasdfsdaf
-\end_layout
-
-\begin_layout ExampleBlock
-dfsdafsda
-\end_layout
-
-\begin_layout ExampleBlock
-dfasfsda
+idl-appro-img-mod
 \end_layout
 
 \begin_layout BeginFrame
@@ -528,8 +1229,8 @@ A Cereal Solid Food
 \begin_inset Graphics
 	filename Chapters/Figures_XFEM_VoxelBased_FEM/Cutted_Scale_LevelSet_Value.png
 	lyxscale 50
-	width 80col%
-	groupId column_width_1_normal
+	width 70col%
+	groupId column_width_1_small
 
 \end_inset
 
@@ -546,52 +1247,6 @@ Edge Effects
 
 \begin_layout Subsection
 Determination of Sample Numbers
-\end_layout
-
-\begin_layout BeginFrame
-Random Subsampling Homogenization
-\end_layout
-
-\begin_layout Itemize
-dfasdsa
-\end_layout
-
-\begin_layout Itemize
-odfasdfsda
-\end_layout
-
-\begin_layout BeginFrame
-Sample Numbers
-\end_layout
-
-\begin_layout Block
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-{sdfsdf}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-sdfsadf
-\end_layout
-
-\begin_layout Itemize
-dfsadfsa
-\end_layout
-
-\begin_layout Enumerate
-dfdasfsa
-\end_layout
-
-\begin_layout Enumerate
-dfasdf
 \end_layout
 
 \begin_layout BeginFrame
@@ -614,14 +1269,6 @@ Existence of Edge Effect
 Edge Effects
 \end_layout
 
-\begin_layout BeginFrame
-Subdomain Extraction Process
-\end_layout
-
-\begin_layout BeginFrame
-Determination of Edge Effects Region
-\end_layout
-
 \begin_layout Subsection
 Numerical Examples
 \end_layout
@@ -632,22 +1279,6 @@ Matrix-Fiber Example for
 \end_inset
 
 
-\end_layout
-
-\begin_layout BeginFrame
-Matrix-Fiber Example for 
-\begin_inset Formula $E_{f}/E_{m}=0.01$
-\end_inset
-
-
-\end_layout
-
-\begin_layout BeginFrame
-Random Checkerboard
-\end_layout
-
-\begin_layout BeginFrame
-Concluding Remarks
 \end_layout
 
 \begin_layout Section
@@ -664,32 +1295,6 @@ Concluding Remarks
 
 \begin_layout Section
 Conclusions
-\end_layout
-
-\begin_layout BeginPlainFrame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace vfill
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-
-\series bold
-\size huge
-Conclusions et Perspectives
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace vfill
-\end_inset
-
-
 \end_layout
 
 \begin_layout BeginFrame
@@ -727,7 +1332,7 @@ unbiased mean values of homogenized properties
 \begin_deeper
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -741,7 +1346,7 @@ smaller dispersions than classical homog extraction
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -759,7 +1364,7 @@ much tighter bounds (
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -773,7 +1378,7 @@ for the case PERIODIC is not easy or impossible to to be applied
 
 \begin_layout Itemize
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 

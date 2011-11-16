@@ -4,7 +4,7 @@
 \begin_header
 \textclass scrbook
 \begin_preamble
-\input{../preamble/child-preamble.cfg}
+\input{child-preamble.tex}
 \end_preamble
 \options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
 \use_default_options true
@@ -143,7 +143,7 @@ This is the branch, which is only used when compiling the child document.
  this child document for editing.
  Owing to this branch, the child document will enable the BibTex Lib and
  nomenclature, etc.
- Furthermore, in the preamble of this document, we input the same preamble.cfg
+ Furthermore, in the preamble of this document, we input the same preamble.tex
  configuration files.
  So you will benefit the same setting and configuration as the Master document.
 \end_layout

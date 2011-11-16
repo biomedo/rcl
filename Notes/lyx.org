@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-11-04 18:35:15 Friday by lian>
+# Time-stamp: <2011-11-10 22:07:28 Thursday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -80,4 +80,4 @@
   \end{itemize}
 #+end_src
   1. Any occurence of a +-sign may be followed by an offset in round brackets. This offset will be added to the value of beamerpauses. Thus, if beamerpauses is 2, then <+(1)-> expands to <3-> and <+(-1)-+> expands to <1-2>
-  2. 
+  2. Bookmarks are hiden in beamer presentation if Numbering & TOC in Document->Settings is not well set. 

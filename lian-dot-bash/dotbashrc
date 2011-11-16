@@ -26,7 +26,7 @@ export DEVROOT=/glouton/struct/$USER/develop-alternative
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-2-petsc
 #export DEVROOT=/glouton/struct/$USER/develop-alternative-3
-export DEVROOT=/cassini/struct/lian/eXlibris
+#export DEVROOT=/cassini/struct/lian/eXlibris
 
 #===============================The same as develop-alternative only change the code homog ======================================
 # export DEVROOT=/glouton/struct/$USER/develop-alternative-homog
@@ -43,8 +43,8 @@ export DEVROOT=/cassini/struct/lian/eXlibris
 # User specific aliases and functions
 #Variables to compile the code
 
-export GDFONTPATH=/usr/share/fonts/truetype/ttf-dejavu-lpc
-export GNUPLOT_DEFAULT_GDFONT=DejaVuLGCSans
+#export GDFONTPATH=/usr/share/fonts/truetype/ttf-dejavu-lpc
+#export GNUPLOT_DEFAULT_GDFONT=DejaVuLGCSans
 #useful commands
 alias c3d='/glouton/struct/lian/develop/tools/bin/c3d'
 alias c2d='/glouton/struct/lian/develop/tools/bin/c2d'

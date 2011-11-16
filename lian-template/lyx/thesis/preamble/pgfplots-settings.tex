@@ -1,0 +1,31 @@
+%%% line style
+\pgfplotsset
+{
+  %% change the tick and axis and plots
+  % every axis/.append style=
+  % {
+  % font=\small,
+  % line width=1pt,
+  % tick style=
+  % {
+  % line width=0.6pt
+  % }
+  % }
+  %%   change the plots only
+  every axis plot/.append style={line width=1pt}
+}
+
+
+%%% legend style
+\pgfplotsset
+{
+  every axis legend/.append style={legend cell align=left}
+}
+
+
+%%% mark size and style
+\tikzset
+{
+  every mark/.append style={scale=0.6}
+  % every mark/.append style={mark size=1pt}
+}
