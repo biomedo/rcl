@@ -1,0 +1,100 @@
+%% ==================================
+%% Beamer Themes Predefined Template 
+%% ==================================
+\usetheme{CambridgeUS}
+% \usetheme{Antibes} % tree outline, neat
+% \usetheme{JuanLesPins} % like Antibes, with shading
+% \usetheme{Bergen}  % outline on side
+% \usetheme{Luebeck} % like Warsaw, square sides
+% \usetheme{Berkeley}    % interesting left bar outline
+% \usetheme{Madrid}  % clean, nice.  7/12 page numbers
+% \usetheme{Berlin}  % dots show slide number
+% \usetheme{Malmoe}  % OK, plain, unshaded
+% \usetheme{Boadilla}    % nice, white bg, no top bar
+% \usetheme{Marburg} % nice, outline on right
+% \usetheme{boxes}   % ???
+% \usetheme{Montpellier} % tree outline on top, plainish white
+% \usetheme{Copenhagen}  % like Warsaw
+% \usetheme{PaloAlto}    % looks good
+% \usetheme{Darmstadt}   % like Warsaw with circle outline
+% \usetheme{Pittsburgh}
+% \usetheme{default}
+% \usetheme{Rochester}   % like boxy, unshaded warsaw
+% \usetheme{Dresden} % circle outline on top
+% \usetheme{Singapore}   % purple gradient top
+% \usetheme{Frankfurt}    % like Warsaw with circle outline on top
+% \usetheme{Szeged}
+% \usetheme{Goettingen}  % light purple right bar outline
+% \usetheme{Warsaw}
+% \usetheme{Hannover}    % like Goett with bar on left
+% \usetheme{compatibility}
+% \usetheme{Ilmenau}
+%% include my self-defined beamer style named
+%% with the city ChangChun in china, if you want 
+%% add the predefined style of beamer, please see
+%% beamer-preamble.cfg for more templates.
+% \input{preamble/beamerthemeChangchun.sty}
+
+%% =================================
+%% Beamer Presentation Class Options
+%% =================================
+\setbeamercovered{transparent}
+
+% \setbeamertemplate{mini frames}[box]
+
+% \usecolortheme{seahorse}
+% \usecolortheme{rose}
+
+% \setbeamertemplatefcaptiong[numbered]
+
+% \setbeamercolor{section in toc}{fg=red}
+% \setbeamercolor{subsection in toc}{fg=red}
+% \setbeamercolor{subsection in toc show}{fg=red}
+% \setbeamertemplate{table of contents shaded}[default][50]
+% \setbeamertemplate{table of contents shaded}[default][50]
+
+%% remove navigation symbols bar in the right bottom, if you would like
+%% to keep that navigation symbols, please comment this line
+% \setbeamertemplate{navigation symbols}{} 
+
+%% supress the frame numbering after appendix
+\input{preamble/appendixnumberbeamer.sty}
+
+% fix the font problem in toc
+\usepackage{ae,aecompl}
+
+% an opportunity to redefine the first titlepage
+\renewcommand\makebeamertitle{\frame[plain,label=frmtitlepage]{\maketitle}}
+% \renewcommand\makebeamertitle{
+%   {
+%     \setbeamertemplate{footline}{}
+%     \setbeamertemplate{headline}{}
+%     \begin{frame}
+%       \titlepage
+%     \end{frame}    
+%   }
+% }
+
+%% =================
+%% Tikz and Pgfplots
+%% =================
+\usepackage{tikz,pgfplots}
+
+%% load some TikZ libraries
+%% - REMARK: do not use blanks or newlines between the libraries
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit,backgrounds}
+
+\input{preamble/tikz_settings.tex}
+\input{preamble/tikz-cmd.tex}
+\input{preamble/pgfplots-settings.tex}
+
+
+%% ==========================
+%% Graphics and Path Settings
+%% ==========================
+% \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% \graphicspath{{Slides/}}
+% \graphicspath{{Chapters/}}
+% \graphicspath{{Chapters/Figures_Identification_Regeneration}}
+% \graphicspath{{Chapters/Figures_Subdomain_Extraction}}
+% \graphicspath{{Chapters/Figures_XFEM_VoxelBased_FEM}}

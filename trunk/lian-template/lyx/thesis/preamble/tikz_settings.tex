@@ -1,0 +1,435 @@
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{every picture}+=[remember picture]
+
+
+\tikzset
+{
+  FittingStyle/.style =
+  {
+    % -- shape properties --
+    shape = ellipse,                            % shape
+    % rounded corners = 1mm,                  % kind of corner (and radius of the roundness)
+    % minimum height  = 0.15\textwidth,       % | minimum size of the node
+    % minimum width   = 0.9\textwidth,        % |
+    % minimum size    = 4.5mm,                %
+    % rotate          = 0,                    % angle of rotation
+    scale           = 1.0,                  % scaling factor
+    thick,                                  % thickness of the border
+    % 
+    % -- colours properties --
+    % filling: [ trasparent | monocolored | shaded]; decomment what you prefer
+    %       %                                       % transparent (all commented)
+    % fill            = black!30,             % monocolored
+    % top color       = white,                % | filling of the node
+    % bottom color    = red!50!black!20,      % |
+    % text            = black,                % colour of the fonts
+    draw            = red,              % colour of the border
+    % 
+    % -- fonts --
+    % font            = \scriptsize,              % shape of the font (or dimension, like \tiny)
+    % text centered,                          % text alignment [text centered | text badly centered | text justified | text ragged | text badly ragged]
+    % text height     = 1mm,                  % ! minimum size of the text    % NOT WORKING
+    % text depth      = 1mm,                  % !
+    inner xsep      = 0mm,                  % minimum distance between text and borders along x dimension
+    inner ysep      = 0mm                   % minimum distance between text and borders along y dimension
+  }
+}
+
+\tikzset
+{
+  GenericNodeStyle/.style =
+  {
+    % -- shape properties --
+    shape = rectangle,                          % shape
+    rounded corners = 3mm,                  % kind of corner (and radius of the roundness)
+    minimum height  = 1cm,                  % | minimum size of the node
+    minimum width   = 2cm,                  % |
+    scale           = 1.0,                  % scaling factor
+    thick,                                  % thickness of the border
+    % 
+    % -- colours properties --
+    % filling: [ trasparent | monocolored | shaded]; decomment what you prefer
+    %       %                                       % transparent (all commented)
+    fill            = green!10!white,               % monocolored
+    % top color       = white,                % | filling of the node
+    % bottom color    = red!50!black!20,      % |
+    % text            = black,                % colour of the fonts
+    draw            = green,                % colour of the border
+    % 
+    % -- fonts --
+    % font            = \scriptsize,              % shape of the font (or dimension, like \tiny)
+    % text centered,                          % text alignment [text centered | text badly centered | text justified | text ragged | text badly ragged]
+    % text height     = 1mm,                  % ! minimum size of the text    % NOT WORKING
+    % text depth      = 1mm,                  % !
+    inner xsep      = 3mm,                  % minimum distance between text and borders along x dimension
+    inner ysep      = 3mm                   % minimum distance between text and borders along y dimension
+  }
+}
+
+
+
+
+\tikzset
+{
+  NormalNodeStyle/.style =
+  {
+    shape = circle,                         % shape
+    minimum size    = 20,                   %
+    rotate          = 0,                    % angle of rotation
+    scale           = 1.0,                  % scaling factor
+    thick,                                  % thickness of the border
+    text            = black,                % colour of the fonts
+    draw            = black,                % colour of the border
+    font            = \small,               % shape of the font (or dimension, like \tiny)
+    text centered,                          % text alignment
+    inner xsep      = 0,                    % minimum distance between text and borders along x dimension
+    inner ysep      = 0                     % minimum distance between text and borders along y dimension
+  }
+}
+
+
+
+\tikzset
+{
+  BridgeNodeStyle/.style =
+  {
+    circle,                                 % shape
+    minimum size    = 20,                   %
+    rotate          = 0,                    % angle of rotation
+    scale           = 1.0,                  % scaling factor
+    thick,                                  % thickness of the border
+    fill            = black!30,             % monocolored
+    text            = black,                % colour of the fonts
+    draw            = black,                % colour of the border
+    font            = \small,               % shape of the font (or dimension, like \tiny)
+    text centered,                          % text alignment 
+    inner xsep      = 0,                    % minimum distance between text and borders along x dimension
+    inner ysep      = 0                     % minimum distance between text and borders along y dimension
+  }
+}
+
+
+
+
+
+
+\tikzset
+{
+  WarningTextStyle/.style =
+  {
+    rectangle,                      % shape
+    rounded corners = 0.6cm,        %
+    minimum size    = 2cm,          %
+    rotate          = 0,            % angle of rotation
+    scale           = 1.0,          % scaling factor
+    thick,                          % thickness of the border
+    fill            = red!10,       % monocolored
+    text            = red!10!black, % colour of the fonts
+    draw            = red,          % colour of the border
+    % font          = \large,       % shape of the font (or dimension, like \tiny)
+    text centered,                  % text alignment 
+    text width      = 10cm,         % text alignment 
+    inner xsep      = 0.5cm,        % minimum distance between text and borders along x dimension
+    inner ysep      = 0.5cm         % minimum distance between text and borders along y dimension
+  }
+}
+
+
+\tikzstyle{sNormalImageStyle} =
+[
+]
+
+\tikzstyle{sSplitTwoPartsStyle} =
+[
+rectangle split,
+rectangle split parts=2,
+rectangle split draw splits=false
+]
+
+\tikzstyle{sConnectionTextStyle}=
+[
+midway,
+above,
+sloped,
+align=center,
+]
+
+\tikzstyle{sNormalBlockStyle} =
+[
+draw=blue,
+rectangle,
+rounded corners = 0.1cm,
+fill            = blue!20,
+minimum height  = 3em,
+minimum width   = 6em,
+]
+
+\tikzstyle{sNormalDiamondStyle} =
+[
+diamond,
+draw        = blue,
+% thick,
+fill        = blue!20,
+align       = flush center,
+]
+
+\tikzstyle{sWarningBlockStyle} =
+[
+rectangle,
+rounded corners = 0.1cm,
+fill            = alerted text.fg!20,       % monocolored
+text            = alerted text.fg!20!black, % colour of the fonts
+draw            = alerted text.fg,          % colour of the border
+minimum height  = 3em,
+minimum width   = 6em,
+]
+
+\tikzstyle{sFillBlockStyle} =
+[
+draw = red,
+rectangle,
+fill            = blue,
+fill opacity = 0.4,
+line width = 4pt,
+minimum height  = 3em,
+minimum width   = 6em
+]
+
+
+\tikzstyle{sFillGrayStyle} =
+[
+% draw = red,
+rectangle,
+fill            = gray,
+fill opacity = 0.5,
+line width = 4pt,
+rounded corners,
+minimum height  = 3em,
+minimum width   = 6em
+]
+
+
+\tikzstyle{sSumBlockStyle} =
+[
+shape           = circle,
+draw,
+fill            = blue!20,
+]
+
+\tikzstyle{sFittingStyle} =
+[
+shape = rectangle,
+draw,
+line width = 2pt,
+color = red,
+inner sep = 2mm,
+rounded corners
+]
+
+\tikzstyle{sFittingStyleAlt} =
+[
+shape = rectangle,
+draw = red,
+fill=none,
+line width = 2pt,
+inner sep = 2mm,
+rounded corners
+]
+
+\tikzstyle{sFittingStyleDotted} =
+[
+sFittingStyle,
+dash pattern = on 1pt off 4pt on 6pt off 4pt,
+]
+
+
+\tikzstyle{sArrowsStyleEmph} =
+[
+line width = 8pt,
+color   = red!95!black,
+-latex
+]
+
+
+\tikzstyle{sArrowsStyleNormal} =
+[
+line width = 2pt,
+color   = blue,
+-latex
+]
+
+
+\tikzstyle{sLinesStyle} =
+[
+thick,
+color   = black,
+-
+]
+
+
+
+
+\tikzstyle{sTextBlockStyle} =
+[
+draw,
+rectangle,
+drop shadow,
+rounded corners = 0.1cm,
+fill            = blue!10,
+thick,
+inner xsep      = 0.2cm,        % minimum distance between text and borders along x dimension
+inner ysep      = 0.2cm         % minimum distance between text and borders along y dimension
+]
+
+
+
+\tikzfading % DO NOT CHANGE THE ORDER OF THE COLORS otherwise it will not work
+[
+name            = middle,
+top color       = transparent!100,
+bottom color    = transparent!100,
+middle color    = transparent!00,
+]
+
+
+
+\tikzstyle{sCoalFiredPlant} =
+[
+shape           = rectangle,
+minimum height  = 0.5cm,
+minimum width   = 0.5cm,
+rounded corners = 0.1cm,
+fill            = black!20,
+draw            = black,
+line width      = 0.1cm,
+inner xsep      = 0.2cm,
+inner ysep      = 0.2cm
+]
+
+
+%% ===================================================
+%% Add overlap and colorlet to mindmap library of tikz
+%% ===================================================
+\RequirePackage{helvet} 
+
+\makeatletter 
+\def\tikz@collect@child hild{% 
+  \pgfutil@ifnextchar<{\tikz@collect@child@overlay}% 
+  {\pgfutil@ifnextchar[{\tikz@collect@childA}{\tikz@collect@childA[]}}% 
+} 
+\def\tikz@collect@child@overlay<#1>{% 
+  \pgfutil@ifnextchar[{\tikz@collect@child@@overlay{#1}}{\tikz@collect@childA[child 
+    overlay={#1}]}}%} 
+
+\def\tikz@collect@child@@overlay#1[{\tikz@collect@childA[child overlay={#1},} 
+
+\def\tikzprocessoverlay#1#2#3{% 
+  \def\beamer@doifinframe{#2}% 
+  \def\beamer@doifnotinframe{#3}% 
+  \beamer@masterdecode{#1}% 
+  \beamer@donow% 
+} 
+
+% Extra hackery to allow preactions on different layers. 
+% 
+\def\tikz@extra@preaction#1{% 
+  {% 
+    \pgfsys@beginscope% 
+    \setbox\tikz@figbox=\box\voidb@x% 
+    \begingroup\tikzset{#1}\expandafter\endgroup% 
+    \expandafter\def\expandafter\tikz@preaction@layer\expandafter{\tikz@preaction@layer}% 
+    \ifx\tikz@preaction@layer\pgfutil@empty% 
+    \path[#1];% do extra path 
+    \else% 
+    \begin{pgfonlayer}{\tikz@preaction@layer}% 
+      \path[#1];% 
+    \end{pgfonlayer} 
+    \fi% 
+    \pgfsyssoftpath@setcurrentpath\tikz@actions@path% restore 
+    \tikz@restorepathsize% 
+    \pgfsys@endscope% 
+  }% 
+} 
+\let\tikz@preaction@layer=\pgfutil@empty 
+
+\tikzset{preaction layer/.store in=\tikz@preaction@layer} 
+
+\makeatother 
+
+\tikzset{% 
+  child overlay/.code={% 
+    \tikzprocessoverlay{#1}{}% 
+    {% 
+      \tikzset{% 
+        circle connection bar switch color/.code={}, 
+        edge from parent/.style={draw=none}, 
+        every node/.style={ 
+          concept, draw=none, fill=none, 
+          execute at begin node={\setbox0=\hbox\bgroup\hskip0pt\let\\=\relax}, 
+          execute at end node=\egroup\phantom{\box0} 
+        }% 
+      }% 
+    }% 
+  } 
+} 
+
+\pgfdeclarelayer{shadow} 
+\pgfsetlayers{shadow,main} 
+
+\tikzset{ 
+  use shadow/.style={% 
+    copy shadow={% 
+      preaction layer=shadow, fill=gray!25, draw=none, 
+      shadow xshift=0.5ex, shadow yshift=-0.5ex 
+    } 
+  }, 
+  small mindmap/.style={ 
+    level 1/.append style={level 1 concept}, 
+    level 2/.append style={level 2 concept}, 
+    level 3/.append style={level 3 concept}, 
+    level 4/.append style={level 4 concept}, 
+    every concept/.style={align=center, font=\footnotesize\strut, text=black, 
+      outer sep=-.25pt}, 
+    text width=2.6cm, 
+    concept color=root color, 
+    level 1 concept/.style={ 
+      text width=2.2cm, 
+      % level distance=3cm, 
+      % sibling angle=75, 
+      % counterclockwise from=285, 
+      every child/.style={concept color=level 1 color}, 
+    }, 
+    level 2 concept/.style={ 
+      text width=1.5cm, 
+      % level distance=3cm, 
+      % sibling angle=30, 
+      % clockwise from=30, 
+      every child/.style={concept color=level 2 color},   
+    }, 
+    level 3 concept/.style={ 
+      text width=1cm, 
+      % level distance=3cm, 
+      % sibling angle=30, 
+      % clockwise from=30, 
+      every child/.style={concept color=level 3 color}, 
+    },  
+    every node/.style={concept, execute at begin node=\hskip0pt, use shadow}, 
+    every circle connection bar/.append style={append after 
+      command={[use shadow]}} 
+  }, 
+  root first/.style=, 
+  root second/.style=, 
+  root third/.style=, 
+  root fourth/.style=, 
+} 
+
+\colorlet{root color}{blue!25} 
+\colorlet{level 1 color}{purple!50} 
+\colorlet{level 2 color}{red!50} 
+\colorlet{level 3 color}{pink!50} 
+\colorlet{highlight}{orange!25!yellow} 
+
+\pgfkeysdefargs{/tikz/assign color}{#1 to #2}{\colorlet{#2}{#1}} 

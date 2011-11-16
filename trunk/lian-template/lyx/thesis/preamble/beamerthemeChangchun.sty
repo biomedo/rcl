@@ -7,13 +7,6 @@
 % 
 % See the file doc/licenses/LICENSE for more details.
 
-\setbeamercovered{transparent}
-
-% remove navigation symbols bar in the right bottom, if you would like
-% to keep that navigation symbols, please comment this line
-\setbeamertemplate{navigation symbols}{} 
-
-
 \newif\ifbeamer@sb@subsection
 
 \DeclareOptionBeamer{subsection}[false]{\csname beamer@sb@subsection#1\endcsname}
@@ -82,12 +75,12 @@
   \vskip-7ex%
   \fi%
   \hbox{
+    \begin{beamercolorbox}[ignorebg,wd=0.06\paperwidth,ht=2.25ex,dp=3.75ex]{section in head/foot}
+      \textbf{\insertframenumber{}/\inserttotalframenumber}
+    \end{beamercolorbox}
     \begin{beamercolorbox}[ignorebg,wd=0.94\paperwidth,ht=2.25ex,dp=3.75ex]{section in head/foot}
       \insertnavigation{0.94\paperwidth}
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[ignorebg,wd=0.06\paperwidth,ht=2.25ex,dp=3.75ex,center]{section in head/foot}
-      \insertframenumber{}/\inserttotalframenumber
-    \end{beamercolorbox}
   }
   \ifbeamer@sb@subsection%
   \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%

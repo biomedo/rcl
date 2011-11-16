@@ -1,0 +1,74 @@
+% define a new command for presentation mode
+% to be used for pgf or tikz
+\newcommand{\pmode}[1] {\mode<presentation>{#1}}
+
+
+% define some length for tikz scheme
+\newlength\figureheight
+\newlength\figurewidth
+\newcommand{\setfigsizeTikz}[2]{
+  \setlength\figurewidth{#1}
+  \setlength\figureheight{#2\figurewidth}
+}
+\newcommand{\inputTikz}[3]{
+  \setlength\figurewidth{#1}
+  \setlength\figureheight{#2\figurewidth}
+  \input{#3}
+}
+
+
+% a rectangle box around the input text
+% First par: color of rectangle
+% Second par: input text
+% optional first par: color is red as defaut
+\newcommand{\textboxTikz}[2][alerted text.fg]{
+  \tikz[baseline=-.5ex] \node [draw, shape=rectangle, color=#1] {#2};
+}
+
+
+% a arrow with given color and length
+% First par: color of arrow
+% Second par: length of arrow
+% Optional first par: red!95!black
+% Optional second par: 2em
+\newcommand{\arrowTikz}[1][alerted text.fg]{
+  \def\arrowTikzFirstPar{#1}\arrowTikzTemp}
+\newcommand{\arrowTikzTemp}[1][2]{
+  \tikz[baseline=-.5ex] \draw [line width = 0.25ex, color = \arrowTikzFirstPar, -latex] (0em,0em) -- (#1em,0em);
+}
+
+
+% execute a tikz command in any point of the page
+\newcommand{\tikzatpage}[3]{
+  \tikz[remember picture, overlay, shift={(current page.south west)}, xshift=#1, yshift=#2] #3;
+}
+
+% warningtextbox
+\newcommand{\warningtextboxTikz}[1]{
+  \begin{tikzpicture}
+    [
+    xscale = 1,
+    yscale = 1,
+    warningtextboxstyle/.style =
+    {
+      rectangle,                      % shape
+      rounded corners = 0.6cm,        %
+      minimum size    = 2cm,          %
+      rotate          = 0,            % angle of rotation
+      scale           = 1.0,          % scaling factor
+      thick,                          % thickness of the border
+      fill            = red!10,       % monocolored
+      text            = red!10!black, % colour of the fonts
+      draw            = red,          % colour of the border
+      % font          = \large,       % shape of the font (or dimension, like \tiny)
+      text centered,                  % text alignment 
+      text width      = 10cm,         % text alignment 
+      inner xsep      = 0.5cm,        % minimum distance between text and borders along x dimension
+      inner ysep      = 0.5cm         % minimum distance between text and borders along y dimension
+    }
+    ]
+    \node [WarningTextStyle] {#1};
+  \end{tikzpicture}  
+}
+
+
