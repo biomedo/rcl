@@ -1,0 +1,397 @@
+# -*- org -*-
+
+# Time-stamp: <2011-11-24 12:15:55 Thursday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+###############################################################
+UBUNTU，HP6515B，无线网卡驱动
+Posted on 2009年06月18日 by nmdk315
+http://forum.ubuntu.org.cn/posting.php?mode=quote&f=116&p=1338771
+
+我刚刚设置好了6515b的无线上网
+参考的是http://hi.baidu.com/caosicong/blog/item/45b6cb8f7912e7ebf01f36d1.html
+引用:
+1、重做initrd,删除ssb模块
+这样实现
+(可以先uname -r，得到内核版本，然后用它来代替$(uname -r)，我的内核是linux-2.6.24-17-generic)
+sudo rm /lib/module/$(uname -r)/kernel/driver/ssb -rf
+sudo depmod -a
+sudo mv /boot/initrd.img-$(uname -r) /boot/initrd.img-$(uname -r).old
+下面跟原文有些不一样，请注意，原文是
+#mkinitrd /boot/xxx.img `uname -r`
+
+在ubuntu 8.04里面发现已经不用这个命令了
+应该这样
+sudo mkinitramfs -o /boot/initrd.img-$(uname -r)
+如果找不到mkinitramfs命令，请在新立得软件安装里搜索initramfs，安装相关工具
+
+sudo gedit /etc/modprobe.d/blacklist
+确认里面有
+blacklist bcm43xx
+blacklist b43
+blacklist ssb
+没有可以加上
+
+2、安装ndiswrapper
+这个就不用说了，搜一下就行了，我装的是ndiswrapper 1.52
+
+3、安装bcmwl5.inf
+下载HP的无线网卡驱动SPxxx.exe
+用cabextract解压
+sudo capextract spxxx.exe
+如果找不到该命令，请安装cabextract工具包
+
+进入解压目录
+运行
+sudo ndiswrapper -i bcmwl5.inf
+
+用 ndiswrapper -l看下安装是否成功，一般情况下都不会有问题，嘿嘿
+
+再运行sudo ndiswrapper -m，为你的无线网卡指定个别名wlan0
+
+4、自动加载ndiswrapper
+sudo gedit /etc/modules
+加上ndiswrapper
+保存退出
+
+OK
+无线网卡就装完了
+重启，看看nm-applet 手动配置里面是不是多了无线连接了？
+看看是不是有启动无线选项了？
+用iwconfig看看是不是找到wlan0了?
+用iwlist看看是不是能搜到无线网络了？
+
+如果有问题，你不妨lsmod，看看里面是不是有ssb，如果有，就说明你没有删除掉，重做第一步吧。
+我发现关键问题就是ssb，而于ohci_hcd模块无关
+就写这么多
+
+我实际上只执行第1，2步，然后重启，无线指示灯就亮了
+然后执行“系统”－“系统管理”－“硬件驱动”
+激活系统提供的无线网卡驱动，
+然后左键单击系统栏网络图标，选择发现的无线网络，
+呵呵，发现附近有四个不同的无线网络，选择了自己的网络
+一切OK，
+备注：我在无线路由器中没有设置加密，设定的限制指定的物理网卡地址连接。
+
+以上供大家参考。
+
+
+########################################################
+Using Wifi in Ubuntu on HP 6515b (broadcom)
+with 5 comments
+
+so after the install the thing that is left is the WiFi support so here it goes
+first disable the bcm43xx driver
+sudo rmmod bcm43xx
+then black list the driver by adding “balcklist bcm43xx” in
+sudo gedit /etc/modprobe.d/blacklist
+then download diswrapper-utils-1.9 deb file and install it offline or if you have a LAN connection, For the next step you should have a copy of the windows driver on HDD or flash drive and type
+sudo ndiswrapper -i /the location of windows driver/bcmwl5.inf
+now check if driver is there or not
+sudo ndiswrapper -l
+you should get a output like
+bcmwl5 : driver installed
+device (14E4:4312) present (alternate driver: bcm43xx)
+then type
+sudo ndiswrapper -m
+to write wlan0 to ndiswrapper, then you need to start ndiswrapper type
+sudo modprobe ndiswrapper
+Now you just need to enable ndiswrapper to start on boot, for that add “ndiswrapper” in /etc/modules
+sudo gedit /etc/modules
+all done enjoy
+
+Ankur Shrivastava
+
+######################################################################
+Wifi activation on Ubuntu 8.04 Hardy Heron
+Dear all,
+
+Now i try to publish steps to activate wifi on Ubuntu 8.04 Hardy Heron.
+
+Again, I use laptop Acer Aspire 4520 AMD Turion64 X2, atheros wireless.
+
+Let start:
+
+1. Open Terminal window to write a command line.
+
+Applications -> Accessories -> Terminal
+
+2. Download ndiswrapper (make sure that you are already connected to the internet)
+
+Type on the terminal these three command step by step :
+
+sudo apt-get install ndiswrapper-common
+
+sudo apt-get install ndisgtk
+
+sudo apt-get install ndiswrapper-utils-1.9
+
+3. Install Windows Wireless Driver Application.
+
+In this case i use add/remove program.
+
+Applications -> Add/Remove…
+
+Click on System Tools, and then check on the Windows Wireless Drivers checkbox.
+
+Continue with Apply changes.
+
+4. Download your wireless device driver (net5211.inf file).
+
+In case of you use atheros, just type “atheros xp” on the google.
+
+make sure that you get file net5211.inf
+
+save on a location.
+
+5. Set file net5211.inf using Windows Wireless Drivers application.
+
+System -> Administration -> Windows Wireless Drivers
+
+Click on the “Install New Driver” and browse the location of file net5211.inf
+
+Click install.
+
+Now the driver has been installed.
+
+To check it out, type on the terminal : ndiswrapper -l
+
+The command should generate a response like this :
+
+===========================================
+
+engineer@BS001NB:~$ ndiswrapper -l
+net5211 : driver installed
+device (168C:001C) present (alternate driver: ath_pci)
+engineer@BS001NB:~$
+
+===========================================
+
+6. ndiswrapper -m and ndiswrapper -ma
+
+In using this command, based on my experience, you must login as root (plese refer to my other post: “Root account in Ubuntu 8.04 Hardy Heron” for more detail about root login).
+
+Type on the terminal (root login) step by step:
+
+ndiswrapper -m
+
+ndiswrapper -ma
+
+7. Check weather wifi succeed activated or not.
+
+Type on the termonal : iwconfig
+
+The command should appears wlan0 on the list, indicated that wifi has been activated.
+
+8. Install a wifi manager application.
+
+In this case i use RutilT WLAN Manager
+
+You can use Add/Remove program to install that application.
+
+Applications -> Add/Remove…
+
+Click on Internet, and then check on the RutilT WLAN Manager checkbox.
+
+Continue with Apply changes.
+
+8. That’s All.
+
+
+Share this:
+StumbleUpon
+Digg
+Reddit
+Like this:
+Like
+Be the first to like this post.
+Posted in Linux Ubuntu | Tags: Acer Aspire 4520, hardy heron, linux, ubuntu 8.04, wifi, wireless, WLAN
+
+« Nokia 7600 modem on Ubuntu 8.04 Hardy Heron via bluetoothAccessing Remote OPC Server (Windows XP SP2 Configuration) »
+RESPONSES
+Hi, i did the way you wrote in your post, rutilt wan i managed to get the comp to display and show wifi connection. but i still cannot browse the net. If i try to open a website it says firefox is offline mode and cannot browse the net. Kindly hepl
+
+By: arnab on July 29, 2008 
+at 2:20 pm
+
+Hi arnab,
+
+lets discuss ….. 
+try to check these :
+1. activation of wlan0
+Type on the termonal : iwconfig
+the normal one will appears wlan0 in the list.
+2. wireless access point
+is there any wireless access point in your location??
+3. enabling the wireless hardware.
+This is maybe the confuse one (my case).
+My laptop acer 4520, using atheros wireless.
+If I use windows OS, It’s look functioned well. when I enable the wireless hardware (I press the wireless button), The light will ON, indicated wireless has been enabled.
+
+Otherwise, in my Ubuntu, i can’t see that indication, so actually we don’t know weather the wireless hardware has been enabled or not. But it’s functioned well. I press the wireless button (without indication), then scan the wireless access point using RutilT WLAN, and I catch them.
+
+By: badank on July 29, 2008 
+at 3:39 pm
+
+I have the same make and model of you. I follow ALL your steps, I get to the “iwconfig” and it says it’s not installed. Is there something wrong with my driver I found? It’s the net5211,inf, like you said.
+
+My button does not flash, nor does Ubuntu ask if I am want to search for wireless networks.
+
+By: Dave on November 21, 2008 
+at 11:13 am
+
+You are not yet succeed …
+The key is at step 5. You should get the success at that step.
+
+Even if you are succeed, the button still didn’t flash (in my experience with my laptop) … but the wifi work well.
+
+By: badank on November 24, 2008 
+at 9:24 pm
+
+As I know, this type of Acer 4520 equipped wifi from Broadcomm, so mine. Make sure you have chosen the right driver. But, I’m not try for my Acer. Currently I satisfied enough when my Acer printing on iP1880. So far I don’t need wifi connection.
+
+Sorry my bad english.
+
+By: mawan on December 29, 2008 
+at 10:47 am
+
+Good idea to try with wifi broadcomm driver …
+Please make a report if done …
+
+By: badank on December 29, 2008 
+at 11:28 am
+
+can we use this guide on 64-bit machine? Thanks!
+
+By: number13 on January 9, 2009 
+at 7:19 am
+
+I use Ubuntu-8.04 32 bit version …
+
+Actually I can’t answer your question because I don’t have experience with that 64 bit version.
+
+
+
+###################################################################################UBUNTU，HP6515B，无线网卡驱动
+Posted on 2009年06月18日 by nmdk315
+http://forum.ubuntu.org.cn/posting.php?mode=quote&f=116&p=1338771
+
+我刚刚设置好了6515b的无线上网
+参考的是http://hi.baidu.com/caosicong/blog/item/45b6cb8f7912e7ebf01f36d1.html
+引用:
+1、重做initrd,删除ssb模块
+这样实现
+(可以先uname -r，得到内核版本，然后用它来代替$(uname -r)，我的内核是linux-2.6.24-17-generic)
+sudo rm /lib/module/$(uname -r)/kernel/driver/ssb -rf
+sudo depmod -a
+sudo mv /boot/initrd.img-$(uname -r) /boot/initrd.img-$(uname -r).old
+下面跟原文有些不一样，请注意，原文是
+#mkinitrd /boot/xxx.img `uname -r`
+
+在ubuntu 8.04里面发现已经不用这个命令了
+应该这样
+sudo mkinitramfs -o /boot/initrd.img-$(uname -r)
+如果找不到mkinitramfs命令，请在新立得软件安装里搜索initramfs，安装相关工具
+
+sudo gedit /etc/modprobe.d/blacklist
+确认里面有
+blacklist bcm43xx
+blacklist b43
+blacklist ssb
+没有可以加上
+
+2、安装ndiswrapper
+这个就不用说了，搜一下就行了，我装的是ndiswrapper 1.52
+
+3、安装bcmwl5.inf
+下载HP的无线网卡驱动SPxxx.exe
+用cabextract解压
+sudo capextract spxxx.exe
+如果找不到该命令，请安装cabextract工具包
+
+进入解压目录
+运行
+sudo ndiswrapper -i bcmwl5.inf
+
+用 ndiswrapper -l看下安装是否成功，一般情况下都不会有问题，嘿嘿
+
+再运行sudo ndiswrapper -m，为你的无线网卡指定个别名wlan0
+
+4、自动加载ndiswrapper
+sudo gedit /etc/modules
+加上ndiswrapper
+保存退出
+
+OK
+无线网卡就装完了
+重启，看看nm-applet 手动配置里面是不是多了无线连接了？
+看看是不是有启动无线选项了？
+用iwconfig看看是不是找到wlan0了?
+用iwlist看看是不是能搜到无线网络了？
+
+如果有问题，你不妨lsmod，看看里面是不是有ssb，如果有，就说明你没有删除掉，重做第一步吧。
+我发现关键问题就是ssb，而于ohci_hcd模块无关
+就写这么多
+
+我实际上只执行第1，2步，然后重启，无线指示灯就亮了
+然后执行“系统”－“系统管理”－“硬件驱动”
+激活系统提供的无线网卡驱动，
+然后左键单击系统栏网络图标，选择发现的无线网络，
+呵呵，发现附近有四个不同的无线网络，选择了自己的网络
+一切OK，
+备注：我在无线路由器中没有设置加密，设定的限制指定的物理网卡地址连接。
+
+以上供大家参考。
+Enabling WiFi in Fedora 9 HP 6515b using Ndiswrapper
+May 16, 2008djaysLeave a commentGo to comments
+1) You got  to have GCC 4+ and MAKE installed in your system to compile Ndiswrapper(get them from dvd)
+
+2)in terminal go to the directory containig ndiswrapper tarball package (type following commands as super user -> su or sudo -i
+
+3)make
+
+4)make install
+
+5)See COMMON STEPS
+
+Alternate:
+
+1) If you got the live cd be prepared to download and install gcc from internet ( connect to friends comp)
+
+or download and install the packages:
+
+binutils
+gcc
+kernel-headers
+dkms
+glibc-devel
+libgomp
+dkms-ndiswrapper
+glibc-headers
+kernel-devel
+make
+COMMON STEPS
+
+1)/usr/sbin/ndiswrapper -i bcmwl5.inf (this is the win xp driver obtain it from windows installation or setup given by hp)
+
+2)use “/usr/sbin/ndiswrapper -m”
+
+3)use “/usr/sbin/ndiswrapper -mi”
+
+4)use “/usr/sbin/ndiswrapper -ma”
+
+5)gedit “/etc/modprobe.d/blacklist”
+
+add following lines ->
+
+blacklist b43
+
+blacklist ssb
+
+3)Reboot and see if the wifi networks are shown if not use “/sbin/modprobe ndiswrapper”
+
+and add the same line to /etc/rc.local
+
+IF THE ABOVE STEPS DON’T WORK PLEASE TELL ME THE EXACT PROBLEM.
+
+PEOPLE WITH OTHER WIRELESS CARDS TRY SAM PROCCEDURE WITH DIFFERENT DRIVER (MAKE SURE YOU ARE INSTALLING THE WIRELESS CARD DRIVER AND NOT THE CONTROLLER DRIVER)
