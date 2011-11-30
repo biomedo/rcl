@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-11-29 16:38:22 Tuesday by lian>
+# Time-stamp: <2011-11-30 20:06:20 Wednesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
@@ -29,6 +29,16 @@ Anthouny's FEMObject Program Learning Notes
      7. which <a function name>
         
 
+** project operation in FEMObject code
+#+begin_src matlab
+  X = PCMODEL(RANDVARS(a,d),'pcg','order',5) % chaos generalis
+  project(apc,PC);
+#+end_src
+  - Here, 'apc' stands a PCMATRIX object that contains the identified coiffients and Polynomial Chaos information. PC is another expansion that represents a higher order expansion than apc's PC. This involves relocate (or projection, merge) apc's coefficients onto PC.
+  - In PCMODEL, each random variable is identified seperately, i.e. unidimentional. Then these coefficents are projected onto apc with multidimentional. However, one should check the PCMATRIX values (coefficients of one dimentional PC) and getindices. Then we will find that only the Hs corresponding to the variable (with corresponding number (setnumber)) are used, since most of the PCMATRIX values are zeros. Therefore, the final PCMATRIX object, one row of the matrix value corresponds to the coefficients of one dimension. 
+
+
+
 ** To C++ Programer
    In C++, the concept of programing is very different from matlab. In C++, the data is stored distributedly in various objects and one can reference them by pointers and references, but unfornately in matlab the data is stored in the final object, i.e. the key data is finally saved in one object that keeping a big matrix or multiarray, e.g. the key data is finally stored in CPC in the following example.
 #+begin_src matlab
@@ -43,6 +53,7 @@ Anthouny's FEMObject Program Learning Notes
       CPC = CPC + U(:,i)*lambda{i};
   end
 #+end_src
+  For this code, the m random variables are assumed to be independent.
 
 ** Polynomial Chaos using Gausse-Hermit for the representation of random variables
 
@@ -51,3 +62,5 @@ Anthouny's FEMObject Program Learning Notes
    - all  test if values are non-zeros
    - isa  test if a varaible is a specific object type, e.g. isa(v,'PCRADIALMATRIX')
    - prod product of array elements
+   - ismember(a,b) test if a is in the set of b
+   - setdiff find set difference of two vectors
