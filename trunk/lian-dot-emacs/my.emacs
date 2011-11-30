@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-08-07 23:34:34 Sunday by lian>
+;; Time-stamp: <2011-11-29 15:25:04 Tuesday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -109,9 +109,11 @@
     ("C-j b" ido-switch-buffer)
     ("C-j C-f" ido-find-file)
     ("C-j f" emaci-mode-toggle)
-    ("C-j C-j" execute-extended-command)
+    ;; ("C-j C-j" execute-extended-command)
+    ("C-j C-j" emaci-mode-toggle)
     ("C-j C-v" svn-status)
-    ("C-j j" goto-line)
+    ;; ("C-j j" goto-line)
+    ("C-j j" execute-extended-command)
     ("C-j C-o" delete-blank-lines)
     ("C-j l" other-frame)
     ("C-j C-l" make-frame-command)
