@@ -64,8 +64,15 @@ tarb () { tar czvf $1.tar.gz $1 > $1.txt; }
 export SVN_EDITOR="em"
 svn_tar () { svn export $1 $2; tar czvf $2.tar.gz $2; rm -rf $2; }
 
-#sync
-sn () { rsync -e  ssh  -avz localhost:$1 $2; }
+#---- sync
+# from source to dest, only add files or update files in dest
+rsn () { rsync -e  ssh  -avz $1:$2 $3; } 
+sn () { rsync -avz $1 $2; }
+
+# the same as above, but also delete files in dest that do not exist
+# any more in source, i.e. mirror source to dest
+rsnd () { rsync -e  ssh  -avz --delete $1:$2 $3; } 
+snd () { rsync -avz --delete $1 $2; }
 
 #---- Pour eviter les betises...
 alias rm='rm -i'
