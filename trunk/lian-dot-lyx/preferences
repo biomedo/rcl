@@ -1,4 +1,4 @@
-# LyX 2.0.0 generated this file. If you want to make your own
+# LyX 2.0.1 generated this file. If you want to make your own
 # modifications you should do them from inside LyX and save.
 
 Format 1
@@ -21,6 +21,7 @@ Format 1
 #
 
 \screen_zoom 120
+\scroll_below_document true
 \mac_like_word_movement true
 \screen_font_roman "DejaVu Sans"
 \screen_font_typewriter "DejaVu Sans"
@@ -52,8 +53,8 @@ Format 1
 \completion_inline_text true
 \completion_popup_delay 1.00
 \completion_popup_text true
-\thesaurusdir_path "~/thesaurus"
-\hunspelldir_path "~/hunspell"
+\thesaurusdir_path "/home/lian/thesaurus"
+\hunspelldir_path "/home/lian/hunspell"
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
@@ -83,7 +84,6 @@ Format 1
 # FORMATS SECTION ##########################
 #
 
-\format "pdf2" "pdf" "PDF (pdflatex)" "F" "evince" "" "document,vector,menu=export"
 
 #
 # CONVERTERS SECTION ##########################
