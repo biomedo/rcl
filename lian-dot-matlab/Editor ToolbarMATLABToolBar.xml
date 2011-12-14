@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToolBar>
+   <Visible>
+      <Key>new-mfile</Key>
+      <Key>open-new</Key>
+      <Key>save</Key>
+      <Key>save-all</Key>
+      <Key>jump-list-prev</Key>
+      <Key>jump-list-next</Key>
+      <Key>show-functions</Key>
+      <Separator/>
+      <Key>set-clear-breakpoint</Key>
+      <Key>clear-all-breakpoints</Key>
+      <Key>debug-step</Key>
+      <Key>debug-step-in</Key>
+      <Key>debug-step-out</Key>
+      <Key>debug-continue</Key>
+      <Key>exit-debug</Key>
+      <Separator/>
+      <Key>Stack</Key>
+      <Separator/>
+      <Key>function-browser-key</Key>
+   </Visible>
+   <Hidden>
+      <Key>save-as</Key>
+      <Key>cut-to-clipboard</Key>
+      <Key>copy-to-clipboard</Key>
+      <Key>paste-from-clipboard</Key>
+      <Key>undo</Key>
+      <Key>redo</Key>
+      <Key>print</Key>
+      <Key>publish-to-default-format</Key>
+      <Key>find-and-replace</Key>
+      <Key>run-from-toolbar</Key>
+   </Hidden>
+</ToolBar>
