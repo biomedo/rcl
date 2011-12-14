@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToolBar>
+   <Visible>
+      <Key>next-cell</Key>
+      <Key>prev-cell</Key>
+      <Key>eval-cell</Key>
+      <Key>eval-cell-and-advance</Key>
+      <Key>eval-file</Key>
+      <Separator/>
+      <Key>codepad-minus</Key>
+      <Key>codepad-increment-field</Key>
+      <Key>codepad-plus</Key>
+      <Separator/>
+      <Key>add-cell-divider</Key>
+      <Key>show-cell-titles</Key>
+   </Visible>
+   <Hidden>
+      <Key>codepad-divide</Key>
+      <Key>codepad-multiply-field</Key>
+      <Key>codepad-multiply</Key>
+      <Key>show-cell-mode-info</Key>
+   </Hidden>
+</ToolBar>

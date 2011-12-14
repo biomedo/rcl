@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToolBar>
+   <Visible>
+      <Key>NewMFile</Key>
+      <Key>Open</Key>
+      <Separator/>
+      <Key>Cut</Key>
+      <Key>Copy</Key>
+      <Key>Paste</Key>
+      <Key>Undo</Key>
+      <Key>Redo</Key>
+      <Separator/>
+      <Key>Simulink</Key>
+      <Key>Guide</Key>
+      <Key>Profiler</Key>
+      <Separator/>
+      <Key>Help</Key>
+      <Key>Demos</Key>
+      <Key>Preferences</Key>
+      <Separator/>
+      <Key>CurrentDirectory</Key>
+      <Key>BrowserDirectory</Key>
+      <Key>UpOneDirectory</Key>
+   </Visible>
+</ToolBar>

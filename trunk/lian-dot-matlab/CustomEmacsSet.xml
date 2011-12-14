@@ -24,13 +24,6 @@
          <Stroke code="VK_B" ctrl="on" meta="on"/>
       </Action>
       <Action id="undo">
-         <Stroke code="VK_MINUS" ctrl="on" shift="on"/>
-         <Stroke code="VK_UNDERSCORE" ctrl="on"/>
-         <Sequence>
-            <Stroke code="VK_X" ctrl="on"/>
-            <Stroke code="VK_U"/>
-         </Sequence>
-         <Stroke code="VK_Z" ctrl="on"/>
          <Stroke code="VK_SLASH" ctrl="on"/>
       </Action>
       <Action id="save">
@@ -42,6 +35,10 @@
             <Stroke code="VK_J" ctrl="on"/>
             <Stroke code="VK_S" ctrl="on"/>
          </Sequence>
+      </Action>
+      <Action id="redo">
+         <Stroke alt="on" code="VK_Y" ctrl="on"/>
+         <Stroke code="VK_Y" ctrl="on" meta="on"/>
       </Action>
       <Action id="find-files"/>
       <Action id="insert-tab">
