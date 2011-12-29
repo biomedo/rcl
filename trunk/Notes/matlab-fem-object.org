@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-12-02 16:48:51 Friday by lian>
+# Time-stamp: <2011-12-16 14:40:15 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
@@ -80,4 +80,9 @@ Anthouny's FEMObject Program Learning Notes
    - ksdensity  Kernel smoothing density estimate for probability density
    - null(A)  an orthornomal basis for the null space of A
    - numel(Xc) could be PCMATRIX, PCRADIALMATRIX etc. to determine the number of components of random vector
+   - kron,dot,cross
+   - ischarin('rotated',varargin)
+   - eps float relative accuray, smaller number
+   - inf, NaN, isinf,isNan
+   - linspace(start,end,number) create a linear space
 

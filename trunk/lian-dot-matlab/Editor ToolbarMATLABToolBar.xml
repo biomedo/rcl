@@ -9,6 +9,8 @@
       <Key>jump-list-next</Key>
       <Key>show-functions</Key>
       <Separator/>
+      <Key>run-from-toolbar</Key>
+      <Separator/>
       <Key>set-clear-breakpoint</Key>
       <Key>clear-all-breakpoints</Key>
       <Key>debug-step</Key>
@@ -31,6 +33,5 @@
       <Key>print</Key>
       <Key>publish-to-default-format</Key>
       <Key>find-and-replace</Key>
-      <Key>run-from-toolbar</Key>
    </Hidden>
 </ToolBar>
