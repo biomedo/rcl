@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-14 13:37:45 Tuesday by lian>
+;; Time-stamp: <2011-12-30 17:06:30 Friday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -43,5 +43,8 @@
   (setq hl-line-overlay nil)
   (color-theme-adjust-hl-line-face))
 
+;; avoid to open pdf files in doc-view-mode
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . fundamental-mode))
+(add-to-list 'auto-mode-alist '("\\.dvi\\'" . fundamental-mode))
 
 (provide 'lian-misc)

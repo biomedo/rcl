@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-13 18:08:47 Monday by lian>
+;; Time-stamp: <2011-12-30 16:13:30 Friday by lian>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -22,6 +22,9 @@
  `(c-mode-base-map)
  `(("C-c C-j" find-tag)
    ("C-c j" (lambda () (interactive)(find-tag "" t)))))
+
+;; (setq compile-command "make -k -j 8 NODEP=1 VERS=opt")
+(setq compile-command "make")
 
 (defun lian-cc-mode-settings ()
   "lian Settings for `cc-mode'."
