@@ -17,9 +17,14 @@
 
 (defun lian-dired-settings ()
   "lian Settings for `dired'."
+
   (setq dired-listing-switches "-alh")
 
-
+  (setq dired-guess-shell-alist-user
+        (list
+         ;; (list "\\.bar$" '(if condition "bar-command-1" "bar-command-2"))
+         (list "\\.pdf$" "evince")))
+  
   (defun lian-dired-keys ()
     "dired-mode中的快捷键定义"
     (eal-define-keys-commonly
