@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-11-04 18:32:46 Friday by lian>
+# Time-stamp: <2012-01-05 12:04:29 Thursday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -23,4 +23,5 @@
   1. \setcounter or \addtocounter
   2. \nointerlineskip is effective, you want to ignore the defaut lines skips
   3. \centering{} differs from \begin{center} .. \end{center}, without extra paragraph vertical spaces.
+  4. bibtool -x document.aux -o document.bib, this can be used to extract the bib file referred in your document
 

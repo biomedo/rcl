@@ -151,6 +151,12 @@
          <Stroke code="VK_KP_RIGHT" shift="on"/>
          <Stroke code="VK_F" meta="on" shift="on"/>
       </Action>
+      <Action id="enable-disable-breakpoint">
+         <Sequence>
+            <Stroke code="VK_J" ctrl="on"/>
+            <Stroke code="VK_B" ctrl="on"/>
+         </Sequence>
+      </Action>
       <Action id="clear-text-at-prompt">
          <Stroke code="VK_ESCAPE"/>
       </Action>
