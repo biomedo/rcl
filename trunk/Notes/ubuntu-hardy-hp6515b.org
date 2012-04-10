@@ -1,9 +1,25 @@
 # -*- org -*-
 
-# Time-stamp: <2011-12-07 23:07:22 Wednesday by lian>
+# Time-stamp: <2012-04-10 23:37:49 Tuesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+** ADSL modem
+   - Please make sure the MAC adress is correctly set, since sometimes the MAC adress is binded to ADSL account
+   - sudo pppoeconf; configuring your username and password obtained from your ISP
+   - pon dsl-provider; dial your adsl
+   - poff; disconnect your adsl
+   - sudo plot; query your plog
+   - sudo /etc/ppp/pppoe_on_boot
+   - sudo gedit /etc/ppp/options
 
+** MAC Adress
+   ifconfig eth0 down;
+   ifconfig etho hw ether xx:xx:xx:xx:xx:xx
+   ifconfig eth0 up
+   Permanantly modify your MAC Adress
+   - copy the above code to /etc/rcS.d/rc.local
+   - append 'pre-up ifconfig eth0 hw ether xx:xx:xx:xx:xx:xx' to the end of /etc/network/interfaces
+     
 ** Add your own Texlive 
    add the folowing variables  to /etc/profile to define your own Texlive
 
@@ -32,7 +48,7 @@
    sudo depmod -a
    sudo mv /boot/initrd.img-$(uname -r) /boot/initrd.img-$(uname -r).old
    下面跟原文有些不一样，请注意，原文是
-#mkinitrd /boot/xxx.img `uname -r`
+   #mkinitrd /boot/xxx.img `uname -r`
 
    在ubuntu 8.04里面发现已经不用这个命令了
    应该这样
@@ -86,9 +102,9 @@
    呵呵，发现附近有四个不同的无线网络，选择了自己的网络
    一切OK，
    备注：我在无线路由器中没有设置加密，设定的限制指定的物理网卡地址连接。
-
-   以上供大家参考。
-
+   
+   后记：
+   在使用的过程中发现一个小bug：如果在windows中按“蓝色的无线网络按钮”将无线网卡移出后， 进入Linux， 无论怎么按“蓝色的无线网络按钮”都无法启用无线网络。不过删除/etc/modprobe.d/blacklist中的“blacklist bcm43xx”行， 并运行update-initramfs -u更新initrd,img文件后“蓝色的无线网络按钮”就可以启动无线网络了。
 
 ########################################################
    Using Wifi in Ubuntu on HP 6515b (broadcom)
