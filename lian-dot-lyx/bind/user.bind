@@ -76,6 +76,7 @@ Format 1
 \bind "C-j C-w" "command-sequence word-select ; cut"
 \bind "C-j w" "command-sequence word-select ; copy"
 \bind "C-j C-y" "command-sequence word-select ; paste"
+\bind "C-j C-e" "buffer-export pdf2"
 \bind "C-o C-p" "layout-paragraph"
 \bind "C-o C-l" "ert-insert"
 \bind "C-o C-s" "dialog-show character"

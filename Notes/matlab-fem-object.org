@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-12-16 14:40:15 Friday by lian>
+# Time-stamp: <2012-04-03 18:28:20 Tuesday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
@@ -42,12 +42,14 @@ Anthouny's FEMObject Program Learning Notes
 #+begin_src matlab
   apc = decompfun(PCdecomp,[],[],fun,RANDVARS(PCdecomp),RANDVARS(a));
 #+end_src
-  - PCdecomp stands for the PC expansion (m,p), fun means the random function of a. 
+  - PCdecomp stands for the PC expansion (m,p), fun means the random function of a.
+  - PCdecomp.indices displays the index of PC expansion, e.g. m=2,p=3 means the dimension is 2 (xi_1,xi_2) and p=3 stands for the maximum polynomial order of the H, e.g. H(xi_1,x_2)=h_a(xi_1)*h_b(xi_2), a,b represents the order of each h, a+b<=3. the PCdecomp.indices display a matrix, the two column means the a,b respectively for each term of the PC expansion. the last column stands for the sum order (a+b), obviously this column should be <=3. 
   - Whatever decompfun or decomppc, the principle is nearly the same. We need to evaluate the value of X corresponding to gauss point. In this decomposition, with the help of fun, one can determine the value of X corresponding to each y (gausse point) by
     - For the docomposition of known random variables: see bx=icdf(b,cdf(a,ax)); in open RANDVAR/transfer, i.e. F_X(x)=F_xi(y).
     - For the decomposition of a function of known random variables: directly add calculation of the function
     - Unknown random variables: Emprique CDF of X
-    - Maximum Vraisembles or Inference Baiycienne. 
+    - Maximum Vraisembles or Inference Baiycienne.
+    - decompmatrix can be used to decompose a random vector or matrix
 
 ** To C++ Programer
    In C++, the concept of programing is very different from matlab. In C++, the data is stored distributedly in various objects and one can reference them by pointers and references, but unfornately in matlab the data is stored in the final object, i.e. the key data is finally saved in one object that keeping a big matrix or multiarray, e.g. the key data is finally stored in CPC in the following example.

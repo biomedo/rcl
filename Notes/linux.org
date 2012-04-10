@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-11-24 13:17:17 Thursday by lian>
+# Time-stamp: <2012-04-02 13:18:38 Monday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -49,7 +49,11 @@
 
 ** Mount the usb disk forcely if $LogFile occour
    sudo mount -t ntfs-3g /dev/sdb8 /media/cdrom0/ -o force
+   
 
+** How to enable usb mouse after suspending
+   dmesg | tail
+   open /etc/default/acpi-support and change the modules to MODULES="usbcore"
 ** svn change source tips
    svn+ssh://lian@titan/glouton/struct/lian/
    svn switch --relocate svn+ssh://lian@titan/glouton/struct/lian/ file:///cassini/lian/lian-svn/lian
