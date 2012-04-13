@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2012-04-03 18:28:20 Tuesday by lian>
+# Time-stamp: <2012-04-12 19:18:45 Thursday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
@@ -27,7 +27,13 @@ Anthouny's FEMObject Program Learning Notes
      5. properties(<classname>)
      6. what
      7. which <a function name>
-        
+
+
+** How to read the fonction randomeval() in PCMATRIX
+   function a=randomeval(apc,x,RV)
+   This function is used to evaluate the PCMATRIX (the values of decomposed function) for the input realisations of its random varaibles. Normally, we can use random() to randonly generate the decomposed function values. Here we can evaluate the values of decomposed function or variables from given values of random variables.
+   For example, f(xi) is decomposed by PC expansion and stored in a PCMATRIX object, then we can evaluate the corresponding values of f from given realizations of xi
+
 
 ** project operation in FEMObject code
 #+begin_src matlab
