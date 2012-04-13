@@ -1,15 +1,17 @@
 Index: .emacs
 ===================================================================
---- .emacs	(revision 1400)
+--- .emacs	(revision 1413)
 +++ .emacs	(working copy)
-@@ -1,6 +1,6 @@
+@@ -1,7 +1,7 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2011-04-30 21:30:38 Saturday by taoshanwen>
-+;; Time-stamp: <2011-06-16 21:39:10 Thursday by lian>
- 
+-;; Time-stamp: <2012-01-01 13:56:02 Sunday by taoshanwen>
+-
++;; Time-stamp: <2012-04-13 12:02:18 Friday by lian>
++ 
  (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
  (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
+ (defconst my-emacs-lisps-path     (concat my-emacs-path "lisps/") "我下载的emacs lisp包的路径")
 @@ -12,8 +12,11 @@
  (my-add-subdirs-to-load-path my-emacs-lisps-path)
  (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
@@ -106,7 +108,7 @@ Index: .emacs
  
  ;; 模拟vi的f命令, 非常好用
  (require 'go-to-char)
-@@ -518,4 +521,4 @@
+@@ -520,4 +523,4 @@
  (sb-update)
  
  ;; 加载用户自己的配置
@@ -114,7 +116,7 @@ Index: .emacs
 +(load "~/my.emacs" t) 
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1400)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1413)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -164,13 +166,13 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
        (dolist (mode '(c-mode c++-mode))
 Index: my-lisps/dev-settings.el
 ===================================================================
---- my-lisps/dev-settings.el	(revision 1400)
+--- my-lisps/dev-settings.el	(revision 1413)
 +++ my-lisps/dev-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2011-03-20 16:58:35 Sunday by taoshanwen>
-+;; Time-stamp: <2011-03-03 11:00:18 Thursday by lian>
+-;; Time-stamp: <2012-04-05 10:37:46 Thursday by taoshanwen>
++;; Time-stamp: <2012-04-13 12:06:10 Friday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -211,7 +213,7 @@ Index: my-lisps/dev-settings.el
  (require 'eldoc-settings)
  
  ;; 自动给你加上括号
-@@ -211,13 +212,13 @@
+@@ -211,14 +212,14 @@
                   zjl-hl-settings
                   ;; 把speedbar放到当前frame里面
                   sr-speedbar-settings
@@ -222,9 +224,9 @@ Index: my-lisps/dev-settings.el
                   align-settings
                   ;; 生成c程序调用图
                   ;; http://emacser.com/emacs-cflow.htm
--                 cflow-mode-settings
--                 python-settings))
-+                 cflow-mode-settings))
-+                 ;;python-settings))
+                  cflow-mode-settings
+-                 python-settings
++                 ;; python-settings
+                  sed-settings))
  
  (provide 'dev-settings)
