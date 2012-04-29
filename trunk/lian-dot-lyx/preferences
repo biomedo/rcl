@@ -1,4 +1,4 @@
-# LyX 2.0.1 generated this file. If you want to make your own
+# LyX 2.0.3 generated this file. If you want to make your own
 # modifications you should do them from inside LyX and save.
 
 Format 1
@@ -21,6 +21,7 @@ Format 1
 #
 
 \screen_zoom 120
+\cursor_width 10
 \scroll_below_document true
 \mac_like_word_movement true
 \screen_font_roman "DejaVu Sans"
@@ -33,7 +34,7 @@ Format 1
 # COLOR SECTION ###################################
 #
 
-\set_color "cursor" "#ff0000"
+\set_color "cursor" "#ff00ff"
 \set_color "appendix" "#faf0e6"
 
 #

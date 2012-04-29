@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2012-04-12 19:18:45 Thursday by lian>
+# Time-stamp: <2012-04-20 13:13:56 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 Anthouny's FEMObject Program Learning Notes
@@ -73,6 +73,8 @@ Anthouny's FEMObject Program Learning Notes
 #+end_src
   For this code, the m random variables are assumed to be independent.
 
+** One should be careful in using this code, since for example, calc_gausspoints(POLYLEGENDRE(),3) the weight is not really the weight of Gauss-Legendre qudrature, it combined the coefficient of cdf of Uniform distribution.
+   
 ** Polynomial Chaos using Gausse-Hermit for the representation of random variables
 
 

@@ -1,0 +1,31 @@
+# -*- org -*-
+
+# Time-stamp: <2012-04-29 12:15:02 Sunday by xiaogai>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+
+
+* Download the offical 4.0 version of lsprepost
+  wget ftp://ftp.lstc.com/outgoing/lsprepost/4.0/linux64/lsprepost-4.0-opensuse102.tgz
+  uncompress it to a specific directory and see README.txt in that directory, e.g.
+  change the DN env variable in lspp4 of that directory, create a soft link to sys dir
+  sudo ln -sf <Your uncompressed lsprepost dir>/lspp4 /usr/local/bin/lspp4
+
+* Download libgltiz1 from  https://launchpad.net/ubuntu/lucid/amd64/libglitz1/0.5.6-1build1
+  wget http://launchpadlibrarian.net/40223619/libglitz1_0.5.6-1build1_amd64.deb
+
+
+* Download the libglitz-glx1 from http://packages.ubuntu.com/lucid/libglitz-glx1
+  wget  http://ubuntu.mirror.cambrium.nl/ubuntu//pool/main/g/glitz/libglitz-glx1_0.5.6-1build1_amd64.deb
+
+* If still you get libtiff.so.3 is missing, you can locate the all the possible version of libtiff by
+  locate libtiff
+  then you can determine the path of a certain version of libtiff, for example /usr/lib/x86_64-linux-gnu/libtiff.so.4
+  then ln -sf /usr/lib/x86_64-linux-gnu/libtiff.so.4 <Your uncompressed lsprepost dir>/lib/libtiff.so.3
+
+* Enjoy!! Everything should work fine now
+  open a terminal and then input
+  lspp4
+  enjoy.
+  
