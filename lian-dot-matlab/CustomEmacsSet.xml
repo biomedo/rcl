@@ -27,6 +27,11 @@
       </Action>
       <Action id="save-workspace"/>
       <Action id="find-files"/>
+      <Action id="select-previous-tab">
+         <Stroke code="VK_PAGE_UP" ctrl="on"/>
+         <Stroke alt="on" code="VK_P" shift="on"/>
+         <Stroke code="VK_P" meta="on" shift="on"/>
+      </Action>
       <Action id="eval-cell-and-advance">
          <Stroke code="VK_ENTER" ctrl="on" shift="on"/>
          <Sequence>
@@ -43,7 +48,19 @@
          <Stroke alt="on" code="VK_N"/>
          <Stroke code="VK_N" meta="on"/>
       </Action>
+      <Action id="function-hints-key">
+         <Stroke code="VK_F1" ctrl="on"/>
+         <Sequence>
+            <Stroke code="VK_J" ctrl="on"/>
+            <Stroke code="VK_J" ctrl="on"/>
+         </Sequence>
+      </Action>
       <Action id="open-mlint-message"/>
+      <Action id="selection-begin-line">
+         <Stroke code="VK_HOME" shift="on"/>
+         <Stroke alt="on" code="VK_A" ctrl="on"/>
+         <Stroke code="VK_A" ctrl="on" meta="on"/>
+      </Action>
       <Action id="exit-debug">
          <Stroke code="VK_F5" shift="on"/>
          <Sequence>
@@ -51,10 +68,10 @@
             <Stroke code="VK_C" ctrl="on"/>
          </Sequence>
       </Action>
-      <Action id="selection-begin-line">
-         <Stroke code="VK_HOME" shift="on"/>
-         <Stroke alt="on" code="VK_A" ctrl="on"/>
-         <Stroke code="VK_A" ctrl="on" meta="on"/>
+      <Action id="select-next-tab">
+         <Stroke code="VK_PAGE_DOWN" ctrl="on"/>
+         <Stroke alt="on" code="VK_N" shift="on"/>
+         <Stroke code="VK_N" meta="on" shift="on"/>
       </Action>
       <Action id="selection-up">
          <Stroke code="VK_UP" shift="on"/>
@@ -103,6 +120,13 @@
          <Stroke alt="on" code="VK_Y" shift="on"/>
          <Stroke code="VK_Y" meta="on" shift="on"/>
       </Action>
+      <Action id="open-selection">
+         <Stroke code="VK_F4"/>
+         <Sequence>
+            <Stroke code="VK_J" ctrl="on"/>
+            <Stroke code="VK_O" ctrl="on"/>
+         </Sequence>
+      </Action>
       <Action id="beep"/>
       <Action id="next-cell">
          <Sequence>
@@ -143,6 +167,13 @@
          <Sequence>
             <Stroke code="VK_U" ctrl="on"/>
             <Stroke code="VK_R" ctrl="on"/>
+         </Sequence>
+      </Action>
+      <Action id="help-on-selection">
+         <Stroke code="VK_F1"/>
+         <Sequence>
+            <Stroke code="VK_J" ctrl="on"/>
+            <Stroke code="VK_H" ctrl="on"/>
          </Sequence>
       </Action>
       <Action id="selection-forward">
