@@ -1,17 +1,7 @@
 Index: .emacs
 ===================================================================
---- .emacs	(revision 1413)
+--- .emacs	(revision 1424)
 +++ .emacs	(working copy)
-@@ -1,7 +1,7 @@
- ;; -*- Emacs-Lisp -*-
- 
--;; Time-stamp: <2012-01-01 13:56:02 Sunday by taoshanwen>
--
-+;; Time-stamp: <2012-04-13 12:02:18 Friday by lian>
-+ 
- (defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
- (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
- (defconst my-emacs-lisps-path     (concat my-emacs-path "lisps/") "我下载的emacs lisp包的路径")
 @@ -12,8 +12,11 @@
  (my-add-subdirs-to-load-path my-emacs-lisps-path)
  (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
@@ -108,7 +98,7 @@ Index: .emacs
  
  ;; 模拟vi的f命令, 非常好用
  (require 'go-to-char)
-@@ -520,4 +523,4 @@
+@@ -522,4 +525,4 @@
  (sb-update)
  
  ;; 加载用户自己的配置
@@ -116,7 +106,7 @@ Index: .emacs
 +(load "~/my.emacs" t) 
 Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
 ===================================================================
---- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1413)
+--- my-lisps/cedet/semantic/cedet-semantic-settings.el	(revision 1424)
 +++ my-lisps/cedet/semantic/cedet-semantic-settings.el	(working copy)
 @@ -2,7 +2,7 @@
  
@@ -166,13 +156,13 @@ Index: my-lisps/cedet/semantic/cedet-semantic-settings.el
        (dolist (mode '(c-mode c++-mode))
 Index: my-lisps/dev-settings.el
 ===================================================================
---- my-lisps/dev-settings.el	(revision 1413)
+--- my-lisps/dev-settings.el	(revision 1424)
 +++ my-lisps/dev-settings.el	(working copy)
 @@ -1,6 +1,6 @@
  ;; -*- Emacs-Lisp -*-
  
--;; Time-stamp: <2012-04-05 10:37:46 Thursday by taoshanwen>
-+;; Time-stamp: <2012-04-13 12:06:10 Friday by lian>
+-;; Time-stamp: <2012-04-28 19:26:00 Saturday by taoshanwen>
++;; Time-stamp: <2012-06-05 20:52:25 Tuesday by lian>
  
  ;; This  file is free  software; you  can redistribute  it and/or
  ;; modify it under the terms of the GNU General Public License as
@@ -185,7 +175,7 @@ Index: my-lisps/dev-settings.el
  
  (defun skeleton-c-mode-left-brace (arg)
    (interactive "P")
-@@ -92,15 +92,15 @@
+@@ -92,10 +92,10 @@
  ;; cedet 强大的开发工具, 包括代码浏览, 补全, 类图生成
  ;; 用CEDET浏览和编辑C++代码 http://emacser.com/cedet.htm
  ;; Emacs才是世界上最强大的IDE － cedet的安装 http://emacser.com/install-cedet.htm
@@ -197,14 +187,7 @@ Index: my-lisps/dev-settings.el
 +;; (require 'ecb-settings)
  
  ;; doxygen
--(require 'doxymacs-settings)
-+;; (require 'doxymacs-settings)
- 
--(require 'autoconf-mode-settings)
-+;; (require 'autoconf-mode-settings)
- 
- ;; 像Eclipse那样高亮光标处单词
- (require 'highlight-symbol-settings)
+ (require 'doxymacs-settings)
 @@ -174,6 +174,7 @@
       (message (concat "Wrote " (buffer-file-name))))))
  
@@ -227,6 +210,6 @@ Index: my-lisps/dev-settings.el
                   cflow-mode-settings
 -                 python-settings
 +                 ;; python-settings
-                  sed-settings))
+                  sed-settings
+                  lua-mode-settings))
  
- (provide 'dev-settings)

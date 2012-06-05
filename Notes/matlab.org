@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-12-18 10:21:32 Saturday by lian>
+# Time-stamp: <2012-05-04 10:10:09 Friday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -17,23 +17,31 @@
     - 当你调用一个外部程序时，matlab预先加载matlab路径下的预置的lib程序库，比如它会优先加载matlab/sys/os/glnx86/libstdc++.so.6。在这种情况下经常会出现你的程序所需要的版本和这个不一致，因此需要预先加载你的程序所需要的动态库的版本，比较简单的方案是按照上面修改环境变量的方法，增加一个环境变量，记住这种修改环境变量都是临时的，都是针对当前的session的，这样就不会影响系统的环境变量，比如你可以这样操作setenv LD_PRELOAD '/usr/lib/libstdc++.so.6', 如果有多个需要加载则用；分割，也就是setenv LD_PRELOAD '/lib/libgcc_s.so.1:/usr/lib/libstdc++.so.6.0.13:/lib/libz.so.1.2.3.3',这样在启动程序就可以正常启动了，并且matlab会等待程序运行结束，在继续执行剩下的matlab代码，也就是说在启动一个程序后matlab线程被阻塞了。
 
 * 关于在comsol中调用matlab函数的问题，比如想在matlab中编写一个函数RectIntegFun然后在comsol某些domain进行积分，最主要是搞清楚参数的传递和处理，在comsol可以这样来调用RectIntegFun(x,y,100,400)，注意在comsol中调用时传递的x，y参数是通过meshgrid来生成的空间坐标信息，而后面的两个参数或者多个参数你可以根据需要自己指定，然后所有参数包括x，y这两个你也可以自己指定，但是一般需要这个两个参数。如果在你编写matlab函数时要注意，如果发现传递参数和你想的不一样，你可以按照下面的办法来调试。
-function [ varargout ] = RectIntegFun( varargin ) 
-    xx=varargin{1};
-    yy=varargin{2};
-    lower = varargin{3};
-    upper = varargin{4};
-    fid = fopen('temp.txt', 'A');
-    
-    fprintf(fid, 'into function \n');
-    fprintf(fid, 'varargin length is %d \n', length(varargin));
-     fprintf(fid, 'XX [%f]\n', xx);
-     fprintf(fid, 'YY [%f]\n', yy);
-     fprintf(fid, 'lower upper [%f]\n', lower);
-     fprintf(fid, ' upper [%f]\n', upper);
-    fprintf(fid, 'exit function\n');    
-    fclose(fid);
-    c = xx >= lower & xx <= upper & yy >= lower & yy <= upper;    
-%     c = zeros(size(xx));
-    varargout{1}=c;
-end
+  function [ varargout ] = RectIntegFun( varargin ) 
+  xx=varargin{1};
+  yy=varargin{2};
+  lower = varargin{3};
+  upper = varargin{4};
+  fid = fopen('temp.txt', 'A');
+  
+  fprintf(fid, 'into function \n');
+  fprintf(fid, 'varargin length is %d \n', length(varargin));
+  fprintf(fid, 'XX [%f]\n', xx);
+  fprintf(fid, 'YY [%f]\n', yy);
+  fprintf(fid, 'lower upper [%f]\n', lower);
+  fprintf(fid, ' upper [%f]\n', upper);
+  fprintf(fid, 'exit function\n');    
+  fclose(fid);
+  c = xx >= lower & xx <= upper & yy >= lower & yy <= upper;    
+  %     c = zeros(size(xx));
+  varargout{1}=c;
+  end
 
+
+* How to modify a existing figure
+  gca                           # return handles of axises in current figure
+  get(get(gca,'Children'),'YData'); # return all the YData of multiplot
+  aa=get(gca,'Children')        # handles to plots
+  titles=get(aa,'DisplayName') # to check the title of figures to determine the right one you want to modify
+  get(aa(1),'DisplayName')
+  set(aa(1),'YData',get(aa(1),'YData')*2)
