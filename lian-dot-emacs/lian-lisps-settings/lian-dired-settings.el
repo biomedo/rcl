@@ -37,9 +37,9 @@
        ("X"           dired-do-flagged-delete)
        ("G"           diredp-do-grep)
        ("."           ywb-dired-filter-extension)
-       ("1"           wuxch-get-file-name-only-path)
-       ("2"           wuxch-get-file-name-without-path)
-       ("3"           wuxch-get-file-name-with-path)
+       ;; ("1"           wuxch-get-file-name-only-path)
+       ;; ("2"           wuxch-get-file-name-without-path)
+       ;; ("3"           wuxch-get-file-name-with-path)
        ("C-c C-r"     (lambda () (interactive)(find-dired default-directory "-name '#*#' -or -name '*~'"))))))
 
   (defun lian-dired-mode-hook-settings ()

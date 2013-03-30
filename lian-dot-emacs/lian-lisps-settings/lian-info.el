@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-16 21:31:43 Thursday by lian>
+;; Time-stamp: <2013-03-10 23:50:09 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -59,24 +59,11 @@
         (concat (getenv "DEVROOT") "/Applis/Physics/include")))
 
 (defconst lian-tags-table-list
-  (list (concat (getenv "DEVROOT") "/Xfem/Xfem/tags")
-        (concat (getenv "DEVROOT") "/Xext/Xext/tags")
-        (concat (getenv "DEVROOT") "/Xext/Octree/tags")
-        (concat (getenv "DEVROOT") "/Xext/OctreeInterface/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/SolverBase/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/SuperLu/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/Lapack/tags")
-        (concat (getenv "DEVROOT") "/SolverInterfaces/Taucs/tags")
-        ;; (concat (getenv "DEVROOT") "/SolverInterfaces/PetscSeq/tags")
-        ;; (concat (getenv "DEVROOT") "/SolverInterfaces/NonLinearSolver/tags")
-        (concat (getenv "DEVROOT") "/Trellis/AOMD/tags")
-        (concat (getenv "DEVROOT") "/MeshMachine/LinearAlgebra/tags")
-        (concat (getenv "DEVROOT") "/Applis/Homog/tags")
-        (concat (getenv "DEVROOT") "/Applis/ITK_Utility/tags")))
+  (list (concat (getenv "DEVROOT") "/tags/TAGS")))
 
 (defconst lian-working-dir
   (list (getenv "LIAN_CUR_WORK_DIR")
-        (concat (getenv "DEVROOT") "/Applis/ITK_Utility/ITK_Utility")
+        (concat (getenv "DEVROOT") "/Applis/MultiLS")
         (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
         (concat (getenv "DEVROOT") "/Applis/Physics")))
 
