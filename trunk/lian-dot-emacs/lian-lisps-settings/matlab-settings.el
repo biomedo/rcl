@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-24 16:25:00 Friday by lian>
+;; Time-stamp: <2013-01-27 16:41:32 Sunday by lian>
 
 ;; enable matlab-mode and accociate .m file with matlab-mode
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)

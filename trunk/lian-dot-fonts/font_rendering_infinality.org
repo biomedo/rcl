@@ -1,0 +1,33 @@
+# -*- org -*-
+
+# Time-stamp: <2013-03-30 09:51:17 Saturday by lian>
+
+#+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
+
+* How to install and configure infinality
+
+** Ubuntu version >= 12.10
+  https://launchpad.net/~no1wantdthisname/+archive/ppa
+
+** Ubuntu 12.04
+   1. Download infinality from http://www.infinality.net/blog/.
+      fontconfig-infinality-1-20120615_1.tar.bz2
+      freetype-infinality-2.4.10-20120616_01-x86_64.tar.bz2
+   2. Download freetype from freetype offical website.
+      freetype-2.4.10.tar.gz
+   3. Unzip freetype and apply freetype-infinality-2.4.10-20120616_01-x86_64.tar.bz2 patch.
+   4. configure, make and copy libfreetype.so.XXX to /usr/lib/freetype-infiality or you can directly create a soft symbol link to override system-wide libfreetype.so.XX.
+   5. copy infinality-settings.sh to /etc/profile.d/
+   6. copy configs in fontconfig-infinality-1-20120615_1.tar.bz2 to /etc/fonts/ and create your own style, i.e. win7-zh.
+   7. $ cd /etc/fonts/infinality
+      $ sudo ./infctl.sh setstyle
+   8. restart your computer and check using fc-match serif -s; fc-match sans-serif -s; fcmatch monospace -s; to see if fontconfig is using your infinality configuration, otherwise try to remove some setting in fontconfig.
+
+** Google Chrome user style sheet
+   1. modify ~/.config/google-chrome/Default/User StyleSheets/Custom.css add the following code
+      html:not(.disable_user_stylesheet) * {
+      font-family: serif !important;  /* for proportional font*/
+      }
+      This will force your google chrome to use your own font setting, similar to firefox font setting.
+   2. Alternatively, install stylish extension in Google Chrome for per website control.
+

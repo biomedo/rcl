@@ -45,5 +45,10 @@
 
 (add-hook 'after-make-frame-functions 'lian-after-make-frame-settings)
 
+;; Disable default split-window-sensibly 
+(defun no-split-window ()
+  (interactive)
+  nil)
+(setq split-window-preferred-function 'no-split-window)
 
 (provide 'lian-theme-settings)
