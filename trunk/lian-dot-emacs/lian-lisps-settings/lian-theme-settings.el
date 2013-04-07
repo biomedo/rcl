@@ -30,7 +30,7 @@
   (setq my-chinese-font "微软雅黑")
   (setq my-latin-size 14)
   (setq my-chinese-size 17)
-  (huangq-set-font my-latin-size my-chinese-size))
+  (if window-system (huangq-set-font my-latin-size my-chinese-size)))
 
 (defun lian-after-make-frame-settings (frame)
   (setq color-theme-is-global nil)
@@ -46,9 +46,9 @@
 (add-hook 'after-make-frame-functions 'lian-after-make-frame-settings)
 
 ;; Disable default split-window-sensibly 
-(defun no-split-window ()
-  (interactive)
-  nil)
-(setq split-window-preferred-function 'no-split-window)
+;; (defun no-split-window ()
+;;   (interactive)
+;;   nil)
+;; (setq split-window-preferred-function 'no-split-window)
 
 (provide 'lian-theme-settings)
