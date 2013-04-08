@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2013-04-07 20:58:24 Sunday by lian>
+;; Time-stamp: <2013-04-08 22:08:21 Monday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -68,7 +68,7 @@
 (require 'lian-org-settings)
 (require 'lian-svn-settings)
 (require 'lian-font-lock-face-settings)
-
+(require 'lian-mode-line-face-settings)
 
 ;; Matlab settings
 (require 'matlab-settings)
