@@ -26,11 +26,10 @@
   ;; 3. cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
   ;; 4. 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
   ;; 5. 这样配合下面脚本基本上不会出问题字体就很好看了.
-  (setq my-latin-font "DejaVu Sans Mono")
-  (setq my-chinese-font "微软雅黑")
-  (setq my-latin-size 14)
-  (setq my-chinese-size 17)
-  (if window-system (huangq-set-font my-latin-size my-chinese-size)))
+  (if window-system
+      (progn
+        (require 'my-fontset-win)
+        (huangq-fontset-consolas 14))))
 
 (defun lian-after-make-frame-settings (frame)
   (setq color-theme-is-global nil)
