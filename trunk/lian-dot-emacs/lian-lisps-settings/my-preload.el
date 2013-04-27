@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-06-16 21:37:22 Thursday by lian>
+;; Time-stamp: <2013-04-28 00:22:50 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -21,8 +21,16 @@
 ;; User defined information
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; define my own emacs path
+(defconst lian-emacs-lisp-dir (getenv "LIAN_EMACS_LISP_DIR"))
+
+;; add my own path to the load path
+(defconst lian-my-lisps-path  (concat lian-emacs-lisp-dir "/lian-lisps-settings/") "lian lisps settings")
+(defconst lian-lisps-path     (concat lian-emacs-lisp-dir "/lian-lisps/") "lian lisps")
+(my-add-subdirs-to-load-path lian-my-lisps-path)
+(my-add-subdirs-to-load-path lian-lisps-path)
+
 ;; persistent-path
-(require 'lian-info)
 (require 'lian-dired-settings)
 
 
