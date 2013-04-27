@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2013-04-08 22:08:21 Monday by lian>
+;; Time-stamp: <2013-04-27 23:02:39 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -18,6 +18,14 @@
 ;; Boston, MA 02110-1301, USA.
 
 
+;; define my own emacs path
+(defconst lian-emacs-lisp-dir (getenv "LIAN_EMACS_LISP_DIR"))
+
+;; add my own path to the load path
+(defconst lian-my-lisps-path  (concat lian-emacs-lisp-dir "/lian-lisps-settings/") "lian lisps settings")
+(defconst lian-lisps-path     (concat lian-emacs-lisp-dir "/lian-lisps/") "lian lisps")
+(my-add-subdirs-to-load-path lian-my-lisps-path)
+(my-add-subdirs-to-load-path lian-lisps-path)
 
 ;; all the lian-personal path settings stored in lian-info
 (require 'lian-info)
@@ -54,6 +62,7 @@
 (global-set-key (kbd "<M-f10>") 'tags-apropos)
 
 ;; redefined ahie's corresponding settings
+(require 'lian-dired-settings)
 (require 'lian-lisp-interaction-mode-settings)
 (require 'lian-auto-complete-settings)
 (require 'lian-ido-settings)

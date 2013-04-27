@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2013-03-10 23:50:09 Sunday by lian>
+;; Time-stamp: <2013-04-27 22:53:19 Saturday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -66,8 +66,6 @@
         (concat (getenv "DEVROOT") "/Applis/MultiLS")
         (concat (getenv "DEVROOT") "/Applis/Homog/Homog")
         (concat (getenv "DEVROOT") "/Applis/Physics")))
-
-(defconst lian-emacs-lisp-dir (getenv "LIAN_EMACS_LISP_DIR"))
 
 (defconst lian-color-themes
   (list 'color-theme-ahei
