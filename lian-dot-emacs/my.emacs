@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2013-04-27 23:02:39 Saturday by lian>
+;; Time-stamp: <2014-03-16 08:33:48 Sunday by lian>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -144,7 +144,8 @@
     ("C-j C-n" multi-term-next)
     ("C-j C-p" multi-term-prev)
     ("C-j C-i" indent-whole-buffer)
-    ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
+    ;; ("C-j r" (lambda () (interactive)(dired (getenv "DEVROOT"))))
+    ("C-j r" (lambda () (interactive)(dired "/glouton/lian/develop/")))
     ("C-j C-r" recentf-open-files-complete-sb)
     ("C-j 4" (lambda () (interactive)(dired (nth 0 lian-working-dir))))
     ("C-j 5" (lambda () (interactive)(dired (nth 1 lian-working-dir))))

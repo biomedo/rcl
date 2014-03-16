@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2011-10-19 02:35:23 Wednesday by lian>
+# Time-stamp: <2013-10-06 00:01:43 Sunday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 ** XFEM程序的读书笔记
@@ -28,7 +28,15 @@
        - 在程序中统一采用张量表示，这样好处就是我们不用管2D还是3D问题我们都可以用统一方式来处理，比如如果是标量场，getval,getgrad将分别返回scalor和一个vector，这属于正常情况；而除此之外不管是2D向量场还是3D都采用张量表示了，也就是说getval返回一个vector有三个分量，不管二维还是三维只要把不使用的分量标记为0即可，这是getgrad将会返回一个3X3的tensor2，没有定义的场空间对应的component都为zero；这样的一种策略虽然适当浪费资源但是极大的降低了编程的复杂度，可以采用统一的过程处理。并且在组装单元刚度矩阵式也是计算完了就返回不会存储每一个节点的getval和getgrad。
        - 在处理材料的本构关系时，最终是返回一个3X3X3X3的四阶张量，不管是二维还是三维问题我们都按照三维的本构情况来处理，因为对于二维情况strain张量的z轴分量全部为0，这样即使我们的stiffness tensor是按照三维情况来给出的也无所谓。
 
-         
+** XFEM中的类
+*** xMesh
+    主要用来表示一个网格，包括点信息以及单元的拓扑信息。这个对象可以从.msh创建或者octree网格创建。
+
+*** xRegion
+    用来表示一个范围，可以指定一个xMesh或者部分xMesh作为一个xRegion.
+
+*** xLevelSet
+    指定一个xRegion的每个节点的levelset的值。
 
 ** XFEM中有用代码
 *** 填充一个新的xField对象

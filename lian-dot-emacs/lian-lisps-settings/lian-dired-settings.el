@@ -23,6 +23,8 @@
   (setq dired-guess-shell-alist-user
         (list
          ;; (list "\\.bar$" '(if condition "bar-command-1" "bar-command-2"))
+         (list "\\.pos$" "gmsh")
+         (list "\\.msh$" "gmsh")
          (list "\\.jpg$" "display")
          (list "\\.eps$" "evince")
          (list "\\.pdf$" "evince")))
