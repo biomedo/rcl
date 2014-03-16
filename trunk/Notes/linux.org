@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2012-04-02 13:18:38 Monday by lian>
+# Time-stamp: <2013-10-05 13:21:15 Saturday by lian>
 
 #+OPTIONS: ^:nil author:nil timestamp:nil creator:nil
 
@@ -57,3 +57,7 @@
 ** svn change source tips
    svn+ssh://lian@titan/glouton/struct/lian/
    svn switch --relocate svn+ssh://lian@titan/glouton/struct/lian/ file:///cassini/lian/lian-svn/lian
+
+** GTK RC how to configure a compact gtk style for eclipse and other apps
+   GTK2_RC_FILES=~/.themes/eclipse.gtkrc eclipse
+   See http://ubuntuforums.org/showthread.php?t=1465712 on how to define your own theme.

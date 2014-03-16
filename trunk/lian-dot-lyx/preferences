@@ -52,9 +52,7 @@ Format 1
 #
 
 \document_path "/home/lian/Documents/MyLyx"
-\completion_inline_text true
 \completion_popup_delay 1.00
-\completion_popup_text true
 \thesaurusdir_path "/home/lian/thesaurus"
 \hunspelldir_path "/home/lian/hunspell"
 
