@@ -1,9 +1,9 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2011-08-05 20:46:01 Friday by lian>
+;; Time-stamp: <2014-04-01 23:43:45 Tuesday by weidong>
 
 (require 'multi-term)
-
+(require 'term-fix)
 
 ;; (setq multi-term-program "/bin/bash")
 ;; (setq term-unbind-key-list '("C-x" "<ESC>" "<up>" "<down>" "C-j"))
