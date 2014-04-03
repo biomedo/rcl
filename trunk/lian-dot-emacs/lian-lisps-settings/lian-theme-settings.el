@@ -26,10 +26,30 @@
   ;; 3. cd ~/.fonts; mkfontscale; mkfontdir; fc-cache;
   ;; 4. 下载那些字体包之后要把其中的*.ttf,*.ttc拷贝到~/.fonts
   ;; 5. 这样配合下面脚本基本上不会出问题字体就很好看了.
-  (if window-system
+
+  ;; For terminal  
+  (if (not window-system)
+       (progn
+        (message "Terminal theme is loading...")))
+  
+  ;; For cygwin
+  (if (string-equal system-type "cygwin")
       (progn
-        (require 'my-fontset-win)
-        (huangq-fontset-consolas 14))))
+        (message "Cygwin theme is loading")
+        (add-to-list 'default-frame-alist '(font . "Consolas-10"))))
+
+  ;; For window-nt compiled as a native w32 application
+  (if (string-equal system-type "windows-nt")      
+      (progn
+        ((message "Windows-nt theme is loading"))
+         (require 'my-fontset-win)
+        (huangq-fontset-consolas 14)))
+  
+  ;; For Gnu/Linux
+  (if (string-equal system-type "gnu/linux")
+      (progn
+        (message "GNU/Linux theme is loading")
+        ())))
 
 (defun lian-after-make-frame-settings (frame)
   (setq color-theme-is-global nil)
