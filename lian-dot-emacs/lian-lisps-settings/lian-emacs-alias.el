@@ -24,6 +24,9 @@
 
 ;; lian's defination
 
+;; buffer operations
+(require 'lian-auto-revert-settings)
+(defalias 'ar 'log-auto-revert-settings)
 
 ;; edit
 (defalias 'ucf 'uncomment-region-function)
