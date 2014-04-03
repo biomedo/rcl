@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: commentbox
+# key: cmb
+# group: misc
+# --
+#----------${1:Title}----------
+$0
