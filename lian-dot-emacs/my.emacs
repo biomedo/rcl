@@ -47,7 +47,7 @@
  `(("C-M-j"     goto-line)
    ;; ("C-u"       cua-scroll-down)
    ("<f9>"      kill-this-buffer)
-   ;; ("<f8>"      other-frame)
+   ("<f12>"      other-frame)
    ;; ("<f8>"      sb-toggle-keep-buffer)
    ("<f8>"      recompile)
    ("C-x F"     find-dired)))
