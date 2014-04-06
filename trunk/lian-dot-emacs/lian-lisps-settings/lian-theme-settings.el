@@ -49,7 +49,8 @@
   (if (string-equal system-type "gnu/linux")
       (progn
         (message "GNU/Linux theme is loading")
-        ())))
+        (require 'my-fontset-win)
+        (huangq-fontset-consolas 14))))
 
 (defun lian-after-make-frame-settings (frame)
   (setq color-theme-is-global nil)
