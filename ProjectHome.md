@@ -1,0 +1,1 @@
+Some useful and powerful tools that I collect in my everyday work, consisting of Bash, Lyx, Emacs, Google's online services.
